@@ -90,7 +90,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 lg:px-8 relative">
+      <section className="pt-48 pb-32 px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto text-center relative">
           <div className="animate-fade-in-up">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 leading-[0.85] tracking-tighter">
