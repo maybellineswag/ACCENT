@@ -34,7 +34,7 @@ export default function HomePage() {
     {
       question: "How long does the branding process take?",
       answer:
-        "Most branding projects are completed within 5-7 business days. Premium packages with websites may take 10-14 days.",
+        "Most branding projects are completed within 7 business days. Premium packages with websites may take up to 15 days.",
     },
     {
       question: "Do I need technical skills to use the AI chatbot?",
@@ -82,9 +82,11 @@ export default function HomePage() {
                 FAQ
               </a>
             </div>
-            <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-6 font-medium">
-              Book Free Consult
-            </Button>
+            <a href="https://calendly.com/advantagesofkindness/30min" target="_blank" rel="noopener noreferrer">
+              <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-6 font-medium">
+                Book Free Consult
+              </Button>
+            </a>
           </div>
         </div>
       </nav>
@@ -158,13 +160,15 @@ export default function HomePage() {
               <span className="blob-glow blob-glow-3"></span>
               <span className="blob-glow blob-glow-4"></span>
               <span className="blob-glow blob-glow-5"></span>
-              <Button
-                size="lg"
-                className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
-              >
-                Book Free 15-Minute Consult
-                <ArrowRight className="ml-3 w-5 h-5 text-black" />
-              </Button>
+              <a href="https://calendly.com/advantagesofkindness/30min" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
+                >
+                  Book Free 15-Minute Consult
+                  <ArrowRight className="ml-3 w-5 h-5 text-black" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -173,21 +177,21 @@ export default function HomePage() {
       {/* Partners/Trust Section */}
       <section className="py-16 border-t border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="text-center text-neutral-500 mb-8 font-medium">Trusted by companies in</p>
+          <p className="text-center text-neutral-500 mb-8 font-medium">Trusted by</p>
           <div className="flex items-center justify-center space-x-12 opacity-60">
             {/* Placeholder for partner logos */}
-            <div className="w-24 h-12 bg-neutral-200 rounded flex items-center justify-center">
-              <span className="text-xs text-neutral-500">Prague</span>
-            </div>
-            <div className="w-24 h-12 bg-neutral-200 rounded flex items-center justify-center">
-              <span className="text-xs text-neutral-500">Brno</span>
-            </div>
-            <div className="w-24 h-12 bg-neutral-200 rounded flex items-center justify-center">
-              <span className="text-xs text-neutral-500">Bratislava</span>
-            </div>
-            <div className="w-24 h-12 bg-neutral-200 rounded flex items-center justify-center">
-              <span className="text-xs text-neutral-500">Vienna</span>
-            </div>
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="w-24 h-12 flex items-center justify-center">
+                {/* Replace with actual logo images later */}
+                <svg width="48" height="32" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g>
+                    <circle cx="16" cy="16" r="10" stroke="black" strokeWidth="2" fill="none" />
+                    <rect x="28" y="8" width="12" height="16" stroke="black" strokeWidth="2" fill="none" rx="3" />
+                  </g>
+                  <text x="50%" y="90%" textAnchor="middle" fill="black" fontSize="8" fontFamily="Arial, sans-serif">Logo</text>
+                </svg>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -358,7 +362,7 @@ export default function HomePage() {
                   </linearGradient>
                 </defs>
                 <circle cx="40" cy="40" r="36" fill="url(#stepGradient1)" />
-                <text x="40" y="52" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#000" fontFamily="inherit">1</text>
+                <text x="40" y="52" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#fff" fontFamily="inherit">1</text>
               </svg>
               <h3 className="text-2xl font-semibold mb-4 tracking-tight text-black">Book Free Consult</h3>
               <p className="text-neutral-600 leading-relaxed">
@@ -376,7 +380,7 @@ export default function HomePage() {
                   </linearGradient>
                 </defs>
                 <circle cx="40" cy="40" r="36" fill="url(#stepGradient2)" />
-                <text x="40" y="52" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#000" fontFamily="inherit">2</text>
+                <text x="40" y="52" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#fff" fontFamily="inherit">2</text>
               </svg>
               <h3 className="text-2xl font-semibold mb-4 tracking-tight text-black">We Build Everything</h3>
               <p className="text-neutral-600 leading-relaxed">
@@ -394,7 +398,7 @@ export default function HomePage() {
                   </linearGradient>
                 </defs>
                 <circle cx="40" cy="40" r="36" fill="url(#stepGradient3)" />
-                <text x="40" y="52" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#000" fontFamily="inherit">3</text>
+                <text x="40" y="52" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#fff" fontFamily="inherit">3</text>
               </svg>
               <h3 className="text-2xl font-semibold mb-4 tracking-tight text-black">Launch & Grow</h3>
               <p className="text-neutral-600 leading-relaxed">
@@ -426,7 +430,7 @@ export default function HomePage() {
               <CardContent className="flex flex-col grow space-y-8 pb-10">
                 <ul className="space-y-4">
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -437,10 +441,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Logo and brand refresh</span>
+                    <span className="text-black">Logo & brand refresh</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -451,10 +455,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Instagram post kit</span>
+                    <span className="text-black">Instagram post templates & 10 ready-to-post pieces</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -465,10 +469,25 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Professional look instantly</span>
+                    <span className="text-black">Instagram story templates & highlights set up</span>
+                  </li>
+                  <hr className="my-2 border-neutral-200" />
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Instantly look more professional</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -481,6 +500,20 @@ export default function HomePage() {
                     </svg>
                     <span className="text-black">Attract more clients online</span>
                   </li>
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Build trust with first-time visitors</span>
+                  </li>
                 </ul>
                 <div className="flex-1"></div>
                 <Button className="glow-on-hover w-full bg-neutral-100 hover:bg-neutral-200 text-black rounded-full border-0 font-medium mt-auto">
@@ -490,19 +523,19 @@ export default function HomePage() {
             </Card>
 
             {/* Standard Package - Highlighted */}
-            <Card className="glow-on-hover gradient-border bg-white shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl relative scale-105 h-full flex flex-col">
+            <Card className="glow-on-hover gradient-border bg-white shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl relative scale-105 h-full flex flex-col min-h-[700px]">
               <Badge className="absolute top-6 left-1/2 -translate-x-1/2 bg-conic-gradient-accent text-black rounded-full border-0 w-max px-4 py-1">
                 Most Popular
               </Badge>
               <CardHeader className="text-center pt-10">
                 <CardTitle className="text-2xl font-semibold tracking-tight text-black">Standard</CardTitle>
                 <div className="text-5xl font-bold text-gradient-blobs mt-6">€750</div>
-                <CardDescription className="mt-4 text-neutral-600">Everything you need to automate</CardDescription>
+                <CardDescription className="mt-4 text-neutral-600">Everything you need to start automating & saving hours every day</CardDescription>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between">
-                <ul className="space-y-4">
+                <ul className="space-y-2 text-[15px] sm:text-base">
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -516,7 +549,7 @@ export default function HomePage() {
                     <span className="text-black">Everything from Starter</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -527,10 +560,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">AI chatbot</span>
+                    <span className="text-black">AI chatbot for auto replies & appointment handling</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -541,10 +574,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Smart booking system</span>
+                    <span className="text-black">Automated booking system setup</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -555,10 +588,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Book more clients automatically</span>
+                    <span className="text-black">Auto-review request system</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -569,7 +602,50 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Save time replying to messages</span>
+                    <span className="text-black">Missed call follow up system</span>
+                  </li>
+                  <hr className="my-2 border-neutral-200" />
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Book more clients on autopilot</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Stop wasting time on manual replies</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Consistent, modern online presence</span>
                   </li>
                 </ul>
                 <div className="flex-1"></div>
@@ -587,9 +663,9 @@ export default function HomePage() {
                 <CardDescription className="mt-4 text-neutral-600">Complete business transformation</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col grow space-y-8 pb-10">
-                <ul className="space-y-4">
+                <ul className="space-y-2 text-[15px] sm:text-base">
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -603,7 +679,7 @@ export default function HomePage() {
                     <span className="text-black">Everything from Standard</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -614,10 +690,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Full branding package</span>
+                    <span className="text-black">Full brand identity package</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -628,10 +704,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Website or refresh</span>
+                    <span className="text-black">New website or modernisation</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -642,10 +718,25 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Run business on autopilot</span>
+                    <span className="text-black">Google Business setup or optimization</span>
+                  </li>
+                  <hr className="my-2 border-neutral-200" />
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Attract high-end, loyal clients</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -656,7 +747,35 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Free up time for quality service</span>
+                    <span className="text-black">Bring back clients with smart follow-ups</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Run your business like a modern salon on autopilot</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span className="text-black">Smart client follow-up flows (promos, rebooking)</span>
                   </li>
                 </ul>
                 <div className="flex-1"></div>
@@ -669,14 +788,14 @@ export default function HomePage() {
             {/* Custom Package */}
             <Card className="glow-on-hover border border-neutral-200/50 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl flex flex-col">
               <CardHeader className="text-center pt-10">
-                <CardTitle className="text-2xl font-semibold tracking-tight text-black">Custom</CardTitle>
+                <CardTitle className="text-2xl font-semibold tracking-tight text-black">Personalized</CardTitle>
                 <div className="text-5xl font-bold text-gradient-blobs mt-6">Custom</div>
                 <CardDescription className="mt-4 text-neutral-600">Tailored to your business needs & budgets</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col grow space-y-8 pb-10">
-                <ul className="space-y-4">
+                <ul className="space-y-2 text-[15px] sm:text-base">
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -690,7 +809,7 @@ export default function HomePage() {
                     <span className="text-black">Fully bespoke branding & automation</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -701,10 +820,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Flexible scope & deliverables</span>
+                    <span className="text-black">Branding, automation, or marketing — custom mix</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -715,10 +834,10 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Perfect for unique business needs</span>
+                    <span className="text-black">Flexible scope, timeline & budget</span>
                   </li>
                   <li className="flex items-start">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                       <defs>
                         <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
                           <stop stopColor="#7C83FF" />
@@ -729,12 +848,12 @@ export default function HomePage() {
                       <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                     </svg>
-                    <span className="text-black">Budget & timeline to fit you</span>
+                    <span className="text-black">Perfect for businesses ready to grow fast or need something special</span>
                   </li>
                 </ul>
                 <div className="flex-1"></div>
-                <Button className="glow-on-hover w-full bg-conic-gradient-accent hover:animate-conic-rotate text-black rounded-full border-0 font-medium mt-auto">
-                  Request Custom Quote
+                <Button className="glow-on-hover w-full bg-conic-gradient-accent hover:animate-conic-rotate text-black rounded-full border-0 font-medium mt-auto" asChild>
+                  <a href="/custom-quote">Request Custom Quote</a>
                 </Button>
               </CardContent>
             </Card>
@@ -868,14 +987,15 @@ export default function HomePage() {
             Join 50+ businesses in Prague who've already upgraded their brand and automated their workflow. Book your
             free consultation today.
           </p>
-          <Button
-            size="lg"
-            variant="secondary"
-            className="glow-on-hover text-lg px-12 py-6 h-auto bg-white text-[#823038] hover:bg-neutral-200 rounded-full border-0 font-medium"
-          >
-            Book Your Free Call Now
-            <ArrowRight className="ml-3 w-5 h-5" />
-          </Button>
+          <a href="https://calendly.com/advantagesofkindness/30min" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
+            >
+              Book Your Free Meeting Now
+              <ArrowRight className="ml-3 w-5 h-5 text-black" />
+            </Button>
+          </a>
           <p className="text-black/70 mt-4 text-sm">No commitment • 15 minutes • Free consultation</p>
         </div>
       </section>
@@ -883,14 +1003,14 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-neutral-100 text-black py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
+          <div className="grid md:grid-cols-4 gap-8 justify-start">
+            <div className="flex flex-col items-start">
               <div className="text-2xl font-bold mb-4 tracking-tight">ACCENT</div>
               <p className="text-neutral-600 leading-relaxed">
                 Premium branding and AI automation for modern businesses in Prague.
               </p>
             </div>
-            <div>
+            <div className="flex flex-col items-start">
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-neutral-600">
                 <li>
@@ -915,7 +1035,7 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="flex flex-col items-start">
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-neutral-600">
                 <li>
@@ -940,19 +1060,28 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-            <div>
-              <h4 className="font-semibold mb-4">Newsletter</h4>
-              <p className="text-neutral-600 mb-4">Get tips on branding and automation</p>
-              <div className="flex">
+            <div className="flex flex-col items-start w-full">
+              <h4 className="font-semibold mb-4">Contact Us</h4>
+              <form className="w-full flex flex-col space-y-3">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="px-4 py-2 rounded-full bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full"
+                />
                 <input
                   type="email"
-                  placeholder="Enter email"
-                  className="flex-1 px-4 py-2 rounded-l-full bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038]"
+                  placeholder="Email"
+                  className="px-4 py-2 rounded-full bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full"
                 />
-                <Button className="bg-[#823038] hover:bg-[#6d2830] text-white rounded-r-full px-6 border-0">
-                  Subscribe
+                <textarea
+                  placeholder="Message"
+                  rows={3}
+                  className="px-4 py-2 rounded-2xl bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full resize-none"
+                />
+                <Button type="submit" className="bg-conic-gradient-accent hover:animate-conic-rotate text-black rounded-full px-6 border-0 w-full">
+                  Send
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
           <div className="border-t border-neutral-200 mt-12 pt-8 text-center text-neutral-600">
