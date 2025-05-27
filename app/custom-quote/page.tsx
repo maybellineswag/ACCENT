@@ -7,6 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
 
 export default function CustomQuotePage() {
   const [services, setServices] = useState<string[]>([]);
@@ -33,7 +34,17 @@ export default function CustomQuotePage() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center py-16 px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center py-16 px-4">
+      <div className="w-full max-w-2xl mb-4">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="flex items-center text-neutral-600 hover:text-black px-3 py-1 rounded-full"
+          onClick={() => window.history.back()}
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" /> Go Back
+        </Button>
+      </div>
       <Card className="w-full max-w-2xl shadow-lg border-0 bg-white/90 backdrop-blur-sm rounded-3xl">
         <CardHeader className="text-center pt-10">
           <CardTitle className="text-3xl font-bold text-black mb-2 tracking-tighter">Custom Quote Request Form</CardTitle>
