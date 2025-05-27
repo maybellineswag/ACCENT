@@ -842,7 +842,7 @@ export default function HomePage() {
                   />
                 </button>
                 <div
-                  className={`px-6 pb-6 faq-answer-transition ${openFaq === index ? "faq-answer-open" : "faq-answer-closed"}`}
+                  className={`px-6 faq-answer-transition ${openFaq === index ? "faq-answer-open" : "faq-answer-closed"}`}
                   style={{
                     maxHeight: openFaq === index ? 200 : 0,
                     opacity: openFaq === index ? 1 : 0,
@@ -850,9 +850,7 @@ export default function HomePage() {
                     overflow: 'hidden',
                   }}
                 >
-                  {openFaq === index && (
-                    <p className="text-neutral-600 leading-relaxed">{faq.answer}</p>
-                  )}
+                  <p className="text-neutral-600 leading-relaxed pb-6">{faq.answer}</p>
                 </div>
               </Card>
             ))}
