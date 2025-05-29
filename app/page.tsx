@@ -226,7 +226,7 @@ export default function HomePage() {
                       <path d="M12 21c-4.97 0-9-3.58-9-8 0-4.42 4.03-8 9-8s9 3.58 9 8c0 2.21-1.79 4-4 4-.55 0-1 .45-1 1 0 1.1-.9 2-2 2zm-4-7a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2zm-4-4a1 1 0 100-2 1 1 0 000 2z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight">Look Premium Instantly</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Look Premium Instantly</h3>
                   <p className="text-neutral-600 leading-relaxed">
                     Professional branding that makes you stand out from competitors and attract higher-paying clients.
                   </p>
@@ -248,7 +248,7 @@ export default function HomePage() {
                       <path d="M8 21h8l-4-4-4 4z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight">Book More Clients</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Book More Clients</h3>
                   <p className="text-neutral-600 leading-relaxed">
                     AI chatbots that handle inquiries, qualify leads, and book appointments while you sleep.
                   </p>
@@ -269,7 +269,7 @@ export default function HomePage() {
                       <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight">Save 3+ Hours Daily</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Save 3+ Hours Daily</h3>
                   <p className="text-neutral-600 leading-relaxed">
                     Automation handles repetitive tasks so you can focus on delivering quality service.
                   </p>
@@ -292,7 +292,7 @@ export default function HomePage() {
                       <circle cx="17" cy="7" r="4" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight">Never Miss a Lead</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Never Miss a Lead</h3>
                   <p className="text-neutral-600 leading-relaxed">
                     Capture and follow up with every potential client automatically, even when you're busy.
                   </p>
@@ -314,7 +314,7 @@ export default function HomePage() {
                       <path d="M12 6v6l4 2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight">Fast Implementation</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Fast Implementation</h3>
                   <p className="text-neutral-600 leading-relaxed">
                     See results in days, not months. We handle everything so you don't need any tech skills.
                   </p>
@@ -336,7 +336,7 @@ export default function HomePage() {
                       <circle cx="12" cy="11" r="2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight">Local Market Expert</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Local Market Expert</h3>
                   <p className="text-neutral-600 leading-relaxed">
                     Based in Prague, we understand what works for Czech and European businesses.
                   </p>
