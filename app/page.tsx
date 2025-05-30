@@ -84,13 +84,13 @@ export default function HomePage() {
               </a>
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#services" className="text-neutral-600 hover:text-black transition-colors">
-                  Services
+                Služby
                 </a>
                 <a href="#how-it-works" className="text-neutral-600 hover:text-black transition-colors">
-                  How it works
+                  Jak to funguje
                 </a>
                 <a href="#pricing" className="text-neutral-600 hover:text-black transition-colors">
-                  Pricing
+                  Ceník
                 </a>
                 <a href="#faq" className="text-neutral-600 hover:text-black transition-colors">
                   FAQ
@@ -98,7 +98,7 @@ export default function HomePage() {
               </div>
               <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                 <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-6 font-medium">
-                  Book Free Consult
+                  Rezervovat Konzultaci Zdarma
                 </Button>
               </a>
             </div>
@@ -110,9 +110,9 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto text-center relative">
             <div className="animate-fade-in-up">
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-black mb-8 leading-[0.85] tracking-tighter">
-                Premium Branding &{" "}
+              Prémiový branding & {" "}
                 <span className="text-gradient-blobs">
-                  AI Automation
+                  AI Automatizace
                 </span>
               </h1>
 
@@ -130,7 +130,7 @@ export default function HomePage() {
                     <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                   </svg>
-                  <span>20+ businesses transformed</span>
+                  <span>Úspěšně transformováno přes 20 firem</span>
                 </div>
                 <div className="flex items-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
@@ -144,7 +144,7 @@ export default function HomePage() {
                     <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                   </svg>
-                  <span>Based in Prague</span>
+                  <span>Se sídlem v Praze</span>
                 </div>
                 <div className="flex items-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
@@ -158,13 +158,12 @@ export default function HomePage() {
                     <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                   </svg>
-                  <span>Results in weeks, not months</span>
+                  <span>Výsledky za týdny, ne za měsíce</span>
                 </div>
               </div>
 
               <p className="text-xl sm:text-2xl text-neutral-600 mb-10 max-w-4xl mx-auto leading-relaxed font-normal">
-                Stop losing clients to competitors with outdated branding. Get premium design and smart automation that
-                works 24/7.
+              Přestaňte ztrácet klienty své konkurenci kvůli zastaralému brandingu. Získejte prvotřídní design & chytrou automatizaci, která funguje 24 hodin denně, 7 dní v týdnu.
               </p>
 
               {/* Main CTA Button with Blurry Glowing Blobs Effect */}
@@ -179,7 +178,7 @@ export default function HomePage() {
                     size="lg"
                     className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
                   >
-                    Book Free 15-Minute Consult
+                    Rezervovat Konzultaci Zdarma
                     <ArrowRight className="ml-3 w-5 h-5 text-black" />
                   </Button>
                 </a>
@@ -215,10 +214,10 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-5xl sm:text-6xl font-bold text-black mb-6 tracking-tighter">
-                How We Help Your Business
+                Jak pomáháme vašemu podniku
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto font-normal">
-                Focus on what matters - we handle the rest
+              Soustřeďte se na to, co je důležité - o zbytek se postaráme my
               </p>
             </div>
 
@@ -237,9 +236,9 @@ export default function HomePage() {
                       <path d="M12 21c-4.97 0-9-3.58-9-8 0-4.42 4.03-8 9-8s9 3.58 9 8c0 2.21-1.79 4-4 4-.55 0-1 .45-1 1 0 1.1-.9 2-2 2zm-4-7a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2zm-4-4a1 1 0 100-2 1 1 0 000 2z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Look Premium Instantly</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Okamžitě vypadejte prémiově</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    Professional branding that makes you stand out from competitors and attract higher-paying clients.
+                  Profesionální branding, který vás odliší od konkurence a přiláká lépe platící klienty
                   </p>
                 </div>
               </Card>
@@ -259,9 +258,9 @@ export default function HomePage() {
                       <path d="M8 21h8l-4-4-4 4z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Book More Clients Effortlessly</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Získejte si více klientů bez stresu</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                  Fill your schedule without lifting a finger — AI tools handle DMs, qualify leads, and book clients for you.
+                  Naplněte si svůj rozvrh bez námahy — AI nástroje zvládnou zprávy, kvalifikují leady a domluví klienty za vás.
                   </p>
                 </div>
               </Card>
@@ -280,9 +279,9 @@ export default function HomePage() {
                       <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Save 3+ Hours Daily</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Ušetřete více než 3 hodiny denně.</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    Automation handles repetitive tasks so you can focus on delivering quality service.
+                  Automatizace se postará o opakující se úkoly, abyste se mohli soustředit na poskytování kvalitních služeb.
                   </p>
                 </div>
               </Card>
@@ -303,9 +302,9 @@ export default function HomePage() {
                       <circle cx="17" cy="7" r="4" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Never Miss a Lead</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Nikdy nepromeškejte potenciálního zákazníka</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    Capture and follow up with every potential client automatically, even when you're busy.
+                  Automaticky zachyťte a oslovte každého potenciálního klienta, i když jste zaneprázdnění.
                   </p>
                 </div>
               </Card>
@@ -325,9 +324,9 @@ export default function HomePage() {
                       <path d="M12 6v6l4 2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Fast Implementation</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Rychlá implementace</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    See results in days, not months. We handle everything so you don't need any tech skills.
+                  Výsledky uvidíte během dnů, ne měsíců. Postaráme se o všechno, takže nepotřebujete žádné technické znalosti.
                   </p>
                 </div>
               </Card>
@@ -347,9 +346,9 @@ export default function HomePage() {
                       <circle cx="12" cy="11" r="2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Local Market Expert</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Odborník na místní trh</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    Based in Prague with experience in Paris, we understand what works for Czech and European businesses.
+                  Sídlo v Praze s praxí v Paříži – rozumíme, co funguje pro české i evropské firmy.
                   </p>
                 </div>
               </Card>
