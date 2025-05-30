@@ -114,6 +114,24 @@ body {
     position: relative;
     z-index: 1;
   }
+  .logo-gradient {
+    background: conic-gradient(from 180deg at 50% 50%, #7C83FF, #D16BA5, #FFB6D9, #7C83FF);
+    background-size: 200% 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* For SVGs in <img> or <Image>, use mask for coloring */
+    mask-image: url('/accent_logo.svg');
+    -webkit-mask-image: url('/accent_logo.svg');
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+  }
 }
 
 @layer base {
@@ -383,4 +401,60 @@ button {
 .faq-answer-closed {
   opacity: 0;
   max-height: 0;
+}
+
+@layer components {
+  .btn-gradient-outline {
+    position: relative;
+    background: transparent !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    overflow: visible;
+    z-index: 1;
+    transition: color 0.6s, background 0.6s;
+  }
+  .btn-gradient-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    padding: 2px;
+    background: linear-gradient(90deg, #7C83FF, #D16BA5, #FFB6D9);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.6s;
+    opacity: 1;
+  }
+  .btn-gradient-outline:hover, .btn-gradient-outline:focus {
+    color: #fff !important;
+  }
+  .btn-gradient-outline:hover::before, .btn-gradient-outline:focus::before {
+    opacity: 0;
+  }
+  .btn-gradient-outline:hover::after, .btn-gradient-outline:focus::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #7C83FF, #D16BA5, #FFB6D9);
+    z-index: -2;
+    opacity: 1;
+    transition: opacity 0.6s;
+  }
+  .btn-gradient-outline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: transparent;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
 }

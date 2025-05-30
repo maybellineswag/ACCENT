@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import { useEffect, useState } from "react"
 import SeoHead from "@/components/SeoHead"
+import Image from "next/image"
 
 export default function HomePage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -70,7 +71,17 @@ export default function HomePage() {
         <nav className="fixed top-0 w-full bg-white/70 backdrop-blur-2xl border-b border-neutral-200/50 z-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              <div className="text-2xl font-semibold tracking-tight text-black">ACCENT</div>
+              <a href="/" className="flex items-center">
+                <Image
+                  src="/accent_logo.svg"
+                  alt="ACCENT Logo"
+                  width={40}
+                  height={40}
+                  className="h-10 w-auto mr-2 select-none logo-gradient"
+                  priority
+                />
+                <span className="sr-only">ACCENT</span>
+              </a>
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#services" className="text-neutral-600 hover:text-black transition-colors">
                   Services
@@ -85,7 +96,7 @@ export default function HomePage() {
                   FAQ
                 </a>
               </div>
-              <a href="https://calendly.com/advantagesofkindness/30min" target="_blank" rel="noopener noreferrer">
+              <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                 <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-6 font-medium">
                   Book Free Consult
                 </Button>
@@ -119,7 +130,7 @@ export default function HomePage() {
                     <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                   </svg>
-                  <span>50+ businesses transformed</span>
+                  <span>20+ businesses transformed</span>
                 </div>
                 <div className="flex items-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
@@ -147,7 +158,7 @@ export default function HomePage() {
                     <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                   </svg>
-                  <span>Results in days, not weeks</span>
+                  <span>Results in weeks, not months</span>
                 </div>
               </div>
 
@@ -163,7 +174,7 @@ export default function HomePage() {
                 <span className="blob-glow blob-glow-3"></span>
                 <span className="blob-glow blob-glow-4"></span>
                 <span className="blob-glow blob-glow-5"></span>
-                <a href="https://calendly.com/advantagesofkindness/30min" target="_blank" rel="noopener noreferrer">
+                <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
@@ -248,9 +259,9 @@ export default function HomePage() {
                       <path d="M8 21h8l-4-4-4 4z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Book More Clients</h3>
+                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Book More Clients Effortlessly</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    AI chatbots that handle inquiries, qualify leads, and book appointments while you sleep.
+                  Fill your schedule without lifting a finger — AI tools handle DMs, qualify leads, and book clients for you.
                   </p>
                 </div>
               </Card>
@@ -338,7 +349,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Local Market Expert</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    Based in Prague, we understand what works for Czech and European businesses.
+                    Based in Prague with experience in Paris, we understand what works for Czech and European businesses.
                   </p>
                 </div>
               </Card>
@@ -369,7 +380,7 @@ export default function HomePage() {
                 </svg>
                 <h3 className="text-2xl font-semibold mb-4 tracking-tight text-black">Book Free Consult</h3>
                 <p className="text-neutral-600 leading-relaxed">
-                  We'll discuss your business goals and create a custom plan that fits your needs and budget.
+                  We'll discuss your business goals and create a custom plan, or choose one that fits your needs and budget.
                 </p>
               </div>
 
@@ -519,7 +530,7 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="glow-on-hover w-full bg-neutral-100 hover:bg-neutral-200 text-black rounded-full border-0 font-medium mt-auto">
+                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto">
                     Get Started
                   </Button>
                 </CardContent>
@@ -532,25 +543,11 @@ export default function HomePage() {
                 </Badge>
                 <CardHeader className="text-center pt-10">
                   <CardTitle className="text-2xl font-semibold tracking-tight text-black">Standard</CardTitle>
-                  <div className="text-5xl font-bold text-gradient-blobs mt-6">€750</div>
+                  <div className="text-5xl font-bold text-gradient-blobs mt-6">€800</div>
                   <CardDescription className="mt-4 text-neutral-600">Everything you need to start automating & saving hours every day</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="space-y-2 text-[15px] sm:text-base">
-                    <li className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                      <span className="text-black">Everything from Starter</span>
-                    </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                         <defs>
@@ -652,7 +649,7 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="glow-on-hover w-full bg-conic-gradient-accent hover:animate-conic-rotate text-black rounded-full border-0 font-medium mt-auto mb-6">
+                  <Button className="bg-conic-gradient-accent text-black rounded-full h-12 px-10 font-medium w-full mt-auto mb-6">
                     Get Started
                   </Button>
                 </CardContent>
@@ -679,7 +676,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Everything from Standard</span>
+                      <span className="text-black">Full brand identity package (logos, colors, fonts, visuals)</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -693,21 +690,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Full brand identity package</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                      <span className="text-black">New website or modernisation</span>
+                      <span className="text-black">Custom-designed website or redesign</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -782,7 +765,7 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="glow-on-hover w-full bg-neutral-100 hover:bg-neutral-200 text-black rounded-full border-0 font-medium mt-auto">
+                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto">
                     Get Started
                   </Button>
                 </CardContent>
@@ -855,7 +838,7 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="glow-on-hover w-full bg-conic-gradient-accent hover:animate-conic-rotate text-black rounded-full border-0 font-medium mt-auto" asChild>
+                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto" asChild>
                     <a href="/custom-quote">Request Custom Quote</a>
                   </Button>
                 </CardContent>
@@ -884,12 +867,11 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-neutral-700 mb-8 italic leading-relaxed">
-                      "ACCENT transformed our entire business. The AI chatbot handles 80% of our bookings now, and our new
-                      branding makes us look so professional."
+                    “Didn’t think it would change much, but it really has. The AI books most of our clients now, and our salon just looks way more polished. People actually notice.”
                     </p>
                   </div>
                   <div className="flex justify-center items-baseline gap-2 mt-auto">
-                    <span className="font-semibold tracking-tight text-black">Maria Kovář</span>
+                    <span className="font-semibold tracking-tight text-black">Thảo My Nguyễn</span>
                     <span className="text-neutral-500 text-sm">Beauty Salon Owner</span>
                   </div>
                 </CardContent>
@@ -904,12 +886,11 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-neutral-700 mb-8 italic leading-relaxed">
-                      "The automation saves me 3 hours every day. No more answering the same questions over and over. My
-                      clients love how smooth everything is."
+                    “The automation saves me so much time every day. I don’t have to answer the same questions over and over, and clients love how easy and smooth everything feels now.”
                     </p>
                   </div>
                   <div className="flex justify-center items-baseline gap-2 mt-auto">
-                    <span className="font-semibold tracking-tight text-black">Jan Novák</span>
+                    <span className="font-semibold tracking-tight text-black">Alina Dovzhenko</span>
                     <span className="text-neutral-500 text-sm">Fitness Coach</span>
                   </div>
                 </CardContent>
@@ -924,12 +905,11 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-neutral-700 mb-8 italic leading-relaxed">
-                      "Best investment we've made for our business. The branding looks amazing and the chatbot books clients
-                      while we sleep."
+                    “The new website and branding gave our salon a whole new look, and the chatbot books clients on its own. Definitely the best move we’ve made for the business.”
                     </p>
                   </div>
                   <div className="flex justify-center items-baseline gap-2 mt-auto">
-                    <span className="font-semibold tracking-tight text-black">Anna Svoboda</span>
+                    <span className="font-semibold tracking-tight text-black">Élodie Carpentier</span>
                     <span className="text-neutral-500 text-sm">Wellness Center</span>
                   </div>
                 </CardContent>
@@ -987,10 +967,10 @@ export default function HomePage() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-black/90 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
-              Join 50+ businesses in Prague who've already upgraded their brand and automated their workflow. Book your
+              Join 20+ businesses in Prague who've already upgraded their brand and automated their workflow. Book your
               free consultation today.
             </p>
-            <a href="https://calendly.com/advantagesofkindness/30min" target="_blank" rel="noopener noreferrer">
+            <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
@@ -999,7 +979,7 @@ export default function HomePage() {
                 <ArrowRight className="ml-3 w-5 h-5 text-black" />
               </Button>
             </a>
-            <p className="text-black/70 mt-4 text-sm">No commitment • 15 minutes • Free consultation</p>
+            <p className="text-black/70 mt-4 text-sm">No commitment • Free consultation</p>
           </div>
         </section>
 
@@ -1008,7 +988,14 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8 justify-start">
               <div className="flex flex-col items-start">
-                <div className="text-2xl font-bold mb-4 tracking-tight">ACCENT</div>
+                <Image
+                  src="/accent_logo.svg"
+                  alt="ACCENT Logo"
+                  width={40}
+                  height={40}
+                  className="h-10 w-auto mb-4 select-none"
+                  style={{ filter: "brightness(0)" }}
+                />
                 <p className="text-neutral-600 leading-relaxed">
                   Premium branding and AI automation for modern businesses in Prague.
                 </p>
