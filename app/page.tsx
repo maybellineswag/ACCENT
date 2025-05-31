@@ -34,24 +34,24 @@ export default function HomePage() {
 
   const faqs = [
     {
-      question: "How long does the branding process take?",
+      question: "Jak dlouho trvá proces brandingu?",
       answer:
-        "Most branding projects are completed within 7 business days. Premium packages with websites may take up to 15 days.",
+        "Většina brandingových projektů je dokončena do 7 pracovních dnů. Prémiové balíčky s webovými stránkami mohou trvat až 15 dní.",
     },
     {
-      question: "Do I need technical skills to use the AI chatbot?",
+      question: "Potřebuji technické znalosti pro používání AI systémů?",
       answer:
-        "Not at all! We handle all the technical setup and provide you with simple instructions. The chatbot works automatically once installed.",
+        "Vůbec ne! Postaráme se o veškeré technické nastavení a poskytneme vám jednoduché instrukce.",
     },
     {
-      question: "Can I customize the automation workflows?",
+      question: "Mohu přizpůsobit automatizační pracovní postupy?",
       answer:
-        "Yes, all automation is custom-built for your specific business needs. We'll work with you to create the perfect workflow.",
+        "Ano, veškerá automatizace je vytvořena na míru vašim specifickým podnikatelským potřebám. Budeme s vámi spolupracovat na vytvoření dokonalého pracovního postupu.",
     },
     {
-      question: "What if I need changes after the project is complete?",
+      question: "Co když budu potřebovat změny po dokončení projektu?",
       answer:
-        "We offer 30 days of free revisions on all packages. After that, we provide ongoing support at competitive rates.",
+        "Nabízíme 30 dní bezplatných revizí na všechny balíčky. Poté poskytujeme průběžnou podporu za konkurenční ceny.",
     },
   ]
 
@@ -191,7 +191,7 @@ export default function HomePage() {
         <section className="py-16 border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <p className="text-center text-neutral-500 mb-8 font-medium">Naši klienti</p>
-            <div className="flex items-center justify-center gap-x-2 sm:gap-x-12 opacity-60">
+            <div className="flex items-center justify-center gap-x-4 sm:gap-x-12 opacity-60">
               <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
               <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
               <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
@@ -521,8 +521,10 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto">
-                    Get Started
+                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto" asChild>
+                    <a href="https://buy.stripe.com/9B614m4e93880nl3E7f7i00" target="_blank" rel="noopener noreferrer">
+                    Začněte hned
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -643,8 +645,10 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="bg-conic-gradient-accent text-black rounded-full h-12 px-10 font-medium w-full mt-auto mb-1">
-                    Get Started
+                  <Button className="bg-conic-gradient-accent text-black rounded-full h-12 px-10 font-medium w-full mt-auto mb-1" asChild>
+                    <a href="https://buy.stripe.com/9B69AS5idbEE4DB5Mff7i01" target="_blank" rel="noopener noreferrer">
+                    Začněte hned
+                    </a>
                   </Button>
                   <p className="text-[10px] text-neutral-400 mt-1 text-center">*Malé předplatné začne platit po tříměsíční zkušební době a pokrývá software a podporu.</p>
                 </CardContent>
@@ -760,8 +764,10 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <div className="flex-1"></div>
-                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto">
-                    Get Started
+                  <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto" asChild>
+                    <a href="https://buy.stripe.com/14A7sKeSNeQQ7PNa2vf7i02" target="_blank" rel="noopener noreferrer">
+                    Začněte hned
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -834,7 +840,7 @@ export default function HomePage() {
                   </ul>
                   <div className="flex-1"></div>
                   <Button className="btn-gradient-outline rounded-full h-12 px-10 font-medium w-full mt-auto" asChild>
-                    <a href="/custom-quote">Request Custom Quote</a>
+                    <a href="/custom-quote">Získat nabídku</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -847,9 +853,9 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-5xl sm:text-6xl font-bold text-black mb-6 tracking-tighter">
-                Loved by People Worldwide
+                Milováno lidmi po celé Evropě
               </h2>
-              <p className="text-xl text-neutral-600 font-normal">Real results from real businesses</p>
+              <p className="text-xl text-neutral-600 font-normal">Skutečné výsledky skutečných podniků</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -862,12 +868,12 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-neutral-700 mb-8 italic leading-relaxed">
-                    "Didn't think it would change much, but it really has. The AI books most of our clients now, and our salon just looks way more polished. People actually notice."
+                    "Upřímně jsem si nemyslela, že to něco změní — ale změnilo, a hodně. Díky AI se většina našich klientů rezervuje automaticky a náš salon působí mnohem profesionálněji. Klienti si toho opravdu všímají."
                     </p>
                   </div>
                   <div className="flex justify-center items-baseline gap-2 mt-auto">
                     <span className="font-semibold tracking-tight text-black">Thảo My Nguyễn</span>
-                    <span className="text-neutral-500 text-sm">Beauty Salon Owner</span>
+                    <span className="text-neutral-500 text-sm">Majitelka kosmetického salonu</span>
                   </div>
                 </CardContent>
               </Card>
@@ -881,12 +887,12 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-neutral-700 mb-8 italic leading-relaxed">
-                    "The automation saves me so much time every day. I don't have to answer the same questions over and over, and clients love how easy and smooth everything feels now."
+                    "Automatizace mi každý den ušetří tolik času. Nemusím pořád dokola odpovídat na stejné otázky a klienti milují, jak je teď vše snadné a plynulé."
                     </p>
                   </div>
                   <div className="flex justify-center items-baseline gap-2 mt-auto">
                     <span className="font-semibold tracking-tight text-black">Alina Dovzhenko</span>
-                    <span className="text-neutral-500 text-sm">Fitness Coach</span>
+                    <span className="text-neutral-500 text-sm">Majitelka nehtového salonu</span>
                   </div>
                 </CardContent>
               </Card>
@@ -900,12 +906,12 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-neutral-700 mb-8 italic leading-relaxed">
-                    "The new website and branding gave our salon a whole new look, and the chatbot books clients on its own. Definitely the best move we've made for the business."
+                    "Nový web a branding dal našemu salonu úplně nový vzhled a chatbot sám rezervuje klienty. Rozhodně nejlepší krok, který jsme pro podnikání udělali."
                     </p>
                   </div>
                   <div className="flex justify-center items-baseline gap-2 mt-auto">
                     <span className="font-semibold tracking-tight text-black">Élodie Carpentier</span>
-                    <span className="text-neutral-500 text-sm">Wellness Center</span>
+                    <span className="text-neutral-500 text-sm">Wellness centrum</span>
                   </div>
                 </CardContent>
               </Card>
@@ -918,9 +924,9 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-5xl sm:text-6xl font-bold text-black mb-6 tracking-tighter">
-                Frequently Asked Questions
+                Často kladené otázky
               </h2>
-              <p className="text-xl text-neutral-600 font-normal">Everything you need to know</p>
+              <p className="text-xl text-neutral-600 font-normal">Vše, co potřebujete vědět</p>
             </div>
 
             <div className="space-y-4">
@@ -959,22 +965,21 @@ export default function HomePage() {
         <section className="py-24 bg-white">
           <div className="max-w-5xl mx-auto text-center px-6 lg:px-8 relative z-10">
             <h2 className="text-5xl sm:text-6xl font-bold text-black mb-8 tracking-tighter leading-tight">
-              Ready to Transform Your Business?
+              Připraveni transformovat vaše podnikání?
             </h2>
             <p className="text-xl text-black/90 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
-              Join 20+ businesses in Prague who've already upgraded their brand and automated their workflow. Book your
-              free consultation today.
+              Připojte se k více než 20 podnikům v Evropě, které již vylepšily svou značku a automatizovaly svůj pracovní postup. Rezervujte si bezplatnou konzultaci ještě dnes.
             </p>
             <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
               >
-                Book Your Free Meeting Now
+                Rezervujte si bezplatnou schůzku
                 <ArrowRight className="ml-3 w-5 h-5 text-black" />
               </Button>
             </a>
-            <p className="text-black/70 mt-4 text-sm">No commitment • Free consultation</p>
+            <p className="text-black/70 mt-4 text-sm">Bez závazků • Bezplatná konzultace</p>
           </div>
         </section>
 
@@ -992,11 +997,11 @@ export default function HomePage() {
                   style={{ filter: "brightness(0)" }}
                 />
                 <p className="text-neutral-600 leading-relaxed">
-                  Premium branding and AI automation for modern businesses in Prague.
+                  Prémiový branding a AI automatizace pro moderní podniky v Praze.
                 </p>
               </div>
               <div className="flex flex-col items-start">
-                <h4 className="font-semibold mb-4">Services</h4>
+                <h4 className="font-semibold mb-4">Služby</h4>
                 <ul className="space-y-2 text-neutral-600">
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
@@ -1005,52 +1010,52 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      AI Chatbots
+                      AI Chatboty
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      Automation
+                      Automatizace
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      Websites
+                      Webové stránky
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="flex flex-col items-start">
-                <h4 className="font-semibold mb-4">Company</h4>
+                <h4 className="font-semibold mb-4">Společnost</h4>
                 <ul className="space-y-2 text-neutral-600">
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      About
+                      O nás
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      Contact
+                      Kontakt
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      Privacy
+                      Ochrana soukromí
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-black transition-colors">
-                      Terms
+                      Podmínky
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="flex flex-col items-start w-full">
-                <h4 className="font-semibold mb-4">Contact Us</h4>
+                <h4 className="font-semibold mb-4">Kontaktujte nás</h4>
                 <form className="w-full flex flex-col space-y-3">
                   <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Jméno"
                     className="px-4 py-2 rounded-full bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full"
                   />
                   <input
@@ -1059,18 +1064,18 @@ export default function HomePage() {
                     className="px-4 py-2 rounded-full bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full"
                   />
                   <textarea
-                    placeholder="Message"
+                    placeholder="Zpráva"
                     rows={3}
                     className="px-4 py-2 rounded-2xl bg-neutral-200 border border-neutral-300 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full resize-none"
                   />
                   <Button type="submit" className="bg-conic-gradient-accent hover:animate-conic-rotate text-black rounded-full px-6 border-0 w-full">
-                    Send
+                    Odeslat
                   </Button>
                 </form>
               </div>
             </div>
             <div className="border-t border-neutral-200 mt-12 pt-8 text-center text-neutral-600">
-              <p>&copy; 2024 ACCENT. All rights reserved.</p>
+              <p>&copy; 2024 ACCENT. Všechna práva vyhrazena.</p>
             </div>
           </div>
         </footer>
