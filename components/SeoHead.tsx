@@ -7,16 +7,9 @@ const SeoHead = () => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="https://accent.agency/" />
     
-    {/* Favicon configuration */}
-    <link rel="icon" type="image/png" href="/accenticon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/accenticon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/accenticon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/accenticon.png" />
-    <link rel="mask-icon" href="/accenticon.png" color="#000000" />
-    <meta name="msapplication-TileImage" content="/accenticon.png" />
-    <meta name="msapplication-TileColor" content="#000000" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#ffffff" />
+    {/* Basic favicon */}
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/accenticon.png" />
     
     {/* Additional meta tags */}
     <meta name="application-name" content="ACCENT" />
