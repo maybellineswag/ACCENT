@@ -2,24 +2,83 @@ import Head from "next/head"
 
 const SeoHead = () => (
   <Head>
-    <title>ACCENT | Premium Branding & AI Automation in Prague</title>
-    <meta name="description" content="Premium branding and AI automation for modern businesses in Prague. Get professional design, smart automation, and more clients in days, not weeks." />
+    <title>ACCENT | Prémiový Branding & AI Automatizace v Praze</title>
+    <meta name="description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="https://accent.agency/" />
+    
+    {/* Favicon configuration */}
+    <link rel="icon" type="image/png" href="/accenticon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/accenticon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/accenticon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/accenticon.png" />
+    <link rel="mask-icon" href="/accenticon.png" color="#000000" />
+    <meta name="msapplication-TileImage" content="/accenticon.png" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    {/* Additional meta tags */}
+    <meta name="application-name" content="ACCENT" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="ACCENT" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    {/* Structured data for local business */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ACCENT",
+          "description": "Prémiový branding a AI automatizace pro moderní podniky v Praze",
+          "url": "https://accent.agency",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Praha",
+            "addressCountry": "CZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.0755",
+            "longitude": "14.4378"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          "sameAs": [
+            "https://www.instagram.com/accentagency",
+            "https://www.linkedin.com/company/accentagency"
+          ]
+        })
+      }}
+    />
 
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://accent.agency/" />
-    <meta property="og:title" content="ACCENT | Premium Branding & AI Automation in Prague" />
-    <meta property="og:description" content="Premium branding and AI automation for modern businesses in Prague. Get professional design, smart automation, and more clients in days, not weeks." />
-    <meta property="og:image" content="https://accent.agency/og-image.jpg" />
+    <meta property="og:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
+    <meta property="og:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
+    <meta property="og:image" content="https://accent.agency/accenticon.png" />
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://accent.agency/" />
-    <meta name="twitter:title" content="ACCENT | Premium Branding & AI Automation in Prague" />
-    <meta name="twitter:description" content="Premium branding and AI automation for modern businesses in Prague. Get professional design, smart automation, and more clients in days, not weeks." />
-    <meta name="twitter:image" content="https://accent.agency/og-image.jpg" />
+    <meta name="twitter:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
+    <meta name="twitter:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
+    <meta name="twitter:image" content="https://accent.agency/accenticon.png" />
   </Head>
 )
 
