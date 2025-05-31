@@ -97,7 +97,7 @@ export default function HomePage() {
                 </a>
               </div>
               <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
-                <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-6 font-medium">
+                <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-medium">
                   Rezervovat Konzultaci Zdarma
                 </Button>
               </a>
@@ -109,9 +109,9 @@ export default function HomePage() {
         <section className="pt-48 pb-32 px-6 lg:px-8 relative">
           <div className="max-w-6xl mx-auto text-center relative">
             <div className="animate-fade-in-up">
-              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-black mb-8 leading-[0.85] tracking-tighter">
+              <h1 className="text-3xl xs:text-4xl sm:text-7xl lg:text-8xl font-bold text-black mb-8 leading-tight sm:leading-[0.85] tracking-tighter text-center break-words">
               Prémiový branding & {" "}
-                <span className="text-gradient-blobs">
+                <span className="text-gradient-blobs block">
                   AI Automatizace
                 </span>
               </h1>
@@ -176,7 +176,7 @@ export default function HomePage() {
                 <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
-                    className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-lg px-12 py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
+                    className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
                   >
                     Rezervovat Konzultaci Zdarma
                     <ArrowRight className="ml-3 w-5 h-5 text-black" />
@@ -191,41 +191,41 @@ export default function HomePage() {
         <section className="py-16 border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <p className="text-center text-neutral-500 mb-8 font-medium">Naši klienti</p>
-            <div className="flex items-center justify-center space-x-12 opacity-60">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:space-x-12 opacity-60">
               <Image
                 src="/workedwith/longlerielogo.svg"
                 alt="Longlerie Logo"
-                width={120}
-                height={48}
-                className="h-12 w-auto"
+                width={100}
+                height={40}
+                className="h-10 w-auto"
               />
               <Image
                 src="/workedwith/yubilogo.svg"
                 alt="Yubi Logo"
-                width={120}
-                height={48}
-                className="h-12 w-auto"
+                width={100}
+                height={40}
+                className="h-10 w-auto"
               />
               <Image
                 src="/workedwith/mixlogo.svg"
                 alt="Mix Logo"
-                width={120}
-                height={48}
-                className="h-12 w-auto"
+                width={100}
+                height={40}
+                className="h-10 w-auto"
               />
               <Image
                 src="/workedwith/rosalogo.svg"
                 alt="Rosa Logo"
-                width={120}
-                height={48}
-                className="h-12 w-auto"
+                width={100}
+                height={40}
+                className="h-10 w-auto"
               />
               <Image
                 src="/workedwith/belgravialogo.svg"
                 alt="Belgravia Logo"
-                width={120}
-                height={48}
-                className="h-12 w-auto"
+                width={100}
+                height={40}
+                className="h-10 w-auto"
               />
             </div>
           </div>
