@@ -77,7 +77,7 @@ export default function HomePage() {
                   alt="ACCENT Logo"
                   width={40}
                   height={40}
-                  className="h-10 w-auto mr-2 select-none logo-gradient"
+                  className="h-8 w-auto mr-2 sm:h-10 select-none logo-gradient"
                   priority
                 />
                 <span className="sr-only">ACCENT</span>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 </a>
               </div>
               <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
-                <Button className="glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0 rounded-full px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-medium">
+                <Button className="rounded-full px-3 py-1 text-xs sm:px-6 sm:py-3 sm:text-base font-medium glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0">
                   Rezervovat Konzultaci Zdarma
                 </Button>
               </a>
@@ -109,7 +109,7 @@ export default function HomePage() {
         <section className="pt-48 pb-32 px-6 lg:px-8 relative">
           <div className="max-w-6xl mx-auto text-center relative">
             <div className="animate-fade-in-up">
-              <h1 className="text-3xl xs:text-4xl sm:text-7xl lg:text-8xl font-bold text-black mb-8 leading-tight sm:leading-[0.85] tracking-tighter text-center break-words">
+              <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extrabold text-black mb-8 leading-tight sm:leading-[0.85] tracking-tighter text-center">
               Prémiový branding & {" "}
                 <span className="text-gradient-blobs block">
                   AI Automatizace
@@ -191,42 +191,12 @@ export default function HomePage() {
         <section className="py-16 border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <p className="text-center text-neutral-500 mb-8 font-medium">Naši klienti</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:space-x-12 opacity-60">
-              <Image
-                src="/workedwith/longlerielogo.svg"
-                alt="Longlerie Logo"
-                width={100}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <Image
-                src="/workedwith/yubilogo.svg"
-                alt="Yubi Logo"
-                width={100}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <Image
-                src="/workedwith/mixlogo.svg"
-                alt="Mix Logo"
-                width={100}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <Image
-                src="/workedwith/rosalogo.svg"
-                alt="Rosa Logo"
-                width={100}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <Image
-                src="/workedwith/belgravialogo.svg"
-                alt="Belgravia Logo"
-                width={100}
-                height={40}
-                className="h-10 w-auto"
-              />
+            <div className="flex items-center justify-center gap-x-2 sm:gap-x-12 opacity-60">
+              <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/rosalogo.svg" alt="Rosa Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
             </div>
           </div>
         </section>
