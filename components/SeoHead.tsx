@@ -8,8 +8,8 @@ const SeoHead = () => (
     <link rel="canonical" href="https://accent.agency/" />
     
     {/* Basic favicon */}
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/accenticon.png" />
+    <link rel="icon" type="image/x-icon" href="/accenticon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/accenticon.ico" />
     
     {/* Additional meta tags */}
     <meta name="application-name" content="ACCENT" />
@@ -64,14 +64,14 @@ const SeoHead = () => (
     <meta property="og:url" content="https://accent.agency/" />
     <meta property="og:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
     <meta property="og:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
-    <meta property="og:image" content="https://accent.agency/accenticon.png" />
+    <meta property="og:image" content="https://accent.agency/accenticon.ico" />
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://accent.agency/" />
     <meta name="twitter:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
     <meta name="twitter:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
-    <meta name="twitter:image" content="https://accent.agency/accenticon.png" />
+    <meta name="twitter:image" content="https://accent.agency/accenticon.ico" />
   </Head>
 )
 
