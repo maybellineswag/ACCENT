@@ -190,21 +190,43 @@ export default function HomePage() {
         {/* Partners/Trust Section */}
         <section className="py-16 border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <p className="text-center text-neutral-500 mb-8 font-medium">Trusted by</p>
+            <p className="text-center text-neutral-500 mb-8 font-medium">Naši klienti</p>
             <div className="flex items-center justify-center space-x-12 opacity-60">
-              {/* Placeholder for partner logos */}
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-24 h-12 flex items-center justify-center">
-                  {/* Replace with actual logo images later */}
-                  <svg width="48" height="32" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                      <circle cx="16" cy="16" r="10" stroke="black" strokeWidth="2" fill="none" />
-                      <rect x="28" y="8" width="12" height="16" stroke="black" strokeWidth="2" fill="none" rx="3" />
-                    </g>
-                    <text x="50%" y="90%" textAnchor="middle" fill="black" fontSize="8" fontFamily="Arial, sans-serif">Logo</text>
-                  </svg>
-                </div>
-              ))}
+              <Image
+                src="/workedwith/longlerielogo.svg"
+                alt="Longlerie Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
+              <Image
+                src="/workedwith/yubilogo.svg"
+                alt="Yubi Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
+              <Image
+                src="/workedwith/mixlogo.svg"
+                alt="Mix Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
+              <Image
+                src="/workedwith/rosalogo.svg"
+                alt="Rosa Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
+              <Image
+                src="/workedwith/belgravialogo.svg"
+                alt="Belgravia Logo"
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
             </div>
           </div>
         </section>
