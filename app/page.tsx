@@ -209,141 +209,75 @@ export default function HomePage() {
                 Jak pomáháme vašemu podniku
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto font-normal">
-              Soustřeďte se na to, co je důležité - o zbytek se postaráme my
+                Soustřeďte se na to, co je důležité - o zbytek se postaráme my
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="glow-on-hover border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl p-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-6" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="featureGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7C83FF" />
-                          <stop offset="0.5" stopColor="#D16BA5" />
-                          <stop offset="1" stopColor="#FFB6D9" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M12 21c-4.97 0-9-3.58-9-8 0-4.42 4.03-8 9-8s9 3.58 9 8c0 2.21-1.79 4-4 4-.55 0-1 .45-1 1 0 1.1-.9 2-2 2zm-4-7a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2zm-4-4a1 1 0 100-2 1 1 0 000 2z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Okamžitě vypadejte prémiově</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                  Profesionální branding, který vás odliší od konkurence a přiláká lépe platící klienty
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Showcase 1 */}
+              <div className="text-center bg-white">
+                <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
+                  Okamžitě vypadejte prémiově
+                </h3>
+                <div className="flex justify-center">
+                  <Image
+                    src="/accentlogos.png"
+                    alt="Ukázka brandingu"
+                    width={600}
+                    height={300}
+                    className=""
+                    style={{ objectFit: "contain", background: "#fff" }}
+                  />
                 </div>
-              </Card>
-
-              <Card className="glow-on-hover border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl p-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-6" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="featureGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7C83FF" />
-                          <stop offset="0.5" stopColor="#D16BA5" />
-                          <stop offset="1" stopColor="#FFB6D9" />
-                        </linearGradient>
-                      </defs>
-                      <rect x="3" y="3" width="18" height="14" rx="2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                      <path d="M8 21h8l-4-4-4 4z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Získejte si více klientů bez stresu</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                  Naplněte si svůj rozvrh bez námahy — AI nástroje zvládnou zprávy, kvalifikují leady a domluví klienty za vás.
-                  </p>
+              </div>
+              {/* Showcase 2 */}
+              <div className="text-center bg-white">
+                <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
+                  Získejte si více klientů bez stresu
+                </h3>
+                <div className="flex justify-center">
+                  <Image
+                    src="/accentsms.png"
+                    alt="Ukázka automatizace"
+                    width={600}
+                    height={300}
+                    className=""
+                    style={{ objectFit: "contain", background: "#fff" }}
+                  />
                 </div>
-              </Card>
-
-              <Card className="glow-on-hover border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl p-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-6" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="featureGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7C83FF" />
-                          <stop offset="0.5" stopColor="#D16BA5" />
-                          <stop offset="1" stopColor="#FFB6D9" />
-                        </linearGradient>
-                      </defs>
-                      <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Ušetřete více než 3 hodiny denně.</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                  Automatizace se postará o opakující se úkoly, abyste se mohli soustředit na poskytování kvalitních služeb.
-                  </p>
+              </div>
+              {/* Showcase 3 */}
+              <div className="text-center bg-white">
+                <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
+                  Získejte více recenzí
+                </h3>
+                <div className="flex justify-center">
+                  <Image
+                    src="/accentmail.png"
+                    alt="Ukázka úspory času"
+                    width={600}
+                    height={300}
+                    className=""
+                    style={{ objectFit: "contain", background: "#fff" }}
+                  />
                 </div>
-              </Card>
-
-              <Card className="glow-on-hover border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl p-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-6" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="featureGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7C83FF" />
-                          <stop offset="0.5" stopColor="#D16BA5" />
-                          <stop offset="1" stopColor="#FFB6D9" />
-                        </linearGradient>
-                      </defs>
-                      <circle cx="9" cy="7" r="4" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                      <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                      <circle cx="17" cy="7" r="4" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Nikdy nepromeškejte potenciálního zákazníka</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                  Automaticky zachyťte a oslovte každého potenciálního klienta, i když jste zaneprázdnění.
-                  </p>
+              </div>
+              {/* Showcase 4 */}
+              <div className="text-center bg-white">
+                <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
+                  Nikdy nepromeškejte potenciálního zákazníka
+                </h3>
+                <div className="flex justify-center">
+                  <Image
+                    src="/accentprocess.png"
+                    alt="Ukázka zachycení klienta"
+                    width={600}
+                    height={300}
+                    className=""
+                    style={{ objectFit: "contain", background: "#fff" }}
+                  />
                 </div>
-              </Card>
-
-              <Card className="glow-on-hover border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl p-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-6" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="featureGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7C83FF" />
-                          <stop offset="0.5" stopColor="#D16BA5" />
-                          <stop offset="1" stopColor="#FFB6D9" />
-                        </linearGradient>
-                      </defs>
-                      <circle cx="12" cy="12" r="10" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                      <path d="M12 6v6l4 2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Rychlá implementace</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                  Výsledky uvidíte během dnů, ne měsíců. Postaráme se o všechno, takže nepotřebujete žádné technické znalosti.
-                  </p>
-                </div>
-              </Card>
-
-              <Card className="glow-on-hover border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl p-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-6" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="featureGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7C83FF" />
-                          <stop offset="0.5" stopColor="#D16BA5" />
-                          <stop offset="1" stopColor="#FFB6D9" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M12 21s-6-5.686-6-10A6 6 0 0112 5a6 6 0 016 6c0 4.314-6 10-6 10z" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                      <circle cx="12" cy="11" r="2" stroke="url(#featureGradient)" strokeWidth="2" fill="none"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 tracking-tight text-black">Odborník na místní trh</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                  Sídlo v Praze s praxí v Paříži – rozumíme, co funguje pro české i evropské firmy.
-                  </p>
-                </div>
-              </Card>
+              </div>
             </div>
           </div>
         </section>
