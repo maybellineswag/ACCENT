@@ -196,30 +196,6 @@ export default function HomePage() {
                     {translations.nav[lang].rezervovat}
                   </Button>
                 </a>
-                {/* Language Switcher */}
-                <div className="flex items-center ml-2">
-                  {lang === 'cs' && (
-                    <button
-                      aria-label="English"
-                      className="text-2xl transition-transform opacity-80 hover:opacity-100"
-                      onClick={() => handleLangChange('en')}
-                    >🇬🇧</button>
-                  )}
-                  {lang === 'en' && (
-                    <button
-                      aria-label="Русский"
-                      className="text-2xl transition-transform opacity-80 hover:opacity-100"
-                      onClick={() => handleLangChange('ru')}
-                    >🇷🇺</button>
-                  )}
-                  {lang === 'ru' && (
-                    <button
-                      aria-label="Čeština"
-                      className="text-2xl transition-transform opacity-80 hover:opacity-100"
-                      onClick={() => handleLangChange('cs')}
-                    >🇨🇿</button>
-                  )}
-                </div>
               </div>
             </div>
           </div>
@@ -452,7 +428,7 @@ export default function HomePage() {
               <p className="text-xl text-neutral-600 font-normal">Jasné ceny, skutečné výsledky — vaše investice se sama zaplatí</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto scale-90">
               {/* Starter Package */}
               <Card className="glow-on-hover border border-neutral-200/50 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl flex flex-col">
                 <CardHeader className="text-center pt-10">
