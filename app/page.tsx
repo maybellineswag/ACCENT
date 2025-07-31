@@ -22,6 +22,7 @@ import Image from "next/image"
 export default function HomePage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [lang, setLang] = useState<'cs' | 'en' | 'ru'>('cs')
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -31,6 +32,18 @@ export default function HomePage() {
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
+
+  useEffect(() => {
+    const storedLang = typeof window !== 'undefined' ? localStorage.getItem('accent-lang') : null;
+    if (storedLang) setLang(storedLang as 'cs' | 'en' | 'ru')
+  }, [])
+
+  const handleLangChange = (newLang: 'cs' | 'en' | 'ru') => {
+    setLang(newLang)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('accent-lang', newLang)
+    }
+  }
 
   const faqs = [
     {
@@ -54,6 +67,87 @@ export default function HomePage() {
         "Nabízíme 30 dní bezplatných revizí na všechny balíčky. Poté poskytujeme průběžnou podporu za konkurenční ceny.",
     },
   ]
+
+  const benefitTitles: Record<'cs' | 'en' | 'ru', string[]> = {
+    cs: [
+      'Okamžitě vypadejte prémiově',
+      'Získejte si více klientů bez stresu',
+      'Získejte více recenzí',
+      'Nikdy nepromeškejte potenciálního zákazníka',
+    ],
+    en: [
+      'Instantly Look Premium',
+      'Get More Clients Without Stress',
+      'Get More Reviews',
+      'Never Miss a Potential Customer',
+    ],
+    ru: [
+      'Станьте премиум мгновенно',
+      'Получайте больше клиентов без стресса',
+      'Получайте больше отзывов',
+      'Никогда не упускайте потенциального клиента',
+    ],
+  }
+
+  const translations = {
+    nav: {
+      cs: { services: 'Služby', how: 'Jak to funguje', pricing: 'Ceník', faq: 'FAQ', rezervovat: 'Rezervovat' },
+      en: { services: 'Services', how: 'How it works', pricing: 'Pricing', faq: 'FAQ', rezervovat: 'Book now' },
+      ru: { services: 'Услуги', how: 'Как это работает', pricing: 'Цены', faq: 'FAQ', rezervovat: 'Забронировать' },
+    },
+    hero: {
+      cs: {
+        title: 'Prémiový branding &',
+        subtitle: 'AI Automatizace',
+        desc: 'Přestaňte ztrácet klienty své konkurenci kvůli zastaralému brandingu. Získejte prvotřídní design & chytrou automatizaci, která funguje 24 hodin denně, 7 dní v týdnu.'
+      },
+      en: {
+        title: 'Premium Branding &',
+        subtitle: 'AI Automation',
+        desc: 'Stop losing clients to your competition due to outdated branding. Get top-tier design & smart automation that works 24/7.'
+      },
+      ru: {
+        title: 'Премиальный брендинг &',
+        subtitle: 'AI Автоматизация',
+        desc: 'Перестаньте терять клиентов из-за устаревшего брендинга. Получите первоклассный дизайн и умную автоматизацию, которая работает 24/7.'
+      },
+    },
+    heroBullets: {
+      cs: [
+        'Úspěšně transformováno přes 20 firem',
+        'Se sídlem v Praze',
+        'Výsledky za týdny, ne za měsíce',
+      ],
+      en: [
+        'Successfully transformed 20+ businesses',
+        'Based in Prague',
+        'Results in weeks, not months',
+      ],
+      ru: [
+        'Успешно трансформировано более 20 компаний',
+        'Офис в Праге',
+        'Результаты за недели, а не месяцы',
+      ],
+    },
+    heroCta: {
+      cs: 'Rezervovat',
+      en: 'Book now',
+      ru: 'Забронировать',
+    },
+    benefits: {
+      sectionTitle: {
+        cs: 'Jak pomáháme vašemu podniku',
+        en: 'How We Help Your Business',
+        ru: 'Как мы помогаем вашему бизнесу',
+      },
+      sectionDesc: {
+        cs: 'Soustřeďte se na to, co je důležité - o zbytek se postaráme my',
+        en: 'Focus on what matters – we handle the rest',
+        ru: 'Сосредоточьтесь на главном — остальное мы возьмём на себя',
+      },
+      titles: benefitTitles,
+    },
+  }
 
   return (
     <>
@@ -84,86 +178,86 @@ export default function HomePage() {
               </a>
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#services" className="text-neutral-600 hover:text-black transition-colors">
-                Služby
+                  {translations.nav[lang].services}
                 </a>
                 <a href="#how-it-works" className="text-neutral-600 hover:text-black transition-colors">
-                  Jak to funguje
+                  {translations.nav[lang].how}
                 </a>
                 <a href="#pricing" className="text-neutral-600 hover:text-black transition-colors">
-                  Ceník
+                  {translations.nav[lang].pricing}
                 </a>
                 <a href="#faq" className="text-neutral-600 hover:text-black transition-colors">
-                  FAQ
+                  {translations.nav[lang].faq}
                 </a>
               </div>
-              <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
-                <Button className="rounded-full px-3 py-1 text-xs sm:px-6 sm:py-3 sm:text-base font-medium glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0">
-                  Rezervovat Konzultaci Zdarma
-                </Button>
-              </a>
+              <div className="flex items-center space-x-4">
+                <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
+                  <Button className="rounded-full px-3 py-1 text-xs sm:px-6 sm:py-3 sm:text-base font-medium glow-on-hover bg-conic-gradient-accent hover:animate-conic-rotate text-black border-0">
+                    {translations.nav[lang].rezervovat}
+                  </Button>
+                </a>
+                {/* Language Switcher */}
+                <div className="flex items-center ml-2">
+                  {lang === 'cs' && (
+                    <button
+                      aria-label="English"
+                      className="text-2xl transition-transform opacity-80 hover:opacity-100"
+                      onClick={() => handleLangChange('en')}
+                    >🇬🇧</button>
+                  )}
+                  {lang === 'en' && (
+                    <button
+                      aria-label="Русский"
+                      className="text-2xl transition-transform opacity-80 hover:opacity-100"
+                      onClick={() => handleLangChange('ru')}
+                    >🇷🇺</button>
+                  )}
+                  {lang === 'ru' && (
+                    <button
+                      aria-label="Čeština"
+                      className="text-2xl transition-transform opacity-80 hover:opacity-100"
+                      onClick={() => handleLangChange('cs')}
+                    >🇨🇿</button>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </nav>
 
         {/* Hero Section */}
-        <section className="pt-48 pb-32 px-6 lg:px-8 relative">
-          <div className="max-w-6xl mx-auto text-center relative">
+        <section className="pt-32 pb-16 px-2 lg:px-4 relative">
+          <div className="max-w-5xl mx-auto text-center relative">
             <div className="animate-fade-in-up">
-              <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extrabold text-black mb-8 leading-tight sm:leading-[0.85] tracking-tighter text-center">
-              Prémiový branding & {" "}
-                <span className="text-gradient-blobs block">
-                  AI Automatizace
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-black mb-6 leading-snug tracking-tight text-center">
+                {translations.hero[lang].title} {" "}
+                <span className="text-gradient-blobs block text-2xl sm:text-3xl lg:text-5xl">
+                  {translations.hero[lang].subtitle}
                 </span>
               </h1>
 
               {/* Social Proof Bullets */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-neutral-600">
-                <div className="flex items-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
-                    <defs>
-                      <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#7C83FF" />
-                        <stop offset="0.5" stopColor="#D16BA5" />
-                        <stop offset="1" stopColor="#FFB6D9" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                  </svg>
-                  <span>Úspěšně transformováno přes 20 firem</span>
-                </div>
-                <div className="flex items-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
-                    <defs>
-                      <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#7C83FF" />
-                        <stop offset="0.5" stopColor="#D16BA5" />
-                        <stop offset="1" stopColor="#FFB6D9" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                  </svg>
-                  <span>Se sídlem v Praze</span>
-                </div>
-                <div className="flex items-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2" style={{display:'inline'}}>
-                    <defs>
-                      <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#7C83FF" />
-                        <stop offset="0.5" stopColor="#D16BA5" />
-                        <stop offset="1" stopColor="#FFB6D9" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                  </svg>
-                  <span>Výsledky za týdny, ne za měsíce</span>
-                </div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-6 text-neutral-600 text-base sm:text-lg">
+                {translations.heroBullets[lang].map((bullet, i) => (
+                  <div className="flex items-center" key={i}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-1" style={{display:'inline'}}>
+                      <defs>
+                        <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#7C83FF" />
+                          <stop offset="0.5" stopColor="#D16BA5" />
+                          <stop offset="1" stopColor="#FFB6D9" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                    </svg>
+                    <span>{bullet}</span>
+                  </div>
+                ))}
               </div>
 
-              <p className="text-xl sm:text-2xl text-neutral-600 mb-10 max-w-4xl mx-auto leading-relaxed font-normal">
-              Přestaňte ztrácet klienty své konkurenci kvůli zastaralému brandingu. Získejte prvotřídní design & chytrou automatizaci, která funguje 24 hodin denně, 7 dní v týdnu.
+              <p className="text-lg sm:text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-normal font-normal">
+                {translations.hero[lang].desc}
               </p>
 
               {/* Main CTA Button with Blurry Glowing Blobs Effect */}
@@ -175,11 +269,11 @@ export default function HomePage() {
                 <span className="blob-glow blob-glow-5"></span>
                 <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                   <Button
-                    size="lg"
-                    className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
+                    size="sm"
+                    className="relative z-10 bg-conic-gradient-accent hover:animate-conic-rotate transition-colors duration-500 text-black text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-auto rounded-full border-0 font-medium shadow-lg backdrop-blur-md"
                   >
-                    Rezervovat Konzultaci Zdarma
-                    <ArrowRight className="ml-3 w-5 h-5 text-black" />
+                    {translations.heroCta[lang]}
+                    <ArrowRight className="ml-2 w-5 h-5 text-black" />
                   </Button>
                 </a>
               </div>
@@ -206,10 +300,10 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-5xl sm:text-6xl font-bold text-black mb-6 tracking-tighter">
-                Jak pomáháme vašemu podniku
+                {translations.benefits.sectionTitle[lang]}
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto font-normal">
-                Soustřeďte se na to, co je důležité - o zbytek se postaráme my
+                {translations.benefits.sectionDesc[lang]}
               </p>
             </div>
 
@@ -217,7 +311,7 @@ export default function HomePage() {
               {/* Showcase 1 */}
               <div className="text-center bg-white">
                 <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
-                  Okamžitě vypadejte prémiově
+                  {translations.benefits.titles[lang][0]}
                 </h3>
                 <div className="flex justify-center">
                   <Image
@@ -233,7 +327,7 @@ export default function HomePage() {
               {/* Showcase 2 */}
               <div className="text-center bg-white">
                 <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
-                  Získejte si více klientů bez stresu
+                  {translations.benefits.titles[lang][1]}
                 </h3>
                 <div className="flex justify-center">
                   <Image
@@ -249,7 +343,7 @@ export default function HomePage() {
               {/* Showcase 3 */}
               <div className="text-center bg-white">
                 <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
-                  Získejte více recenzí
+                  {translations.benefits.titles[lang][2]}
                 </h3>
                 <div className="flex justify-center">
                   <Image
@@ -265,7 +359,7 @@ export default function HomePage() {
               {/* Showcase 4 */}
               <div className="text-center bg-white">
                 <h3 className="text-2xl sm:text-3xl font-semibold mb-6 tracking-tight text-black">
-                  Nikdy nepromeškejte potenciálního zákazníka
+                  {translations.benefits.titles[lang][3]}
                 </h3>
                 <div className="flex justify-center">
                   <Image
@@ -362,9 +456,9 @@ export default function HomePage() {
               {/* Starter Package */}
               <Card className="glow-on-hover border border-neutral-200/50 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl flex flex-col">
                 <CardHeader className="text-center pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">Starter</CardTitle>
-                  <div className="text-4xl font-bold text-gradient-blobs mt-6">CZK 9000</div>
-                  <CardDescription className="mt-4 text-neutral-600">Skvělé řešení pro firmy, které chtějí růst</CardDescription>
+                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">Moderní Web</CardTitle>
+                  <div className="text-4xl font-bold text-gradient-blobs mt-6">CZK 35 000</div>
+                  <CardDescription className="mt-4 text-neutral-600">Postavíme vám moderní web</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col grow space-y-8 pb-10">
                   <ul className="space-y-4">
@@ -380,7 +474,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Logo a osvěžení značky</span>
+                      <span className="text-black">Přizpůsobený design pro mobily, tablety i počítače</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -394,7 +488,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Šablony příspěvků na Instagram + 10 hotových příspěvků</span>
+                      <span className="text-black">Přehledná struktura, která prodává</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -408,22 +502,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Šablony pro Instagram Stories + design výběrů (highlights)</span>
-                    </li>
-                    <hr className="my-2 border-neutral-200" />
-                    <li className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                      <span className="text-black">Okamžitě působte profesionálně</span>
+                      <span className="text-black">Sekce: Domů, O nás, Služby, Kontakt</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -437,7 +516,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Přitahujte více klientů online</span>
+                      <span className="text-black">Profesionální texty psané na míru (včetně SEO)</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -451,7 +530,35 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Budujte důvěru u nových návštěvníků</span>
+                      <span className="text-black">Kontaktní nebo rezervační formulář</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                        <defs>
+                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#7C83FF" />
+                            <stop offset="0.5" stopColor="#D16BA5" />
+                            <stop offset="1" stopColor="#FFB6D9" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                      </svg>
+                      <span className="text-black">Rychlé načítání & základní SEO nastavení</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                        <defs>
+                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#7C83FF" />
+                            <stop offset="0.5" stopColor="#D16BA5" />
+                            <stop offset="1" stopColor="#FFB6D9" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                      </svg>
+                      <span className="text-black">Možnost rozšíření o AI asistenta</span>
                     </li>
                   </ul>
                   <div className="flex-1"></div>
@@ -466,15 +573,15 @@ export default function HomePage() {
               {/* Standard Package - Highlighted */}
               <Card className="glow-on-hover gradient-border bg-white shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl relative scale-105 h-full flex flex-col min-h-[700px]">
                 <Badge className="absolute top-6 left-1/2 -translate-x-1/2 bg-conic-gradient-accent text-black rounded-full border-0 w-max px-4 py-1">
-                  Most Popular
+                  Nejžádanější
                 </Badge>
                 <CardHeader className="text-center pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">Standard</CardTitle>
+                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">AI Prodejní Asistent</CardTitle>
                   <div className="text-4xl font-bold text-gradient-blobs mt-6 flex items-center justify-center">
-                    CZK 20000
+                    CZK 10 000
                     <span className="relative -top-3 text-sm text-neutral-400 ml-0.5">*</span>
                   </div>
-                  <CardDescription className="mt-4 text-neutral-600">Kompletní řešení pro automatizaci a úsporu času každý den</CardDescription>
+                  <CardDescription className="mt-4 text-neutral-600">Získejte více poptávek</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between">
                   <ul className="space-y-2 text-sm sm:text-base">
@@ -490,7 +597,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Jednostránkový web s vaší značkou</span>
+                      <span className="text-black">Vlastní AI chatbot pro váš web nebo WhatsApp/SMS</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -504,7 +611,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">AI chatbot pro automatické odpovědi a domlouvání schůzek</span>
+                      <span className="text-black">Ovládá vaše služby, ceník, nejčastější dotazy i námitky</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -518,7 +625,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Nastavení automatizovaného rezervačního systému</span>
+                      <span className="text-black">Přímá rezervace přes chat – napojený na váš systém</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -532,7 +639,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Systém pro automatické žádosti o recenze</span>
+                      <span className="text-black">Komunikuje vaším tónem – jako skutečný asistent</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -546,22 +653,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Follow-up systém na zmeškané hovory</span>
-                    </li>
-                    <hr className="my-2 border-neutral-200" />
-                    <li className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                      <span className="text-black">Více klientů bez vaší námahy</span>
+                      <span className="text-black">Nouzová podpora – když se něco pokazí</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -575,7 +667,21 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Přestaňte ztrácet čas ručními odpověďmi</span>
+                      <span className="text-black">Měsíční úpravy a zlepšení výkonu</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
+                        <defs>
+                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#7C83FF" />
+                            <stop offset="0.5" stopColor="#D16BA5" />
+                            <stop offset="1" stopColor="#FFB6D9" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
+                      </svg>
+                      <span className="text-black">Statistiky: sledujte, co funguje a co zlepšit</span>
                     </li>
                   </ul>
                   <div className="flex-1"></div>
@@ -584,16 +690,19 @@ export default function HomePage() {
                     Začněte hned
                     </a>
                   </Button>
-                  <p className="text-[10px] text-neutral-400 mt-1 text-center">*Malé předplatné začne platit po tříměsíční zkušební době a pokrývá software a podporu.</p>
+                  <p className="text-[10px] text-neutral-400 mt-1 text-center">*Měsíčně</p>
                 </CardContent>
               </Card>
 
               {/* Premium Package */}
               <Card className="glow-on-hover border border-neutral-200/50 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-500 rounded-3xl flex flex-col">
                 <CardHeader className="text-center pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">Premium</CardTitle>
-                  <div className="text-4xl font-bold text-gradient-blobs mt-6">CZK 45000</div>
-                  <CardDescription className="mt-4 text-neutral-600">Podnikání na nové úrovni</CardDescription>
+                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">AI Klient Boost</CardTitle>
+                  <div className="text-4xl font-bold text-gradient-blobs mt-6 flex items-center justify-center">
+                    CZK 15 000
+                    <span className="relative -top-3 text-sm text-neutral-400 ml-0.5">*</span>
+                  </div>
+                  <CardDescription className="mt-4 text-neutral-600">Škálujte tržby a loajalitu</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col grow space-y-8 pb-10">
                   <ul className="space-y-2 text-[15px] sm:text-base">
@@ -609,7 +718,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Kompletní balíček vizuální identity</span>
+                      <span className="text-black">Vše z AI Prodejního Asistenta (chatbot, rezervace, podpora, optimalizace)</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -623,7 +732,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Web na míru nebo redesign stávajícího webu</span>
+                      <span className="text-black">Automatické žádosti o Google recenze po každé návštěvě</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -637,22 +746,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Nastavení nebo optimalizace profilu Google Business</span>
-                    </li>
-                    <hr className="my-2 border-neutral-200" />
-                    <li className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                      <span className="text-black">Přitahujte věrné klienty s vyšší hodnotou</span>
+                      <span className="text-black">Follow-up pro nerozhodnuté návštěvníky – slevy, připomenutí, pobídky</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -666,7 +760,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Získejte klienty zpět pomocí chytré následné péče</span>
+                      <span className="text-black">Snížení počtu nedostavených rezervací pomocí chytrých připomínek</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -680,7 +774,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Vedení podnikání jako moderní salon – automatizovaně</span>
+                      <span className="text-black">Automatické nabídky doplňkových služeb a balíčků</span>
                     </li>
                     <li className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -694,7 +788,7 @@ export default function HomePage() {
                         <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
                       </svg>
-                      <span className="text-black">Chytré follow-up sekvence pro klienty (slevy, připomenutí, opakované rezervace)</span>
+                      <span className="text-black">Systém pro opakované objednávky – více věrných zákazníků</span>
                     </li>
                   </ul>
                   <div className="flex-1"></div>
