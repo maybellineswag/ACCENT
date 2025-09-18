@@ -434,7 +434,7 @@ export default function HomePage() {
 
             {/* CTA Section */}
             <motion.div 
-              className="text-center"
+              className="text-left sm:text-center"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -455,9 +455,9 @@ export default function HomePage() {
 
         {/* How It Works - Founder Focused */}
         <section id="how-it-works" className="pt-8 pb-16 relative z-10" ref={howItWorksRef}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full pl-6 pr-4 sm:max-w-6xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
-              className="text-center mb-12"
+              className="text-left sm:text-center mb-12"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -469,7 +469,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-3 gap-6"
+              className="grid md:grid-cols-3 gap-12 sm:gap-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -485,75 +485,75 @@ export default function HomePage() {
               }}
             >
               <motion.div 
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-2"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                   visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                  <CardContent className="p-6 text-center relative h-full">
-                    <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                  <div className="p-0 sm:p-6 text-left sm:text-center relative h-full">
+                    <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <span className="text-2xl font-bold text-black">{translations.howItWorks.step1.title}</span>
                 </div>
-                    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-full px-4">
+                    <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-2">
                       <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step1.subtitle}</h4>
               </div>
-                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2">
+                    <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
                         <span className="text-neutral-700">{translations.howItWorks.step1.duration}</span>
                 </div>
               </div>
-                    <div className="absolute top-44 left-1/2 transform -translate-x-1/2 w-full px-4">
+                    <div className="sm:absolute sm:top-44 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4">
                       <p className="text-neutral-700 text-sm">
                         {translations.howItWorks.step1.description}
                       </p>
                 </div>
-                  </CardContent>
-                </Card>
-                <div className="mt-4">
-                  <div className="flex items-start gap-2 w-fit">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-green-700 text-sm font-medium">{translations.howItWorks.step1.note}</span>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <div className="flex items-start gap-1.5 w-fit">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <span className="text-green-700 text-xs font-medium">{translations.howItWorks.step1.note}</span>
                   </div>
                 </div>
               </motion.div>
 
               <motion.div 
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-2"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                   visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                  <CardContent className="p-6 text-center relative h-full">
-                    <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                  <div className="p-0 sm:p-6 text-left sm:text-center relative h-full">
+                    <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <span className="text-2xl font-bold text-black">{translations.howItWorks.step2.title}</span>
               </div>
-                    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-full px-4">
+                    <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-2">
                       <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step2.subtitle}</h4>
             </div>
-                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2">
+                    <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
                         <span className="text-neutral-700">{translations.howItWorks.step2.duration}</span>
           </div>
             </div>
-                    <div className="absolute top-44 left-1/2 transform -translate-x-1/2 w-full px-4">
+                    <div className="sm:absolute sm:top-44 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4">
                       <p className="text-neutral-700 text-sm">
                         {translations.howItWorks.step2.description}
                 </p>
               </div>
-                  </CardContent>
-                </Card>
-                <div className="mt-4">
-                  <div className="flex items-start gap-2 w-fit">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-green-700 text-sm font-medium">{translations.howItWorks.step2.note}</span>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <div className="flex items-start gap-1.5 w-fit">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <span className="text-green-700 text-xs font-medium">{translations.howItWorks.step2.note}</span>
                   </div>
                 </div>
               </motion.div>
@@ -566,27 +566,27 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                  <CardContent className="p-6 text-center relative h-full">
-                    <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                  <div className="p-0 sm:p-6 text-left sm:text-center relative h-full">
+                    <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-4">
                       <span className="text-2xl font-bold text-black">{translations.howItWorks.step3.title}</span>
                     </div>
-                    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-full px-4">
+                    <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-4">
                       <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step3.subtitle}</h4>
                     </div>
-                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2">
+                    <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-4">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
                         <span className="text-neutral-700">{translations.howItWorks.step3.duration}</span>
                       </div>
                     </div>
-                    <div className="absolute top-44 left-1/2 transform -translate-x-1/2 w-full px-4">
+                    <div className="sm:absolute sm:top-44 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4">
                       <p className="text-neutral-700 text-sm">
                         {translations.howItWorks.step3.description}
                       </p>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
                 <div className="mt-4">
                   <div className="flex items-start gap-2 w-fit">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
