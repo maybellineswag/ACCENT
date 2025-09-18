@@ -158,7 +158,61 @@ export function NavBar({ className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-2 sm:gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
+      {/* Mobile Header - Only Globe and Logo */}
+      <div className="sm:hidden flex items-center justify-center gap-3 pointer-events-auto">
+        <Image
+          src="/accent_logo.svg"
+          alt="ACCENT Logo"
+          width={24}
+          height={24}
+          className="h-6 w-auto select-none"
+          style={{ filter: "brightness(0)" }}
+        />
+        <div className="relative">
+          <button
+            onClick={() => setShowLangDropdown(!showLangDropdown)}
+            className="flex items-center justify-center w-8 h-8 hover:text-black transition-colors"
+          >
+            <Globe className="w-4 h-4 text-neutral-600" />
+          </button>
+          
+          {showLangDropdown && (
+            <div className="absolute top-10 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
+              <button
+                onClick={() => handleLangChange('cs')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/cz.svg" alt="Czech Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                <span>Čeština</span>
+              </button>
+              <button
+                onClick={() => handleLangChange('en')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/us.svg" alt="US Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                <span>English</span>
+              </button>
+              <button
+                onClick={() => handleLangChange('ru')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/ru.svg" alt="Russian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                <span>Русский</span>
+              </button>
+              <button
+                onClick={() => handleLangChange('uk')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/ua.svg" alt="Ukrainian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                <span>Українська</span>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Desktop Navbar */}
+      <div className="hidden sm:flex items-center gap-2 sm:gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
         {/* Logo */}
         <Link 
           href="/" 
