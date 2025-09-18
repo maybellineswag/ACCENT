@@ -227,15 +227,15 @@ export default function HomePage() {
         <NavBar />
 
         {/* Hero Section */}
-        <section id="home" className="pt-20 sm:pt-24 pb-16 px-4 sm:px-2 lg:px-4 relative z-10">
+        <section id="home" className="pt-4 sm:pt-24 pb-16 px-4 sm:px-2 lg:px-4 relative z-10">
           <Hero translations={translations} />
         </section>
 
         {/* Testimonials Section */}
         <section id="testimonials" className="pb-8 relative z-10" ref={testimonialsRef}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full pl-6 pr-4 sm:container sm:mx-auto sm:px-6">
             <motion.div 
-              className="text-center mb-16"
+              className="text-left sm:text-center mb-16"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -256,7 +256,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
               <motion.div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-4 gap-8"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -272,58 +272,58 @@ export default function HomePage() {
                 }}
               >
                 <motion.div 
-                  className="text-center"
+                  className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                     visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.businesses}+</div>
+                  <div className="text-6xl md:text-7xl font-bold text-gradient-blobs mb-3">{counts.businesses}+</div>
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.businesses}</div>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
                 <motion.div 
-                  className="text-center"
+                  className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                     visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.bookings.toLocaleString()}+</div>
+                  <div className="text-6xl md:text-7xl font-bold text-gradient-blobs mb-3">{counts.bookings.toLocaleString()}+</div>
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.bookings}</div>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
                 <motion.div 
-                  className="text-center"
+                  className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                     visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.months}</div>
+                  <div className="text-6xl md:text-7xl font-bold text-gradient-blobs mb-3">{counts.months}</div>
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.months}</div>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
                 <motion.div 
-                  className="text-center"
+                  className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                     visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.increase}%</div>
+                  <div className="text-6xl md:text-7xl font-bold text-gradient-blobs mb-3">{counts.increase}%</div>
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.increase}</div>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
               </motion.div>
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-3 gap-6 mb-16"
+              className="grid md:grid-cols-3 gap-12 sm:gap-6 mb-16"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -345,19 +345,19 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                <CardContent className="p-6 text-center flex flex-col h-full">
-                  <div className="flex mb-4 justify-center">
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
+                  <div className="flex mb-4 justify-start sm:justify-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
-                  <div className="flex-1 flex items-center justify-center">
+                  <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
                     <p className="text-neutral-700 italic leading-relaxed text-sm">
                     "Nečekala jsem moc, ale teď máme pořád plný kalendář. <strong>Web funguje dobře, lidi sami dělají rezervace a já nemusím pořád telefonovat.</strong> Hodně mi to pomohlo."
                     </p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-4">
                     <div className="text-left">
                       <span className="font-semibold tracking-tight text-black text-sm">Thảo My Nguyễn</span>
                       <span className="text-neutral-500 text-xs block">{translations.testimonial1.occupation}</span>
@@ -365,8 +365,8 @@ export default function HomePage() {
                     </div>
                     <span className="text-neutral-400 text-xs">{translations.testimonial1.date}</span>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
               </motion.div>
 
               <motion.div
@@ -376,19 +376,19 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                <CardContent className="p-6 text-center flex flex-col h-full">
-                  <div className="flex mb-4 justify-center">
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
+                  <div className="flex mb-4 justify-start sm:justify-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <div className="flex-1 flex items-center justify-center">
+                  <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
                     <p className="text-neutral-700 italic leading-relaxed text-sm">
                     "Pro mě je to velká změna. <strong>Dřív jsem měla chaos, teď všechno jde samo. Klienti píšou přímo přes web, já mám víc času na práci, ne na papíry.</strong>"
                     </p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-4">
                     <div className="text-left">
                       <span className="font-semibold tracking-tight text-black text-sm">Alina Dovzhenko</span>
                       <span className="text-neutral-500 text-xs block">{translations.testimonial2.occupation}</span>
@@ -396,8 +396,8 @@ export default function HomePage() {
                     </div>
                     <span className="text-neutral-400 text-xs">{translations.testimonial2.date}</span>
                   </div>
-                </CardContent>
-                </Card>
+                </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -407,19 +407,19 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                <CardContent className="p-6 text-center flex flex-col h-full">
-                  <div className="flex mb-4 justify-center">
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
+                  <div className="flex mb-4 justify-start sm:justify-center">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
               </div>
-                  <div className="flex-1 flex items-center justify-center">
+                  <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
                     <p className="text-neutral-700 italic leading-relaxed text-sm">
                     "Our new website completely changed how we get customers. <strong>Bookings come in automatically, the site looks modern, and I can finally focus on growing instead of chasing calls.</strong>"
                     </p>
             </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-4">
                     <div className="text-left">
                       <span className="font-semibold tracking-tight text-black text-sm">Élodie Carpentier</span>
                       <span className="text-neutral-500 text-xs block">{translations.testimonial3.occupation}</span>
@@ -427,8 +427,8 @@ export default function HomePage() {
                     </div>
                     <span className="text-neutral-400 text-xs">{translations.testimonial3.date}</span>
                   </div>
-                </CardContent>
-                </Card>
+                </div>
+                </div>
               </motion.div>
             </motion.div>
 

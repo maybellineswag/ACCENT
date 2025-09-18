@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight, PhoneCall, ArrowRight } from "lucide-react";
+import { MoveRight, PhoneCall, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
 import Image from "next/image";
@@ -37,7 +37,26 @@ function Hero({ translations }: HeroProps) {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="w-full px-4 sm:container sm:mx-auto sm:px-6">
+      {/* Mobile Header - Logo and Globe */}
+      <div className="sm:hidden flex items-center justify-between w-full px-4 py-4">
+        <Image
+          src="/accent_logo.svg"
+          alt="ACCENT Logo"
+          width={40}
+          height={40}
+          className="h-10 w-auto select-none text-gradient-blobs"
+        />
+        <div className="relative">
+          <button
+            onClick={() => {/* Add language dropdown logic here */}}
+            className="flex items-center justify-center w-8 h-8 hover:text-black transition-colors"
+          >
+            <Globe className="w-4 h-4 text-neutral-600" />
+          </button>
+        </div>
+      </div>
+      
+      <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
         <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-8 items-start sm:items-center justify-start sm:justify-center flex-col">
           <div className="flex gap-4 flex-col items-start sm:items-center">
             {/* Notification Banner */}
@@ -45,7 +64,7 @@ function Hero({ translations }: HeroProps) {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative mb-1"
+              className="relative mb-1 pl-2"
             >
               <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3">
                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
@@ -55,7 +74,7 @@ function Hero({ translations }: HeroProps) {
               </div>
             </motion.div>
 
-                                                   <h1 className="text-4xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-left sm:text-center font-regular">
+                                                   <h1 className="text-5xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-left sm:text-center font-regular">
                 <span className="text-black">{translations.hero.title}</span>
                 <br />
                 <span className="relative flex w-full justify-start sm:justify-center overflow-hidden text-left sm:text-center md:pb-8 md:pt-2">
@@ -63,7 +82,7 @@ function Hero({ translations }: HeroProps) {
                   {titles.map((title: string, index: number) => (
                     <motion.span
                       key={index}
-                      className="absolute font-semibold text-gradient-blobs px-2 py-1"
+                      className="absolute font-semibold text-gradient-blobs"
                       initial={{ opacity: 0, y: -50 }}
                       transition={{ type: "spring", stiffness: 50 }}
                       animate={
@@ -90,7 +109,7 @@ function Hero({ translations }: HeroProps) {
           </div>
           
           {/* Main CTA Button */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
+          <div className="flex flex-row items-center gap-6 sm:gap-8">
             <GradientButton asChild className="relative z-50">
               <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                 {translations.heroCta}
@@ -107,12 +126,12 @@ function Hero({ translations }: HeroProps) {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-4 sm:gap-x-6 md:gap-x-12">
               <p className="text-black font-medium text-sm sm:text-base">{translations.ourClients}</p>
               <div className="flex items-center gap-x-4 sm:gap-x-6 md:gap-x-8">
-                <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
-                <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
-                <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
-                <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
+                <span className="text-black text-xs sm:text-sm font-medium ml-2">{translations.moreClients}</span>
               </div>
-              <span className="text-black text-xs sm:text-sm font-medium">{translations.moreClients}</span>
             </div>
           </div>
         </div>

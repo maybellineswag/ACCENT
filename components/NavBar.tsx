@@ -158,14 +158,14 @@ export function NavBar({ className }: NavBarProps) {
         className,
       )}
     >
-      {/* Mobile Header - Logo and Globe */}
-      <div className="sm:hidden flex items-center justify-between w-full px-4 pointer-events-auto">
+      {/* Mobile Header - Logo and Globe - Hidden, moved to Hero */}
+      <div className="hidden sm:hidden flex items-center justify-between w-full px-4 pointer-events-auto">
         <Image
           src="/accent_logo.svg"
           alt="ACCENT Logo"
-          width={32}
-          height={32}
-          className="h-8 w-auto select-none text-gradient-blobs"
+          width={40}
+          height={40}
+          className="h-10 w-auto select-none text-gradient-blobs"
         />
         <div className="relative">
           <button
