@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { MoveRight, PhoneCall, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { BlurAnimate, BlurAnimateUp, BlurAnimateDown, BlurAnimateScale } from "@/components/ui/blur-animate";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,28 +31,36 @@ function Hero({ translations }: HeroProps) {
   }, [titleNumber, titles]);
 
   return (
-    <div className="w-full">
+    <motion.div 
+      className="w-full"
+      initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="container mx-auto">
         <div className="flex gap-8 py-12 lg:py-8 items-center justify-center flex-col">
           <div className="flex gap-4 flex-col items-center">
             {/* Notification Banner */}
-            <BlurAnimateDown delay={0} className="relative mb-1">
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative mb-1"
+            >
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <span className="!text-black text-sm font-medium tracking-wide">
                   {translations.notificationBanner}
                 </span>
               </div>
-            </BlurAnimateDown>
+            </motion.div>
 
-            {/* Main Title */}
-            <BlurAnimateUp delay={5}>
-              <h1 className="text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
+                                                   <h1 className="text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
                 <span className="text-black">{translations.hero.title}</span>
                 <br />
                 <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-8 md:pt-2">
                   &nbsp;
-                  {titles.map((title, index) => (
+                  {titles.map((title: string, index: number) => (
                     <motion.span
                       key={index}
                       className="absolute font-semibold text-gradient-blobs px-2 py-1"
@@ -76,47 +83,39 @@ function Hero({ translations }: HeroProps) {
                   ))}
                 </span>
               </h1>
-            </BlurAnimateUp>
 
-            {/* Description */}
-            <BlurAnimate delay={10}>
-              <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
-                {translations.hero.desc}
-              </p>
-            </BlurAnimate>
+            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
+              {translations.hero.desc}
+            </p>
           </div>
           
           {/* Main CTA Button */}
-          <BlurAnimateScale delay={15}>
-            <div className="flex flex-col sm:flex-row items-center gap-8">
-              <GradientButton asChild className="relative z-50">
-                <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
-                  {translations.heroCta}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </GradientButton>
-              <Link href="/selected-work" className="text-black underline hover:no-underline transition-all">
-                {translations.viewWork}
-              </Link>
-            </div>
-          </BlurAnimateScale>
+          <div className="flex flex-col sm:flex-row items-center gap-8">
+            <GradientButton asChild className="relative z-50">
+              <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
+                {translations.heroCta}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </GradientButton>
+            <Link href="/selected-work" className="text-black underline hover:no-underline transition-all">
+              {translations.viewWork}
+            </Link>
+          </div>
 
           {/* Clients Section */}
-          <BlurAnimateUp delay={20}>
-            <div className="mt-2">
-              <div className="flex items-center justify-center gap-x-4 sm:gap-x-12">
-                <p className="text-black font-medium">{translations.ourClients}</p>
-                <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
-                <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
-                <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
-                <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
-                <span className="text-black text-sm font-medium">{translations.moreClients}</span>
-              </div>
+          <div className="mt-2">
+            <div className="flex items-center justify-center gap-x-4 sm:gap-x-12">
+              <p className="text-black font-medium">{translations.ourClients}</p>
+              <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-12 h-auto sm:w-20 flex-shrink-0" />
+              <span className="text-black text-sm font-medium">{translations.moreClients}</span>
             </div>
-          </BlurAnimateUp>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

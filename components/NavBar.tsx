@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
-import { BlurAnimate } from "@/components/ui/blur-animate"
 
 interface NavItem {
   name: string
@@ -153,14 +152,13 @@ export function NavBar({ className }: NavBarProps) {
   }
 
   return (
-    <BlurAnimate delay={0}>
-      <div
-        className={cn(
-          "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-30 mb-6 sm:pt-6 w-fit pointer-events-none",
-          className,
-        )}
-      >
-        <div className="flex items-center gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
+    <div
+      className={cn(
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-30 mb-6 sm:pt-6 w-fit pointer-events-none",
+        className,
+      )}
+    >
+      <div className="flex items-center gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
         {/* Logo */}
         <Link 
           href="/" 
@@ -271,8 +269,7 @@ export function NavBar({ className }: NavBarProps) {
             </div>
           )}
         </div>
-        </div>
       </div>
-    </BlurAnimate>
+    </div>
   )
 }

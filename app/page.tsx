@@ -17,13 +17,13 @@ import {
   ChevronDown,
 } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
+import { motion, useInView } from "framer-motion"
 import SeoHead from "@/components/SeoHead"
 import Image from "next/image"
 import Link from "next/link"
 import { Hero } from "@/components/Hero"
 import { NavBar } from "@/components/NavBar"
 import { AuroraBackground } from "@/components/ui/aurora-background"
-import { BlurAnimate, BlurAnimateUp, BlurAnimateDown, BlurAnimateLeft, BlurAnimateRight, BlurAnimateScale, StaggeredBlurAnimateUp, StaggeredBlurAnimateLeft, StaggeredBlurAnimateRight } from "@/components/ui/blur-animate"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
 
@@ -33,6 +33,11 @@ export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [counts, setCounts] = useState({ businesses: 5, bookings: 2950, months: 1, increase: 5 })
   const metricsRef = useRef<HTMLDivElement>(null)
+  const testimonialsRef = useRef<HTMLDivElement>(null)
+  const howItWorksRef = useRef<HTMLDivElement>(null)
+  
+  const testimonialsInView = useInView(testimonialsRef, { once: true, margin: "-200px" })
+  const howItWorksInView = useInView(howItWorksRef, { once: true, margin: "-200px" })
   
   const { language } = useLanguage()
   const { translations, loading } = useTranslations()
@@ -143,7 +148,62 @@ export default function HomePage() {
     }
   }, [])
 
-  const t = translations
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 1, 
+      filter: "blur(0px)",
+      y: 0
+    },
+    visible: { 
+      opacity: 1, 
+      filter: "blur(0px)",
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94] as const
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 1, 
+      filter: "blur(0px)",
+      y: 0,
+      scale: 1
+    },
+    visible: { 
+      opacity: 1, 
+      filter: "blur(0px)",
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94] as const
+      }
+    }
+  }
+
+  // Show loading state while translations are loading
+  if (loading || !translations) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -168,171 +228,287 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <section id="home" className="pt-24 pb-16 px-2 lg:px-4 relative z-10">
-          <Hero translations={t} />
+          <Hero translations={translations} />
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="pb-8 relative z-10">
+        <section id="testimonials" className="pb-8 relative z-10" ref={testimonialsRef}>
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <BlurAnimateUp delay={0}>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
-                  {t.testimonials.title}
-                </h2>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
+                {translations.testimonials.title}
+              </h2>
+            </motion.div>
 
             {/* Metrics Section */}
-            <BlurAnimateScale delay={5}>
-              <div ref={metricsRef} className="mb-16">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                  <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.businesses}+</div>
-                    <div className="text-sm text-neutral-600 leading-relaxed">{t.testimonials.metrics.businesses}</div>
-                    <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.bookings.toLocaleString()}+</div>
-                    <div className="text-sm text-neutral-600 leading-relaxed">{t.testimonials.metrics.bookings}</div>
-                    <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.months}</div>
-                    <div className="text-sm text-neutral-600 leading-relaxed">{t.testimonials.metrics.months}</div>
-                    <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.increase}%</div>
-                    <div className="text-sm text-neutral-600 leading-relaxed">{t.testimonials.metrics.increase}</div>
-                    <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
-                  </div>
-                </div>
+            <motion.div 
+              ref={metricsRef} 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1,
+                      delayChildren: 0.3
+                    }
+                  }
+                }}
+              >
+                <motion.div 
+                  className="text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.businesses}+</div>
+                  <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.businesses}</div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                </motion.div>
+                <motion.div 
+                  className="text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.bookings.toLocaleString()}+</div>
+                  <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.bookings}</div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                </motion.div>
+                <motion.div 
+                  className="text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.months}</div>
+                  <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.months}</div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                </motion.div>
+                <motion.div 
+                  className="text-center"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-gradient-blobs mb-3">{counts.increase}%</div>
+                  <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.increase}</div>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mt-4"></div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div 
+              className="grid md:grid-cols-3 gap-6 mb-16"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.4
+                  }
+                }
+              }}
+            >
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
+                <CardContent className="p-6 text-center flex flex-col h-full">
+                  <div className="flex mb-4 justify-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
               </div>
-            </BlurAnimateScale>
+                  <div className="flex-1 flex items-center justify-center">
+                    <p className="text-neutral-700 italic leading-relaxed text-sm">
+                    "Nečekala jsem moc, ale teď máme pořád plný kalendář. <strong>Web funguje dobře, lidi sami dělají rezervace a já nemusím pořád telefonovat.</strong> Hodně mi to pomohlo."
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="text-left">
+                      <span className="font-semibold tracking-tight text-black text-sm">Thảo My Nguyễn</span>
+                      <span className="text-neutral-500 text-xs block">{translations.testimonial1.occupation}</span>
+                      <span className="text-neutral-400 text-xs block">{translations.testimonial1.location}</span>
+                    </div>
+                    <span className="text-neutral-400 text-xs">{translations.testimonial1.date}</span>
+                  </div>
+                </CardContent>
+              </Card>
+              </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
-              <BlurAnimateUp delay={10}>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                  <CardContent className="p-6 text-center flex flex-col h-full">
-                    <div className="flex mb-4 justify-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                    <div className="flex-1 flex items-center justify-center">
-                      <p className="text-neutral-700 italic leading-relaxed text-sm">
-                      "Nečekala jsem moc, ale teď máme pořád plný kalendář. <strong>Web funguje dobře, lidi sami dělají rezervace a já nemusím pořád telefonovat.</strong> Hodně mi to pomohlo."
-                      </p>
+                <CardContent className="p-6 text-center flex flex-col h-full">
+                  <div className="flex mb-4 justify-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <div className="flex-1 flex items-center justify-center">
+                    <p className="text-neutral-700 italic leading-relaxed text-sm">
+                    "Pro mě je to velká změna. <strong>Dřív jsem měla chaos, teď všechno jde samo. Klienti píšou přímo přes web, já mám víc času na práci, ne na papíry.</strong>"
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="text-left">
+                      <span className="font-semibold tracking-tight text-black text-sm">Alina Dovzhenko</span>
+                      <span className="text-neutral-500 text-xs block">{translations.testimonial2.occupation}</span>
+                      <span className="text-neutral-400 text-xs block">{translations.testimonial2.location}</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <div className="text-left">
-                        <span className="font-semibold tracking-tight text-black text-sm">Thảo My Nguyễn</span>
-                        <span className="text-neutral-500 text-xs block">{t.testimonial1.occupation}</span>
-                        <span className="text-neutral-400 text-xs block">{t.testimonial1.location}</span>
-                      </div>
-                      <span className="text-neutral-400 text-xs">{t.testimonial1.date}</span>
-                    </div>
-                  </CardContent>
+                    <span className="text-neutral-400 text-xs">{translations.testimonial2.date}</span>
+                  </div>
+                </CardContent>
                 </Card>
-              </BlurAnimateUp>
+              </motion.div>
 
-              <BlurAnimateUp delay={15}>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                  <CardContent className="p-6 text-center flex flex-col h-full">
-                    <div className="flex mb-4 justify-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <div className="flex-1 flex items-center justify-center">
-                      <p className="text-neutral-700 italic leading-relaxed text-sm">
-                      "Pro mě je to velká změna. <strong>Dřív jsem měla chaos, teď všechno jde samo. Klienti píšou přímo přes web, já mám víc času na práci, ne na papíry.</strong>"
-                      </p>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <div className="text-left">
-                        <span className="font-semibold tracking-tight text-black text-sm">Alina Dovzhenko</span>
-                        <span className="text-neutral-500 text-xs block">{t.testimonial2.occupation}</span>
-                        <span className="text-neutral-400 text-xs block">{t.testimonial2.location}</span>
-                      </div>
-                      <span className="text-neutral-400 text-xs">{t.testimonial2.date}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </BlurAnimateUp>
-
-              <BlurAnimateUp delay={20}>
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
-                  <CardContent className="p-6 text-center flex flex-col h-full">
-                    <div className="flex mb-4 justify-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                </div>
-                    <div className="flex-1 flex items-center justify-center">
-                      <p className="text-neutral-700 italic leading-relaxed text-sm">
-                      "Our new website completely changed how we get customers. <strong>Bookings come in automatically, the site looks modern, and I can finally focus on growing instead of chasing calls.</strong>"
-                      </p>
+                <CardContent className="p-6 text-center flex flex-col h-full">
+                  <div className="flex mb-4 justify-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
               </div>
-                    <div className="flex justify-between items-center">
-                      <div className="text-left">
-                        <span className="font-semibold tracking-tight text-black text-sm">Élodie Carpentier</span>
-                        <span className="text-neutral-500 text-xs block">{t.testimonial3.occupation}</span>
-                        <span className="text-neutral-400 text-xs block">{t.testimonial3.location}</span>
-                      </div>
-                      <span className="text-neutral-400 text-xs">{t.testimonial3.date}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </BlurAnimateUp>
+                  <div className="flex-1 flex items-center justify-center">
+                    <p className="text-neutral-700 italic leading-relaxed text-sm">
+                    "Our new website completely changed how we get customers. <strong>Bookings come in automatically, the site looks modern, and I can finally focus on growing instead of chasing calls.</strong>"
+                    </p>
             </div>
+                  <div className="flex justify-between items-center">
+                    <div className="text-left">
+                      <span className="font-semibold tracking-tight text-black text-sm">Élodie Carpentier</span>
+                      <span className="text-neutral-500 text-xs block">{translations.testimonial3.occupation}</span>
+                      <span className="text-neutral-400 text-xs block">{translations.testimonial3.location}</span>
+                    </div>
+                    <span className="text-neutral-400 text-xs">{translations.testimonial3.date}</span>
+                  </div>
+                </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
 
             {/* CTA Section */}
-            <BlurAnimateUp delay={25}>
-              <div className="text-center">
-                <p className="text-lg text-neutral-600 mb-3">{t.testimonials.trustedBy}</p>
-                <GradientButton asChild>
-                  <a href="#contact">
-                    {t.testimonials.readyToJoin}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </GradientButton>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            >
+              <p className="text-lg text-neutral-600 mb-3">
+                {translations.testimonials.trustedBy}
+              </p>
+              <GradientButton asChild>
+                <a href="#contact">
+                  {translations.testimonials.readyToJoin}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+              </GradientButton>
+            </motion.div>
           </div>
         </section>
 
         {/* How It Works - Founder Focused */}
-        <section id="how-it-works" className="pt-8 pb-16 relative z-10">
+        <section id="how-it-works" className="pt-8 pb-16 relative z-10" ref={howItWorksRef}>
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <BlurAnimateUp delay={0}>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
-                  {t.howItWorks.title}
-                </h2>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
+                {translations.howItWorks.title}
+              </h2>
+            </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <BlurAnimateLeft delay={5}>
-                <div className="flex flex-col gap-4">
+            <motion.div 
+              className="grid md:grid-cols-3 gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              <motion.div 
+                className="flex flex-col gap-4"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
                   <CardContent className="p-6 text-center relative h-full">
                     <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
-                      <span className="text-2xl font-bold text-black">{t.howItWorks.step1.title}</span>
+                      <span className="text-2xl font-bold text-black">{translations.howItWorks.step1.title}</span>
                 </div>
                     <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-full px-4">
-                      <h4 className="text-xl font-semibold text-black">{t.howItWorks.step1.subtitle}</h4>
+                      <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step1.subtitle}</h4>
               </div>
                     <div className="absolute top-32 left-1/2 transform -translate-x-1/2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
-                        <span className="text-neutral-700">{t.howItWorks.step1.duration}</span>
+                        <span className="text-neutral-700">{translations.howItWorks.step1.duration}</span>
                 </div>
               </div>
                     <div className="absolute top-44 left-1/2 transform -translate-x-1/2 w-full px-4">
                       <p className="text-neutral-700 text-sm">
-                        {t.howItWorks.step1.description}
+                        {translations.howItWorks.step1.description}
                       </p>
                 </div>
                   </CardContent>
@@ -340,31 +516,36 @@ export default function HomePage() {
                 <div className="mt-4">
                   <div className="flex items-start gap-2 w-fit">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-green-700 text-sm font-medium">{t.howItWorks.step1.note}</span>
+                    <span className="text-green-700 text-sm font-medium">{translations.howItWorks.step1.note}</span>
                   </div>
                 </div>
-                </div>
-              </BlurAnimateLeft>
+              </motion.div>
 
-              <BlurAnimateLeft delay={700}>
-                <div className="flex flex-col gap-4">
-                  <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
+              <motion.div 
+                className="flex flex-col gap-4"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
                   <CardContent className="p-6 text-center relative h-full">
                     <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
-                      <span className="text-2xl font-bold text-black">{t.howItWorks.step2.title}</span>
+                      <span className="text-2xl font-bold text-black">{translations.howItWorks.step2.title}</span>
               </div>
                     <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-full px-4">
-                      <h4 className="text-xl font-semibold text-black">{t.howItWorks.step2.subtitle}</h4>
+                      <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step2.subtitle}</h4>
             </div>
                     <div className="absolute top-32 left-1/2 transform -translate-x-1/2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
-                        <span className="text-neutral-700">{t.howItWorks.step2.duration}</span>
+                        <span className="text-neutral-700">{translations.howItWorks.step2.duration}</span>
           </div>
             </div>
                     <div className="absolute top-44 left-1/2 transform -translate-x-1/2 w-full px-4">
                       <p className="text-neutral-700 text-sm">
-                        {t.howItWorks.step2.description}
+                        {translations.howItWorks.step2.description}
                 </p>
               </div>
                   </CardContent>
@@ -372,31 +553,36 @@ export default function HomePage() {
                 <div className="mt-4">
                   <div className="flex items-start gap-2 w-fit">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-green-700 text-sm font-medium">{t.howItWorks.step2.note}</span>
+                    <span className="text-green-700 text-sm font-medium">{translations.howItWorks.step2.note}</span>
                   </div>
                 </div>
-                </div>
-              </BlurAnimateLeft>
+              </motion.div>
 
-              <BlurAnimateLeft delay={20}>
-                <div className="flex flex-col gap-4">
-                  <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
+              <motion.div 
+                className="flex flex-col gap-4"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl h-[280px]">
                   <CardContent className="p-6 text-center relative h-full">
                     <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
-                      <span className="text-2xl font-bold text-black">{t.howItWorks.step3.title}</span>
+                      <span className="text-2xl font-bold text-black">{translations.howItWorks.step3.title}</span>
                     </div>
                     <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-full px-4">
-                      <h4 className="text-xl font-semibold text-black">{t.howItWorks.step3.subtitle}</h4>
+                      <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step3.subtitle}</h4>
                     </div>
                     <div className="absolute top-32 left-1/2 transform -translate-x-1/2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
-                        <span className="text-neutral-700">{t.howItWorks.step3.duration}</span>
+                        <span className="text-neutral-700">{translations.howItWorks.step3.duration}</span>
                       </div>
                     </div>
                     <div className="absolute top-44 left-1/2 transform -translate-x-1/2 w-full px-4">
                       <p className="text-neutral-700 text-sm">
-                        {t.howItWorks.step3.description}
+                        {translations.howItWorks.step3.description}
                       </p>
                     </div>
                   </CardContent>
@@ -404,38 +590,63 @@ export default function HomePage() {
                 <div className="mt-4">
                   <div className="flex items-start gap-2 w-fit">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-green-700 text-sm font-medium">{t.howItWorks.step3.note}</span>
+                    <span className="text-green-700 text-sm font-medium">{translations.howItWorks.step3.note}</span>
                   </div>
                 </div>
-                </div>
-              </BlurAnimateLeft>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* Pricing Section */}
         <section id="pricing" className="pt-8 pb-16 relative z-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <BlurAnimateUp delay={0}>
-              <div className="text-center mb-0">
-                <h2 className="text-4xl sm:text-5xl font-bold text-black tracking-tighter">
-                  {t.pricing.title}
-                </h2>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mb-0"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-black tracking-tighter">
+                {translations.pricing.title}
+              </h2>
+            </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto scale-90">
-              <BlurAnimateLeft delay={5}>
-                {/* Website/Branding Package */}
-              <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col">
+            <motion.div 
+              className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto scale-90 items-stretch"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {/* Website/Branding Package */}
+              <motion.div
+                className="h-full flex"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col w-full">
                 <CardHeader className="text-left pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">{t.pricing.websiteBranding.title}</CardTitle>
-                  <div className="text-4xl font-bold text-gradient-blobs mt-6">{t.pricing.websiteBranding.price}</div>
-                  <CardDescription className="mt-4 text-neutral-600">{t.pricing.websiteBranding.description}</CardDescription>
+                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</CardTitle>
+                  <div className="text-4xl font-bold text-gradient-blobs mt-6">{translations.pricing.websiteBranding.price}</div>
+                  <CardDescription className="mt-4 text-neutral-600">{translations.pricing.websiteBranding.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col grow space-y-8 pb-10">
                   <ul className="space-y-2 text-base sm:text-lg">
-                    {t.pricing.websiteBranding.features.map((feature: string, index: number) => (
+                    {translations.pricing.websiteBranding.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                         <defs>
@@ -454,23 +665,30 @@ export default function HomePage() {
                   </ul>
                   <div className="flex-1"></div>
                   <GradientButton asChild className="w-full mt-auto">
-                    <a href="/custom-quote">{t.pricing.websiteBranding.cta}</a>
+                    <a href="/custom-quote">{translations.pricing.websiteBranding.cta}</a>
                   </GradientButton>
                 </CardContent>
               </Card>
-              </BlurAnimateLeft>
+              </motion.div>
 
-              <BlurAnimateLeft delay={700}>
-                {/* Modern Website Package */}
-              <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col">
+              {/* Modern Website Package */}
+              <motion.div
+                className="h-full flex"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col w-full">
                 <CardHeader className="text-left pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">{t.pricing.modernWebsite.title}</CardTitle>
-                  <div className="text-4xl font-bold text-gradient-blobs mt-6">{t.pricing.modernWebsite.price}</div>
-                  <CardDescription className="mt-4 text-neutral-600">{t.pricing.modernWebsite.description}</CardDescription>
+                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</CardTitle>
+                  <div className="text-4xl font-bold text-gradient-blobs mt-6">{translations.pricing.modernWebsite.price}</div>
+                  <CardDescription className="mt-4 text-neutral-600">{translations.pricing.modernWebsite.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col grow space-y-8 pb-10">
                   <ul className="space-y-2 text-base sm:text-lg">
-                    {t.pricing.modernWebsite.features.map((feature: string, index: number) => (
+                    {translations.pricing.modernWebsite.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
                         <defs>
@@ -489,40 +707,70 @@ export default function HomePage() {
                   </ul>
                   <div className="flex-1"></div>
                   <GradientButton asChild className="w-full mt-auto">
-                    <a href="/custom-quote">{t.pricing.modernWebsite.cta}</a>
+                    <a href="/custom-quote">{translations.pricing.modernWebsite.cta}</a>
                   </GradientButton>
                 </CardContent>
               </Card>
-              </BlurAnimateLeft>
-            </div>
+              </motion.div>
+            </motion.div>
             
             {/* Limited Spots Alert */}
-            <BlurAnimateUp delay={20}>
-              <div className="text-center mt-2">
-                <div className="inline-flex items-center gap-2">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                  <span className="text-amber-800 text-sm font-medium">{t.pricing.limitedSpots}</span>
-                </div>
+            <motion.div 
+              className="text-center mt-2"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            >
+              <div className="inline-flex items-center gap-2">
+                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                <span className="text-amber-800 text-sm font-medium">{translations.pricing.limitedSpots}</span>
               </div>
-            </BlurAnimateUp>
+            </motion.div>
           </div>
         </section>
 
         {/* Guarantee Section */}
         <section id="guarantees" className="pt-8 pb-16 relative z-10">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <BlurAnimateUp delay={0}>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
-                  {t.guarantees.title}
-                </h2>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
+                {translations.guarantees.title}
+              </h2>
+            </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <BlurAnimateUp delay={5}>
-                {/* Guarantee Card 1 */}
-              <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl">
+            <motion.div 
+              className="grid md:grid-cols-3 gap-8 items-stretch"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {/* Guarantee Card 1 */}
+              <motion.div
+                className="h-full flex"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl flex flex-col w-full">
                 <CardContent className="p-8 text-center">
                   <div className="flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient1)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -538,17 +786,24 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     </div>
-                                     <h3 className="text-xl font-semibold text-black mb-4">{t.guarantees.onTime.title}</h3>
+                                     <h3 className="text-xl font-semibold text-black mb-4">{translations.guarantees.onTime.title}</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    {t.guarantees.onTime.description}
+                    {translations.guarantees.onTime.description}
                     </p>
                 </CardContent>
               </Card>
-              </BlurAnimateUp>
+              </motion.div>
 
-              <BlurAnimateUp delay={10}>
-                {/* Guarantee Card 2 */}
-              <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl">
+              {/* Guarantee Card 2 */}
+              <motion.div
+                className="h-full flex"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl flex flex-col w-full">
                 <CardContent className="p-8 text-center">
                   <div className="flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient2)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -564,17 +819,24 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                     </div>
-                                     <h3 className="text-xl font-semibold text-black mb-4">{t.guarantees.professional.title}</h3>
+                                     <h3 className="text-xl font-semibold text-black mb-4">{translations.guarantees.professional.title}</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    {t.guarantees.professional.description}
+                    {translations.guarantees.professional.description}
                     </p>
                 </CardContent>
               </Card>
-              </BlurAnimateUp>
+              </motion.div>
 
-              <BlurAnimateUp delay={15}>
-                {/* Guarantee Card 3 */}
-              <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl">
+              {/* Guarantee Card 3 */}
+              <motion.div
+                className="h-full flex"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl flex flex-col w-full">
                 <CardContent className="p-8 text-center">
                   <div className="flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient3)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -590,130 +852,197 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     </div>
-                                     <h3 className="text-xl font-semibold text-black mb-4">{t.guarantees.noHiddenFees.title}</h3>
+                                     <h3 className="text-xl font-semibold text-black mb-4">{translations.guarantees.noHiddenFees.title}</h3>
                   <p className="text-neutral-600 leading-relaxed">
-                    {t.guarantees.noHiddenFees.description}
+                    {translations.guarantees.noHiddenFees.description}
                     </p>
                 </CardContent>
               </Card>
-              </BlurAnimateUp>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* Scarcity Section */}
         <section className="pt-8 pb-16 relative z-10">
           <div className="container mx-auto px-4">
-            <BlurAnimateUp delay={0}>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
-                  {t.scarcity.subtitle}
-                </h2>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
+                {translations.scarcity.subtitle}
+              </h2>
+            </motion.div>
 
-            <BlurAnimateScale delay={5}>
-              <div className="max-w-4xl mx-auto">
-                {/* Timeline */}
-                <div className="relative">
-                  {/* Timeline Line */}
-                  <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-400 via-red-500 to-red-600 transform -translate-y-1/2 rounded-full"></div>
-                  
-                  {/* Timeline Items */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                    <BlurAnimateUp delay={10}>
-                      {/* Today */}
-                  <div className="relative z-10">
+            <motion.div 
+              className="max-w-4xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {/* Timeline */}
+              <div className="relative">
+                {/* Timeline Line */}
+                <motion.div 
+                  className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-400 via-red-500 to-red-600 transform -translate-y-1/2 rounded-full"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+                ></motion.div>
+                
+                {/* Timeline Items */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                  {/* Today */}
+                  <motion.div 
+                    className="relative z-10"
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                      visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                    }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
                     <div className="bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl p-6 text-center">
                       <div className="w-4 h-4 bg-red-500 rounded-full mx-auto mb-4 relative">
                         <div className="absolute inset-0 bg-red-500 rounded-full animate-pulse"></div>
                       </div>
-                      <h3 className="text-lg font-semibold text-black mb-2">{t.scarcity.today.title}</h3>
+                      <h3 className="text-lg font-semibold text-black mb-2">{translations.scarcity.today.title}</h3>
                       <p className="text-sm text-neutral-600 mb-3">
-                        {t.scarcity.today.description}
+                        {translations.scarcity.today.description}
                       </p>
                       <div className="text-xs text-red-500 font-medium">
-                        {t.scarcity.today.status}
+                        {translations.scarcity.today.status}
                       </div>
                     </div>
-                  </div>
-                    </BlurAnimateUp>
+                  </motion.div>
 
-                    <BlurAnimateUp delay={900}>
-                      {/* 30 Days Later */}
-                  <div className="relative z-10">
+                  {/* 30 Days Later */}
+                  <motion.div 
+                    className="relative z-10"
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                      visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                    }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
                     <div className="bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl p-6 text-center">
                       <div className="w-4 h-4 bg-red-600 rounded-full mx-auto mb-4 relative">
                         <div className="absolute inset-0 bg-red-600 rounded-full animate-pulse"></div>
                       </div>
-                      <h3 className="text-lg font-semibold text-black mb-2">{t.scarcity.thirtyDays.title}</h3>
+                      <h3 className="text-lg font-semibold text-black mb-2">{translations.scarcity.thirtyDays.title}</h3>
                       <p className="text-sm text-neutral-600 mb-3">
-                        {t.scarcity.thirtyDays.description}
+                        {translations.scarcity.thirtyDays.description}
                       </p>
                       <div className="text-xs text-red-600 font-medium">
-                        {t.scarcity.thirtyDays.status}
+                        {translations.scarcity.thirtyDays.status}
                       </div>
                     </div>
-                  </div>
-                    </BlurAnimateUp>
+                  </motion.div>
 
-                    <BlurAnimateUp delay={25}>
-                      {/* 90 Days Later */}
-                  <div className="relative z-10">
+                  {/* 90 Days Later */}
+                  <motion.div 
+                    className="relative z-10"
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                      visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                    }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
                     <div className="bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl p-6 text-center">
                       <div className="w-4 h-4 bg-red-700 rounded-full mx-auto mb-4 relative">
                         <div className="absolute inset-0 bg-red-700 rounded-full animate-pulse"></div>
                       </div>
-                      <h3 className="text-lg font-semibold text-black mb-2">{t.scarcity.ninetyDays.title}</h3>
+                      <h3 className="text-lg font-semibold text-black mb-2">{translations.scarcity.ninetyDays.title}</h3>
                       <p className="text-sm text-neutral-600 mb-3">
-                        {t.scarcity.ninetyDays.description}
+                        {translations.scarcity.ninetyDays.description}
                       </p>
                       <div className="text-xs text-red-700 font-medium">
-                        {t.scarcity.ninetyDays.status}
+                        {translations.scarcity.ninetyDays.status}
                       </div>
                     </div>
-                  </div>
-                    </BlurAnimateUp>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
               {/* CTA */}
-              <BlurAnimateUp delay={25}>
-                <div className="text-center mt-12">
-                  <h3 className="text-2xl font-bold text-black mb-6">
-                    {t.scarcity.cta.title}
-                  </h3>
-                  <GradientButton asChild>
-                    <Link href="#contact">
-                      {t.scarcity.cta.button}
-                    </Link>
-                  </GradientButton>
-                </div>
-              </BlurAnimateUp>
-            </BlurAnimateScale>
+              <motion.div 
+                className="text-center mt-12"
+                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+              >
+                <h3 className="text-2xl font-bold text-black mb-6">
+                  {translations.scarcity.cta.title}
+                </h3>
+                <GradientButton asChild>
+                  <Link href="#contact">
+                    {translations.scarcity.cta.button}
+                  </Link>
+                </GradientButton>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* FAQ Section */}
         <section id="faq" className="pt-8 pb-12 relative z-10">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <BlurAnimateUp delay={0}>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
-                  {t.faq.title}
-                </h2>
-                <p className="text-xl text-neutral-600 font-normal">{t.faq.subtitle}</p>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6 tracking-tighter">
+                {translations.faq.title}
+              </h2>
+              <p className="text-xl text-neutral-600 font-normal">{translations.faq.subtitle}</p>
+            </motion.div>
 
-            <div className="space-y-4">
-              {t.faq.questions.map((faq: any, index: number) => (
-                <BlurAnimateUp key={index} delay={400 + (index * 150)}>
-                <Card
+            <motion.div 
+              className="space-y-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {translations.faq.questions.map((faq: any, index: number) => (
+                <motion.div
                   key={index}
-                  className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                 >
+                  <Card
+                    className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden"
+                  >
                   <button
                     className="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-50/50 transition-colors"
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
@@ -735,30 +1064,55 @@ export default function HomePage() {
                     <p className="text-neutral-600 leading-relaxed pb-6">{faq.answer}</p>
                   </div>
                 </Card>
-                </BlurAnimateUp>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* CTA Button */}
-            <BlurAnimateUp delay={20}>
-              <div className="text-center mt-8">
-                <GradientButton asChild>
-                  <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
-                    {t.faq.cta.button}
-                  </a>
-                </GradientButton>
-                <p className="text-black/70 mt-4 text-sm">{t.faq.cta.note}</p>
-              </div>
-            </BlurAnimateUp>
+            <motion.div 
+              className="text-center mt-8"
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            >
+              <GradientButton asChild>
+                <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
+                  {translations.faq.cta.button}
+                </a>
+              </GradientButton>
+              <p className="text-black/70 mt-4 text-sm">{translations.faq.cta.note}</p>
+            </motion.div>
           </div>
         </section>
 
         {/* Footer */}
         <footer className="text-black pt-16 pb-8 relative z-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-8 justify-start">
-              <BlurAnimateUp delay={0}>
-                <div className="flex flex-col items-start">
+            <motion.div 
+              className="grid md:grid-cols-4 gap-8 justify-start"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+            >
+              <motion.div 
+                className="flex flex-col items-start"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <Image
                   src="/accent_logo.svg"
                   alt="ACCENT Logo"
@@ -768,16 +1122,23 @@ export default function HomePage() {
                   style={{ filter: "brightness(0)" }}
                 />
                 <p className="text-neutral-600 text-sm mb-3">
-                  {t.footer.copyright}
+                  {translations.footer.copyright}
                 </p>
                                   <p className="text-neutral-600 leading-relaxed">
-                    {t.footer.description}
+                    {translations.footer.description}
                   </p>
-              </div>
-              <div className="flex flex-col items-start">
-                <h4 className="font-semibold mb-4">{t.footer.services.title}</h4>
+              </motion.div>
+              <motion.div 
+                className="flex flex-col items-start"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <h4 className="font-semibold mb-4">{translations.footer.services.title}</h4>
                 <ul className="space-y-2 text-neutral-600">
-                  {t.footer.services.items.map((item: string, index: number) => (
+                  {translations.footer.services.items.map((item: string, index: number) => (
                     <li key={index}>
                     <a href="#" className="hover:text-black transition-colors">
                         {item}
@@ -785,13 +1146,18 @@ export default function HomePage() {
                   </li>
                   ))}
                 </ul>
-              </div>
-              </BlurAnimateUp>
-              <BlurAnimateUp delay={5}>
-                <div className="flex flex-col items-start">
-                <h4 className="font-semibold mb-4">{t.footer.company.title}</h4>
+              </motion.div>
+              <motion.div 
+                className="flex flex-col items-start"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <h4 className="font-semibold mb-4">{translations.footer.company.title}</h4>
                 <ul className="space-y-2 text-neutral-600">
-                  {t.footer.company.items.map((item: string, index: number) => (
+                  {translations.footer.company.items.map((item: string, index: number) => (
                     <li key={index}>
                     <a href="#" className="hover:text-black transition-colors">
                         {item}
@@ -799,29 +1165,33 @@ export default function HomePage() {
                   </li>
                   ))}
                 </ul>
-              </div>
-              </BlurAnimateUp>
-              <BlurAnimateUp delay={10}>
-                <div className="flex flex-col items-start w-full">
-                <h4 className="font-semibold mb-4">{t.footer.contact.title}</h4>
+              </motion.div>
+              <motion.div 
+                className="flex flex-col items-start w-full"
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <h4 className="font-semibold mb-4">{translations.footer.contact.title}</h4>
                 <form className="w-full flex flex-col space-y-2">
                                       <input
                       type="email"
-                      placeholder={t.footer.contact.email}
+                      placeholder={translations.footer.contact.email}
                       className="px-3 py-1.5 rounded-[11px] bg-white/25 backdrop-blur-sm border border-neutral-200/20 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full text-sm"
                     />
                     <textarea
-                      placeholder={t.footer.contact.message}
+                      placeholder={translations.footer.contact.message}
                       rows={2}
                       className="px-3 py-1.5 rounded-[11px] bg-white/25 backdrop-blur-sm border border-neutral-200/20 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full resize-none text-sm"
                     />
                   <GradientButton type="submit" className="w-full">
-                                          {t.footer.contact.send}
+                                          {translations.footer.contact.send}
                   </GradientButton>
                 </form>
-              </div>
-              </BlurAnimateUp>
-            </div>
+              </motion.div>
+            </motion.div>
 
           </div>
         </footer>
