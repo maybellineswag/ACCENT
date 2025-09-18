@@ -49,7 +49,7 @@ function Hero({ translations }: HeroProps) {
             >
               <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3">
                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                <span className="!text-black text-[10px] sm:text-sm font-medium tracking-wide text-center whitespace-nowrap">
+                <span className="!text-black text-[10px] sm:text-sm font-medium tracking-wide text-left sm:text-center whitespace-nowrap">
                   {translations.notificationBanner}
                 </span>
               </div>
