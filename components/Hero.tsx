@@ -47,15 +47,15 @@ function Hero({ translations }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative mb-1 px-4 sm:px-0"
             >
-              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-full px-4 py-2 sm:px-6 sm:py-3 shadow-lg">
-                <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                <span className="!text-black text-xs sm:text-sm font-medium tracking-wide text-center">
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
+                <span className="!text-black text-[10px] sm:text-sm font-medium tracking-wide text-center whitespace-nowrap">
                   {translations.notificationBanner}
                 </span>
               </div>
             </motion.div>
 
-                                                   <h1 className="text-3xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
+                                                   <h1 className="text-4xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
                 <span className="text-black">{translations.hero.title}</span>
                 <br />
                 <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-8 md:pt-2">
@@ -84,7 +84,7 @@ function Hero({ translations }: HeroProps) {
                 </span>
               </h1>
 
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
+            <p className="text-xs sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
               {translations.hero.desc}
             </p>
           </div>
@@ -103,13 +103,15 @@ function Hero({ translations }: HeroProps) {
           </div>
 
           {/* Clients Section */}
-          <div className="mt-2">
-            <div className="flex items-center justify-center gap-x-2 sm:gap-x-4 md:gap-x-12">
+          <div className="mt-6 sm:mt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 md:gap-x-12">
               <p className="text-black font-medium text-sm sm:text-base">{translations.ourClients}</p>
-              <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-8 sm:w-12 md:w-20 h-auto flex-shrink-0" />
-              <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-8 sm:w-12 md:w-20 h-auto flex-shrink-0" />
-              <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-8 sm:w-12 md:w-20 h-auto flex-shrink-0" />
-              <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-8 sm:w-12 md:w-20 h-auto flex-shrink-0" />
+              <div className="flex items-center gap-x-4 sm:gap-x-6 md:gap-x-8">
+                <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
+                <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
+              </div>
               <span className="text-black text-xs sm:text-sm font-medium">{translations.moreClients}</span>
             </div>
           </div>
