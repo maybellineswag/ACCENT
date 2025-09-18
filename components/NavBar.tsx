@@ -154,19 +154,18 @@ export function NavBar({ className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed top-0 left-4 sm:left-1/2 sm:-translate-x-1/2 z-30 pt-4 sm:pt-6 w-fit pointer-events-none",
+        "fixed top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 z-30 pt-4 sm:pt-6 w-full sm:w-fit pointer-events-none",
         className,
       )}
     >
-      {/* Mobile Header - Only Globe and Logo */}
-      <div className="sm:hidden flex items-center justify-start gap-3 pointer-events-auto">
+      {/* Mobile Header - Logo and Globe */}
+      <div className="sm:hidden flex items-center justify-between w-full px-4 pointer-events-auto">
         <Image
           src="/accent_logo.svg"
           alt="ACCENT Logo"
-          width={24}
-          height={24}
-          className="h-6 w-auto select-none"
-          style={{ filter: "brightness(0)" }}
+          width={32}
+          height={32}
+          className="h-8 w-auto select-none text-gradient-blobs"
         />
         <div className="relative">
           <button

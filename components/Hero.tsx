@@ -37,7 +37,7 @@ function Hero({ translations }: HeroProps) {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="w-full px-4 sm:container sm:mx-auto sm:px-6">
         <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-8 items-start sm:items-center justify-start sm:justify-center flex-col">
           <div className="flex gap-4 flex-col items-start sm:items-center">
             {/* Notification Banner */}
@@ -45,7 +45,7 @@ function Hero({ translations }: HeroProps) {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative mb-1 px-4 sm:px-0"
+              className="relative mb-1"
             >
               <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3">
                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
