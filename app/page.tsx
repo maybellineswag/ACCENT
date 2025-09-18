@@ -602,7 +602,7 @@ export default function HomePage() {
         <section id="pricing" className="pt-8 pb-16 relative z-10">
           <div className="w-full pl-2 pr-4 sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
-              className="text-left sm:text-center mb-0 pl-4"
+              className="text-left sm:text-center mb-0 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -614,7 +614,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 items-stretch w-full"
+              className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 origin-left items-stretch w-full pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -716,7 +716,7 @@ export default function HomePage() {
             
             {/* Limited Spots Alert */}
             <motion.div 
-              className="w-full text-left sm:text-center mt-2"
+              className="w-full text-left sm:text-center mt-2 scale-90 origin-left pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -732,9 +732,9 @@ export default function HomePage() {
 
         {/* Guarantee Section */}
         <section id="guarantees" className="pt-8 pb-16 relative z-10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full pl-2 pr-4 sm:max-w-6xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
-              className="text-center mb-16"
+              className="text-left sm:text-center mb-16 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -746,7 +746,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-3 gap-8 items-stretch"
+              className="grid md:grid-cols-3 gap-8 items-stretch pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -770,28 +770,26 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl flex flex-col w-full">
-                <CardContent className="p-8 text-center">
-                  <div className="flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient1)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="iconGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#c2a9f2" />
-                          <stop offset="25%" stopColor="#cda9ed" />
-                          <stop offset="50%" stopColor="#d1a9eb" />
-                          <stop offset="75%" stopColor="#dfade2" />
-                          <stop offset="100%" stopColor="#dba1cd" />
-                        </linearGradient>
-                      </defs>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl flex flex-col w-full">
+                  <div className="text-left sm:text-center pl-0 pr-0 sm:p-8">
+                    <div className="flex items-start justify-start mb-3 sm:items-center sm:justify-center sm:mx-auto sm:mb-6">
+                      <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient1)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="iconGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#c2a9f2" />
+                            <stop offset="25%" stopColor="#cda9ed" />
+                            <stop offset="50%" stopColor="#d1a9eb" />
+                            <stop offset="75%" stopColor="#dfade2" />
+                            <stop offset="100%" stopColor="#dba1cd" />
+                          </linearGradient>
+                        </defs>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                                     <h3 className="text-xl font-semibold text-black mb-4">{translations.guarantees.onTime.title}</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                    {translations.guarantees.onTime.description}
-                    </p>
-                </CardContent>
-              </Card>
+                    <h3 className="text-lg sm:text-xl font-semibold text-black mb-2 sm:mb-4">{translations.guarantees.onTime.title}</h3>
+                    <p className="text-neutral-600 leading-relaxed">{translations.guarantees.onTime.description}</p>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Guarantee Card 2 */}
@@ -803,28 +801,26 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl flex flex-col w-full">
-                <CardContent className="p-8 text-center">
-                  <div className="flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient2)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="iconGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#c2a9f2" />
-                          <stop offset="25%" stopColor="#cda9ed" />
-                          <stop offset="50%" stopColor="#d1a9eb" />
-                          <stop offset="75%" stopColor="#dfade2" />
-                          <stop offset="100%" stopColor="#dba1cd" />
-                        </linearGradient>
-                      </defs>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl flex flex-col w-full">
+                  <div className="text-left sm:text-center pl-0 pr-0 sm:p-8">
+                    <div className="flex items-start justify-start mb-3 sm:items-center sm:justify-center sm:mx-auto sm:mb-6">
+                      <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient2)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="iconGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#c2a9f2" />
+                            <stop offset="25%" stopColor="#cda9ed" />
+                            <stop offset="50%" stopColor="#d1a9eb" />
+                            <stop offset="75%" stopColor="#dfade2" />
+                            <stop offset="100%" stopColor="#dba1cd" />
+                          </linearGradient>
+                        </defs>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
                     </div>
-                                     <h3 className="text-xl font-semibold text-black mb-4">{translations.guarantees.professional.title}</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                    {translations.guarantees.professional.description}
-                    </p>
-                </CardContent>
-              </Card>
+                    <h3 className="text-lg sm:text-xl font-semibold text-black mb-2 sm:mb-4">{translations.guarantees.professional.title}</h3>
+                    <p className="text-neutral-600 leading-relaxed">{translations.guarantees.professional.description}</p>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Guarantee Card 3 */}
@@ -836,28 +832,26 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl flex flex-col w-full">
-                <CardContent className="p-8 text-center">
-                  <div className="flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient3)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="iconGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#c2a9f2" />
-                          <stop offset="25%" stopColor="#cda9ed" />
-                          <stop offset="50%" stopColor="#d1a9eb" />
-                          <stop offset="75%" stopColor="#dfade2" />
-                          <stop offset="100%" stopColor="#dba1cd" />
-                        </linearGradient>
-                      </defs>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl flex flex-col w-full">
+                  <div className="text-left sm:text-center pl-0 pr-0 sm:p-8">
+                    <div className="flex items-start justify-start mb-3 sm:items-center sm:justify-center sm:mx-auto sm:mb-6">
+                      <svg className="w-8 h-8" fill="none" stroke="url(#iconGradient3)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="iconGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#c2a9f2" />
+                            <stop offset="25%" stopColor="#cda9ed" />
+                            <stop offset="50%" stopColor="#d1a9eb" />
+                            <stop offset="75%" stopColor="#dfade2" />
+                            <stop offset="100%" stopColor="#dba1cd" />
+                          </linearGradient>
+                        </defs>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                                     <h3 className="text-xl font-semibold text-black mb-4">{translations.guarantees.noHiddenFees.title}</h3>
-                  <p className="text-neutral-600 leading-relaxed">
-                    {translations.guarantees.noHiddenFees.description}
-                    </p>
-                </CardContent>
-              </Card>
+                    <h3 className="text-lg sm:text-xl font-semibold text-black mb-2 sm:mb-4">{translations.guarantees.noHiddenFees.title}</h3>
+                    <p className="text-neutral-600 leading-relaxed">{translations.guarantees.noHiddenFees.description}</p>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -865,9 +859,9 @@ export default function HomePage() {
 
         {/* Scarcity Section */}
         <section className="pt-8 pb-16 relative z-10">
-          <div className="container mx-auto px-4 sm:px-6">
+          <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
             <motion.div 
-              className="text-center mb-12"
+              className="text-left sm:text-center mb-12 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -879,7 +873,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className="sm:max-w-4xl sm:mx-auto pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -898,7 +892,7 @@ export default function HomePage() {
               <div className="relative">
                 {/* Timeline Line */}
                 <motion.div 
-                  className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-400 via-red-500 to-red-600 transform -translate-y-1/2 rounded-full"
+                  className="hidden sm:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-400 via-red-500 to-red-600 transform -translate-y-1/2 rounded-full"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
@@ -916,11 +910,13 @@ export default function HomePage() {
                     }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <div className="bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl p-6 text-center">
-                      <div className="w-4 h-4 bg-red-500 rounded-full mx-auto mb-4 relative">
-                        <div className="absolute inset-0 bg-red-500 rounded-full animate-pulse"></div>
+                    <div className="sm:bg-white/80 sm:backdrop-blur-md sm:border sm:border-white/30 sm:shadow-lg sm:rounded-2xl sm:p-6 text-left sm:text-center">
+                      <div className="hidden sm:block w-4 h-4 bg-red-500 rounded-full mx-auto mb-4 relative"></div>
+                      <div className="flex sm:hidden items-center gap-2 mb-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full flex-shrink-0"></div>
+                        <h3 className="text-lg font-semibold text-black">{translations.scarcity.today.title}</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-black mb-2">{translations.scarcity.today.title}</h3>
+                      <h3 className="hidden sm:block text-lg font-semibold text-black mb-2">{translations.scarcity.today.title}</h3>
                       <p className="text-sm text-neutral-600 mb-3">
                         {translations.scarcity.today.description}
                       </p>
@@ -939,11 +935,13 @@ export default function HomePage() {
                     }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <div className="bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl p-6 text-center">
-                      <div className="w-4 h-4 bg-red-600 rounded-full mx-auto mb-4 relative">
-                        <div className="absolute inset-0 bg-red-600 rounded-full animate-pulse"></div>
+                    <div className="sm:bg-white/80 sm:backdrop-blur-md sm:border sm:border-white/30 sm:shadow-lg sm:rounded-2xl sm:p-6 text-left sm:text-center">
+                      <div className="hidden sm:block w-4 h-4 bg-red-600 rounded-full mx-auto mb-4 relative"></div>
+                      <div className="flex sm:hidden items-center gap-2 mb-2">
+                        <div className="w-2 h-2 bg-red-600 rounded-full flex-shrink-0"></div>
+                        <h3 className="text-lg font-semibold text-black">{translations.scarcity.thirtyDays.title}</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-black mb-2">{translations.scarcity.thirtyDays.title}</h3>
+                      <h3 className="hidden sm:block text-lg font-semibold text-black mb-2">{translations.scarcity.thirtyDays.title}</h3>
                       <p className="text-sm text-neutral-600 mb-3">
                         {translations.scarcity.thirtyDays.description}
                       </p>
@@ -962,11 +960,13 @@ export default function HomePage() {
                     }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <div className="bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-2xl p-6 text-center">
-                      <div className="w-4 h-4 bg-red-700 rounded-full mx-auto mb-4 relative">
-                        <div className="absolute inset-0 bg-red-700 rounded-full animate-pulse"></div>
+                    <div className="sm:bg-white/80 sm:backdrop-blur-md sm:border sm:border-white/30 sm:shadow-lg sm:rounded-2xl sm:p-6 text-left sm:text-center">
+                      <div className="hidden sm:block w-4 h-4 bg-red-700 rounded-full mx-auto mb-4 relative"></div>
+                      <div className="flex sm:hidden items-center gap-2 mb-2">
+                        <div className="w-2 h-2 bg-red-700 rounded-full flex-shrink-0"></div>
+                        <h3 className="text-lg font-semibold text-black">{translations.scarcity.ninetyDays.title}</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-black mb-2">{translations.scarcity.ninetyDays.title}</h3>
+                      <h3 className="hidden sm:block text-lg font-semibold text-black mb-2">{translations.scarcity.ninetyDays.title}</h3>
                       <p className="text-sm text-neutral-600 mb-3">
                         {translations.scarcity.ninetyDays.description}
                       </p>
@@ -980,7 +980,7 @@ export default function HomePage() {
 
               {/* CTA */}
               <motion.div 
-                className="text-center mt-12"
+                className="text-left sm:text-center mt-12"
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
@@ -989,7 +989,7 @@ export default function HomePage() {
                 <h3 className="text-2xl font-bold text-black mb-6">
                   {translations.scarcity.cta.title}
                 </h3>
-                <GradientButton asChild>
+                <GradientButton asChild className="sm:mx-auto">
                   <Link href="#contact">
                     {translations.scarcity.cta.button}
                   </Link>
@@ -1001,9 +1001,9 @@ export default function HomePage() {
 
         {/* FAQ Section */}
         <section id="faq" className="pt-8 pb-12 relative z-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full pl-2 pr-4 sm:max-w-4xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
-              className="text-center mb-12"
+              className="text-left sm:text-center mb-12 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -1016,7 +1016,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="space-y-4"
+              className="space-y-4 pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -1070,13 +1070,13 @@ export default function HomePage() {
 
             {/* CTA Button */}
             <motion.div 
-              className="text-center mt-8"
+              className="text-left sm:text-center mt-8 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
             >
-              <GradientButton asChild>
+              <GradientButton asChild className="sm:mx-auto">
                 <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                   {translations.faq.cta.button}
                 </a>
