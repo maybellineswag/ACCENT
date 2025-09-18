@@ -1,0 +1,203 @@
+{
+  "nav": {
+    "home": "Domů",
+    "reviews": "Recenze",
+    "plan": "Plán",
+    "services": "Služby",
+    "how": "Jak to funguje",
+    "pricing": "Ceník",
+    "guarantees": "Záruky",
+    "faq": "FAQ",
+    "rezervovat": "Rezervovat"
+  },
+  "hero": {
+    "title": "Získejte web, který rozvíjí vaše podnikání bez",
+    "subtitle": "AI Automatizace",
+    "desc": "Zakladatelé, kteří to s růstem myslí vážně, svěřují získávání klientů našim webům a automatizaci, zatímco se soustředí na své práci."
+  },
+  "heroBullets": [
+    "Úspěšně transformováno přes 20 firem",
+    "Se sídlem v Praze",
+    "Výsledky za týdny, ne za měsíce"
+  ],
+  "heroCta": "Rezervovat hovor",
+  "viewWork": "Zobrazit práce",
+  "ourClients": "Naši klienti",
+  "moreClients": "20+ dalších",
+  "notificationBanner": "7 ZAKLADATELŮ SI TENTO TÝDEN DOMLUVILO HOVOR",
+  "heroRotatingWords": ["Šablon", "Stresu", "Ztráty času"],
+  "testimonial1": {
+    "occupation": "Majitelka kosmetického salonu",
+    "location": "Hradec Králové",
+    "date": "Dec 15, 2024"
+  },
+  "testimonial2": {
+    "occupation": "Majitelka nehtového salonu",
+    "location": "Praha", 
+    "date": "Jan 8, 2025"
+  },
+  "testimonial3": {
+    "occupation": "Majitelka restaurace",
+    "location": "Brighton",
+    "date": "Feb 3, 2025"
+  },
+  "testimonials": {
+    "title": "Milováno klienty po celé Evropě.",
+    "metrics": {
+      "businesses": "Spuštěných webů",
+      "bookings": "Požadavků na rezervaci",
+      "months": "Měsíce k dosažení první stránky na Googlu",
+      "increase": "Průměrný nárůst tržeb"
+    },
+    "trustedBy": "Důvěřuje nám 30+ firem",
+    "readyToJoin": "Chcete se k nim připojit?"
+  },
+  "benefits": {
+    "sectionTitle": "Jak pomáháme vašemu podniku",
+    "sectionDesc": "Soustřeďte se na to, co je důležité - o zbytek se postaráme my",
+    "titles": [
+      "Okamžitě vypadejte prémiově",
+      "Získejte si více klientů bez stresu",
+      "Získejte více recenzí",
+      "Nikdy nepromeškejte potenciálního zákazníka"
+    ]
+  },
+  "howItWorks": {
+    "title": "Za 14 týdnů běží váš podnik na autopilot",
+    "step1": {
+      "title": "KROK 1",
+      "subtitle": "Strategický hovor & brief",
+      "duration": "60 minut",
+      "description": "Domluvíme si hovor, kde poznáme vaše služby, značku a cíle. Poté vám pošleme jednoduchý formulář (obsahový brief) – nemusíte nic psát, stačí odrážky nebo hlasové poznámky.",
+      "note": "Nemusíte psát texty ani nic navrhovat — vše z vás vytáhneme."
+    },
+    "step2": {
+      "title": "KROK 2",
+      "subtitle": "Návrh, texty & tvorba webu",
+      "duration": "7–14 dní",
+      "description": "Náš tým připraví texty, navrhne stránky a postaví celý web. Vy jen odpočíváte. Jakmile bude hotovo, pošleme vám náhled.",
+      "note": "Děláme 100% práce. Vy se nemusíte ničeho dotýkat."
+    },
+    "step3": {
+      "title": "KROK 3",
+      "subtitle": "Spuštění & AI asistent",
+      "duration": "2–3 dny",
+      "description": "Po vašem schválení web spustíme. Pokud si vyberete AI asistenta, naučíme ho vaše služby a připojíme k webu nebo WhatsAppu.",
+      "note": "Nyní máte web a AI asistenta pracujícího 24/7 bez najímání kohokoli."
+    }
+  },
+  "pricing": {
+    "title": "Ceník",
+    "websiteBranding": {
+      "title": "Website & Branding",
+      "price": "INDIVIDUÁLNÍ CENA",
+      "description": "Kompletní řešení brandingu a webu vytvořené přímo pro vás",
+      "features": [
+        "Jedinečná brandová identita a design loga",
+        "Vlastní layout webu a UX/UI strategie",
+        "Profesionální copywriting zaměřený na konverze",
+        "Interaktivní grafika a animace",
+        "Plně responzivní a optimalizované pro rychlost",
+        "Vyhrazená konzultace a strategická schůzka"
+      ],
+      "cta": "Rezervovat úvodní hovor"
+    },
+    "modernWebsite": {
+      "title": "Moderní Website",
+      "price": "CZK 35 000",
+      "description": "Moderní, konverzně optimalizovaný web pro váš business",
+      "features": [
+        "Vlastní landing page + základní stránky (Domů, O nás, Služby, Kontakt)",
+        "Optimalizováno pro mobil, tablet a desktop",
+        "Vysokokonverzní layout s jasnými výzvami k akci",
+        "Integrace kontaktního/rezervačního formuláře",
+        "SEO-friendly a rychlé načítání",
+        "Volitelný AI prodejní asistent pro zvýšení leadů"
+      ],
+      "cta": "Rezervovat své místo"
+    },
+    "limitedSpots": "Omezený počet míst každý měsíc — zaručená osobní pozornost."
+  },
+  "guarantees": {
+    "title": "Naše záruky",
+    "onTime": {
+      "title": "Včas",
+      "description": "Váš web nebo AI systém bude spuštěn v slíbeném termínu — žádná zpoždění, žádné výmluvy."
+    },
+    "professional": {
+      "title": "Profesionální a bezpečné",
+      "description": "Váš web a AI jsou postaveny podle nejlepších průmyslových praktik — bezpečné, spolehlivé a profesionální."
+    },
+    "noHiddenFees": {
+      "title": "Bez skrytých poplatků",
+      "description": "Co vám nabídneme, to přesně zaplatíte — žádná překvapení, žádné dodatečné náklady."
+    }
+  },
+  "scarcity": {
+    "title": "Pokud budete čekat...",
+    "subtitle": "Každý den bez profesionálního webu vás připravuje o klienty",
+    "today": {
+      "title": "СЕГОДНЯ",
+      "description": "Устаревший сайт, пропущенные звонки",
+      "status": "Теряете возможности прямо сейчас"
+    },
+    "thirtyDays": {
+      "title": "ZA 30 DNÍ",
+      "description": "Ztraceno 50+ potenciálních rezervací",
+      "status": "Příjmy se rozplývají"
+    },
+    "ninetyDays": {
+      "title": "ZA 90 DNÍ",
+      "description": "Konkurenti dominují trhu",
+      "status": "Hrajete dohánění"
+    },
+    "cta": {
+      "title": "Zastavte čas — začněte dnes.",
+      "button": "Rezervovat strategický hovor"
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Vše, co potřebujete vědět",
+    "questions": [
+      {
+        "question": "Jak dlouho trvá spuštění mého webu?",
+        "answer": "Obvykle dodáváme plně funkční, vysoce konverzní web za pouhých 14 dní, takže můžete rychle začít přitahovat klienty."
+      },
+      {
+        "question": "Musím poskytnout obsah nebo nápady na design?",
+        "answer": "Žádné starosti — zabýváme se brandováním, copywritingem a designem za vás. Vy jen schvalujete rozvržení a obsah po cestě."
+      },
+      {
+        "question": "Bude můj web fungovat na mobilu a počítači?",
+        "answer": "Absolutně. Každý web je plně responzivní, optimalizovaný pro mobil, tablet a desktop, takže vaši klienti mají bezproblémový zážitek všude."
+      },
+      {
+        "question": "Mohu později přidat AI funkce na můj web?",
+        "answer": "Ano! Naše volitelné AI automatizační systémy lze integrovat kdykoli pro automatizaci rezervací, následných akcí a interakce s klienty."
+      }
+    ],
+    "cta": {
+      "button": "Rezervovat úvodní hovor",
+      "note": "Bez závazků • Bezplatná konzultace"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 ACCENT. All rights reserved",
+    "description": "Prémiový branding a AI automatizace pro moderní firmy se sídlem v Paříži a Praze.",
+    "services": {
+      "title": "Služby",
+      "items": ["Branding", "AI Chatboty", "Automatizace", "Webové stránky"]
+    },
+    "company": {
+      "title": "Společnost",
+      "items": ["O nás", "Kontakt", "Zásady ochrany osobních údajů", "Podmínky"]
+    },
+    "contact": {
+      "title": "Kontaktujte nás",
+      "email": "E-mail",
+      "message": "Zpráva",
+      "send": "Odeslat"
+    }
+  }
+}

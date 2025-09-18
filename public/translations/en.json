@@ -1,0 +1,203 @@
+{
+  "nav": {
+    "home": "Home",
+    "reviews": "Reviews",
+    "plan": "Plan",
+    "services": "Services",
+    "how": "How it works",
+    "pricing": "Pricing",
+    "guarantees": "Guarantees",
+    "faq": "FAQ",
+    "rezervovat": "Book now"
+  },
+  "hero": {
+    "title": "Get a Website That Grows Your Business Without",
+    "subtitle": "AI Automation",
+    "desc": "Founders who are serious about growth trust our websites and automation to bring clients while they focus on their craft."
+  },
+  "heroBullets": [
+    "Successfully transformed 20+ businesses",
+    "Based in Prague",
+    "Results in weeks, not months"
+  ],
+  "heroCta": "Book a call",
+  "viewWork": "View work",
+  "ourClients": "Our clients",
+  "moreClients": "20+ more",
+  "notificationBanner": "7 FOUNDERS BOOKED A CALL THIS WEEK",
+  "heroRotatingWords": ["Templates", "Stress", "Wasted Time"],
+  "testimonial1": {
+    "occupation": "Cosmetic salon owner",
+    "location": "Hradec Králové",
+    "date": "Dec 15, 2024"
+  },
+  "testimonial2": {
+    "occupation": "Nail salon owner", 
+    "location": "Prague",
+    "date": "Jan 8, 2025"
+  },
+  "testimonial3": {
+    "occupation": "Restaurant owner",
+    "location": "Brighton",
+    "date": "Feb 3, 2025"
+  },
+  "testimonials": {
+    "title": "Loved by clients all across Europe.",
+    "metrics": {
+      "businesses": "Beauty & Wellness\nWebsites Published",
+      "bookings": "Booking Requests Captured\nFor Our Clients",
+      "months": "Months To Reach First Page\nOn Google",
+      "increase": "average increase"
+    },
+    "trustedBy": "Trusted by 30+ firms",
+    "readyToJoin": "Ready to join them?"
+  },
+  "benefits": {
+    "sectionTitle": "How We Help Your Business",
+    "sectionDesc": "Focus on what matters – we handle the rest",
+    "titles": [
+      "Instantly Look Premium",
+      "Get More Clients Without Stress",
+      "Get More Reviews",
+      "Never Miss a Potential Customer"
+    ]
+  },
+  "howItWorks": {
+    "title": "In 14 Weeks, Your Business Runs on Autopilot",
+    "step1": {
+      "title": "STEP 1",
+      "subtitle": "Strategy Call & Content Brief",
+      "duration": "60 minutes",
+      "description": "We hop on one call to understand your services, brand, and goals.\nThen we send you a super simple form (content brief) - no writing needed, just bullet points or voice notes.",
+      "note": "No need to write website text or design anything — we extract it all from you."
+    },
+    "step2": {
+      "title": "STEP 2",
+      "subtitle": "We Design, Write & Build Everything",
+      "duration": "7–14 days",
+      "description": "Our team writes all the copy, designs the pages, and builds the full website.\nYou just relax. We'll send you a preview once it's ready.",
+      "note": "We do 100% of the work. You don't have to touch a thing."
+    },
+    "step3": {
+      "title": "STEP 3",
+      "subtitle": "Launch + AI Assistant Setup",
+      "duration": "2–3 days",
+      "description": "Once you approve the website, we launch it.\nIf you choose the AI assistant, we also train it on your services and plug it into your site or WhatsApp.",
+      "note": "You now have a website and AI assistant working 24/7 without hiring anyone."
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "websiteBranding": {
+      "title": "Website & Branding",
+      "price": "CUSTOM QUOTE",
+      "description": "A Complete Branding & Website Solution Built Just for You",
+      "features": [
+        "Unique Brand Identity & Logo Design",
+        "Custom Website Layout & UX/UI Strategy",
+        "Professional Copywriting Focused on Conversions",
+        "Interactive Graphics & Animations",
+        "Fully Responsive & Optimized for Speed",
+        "Dedicated Consultation & Strategy Session"
+      ],
+      "cta": "Book an intro call"
+    },
+    "modernWebsite": {
+      "title": "Modern Website",
+      "price": "CZK 35 000",
+      "description": "Modern, Conversion-Optimized Website for Your Business",
+      "features": [
+        "Custom Landing Page + Core Pages (Home, About, Services, Contact)",
+        "Mobile, Tablet, & Desktop Optimized",
+        "High-Converting Layout with Clear Calls-to-Action",
+        "Contact / Booking Form Integration",
+        "SEO-Friendly & Fast Loading",
+        "Optional AI Sales Assistant to Boost Leads"
+      ],
+      "cta": "Reserve your spot"
+    },
+    "limitedSpots": "Limited spots each month — personalized attention guaranteed."
+  },
+  "guarantees": {
+    "title": "Our Guarantees",
+    "onTime": {
+      "title": "On Time",
+      "description": "Your website or AI system will be live within the promised timeline — no delays, no excuses."
+    },
+    "professional": {
+      "title": "Professional and Secure",
+      "description": "Your website and AI are built with industry best practices — secure, reliable, and professional."
+    },
+    "noHiddenFees": {
+      "title": "No Hidden Fees",
+      "description": "What we quote is exactly what you pay — no surprises, no extra costs."
+    }
+  },
+  "scarcity": {
+    "title": "If You Wait...",
+    "subtitle": "Every day without a professional website costs you opportunities",
+    "today": {
+      "title": "TODAY",
+      "description": "Outdated website, missed calls",
+      "status": "Losing opportunities right now"
+    },
+    "thirtyDays": {
+      "title": "30 DAYS LATER",
+      "description": "Lost 50+ potential bookings",
+      "status": "Revenue slipping away"
+    },
+    "ninetyDays": {
+      "title": "90 DAYS LATER",
+      "description": "Competitors dominate market",
+      "status": "Playing catch-up"
+    },
+    "cta": {
+      "title": "Stop the clock — start today.",
+      "button": "Book Your Strategy Call"
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Everything you need to know",
+    "questions": [
+      {
+        "question": "How long does it take to launch my website?",
+        "answer": "We typically deliver a fully functional, high-converting website in just 14 days, so you can start attracting clients fast."
+      },
+      {
+        "question": "Do I need to provide content or design ideas?",
+        "answer": "No worries — we handle branding, copywriting, and design for you. You just approve the layouts and content along the way."
+      },
+      {
+        "question": "Will my website work on mobile and desktop?",
+        "answer": "Absolutely. Every site is fully responsive, optimized for mobile, tablet, and desktop, so your clients have a seamless experience everywhere."
+      },
+      {
+        "question": "Can I add AI features to my website later?",
+        "answer": "Yes! Our optional AI automation systems can be integrated anytime to automate bookings, follow-ups, and client engagement."
+      }
+    ],
+    "cta": {
+      "button": "Book an intro call",
+      "note": "No commitment • Free consultation"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 ACCENT. All rights reserved",
+    "description": "Premium branding and AI automation for modern businesses based in Paris & Prague.",
+    "services": {
+      "title": "Services",
+      "items": ["Branding", "AI Chatbots", "Automation", "Websites"]
+    },
+    "company": {
+      "title": "Company",
+      "items": ["About Us", "Contact", "Privacy Policy", "Terms"]
+    },
+    "contact": {
+      "title": "Contact Us",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    }
+  }
+}

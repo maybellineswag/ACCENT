@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
   title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
@@ -51,7 +52,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   )
 }
