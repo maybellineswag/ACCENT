@@ -10,7 +10,7 @@ export function useTranslations() {
     const loadTranslations = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/translations/${language}.json`)
+        const response = await fetch(`/translations/${language}.json?t=${Date.now()}`)
         if (!response.ok) {
           throw new Error(`Failed to load translations for ${language}`)
         }
@@ -21,7 +21,7 @@ export function useTranslations() {
         // Fallback to English if translation fails
         if (language !== 'en') {
           try {
-            const fallbackResponse = await fetch('/translations/en.json')
+            const fallbackResponse = await fetch(`/translations/en.json?t=${Date.now()}`)
             const fallbackData = await fallbackResponse.json()
             setTranslations(fallbackData)
           } catch (fallbackError) {

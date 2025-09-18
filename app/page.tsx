@@ -235,7 +235,7 @@ export default function HomePage() {
         <section id="testimonials" className="pb-8 relative z-10" ref={testimonialsRef}>
           <div className="w-full pl-6 pr-4 sm:container sm:mx-auto sm:px-6">
             <motion.div
-              className="text-left mb-16"
+              className="text-left sm:text-center mb-16"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -600,9 +600,9 @@ export default function HomePage() {
 
         {/* Pricing Section */}
         <section id="pricing" className="pt-8 pb-16 relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full pl-2 pr-4 sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
-              className="text-left mb-0"
+              className="text-left sm:text-center mb-0 pl-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -614,7 +614,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 gap-12 sm:gap-8 max-w-4xl mx-auto scale-90 items-stretch"
+              className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 items-stretch w-full"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -639,12 +639,12 @@ export default function HomePage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                  <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
-                 <div className="text-left pt-0 sm:pt-10">
+                 <div className="text-left pt-0 sm:pt-10 pl-0">
                    <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</h3>
                    <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.websiteBranding.price}</div>
                    <p className="mt-2 text-neutral-600">{translations.pricing.websiteBranding.description}</p>
                  </div>
-                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10">
+                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10 pl-0">
                   <ul className="space-y-2 text-base sm:text-lg mt-6">
                     {translations.pricing.websiteBranding.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
@@ -681,12 +681,12 @@ export default function HomePage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                  <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
-                 <div className="text-left pt-0 sm:pt-10">
+                 <div className="text-left pt-0 sm:pt-10 pl-0">
                    <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</h3>
                    <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.modernWebsite.price}</div>
                    <p className="mt-2 text-neutral-600">{translations.pricing.modernWebsite.description}</p>
                  </div>
-                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10">
+                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10 pl-0">
                   <ul className="space-y-2 text-base sm:text-lg mt-6">
                     {translations.pricing.modernWebsite.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
@@ -716,15 +716,15 @@ export default function HomePage() {
             
             {/* Limited Spots Alert */}
             <motion.div 
-              className="text-center mt-2"
+              className="w-full text-left sm:text-center mt-2"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
             >
-              <div className="inline-flex items-center gap-2">
-                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                <span className="text-amber-800 text-sm font-medium">{translations.pricing.limitedSpots}</span>
+              <div className="flex items-start gap-1.5 sm:gap-3 w-fit">
+                <div className="w-1.5 h-1.5 sm:w-3 sm:h-3 bg-amber-500 rounded-full mt-1 flex-shrink-0"></div>
+                <span className="text-amber-800 text-[12px] sm:text-sm font-medium">{translations.pricing.limitedSpots}</span>
               </div>
             </motion.div>
           </div>
