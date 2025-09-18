@@ -154,15 +154,15 @@ export function NavBar({ className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-30 mb-6 sm:pt-6 w-fit pointer-events-none",
+        "fixed top-0 left-1/2 -translate-x-1/2 z-30 pt-4 sm:pt-6 w-fit pointer-events-none",
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
+      <div className="flex items-center gap-2 sm:gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
         {/* Logo */}
         <Link 
           href="/" 
-          className="flex items-center px-3 py-2"
+          className="flex items-center px-2 sm:px-3 py-1.5 sm:py-2"
           onClick={() => {
             // Smoothly animate indicator back to home
             setActiveTab('home')
@@ -173,7 +173,7 @@ export function NavBar({ className }: NavBarProps) {
             alt="ACCENT Flower Logo"
             width={24}
             height={24}
-            className="h-6 w-auto select-none"
+            className="h-5 sm:h-6 w-auto select-none"
             priority
           />
         </Link>
@@ -189,7 +189,7 @@ export function NavBar({ className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-4 py-2 rounded-[11px] transition-colors",
+                "relative cursor-pointer text-xs sm:text-sm font-semibold px-2 sm:px-4 py-1.5 sm:py-2 rounded-[11px] transition-colors",
                 "text-neutral-600 hover:text-black",
                 isActive && "text-black",
               )}
@@ -203,7 +203,7 @@ export function NavBar({ className }: NavBarProps) {
                  item.name === 'faq' ? translations.nav[language].faq : item.name}
               </span>
               <span className="md:hidden">
-                <Icon size={18} strokeWidth={2.5} />
+                <Icon size={16} strokeWidth={2.5} />
               </span>
               {isActive && (
                 <motion.div
@@ -231,13 +231,13 @@ export function NavBar({ className }: NavBarProps) {
         <div className="relative">
           <button
             onClick={() => setShowLangDropdown(!showLangDropdown)}
-            className="flex items-center justify-center w-10 h-10 hover:text-black transition-colors ml-3"
+            className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 hover:text-black transition-colors ml-2 sm:ml-3"
           >
-            <Globe className="w-4 h-4 text-neutral-600" />
+            <Globe className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-neutral-600" />
           </button>
           
           {showLangDropdown && (
-            <div className="absolute top-12 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
+            <div className="absolute top-10 sm:top-12 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
               <button
                 onClick={() => handleLangChange('cs')}
                 className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}

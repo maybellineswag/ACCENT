@@ -227,13 +227,13 @@ export default function HomePage() {
         <NavBar />
 
         {/* Hero Section */}
-        <section id="home" className="pt-24 pb-16 px-2 lg:px-4 relative z-10">
+        <section id="home" className="pt-20 sm:pt-24 pb-16 px-4 sm:px-2 lg:px-4 relative z-10">
           <Hero translations={translations} />
         </section>
 
         {/* Testimonials Section */}
         <section id="testimonials" className="pb-8 relative z-10" ref={testimonialsRef}>
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -455,7 +455,7 @@ export default function HomePage() {
 
         {/* How It Works - Founder Focused */}
         <section id="how-it-works" className="pt-8 pb-16 relative z-10" ref={howItWorksRef}>
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -600,7 +600,7 @@ export default function HomePage() {
 
         {/* Pricing Section */}
         <section id="pricing" className="pt-8 pb-16 relative z-10">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-0"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -732,7 +732,7 @@ export default function HomePage() {
 
         {/* Guarantee Section */}
         <section id="guarantees" className="pt-8 pb-16 relative z-10">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -865,7 +865,7 @@ export default function HomePage() {
 
         {/* Scarcity Section */}
         <section className="pt-8 pb-16 relative z-10">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div 
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -1001,7 +1001,7 @@ export default function HomePage() {
 
         {/* FAQ Section */}
         <section id="faq" className="pt-8 pb-12 relative z-10">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-12"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -1088,7 +1088,7 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="text-black pt-16 pb-8 relative z-10">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="grid md:grid-cols-4 gap-8 justify-start"
               initial="hidden"
