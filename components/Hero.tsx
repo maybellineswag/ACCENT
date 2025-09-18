@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroProps {
   translations: any;
@@ -14,6 +15,8 @@ interface HeroProps {
 
 function Hero({ translations }: HeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const { language, setLanguage } = useLanguage();
   const titles = useMemo(
     () => translations.heroRotatingWords || ["Templates", "Stress", "Wasted Time"],
     [translations.heroRotatingWords]
@@ -29,6 +32,11 @@ function Hero({ translations }: HeroProps) {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
+
+  const handleLangChange = (newLang: 'cs' | 'en' | 'ru' | 'uk') => {
+    setLanguage(newLang);
+    setShowLangDropdown(false);
+  };
 
   return (
     <motion.div 
@@ -48,11 +56,44 @@ function Hero({ translations }: HeroProps) {
         />
         <div className="relative">
           <button
-            onClick={() => {/* Add language dropdown logic here */}}
+            onClick={() => setShowLangDropdown(!showLangDropdown)}
             className="flex items-center justify-center w-8 h-8 hover:text-black transition-colors"
           >
             <Globe className="w-4 h-4 text-neutral-600" />
           </button>
+          
+          {showLangDropdown && (
+            <div className="absolute top-10 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
+              <button
+                onClick={() => handleLangChange('cs')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/cz.svg" alt="Czech" width={16} height={12} className="w-4 h-3" />
+                Čeština
+              </button>
+              <button
+                onClick={() => handleLangChange('en')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/us.svg" alt="English" width={16} height={12} className="w-4 h-3" />
+                English
+              </button>
+              <button
+                onClick={() => handleLangChange('ru')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/ru.svg" alt="Russian" width={16} height={12} className="w-4 h-3" />
+                Русский
+              </button>
+              <button
+                onClick={() => handleLangChange('uk')}
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
+              >
+                <Image src="/flags/ua.svg" alt="Ukrainian" width={16} height={12} className="w-4 h-3" />
+                Українська
+              </button>
+            </div>
+          )}
         </div>
       </div>
       

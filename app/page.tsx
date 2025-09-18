@@ -234,8 +234,8 @@ export default function HomePage() {
         {/* Testimonials Section */}
         <section id="testimonials" className="pb-8 relative z-10" ref={testimonialsRef}>
           <div className="w-full pl-6 pr-4 sm:container sm:mx-auto sm:px-6">
-            <motion.div 
-              className="text-left sm:text-center mb-16"
+            <motion.div
+              className="text-left mb-16"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -559,7 +559,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div 
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-2"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
                   visible: { opacity: 1, y: 0, filter: "blur(0px)" }
@@ -568,13 +568,13 @@ export default function HomePage() {
               >
                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
                   <div className="p-0 sm:p-6 text-left sm:text-center relative h-full">
-                    <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-4">
+                    <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <span className="text-2xl font-bold text-black">{translations.howItWorks.step3.title}</span>
                     </div>
-                    <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-4">
+                    <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-2">
                       <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step3.subtitle}</h4>
                     </div>
-                    <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-4">
+                    <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
                         <span className="text-neutral-700">{translations.howItWorks.step3.duration}</span>
@@ -587,10 +587,10 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-4">
-                  <div className="flex items-start gap-2 w-fit">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-green-700 text-sm font-medium">{translations.howItWorks.step3.note}</span>
+                <div className="mt-1">
+                  <div className="flex items-start gap-1.5 w-fit">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                    <span className="text-green-700 text-xs font-medium">{translations.howItWorks.step3.note}</span>
                   </div>
                 </div>
               </motion.div>
@@ -602,7 +602,7 @@ export default function HomePage() {
         <section id="pricing" className="pt-8 pb-16 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
-              className="text-center mb-0"
+              className="text-left mb-0"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -614,7 +614,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto scale-90 items-stretch"
+              className="grid md:grid-cols-2 gap-12 sm:gap-8 max-w-4xl mx-auto scale-90 items-stretch"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -638,14 +638,14 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col w-full">
-                <CardHeader className="text-left pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</CardTitle>
-                  <div className="text-4xl font-bold text-gradient-blobs mt-6">{translations.pricing.websiteBranding.price}</div>
-                  <CardDescription className="mt-4 text-neutral-600">{translations.pricing.websiteBranding.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex flex-col grow space-y-8 pb-10">
-                  <ul className="space-y-2 text-base sm:text-lg">
+                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
+                 <div className="text-left pt-0 sm:pt-10">
+                   <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</h3>
+                   <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.websiteBranding.price}</div>
+                   <p className="mt-2 text-neutral-600">{translations.pricing.websiteBranding.description}</p>
+                 </div>
+                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10">
+                  <ul className="space-y-2 text-base sm:text-lg mt-6">
                     {translations.pricing.websiteBranding.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -667,8 +667,8 @@ export default function HomePage() {
                   <GradientButton asChild className="w-full mt-auto">
                     <a href="/custom-quote">{translations.pricing.websiteBranding.cta}</a>
                   </GradientButton>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
               </motion.div>
 
               {/* Modern Website Package */}
@@ -680,14 +680,14 @@ export default function HomePage() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <Card className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col w-full">
-                <CardHeader className="text-left pt-10">
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</CardTitle>
-                  <div className="text-4xl font-bold text-gradient-blobs mt-6">{translations.pricing.modernWebsite.price}</div>
-                  <CardDescription className="mt-4 text-neutral-600">{translations.pricing.modernWebsite.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex flex-col grow space-y-8 pb-10">
-                  <ul className="space-y-2 text-base sm:text-lg">
+                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
+                 <div className="text-left pt-0 sm:pt-10">
+                   <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</h3>
+                   <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.modernWebsite.price}</div>
+                   <p className="mt-2 text-neutral-600">{translations.pricing.modernWebsite.description}</p>
+                 </div>
+                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10">
+                  <ul className="space-y-2 text-base sm:text-lg mt-6">
                     {translations.pricing.modernWebsite.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
@@ -709,8 +709,8 @@ export default function HomePage() {
                   <GradientButton asChild className="w-full mt-auto">
                     <a href="/custom-quote">{translations.pricing.modernWebsite.cta}</a>
                   </GradientButton>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
               </motion.div>
             </motion.div>
             
