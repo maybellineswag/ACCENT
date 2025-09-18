@@ -154,12 +154,12 @@ export function NavBar({ className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed top-0 left-1/2 -translate-x-1/2 z-30 pt-4 sm:pt-6 w-fit pointer-events-none",
+        "fixed top-0 left-4 sm:left-1/2 sm:-translate-x-1/2 z-30 pt-4 sm:pt-6 w-fit pointer-events-none",
         className,
       )}
     >
       {/* Mobile Header - Only Globe and Logo */}
-      <div className="sm:hidden flex items-center justify-center gap-3 pointer-events-auto">
+      <div className="sm:hidden flex items-center justify-start gap-3 pointer-events-auto">
         <Image
           src="/accent_logo.svg"
           alt="ACCENT Logo"

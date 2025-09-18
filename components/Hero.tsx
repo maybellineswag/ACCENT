@@ -38,8 +38,8 @@ function Hero({ translations }: HeroProps) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-8 items-center justify-center flex-col">
-          <div className="flex gap-4 flex-col items-center">
+        <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-8 items-start sm:items-center justify-start sm:justify-center flex-col">
+          <div className="flex gap-4 flex-col items-start sm:items-center">
             {/* Notification Banner */}
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
@@ -47,7 +47,7 @@ function Hero({ translations }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative mb-1 px-4 sm:px-0"
             >
-              <div className="flex items-center justify-center gap-2 sm:gap-3">
+              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3">
                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
                 <span className="!text-black text-[10px] sm:text-sm font-medium tracking-wide text-center whitespace-nowrap">
                   {translations.notificationBanner}
@@ -55,10 +55,10 @@ function Hero({ translations }: HeroProps) {
               </div>
             </motion.div>
 
-                                                   <h1 className="text-4xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
+                                                   <h1 className="text-4xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-left sm:text-center font-regular">
                 <span className="text-black">{translations.hero.title}</span>
                 <br />
-                <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-8 md:pt-2">
+                <span className="relative flex w-full justify-start sm:justify-center overflow-hidden text-left sm:text-center md:pb-8 md:pt-2">
                   &nbsp;
                   {titles.map((title: string, index: number) => (
                     <motion.span
@@ -84,13 +84,13 @@ function Hero({ translations }: HeroProps) {
                 </span>
               </h1>
 
-            <p className="text-xs sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-center">
+            <p className="text-xs sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-left sm:text-center">
               {translations.hero.desc}
             </p>
           </div>
           
           {/* Main CTA Button */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
             <GradientButton asChild className="relative z-50">
               <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
                 {translations.heroCta}
@@ -104,7 +104,7 @@ function Hero({ translations }: HeroProps) {
 
           {/* Clients Section */}
           <div className="mt-6 sm:mt-8">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 md:gap-x-12">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-4 sm:gap-x-6 md:gap-x-12">
               <p className="text-black font-medium text-sm sm:text-base">{translations.ourClients}</p>
               <div className="flex items-center gap-x-4 sm:gap-x-6 md:gap-x-8">
                 <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-12 sm:w-16 md:w-24 h-auto flex-shrink-0" />
