@@ -602,7 +602,7 @@ export default function HomePage() {
         <section id="pricing" className="pt-8 pb-16 relative z-10">
           <div className="w-full pl-2 pr-4 sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
-              className="text-left sm:text-center mb-0 pl-4 pr-4"
+              className="text-left sm:text-center mb-6 sm:mb-8 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -614,7 +614,7 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 origin-left items-stretch w-full pl-4 pr-4"
+              className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 origin-left sm:scale-100 sm:origin-center items-stretch w-full pl-4 pr-4 mt-4 sm:mt-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -639,12 +639,12 @@ export default function HomePage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                  <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
-                 <div className="text-left pt-0 sm:pt-10 pl-0">
+                 <div className="text-left p-0 sm:p-10">
                    <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</h3>
                    <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.websiteBranding.price}</div>
                    <p className="mt-2 text-neutral-600">{translations.pricing.websiteBranding.description}</p>
                  </div>
-                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10 pl-0">
+                 <div className="flex flex-col grow space-y-4 sm:space-y-8 p-0 sm:px-10 sm:pb-10">
                   <ul className="space-y-2 text-base sm:text-lg mt-6">
                     {translations.pricing.websiteBranding.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
@@ -681,12 +681,12 @@ export default function HomePage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                  <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
-                 <div className="text-left pt-0 sm:pt-10 pl-0">
+                 <div className="text-left p-0 sm:p-10">
                    <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</h3>
                    <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.modernWebsite.price}</div>
                    <p className="mt-2 text-neutral-600">{translations.pricing.modernWebsite.description}</p>
                  </div>
-                 <div className="flex flex-col grow space-y-4 sm:space-y-8 pb-0 sm:pb-10 pl-0">
+                 <div className="flex flex-col grow space-y-4 sm:space-y-8 p-0 sm:px-10 sm:pb-10">
                   <ul className="space-y-2 text-base sm:text-lg mt-6">
                     {translations.pricing.modernWebsite.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start">
@@ -716,7 +716,7 @@ export default function HomePage() {
             
             {/* Limited Spots Alert */}
             <motion.div 
-              className="w-full text-left sm:text-center mt-2 scale-90 origin-left pl-4 pr-4"
+              className="w-full text-left sm:text-center mt-6 sm:mt-8 scale-90 origin-left sm:scale-100 sm:origin-center pl-4 pr-4 sm:flex sm:justify-center"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
