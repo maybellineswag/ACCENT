@@ -1,6 +1,5 @@
 "use client"
-
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
@@ -10,69 +9,38 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
 
 export default function SelectedWorkPage() {
-  const [activeCategory, setActiveCategory] = useState('web-design')
   const { language } = useLanguage()
   const { translations, loading } = useTranslations()
 
-  const categories = [
-    { id: 'web-design', label: 'Web Design' },
-    { id: 'branding', label: 'Branding' },
-    { id: 'ai-automation', label: 'AI Automation' }
+  const projectImages = [
+    '/WEBSITES/APEXMOTORS.png',
+    '/WEBSITES/BILLO.avif',
+    '/WEBSITES/BLOOM.png',
+    '/WEBSITES/ELIMINAR.jpeg',
+    '/WEBSITES/LUMEASTUDIO.png',
+    '/WEBSITES/NOVA33.png',
+    '/WEBSITES/SERENITY.png',
+    '/WEBSITES/TRANQUILSTUDIO.png',
+    '/WEBSITES/VELVETVEIL.png',
   ]
 
-  const projects = {
-    'web-design': [
-      {
-        id: 1,
-        title: 'Website Design 1',
-        image: '/WEBSITES/Z2APdoxL9VAqk4Fu0TKGubQxw.jpg.avif'
-      },
-      {
-        id: 2,
-        title: 'Website Design 2',
-        image: '/WEBSITES/uY9cX3TUnob6lDyPL29U3KIyQ.jpeg.avif'
-      },
-      {
-        id: 3,
-        title: 'Website Design 3',
-        image: '/WEBSITES/I8oHWGEspoFvoyq8wSOzRqn4NE.jpeg.avif'
-      },
-      {
-        id: 4,
-        title: 'Website Design 4',
-        image: '/WEBSITES/YhqnGG8Adem6abok9bC2fs3QTJs.jpg.avif'
-      },
-      {
-        id: 5,
-        title: 'Website Design 5',
-        image: '/WEBSITES/QPsqCsx9WSJfhtmSGf0ghwSu6Eg.jpeg.avif'
-      }
-    ],
-    'branding': [
-      {
-        id: 1,
-        title: 'Branding Project 1',
-        image: '/WEBSITES/Z2APdoxL9VAqk4Fu0TKGubQxw.jpg.avif'
-      },
-      {
-        id: 2,
-        title: 'Branding Project 2',
-        image: '/WEBSITES/uY9cX3TUnob6lDyPL29U3KIyQ.jpeg.avif'
-      }
-    ],
-    'ai-automation': [
-      {
-        id: 1,
-        title: 'AI Automation Project 1',
-        image: '/WEBSITES/I8oHWGEspoFvoyq8wSOzRqn4NE.jpeg.avif'
-      },
-      {
-        id: 2,
-        title: 'AI Automation Project 2',
-        image: '/WEBSITES/YhqnGG8Adem6abok9bC2fs3QTJs.jpg.avif'
-      }
-    ]
-  }
+  const projects = projectImages.map((src, index) => {
+    const filename = src.split('/').pop() || ''
+    const base = filename.split('.')[0]
+    const readable = base.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+    return {
+      id: index + 1,
+      title: readable,
+      image: src,
+    }
+  })
+
+  const [displayProjects, setDisplayProjects] = useState<typeof projects>([])
+
+  useEffect(() => {
+    const shuffled = [...projects].sort(() => Math.random() - 0.5)
+    setDisplayProjects(shuffled)
+  }, [])
 
   if (loading || !translations) {
     return (
@@ -99,7 +67,7 @@ export default function SelectedWorkPage() {
             className="flex items-center gap-2 text-black hover:text-neutral-700 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to Home</span>
+            <span className="text-sm font-medium">{translations.selectedWork?.backToHome ?? 'Back to Home'}</span>
           </Link>
         </div>
 
@@ -114,30 +82,8 @@ export default function SelectedWorkPage() {
                 transition={{ duration: 0.6 }}
                 className="text-5xl md:text-7xl font-bold text-black mb-8 tracking-tighter"
               >
-                Selected Work
+                {translations.selectedWork?.title ?? 'Selected Work'}
               </motion.h1>
-
-              {/* Category Navigation */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex justify-center gap-4 mb-12"
-              >
-                {categories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => setActiveCategory(category.id)}
-                    className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeCategory === category.id
-                        ? 'bg-black text-white shadow-lg'
-                        : 'text-black hover:text-neutral-700'
-                    }`}
-                  >
-                    {category.label}
-                  </button>
-                ))}
-              </motion.div>
             </div>
 
             {/* Projects Grid */}
@@ -147,7 +93,7 @@ export default function SelectedWorkPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-8"
             >
-              {projects[activeCategory as keyof typeof projects].map((project, index) => (
+              {(displayProjects.length ? displayProjects : projects).map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -176,13 +122,13 @@ export default function SelectedWorkPage() {
               className="text-center mt-16"
             >
               <p className="text-lg text-neutral-600 mb-6">
-                Ready to join our portfolio of successful clients?
+                {translations.selectedWork?.ctaLead ?? 'Ready to join our portfolio of successful clients?'}
               </p>
               <Link 
                 href="/custom-quote"
                 className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-neutral-800 transition-colors"
               >
-                Start Your Project
+                {translations.selectedWork?.ctaButton ?? 'Start Your Project'}
                 <ArrowLeft className="w-4 h-4 rotate-180" />
               </Link>
             </motion.div>

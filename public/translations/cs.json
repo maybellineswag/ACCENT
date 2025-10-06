@@ -182,6 +182,12 @@
       "note": "Bez závazků • Bezplatná konzultace"
     }
   },
+  "selectedWork": {
+    "title": "Vybrané práce",
+    "ctaLead": "Připraveni připojit se k našim úspěšným klientům?",
+    "ctaButton": "Začněte svůj projekt",
+    "backToHome": "Zpět na domovskou stránku"
+  },
   "footer": {
     "copyright": "© 2025 ACCENT. All rights reserved",
     "description": "Prémiový branding a AI automatizace pro moderní firmy se sídlem v Paříži a Praze.",

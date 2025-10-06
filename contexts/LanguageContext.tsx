@@ -12,7 +12,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('cs')
+  const [language, setLanguageState] = useState<Language>('en')
 
   useEffect(() => {
     // Load language from localStorage on mount
@@ -20,12 +20,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (storedLang && ['cs', 'en', 'ru', 'uk'].includes(storedLang)) {
       setLanguageState(storedLang as Language)
     } else {
-      // Try to detect browser language
-      const browserLang = typeof window !== 'undefined' ? navigator.language.split('-')[0] : 'cs'
-      const supportedLanguages = ['cs', 'en', 'ru', 'uk']
-      const detectedLang = supportedLanguages.includes(browserLang) ? browserLang : 'cs'
-      setLanguageState(detectedLang as Language)
-      localStorage.setItem('accent-lang', detectedLang)
+      // Default to English on first load
+      const defaultLang: Language = 'en'
+      setLanguageState(defaultLang)
+      localStorage.setItem('accent-lang', defaultLang)
     }
   }, [])
 

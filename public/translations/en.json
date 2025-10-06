@@ -182,6 +182,12 @@
       "note": "No commitment • Free consultation"
     }
   },
+  "selectedWork": {
+    "title": "Selected Work",
+    "ctaLead": "Ready to join our portfolio of successful clients?",
+    "ctaButton": "Start Your Project",
+    "backToHome": "Back to Home"
+  },
   "footer": {
     "copyright": "© 2025 ACCENT. All rights reserved",
     "description": "Premium branding and AI automation for modern businesses based in Paris & Prague.",
