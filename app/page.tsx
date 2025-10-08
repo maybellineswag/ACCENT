@@ -64,10 +64,9 @@ export default function HomePage() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('Metrics section is intersecting, starting animation')
             // Reset counts to starting values
             setCounts({ businesses: 5, bookings: 2950, months: 1, increase: 5 })
-            
+
             // Animate businesses from 5 to 25 with slowing down
             let businessSpeed = 100
             const businessInterval = setInterval(() => {
@@ -76,7 +75,6 @@ export default function HomePage() {
                   clearInterval(businessInterval)
                   return prev
                 }
-                // Slow down as we get closer to the end
                 if (prev.businesses >= 20) businessSpeed = 200
                 if (prev.businesses >= 23) businessSpeed = 300
                 return { ...prev, businesses: prev.businesses + 1 }
@@ -91,7 +89,6 @@ export default function HomePage() {
                   clearInterval(bookingInterval)
                   return prev
                 }
-                // Slow down as we get closer to the end
                 if (prev.bookings >= 2990) bookingSpeed = 40
                 if (prev.bookings >= 2995) bookingSpeed = 80
                 return { ...prev, bookings: prev.bookings + 1 }
@@ -106,7 +103,6 @@ export default function HomePage() {
                   clearInterval(monthInterval)
                   return prev
                 }
-                // Slow down as we get closer to the end
                 if (prev.months >= 2) monthSpeed = 400
                 return { ...prev, months: prev.months + 1 }
               })
@@ -120,7 +116,6 @@ export default function HomePage() {
                   clearInterval(increaseInterval)
                   return prev
                 }
-                // Slow down as we get closer to the end
                 if (prev.increase >= 30) increaseSpeed = 200
                 if (prev.increase >= 35) increaseSpeed = 300
                 return { ...prev, increase: prev.increase + 1 }
@@ -132,7 +127,6 @@ export default function HomePage() {
       { threshold: 0.5 }
     )
 
-    // Use a timeout to ensure the ref is available
     const timeoutId = setTimeout(() => {
       if (metricsRef.current) {
         observer.observe(metricsRef.current)
