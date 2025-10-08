@@ -152,7 +152,7 @@ function Hero({ translations }: HeroProps) {
           {/* Main CTA Button */}
           <div className="flex flex-row items-center gap-6 sm:gap-8">
             <GradientButton asChild className="relative z-50">
-              <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
+              <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
                 {translations.heroCta}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>

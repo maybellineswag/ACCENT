@@ -37,6 +37,9 @@ export default function SelectedWorkPage() {
 
   const [displayProjects, setDisplayProjects] = useState<typeof projects>([])
 
+  // Lightweight inline placeholder to improve perceived load while images decode
+  const blurDataURL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
+
   useEffect(() => {
     const shuffled = [...projects].sort(() => Math.random() - 0.5)
     setDisplayProjects(shuffled)
@@ -102,13 +105,21 @@ export default function SelectedWorkPage() {
                   className="w-full"
                 >
                              <div className="max-w-4xl mx-auto bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-2xl overflow-hidden shadow-lg">
-             <Image
-               src={project.image}
-               alt={project.title}
-               width={2512}
-               height={1640}
-               className="w-full h-auto object-cover"
-             />
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={1600}
+              height={1045}
+              className="w-full h-auto object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
+              placeholder="blur"
+              blurDataURL={blurDataURL}
+              quality={70}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              priority={index === 0}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              decoding="async"
+            />
            </div>
                 </motion.div>
               ))}
@@ -125,7 +136,9 @@ export default function SelectedWorkPage() {
                 {translations.selectedWork?.ctaLead ?? 'Ready to join our portfolio of successful clients?'}
               </p>
               <Link 
-                href="/custom-quote"
+                href="https://cal.com/accent/start"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-neutral-800 transition-colors"
               >
                 {translations.selectedWork?.ctaButton ?? 'Start Your Project'}

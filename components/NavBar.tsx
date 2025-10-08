@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -289,38 +289,64 @@ export function NavBar({ className }: NavBarProps) {
             <Globe className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-neutral-600" />
           </button>
           
-          {showLangDropdown && (
-            <div className="absolute top-10 sm:top-12 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
-              <button
-                onClick={() => handleLangChange('cs')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
+          <AnimatePresence>
+            {showLangDropdown && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.98, filter: "blur(6px)" }}
+                animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: 8, scale: 0.98, filter: "blur(6px)" }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                className="absolute top-10 sm:top-12 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50"
               >
-                <Image src="/flags/cz.svg" alt="Czech Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>Čeština</span>
-              </button>
-              <button
-                onClick={() => handleLangChange('en')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/us.svg" alt="US Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>English</span>
-              </button>
-              <button
-                onClick={() => handleLangChange('ru')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/ru.svg" alt="Russian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>Русский</span>
-              </button>
-              <button
-                onClick={() => handleLangChange('uk')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/ua.svg" alt="Ukrainian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>Українська</span>
-              </button>
-            </div>
-          )}
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={{
+                    hidden: { opacity: 1 },
+                    visible: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.05, delayChildren: 0.05 }
+                    },
+                    exit: { opacity: 1 }
+                  }}
+                >
+                  <motion.button
+                    onClick={() => handleLangChange('cs')}
+                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
+                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
+                  >
+                    <Image src="/flags/cz.svg" alt="Czech Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                    <span>Čeština</span>
+                  </motion.button>
+                  <motion.button
+                    onClick={() => handleLangChange('en')}
+                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
+                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
+                  >
+                    <Image src="/flags/us.svg" alt="US Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                    <span>English</span>
+                  </motion.button>
+                  <motion.button
+                    onClick={() => handleLangChange('ru')}
+                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
+                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
+                  >
+                    <Image src="/flags/ru.svg" alt="Russian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                    <span>Русский</span>
+                  </motion.button>
+                  <motion.button
+                    onClick={() => handleLangChange('uk')}
+                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
+                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
+                  >
+                    <Image src="/flags/ua.svg" alt="Ukrainian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
+                    <span>Українська</span>
+                  </motion.button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

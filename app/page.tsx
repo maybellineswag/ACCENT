@@ -444,7 +444,7 @@ export default function HomePage() {
                 {translations.testimonials.trustedBy}
               </p>
               <GradientButton asChild>
-                <a href="#contact">
+                <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
                   {translations.testimonials.readyToJoin}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
@@ -665,7 +665,7 @@ export default function HomePage() {
                   </ul>
                   <div className="flex-1"></div>
                   <GradientButton asChild className="w-full mt-auto">
-                    <a href="/custom-quote">{translations.pricing.websiteBranding.cta}</a>
+                    <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">{translations.pricing.websiteBranding.cta}</a>
                   </GradientButton>
                 </div>
               </div>
@@ -707,7 +707,7 @@ export default function HomePage() {
                   </ul>
                   <div className="flex-1"></div>
                   <GradientButton asChild className="w-full mt-auto">
-                    <a href="/custom-quote">{translations.pricing.modernWebsite.cta}</a>
+                    <a href="https://buy.stripe.com/6oU5kCdOJdMMda76Qjf7i03" target="_blank" rel="noopener noreferrer">{translations.pricing.modernWebsite.cta}</a>
                   </GradientButton>
                 </div>
               </div>
@@ -990,9 +990,9 @@ export default function HomePage() {
                   {translations.scarcity.cta.title}
                 </h3>
                 <GradientButton asChild className="sm:mx-auto">
-                  <Link href="#contact">
+                  <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
                     {translations.scarcity.cta.button}
-                  </Link>
+                  </a>
                 </GradientButton>
               </motion.div>
             </motion.div>
@@ -1077,7 +1077,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
             >
               <GradientButton asChild className="sm:mx-auto">
-                <a href="https://zcal.co/accentdesign/accentmeeting" target="_blank" rel="noopener noreferrer">
+                <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
                   {translations.faq.cta.button}
                 </a>
               </GradientButton>
