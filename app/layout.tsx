@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import { HtmlLangSetter } from '@/components/HtmlLangSetter'
 
 export const metadata: Metadata = {
   title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
@@ -54,6 +55,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProvider>
+          <HtmlLangSetter />
           {children}
         </LanguageProvider>
       </body>

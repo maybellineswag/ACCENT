@@ -20,8 +20,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (storedLang && ['cs', 'en', 'ru', 'uk'].includes(storedLang)) {
       setLanguageState(storedLang as Language)
     } else {
-      // Default to English on first load
-      const defaultLang: Language = 'en'
+      // Detect from browser language on first load, fallback to English
+      const browserLanguage = typeof navigator !== 'undefined'
+        ? (navigator.languages?.[0] || navigator.language || 'en')
+        : 'en'
+      const normalizedLanguage = browserLanguage.split('-')[0].toLowerCase()
+      const supportedLanguages: Language[] = ['cs', 'en', 'ru', 'uk']
+      const defaultLang: Language = supportedLanguages.includes(normalizedLanguage as Language)
+        ? (normalizedLanguage as Language)
+        : 'en'
       setLanguageState(defaultLang)
       localStorage.setItem('accent-lang', defaultLang)
     }
