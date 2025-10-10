@@ -42,6 +42,9 @@ export default function HomePage() {
   const { language } = useLanguage()
   const { translations, loading } = useTranslations()
 
+  // Feature flags
+  const showPricing = false
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
@@ -592,7 +595,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+        {/* Pricing Section (hidden via flag) */}
+        {showPricing && (
         <section id="pricing" className="pt-8 pb-16 relative z-10">
           <div className="w-full pl-2 pr-4 sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8">
             <motion.div 
@@ -723,6 +727,7 @@ export default function HomePage() {
             </motion.div>
           </div>
         </section>
+        )}
 
         {/* Guarantee Section */}
         <section id="guarantees" className="pt-8 pb-16 relative z-10">
