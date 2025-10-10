@@ -12,27 +12,30 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('en')
-
-  useEffect(() => {
-    // Load language from localStorage on mount
-    const storedLang = typeof window !== 'undefined' ? localStorage.getItem('accent-lang') : null
-    if (storedLang && ['cs', 'en', 'ru', 'uk'].includes(storedLang)) {
-      setLanguageState(storedLang as Language)
-    } else {
-      // Detect from browser language on first load, fallback to English
-      const browserLanguage = typeof navigator !== 'undefined'
-        ? (navigator.languages?.[0] || navigator.language || 'en')
-        : 'en'
-      const normalizedLanguage = browserLanguage.split('-')[0].toLowerCase()
-      const supportedLanguages: Language[] = ['cs', 'en', 'ru', 'uk']
-      const defaultLang: Language = supportedLanguages.includes(normalizedLanguage as Language)
-        ? (normalizedLanguage as Language)
-        : 'en'
-      setLanguageState(defaultLang)
-      localStorage.setItem('accent-lang', defaultLang)
+  // Initialize synchronously to avoid flash/mismatch on first render
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window === 'undefined') return 'en'
+    const stored = localStorage.getItem('accent-lang')
+    if (stored && ['cs', 'en', 'ru', 'uk'].includes(stored)) {
+      return stored as Language
     }
-  }, [])
+    const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en')
+    const normalizedLanguage = browserLanguage.split('-')[0].toLowerCase()
+    const supportedLanguages: Language[] = ['cs', 'en', 'ru', 'uk']
+    const defaultLang: Language = supportedLanguages.includes(normalizedLanguage as Language)
+      ? (normalizedLanguage as Language)
+      : 'en'
+    // Persist for future visits
+    localStorage.setItem('accent-lang', defaultLang)
+    return defaultLang
+  })
+
+  // Keep localStorage in sync when language changes (no-op on server)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('accent-lang', language)
+    }
+  }, [language])
 
   const setLanguage = (lang: Language) => {
     // Store scroll position before language change
