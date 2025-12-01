@@ -2,8 +2,8 @@ import Head from "next/head"
 
 const SeoHead = () => (
   <Head>
-    <title>ACCENT | Prémiový Branding & AI Automatizace v Praze</title>
-    <meta name="description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
+    <title>ACCENT | Web Design v Praze</title>
+    <meta name="description" content="Profesionální web design a branding pro moderní podniky v Praze. Získejte prémiový web design, profesionální branding a více klientů během dnů, ne týdnů." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="https://accent.agency/" />
     
@@ -27,7 +27,7 @@ const SeoHead = () => (
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "ACCENT",
-          "description": "Prémiový branding a AI automatizace pro moderní podniky v Praze",
+          "description": "Profesionální web design a branding pro moderní podniky v Praze",
           "url": "https://accent.agency",
           "address": {
             "@type": "PostalAddress",
@@ -62,15 +62,15 @@ const SeoHead = () => (
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://accent.agency/" />
-    <meta property="og:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
-    <meta property="og:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
+    <meta property="og:title" content="ACCENT | Web Design v Praze" />
+    <meta property="og:description" content="Profesionální web design a branding pro moderní podniky v Praze. Získejte prémiový web design, profesionální branding a více klientů během dnů, ne týdnů." />
     <meta property="og:image" content="https://accent.agency/accenticon.ico" />
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://accent.agency/" />
-    <meta name="twitter:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
-    <meta name="twitter:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
+    <meta name="twitter:title" content="ACCENT | Web Design v Praze" />
+    <meta name="twitter:description" content="Profesionální web design a branding pro moderní podniky v Praze. Získejte prémiový web design, profesionální branding a více klientů během dnů, ne týdnů." />
     <meta name="twitter:image" content="https://accent.agency/accenticon.ico" />
   </Head>
 )

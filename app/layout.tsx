@@ -4,9 +4,9 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 import { HtmlLangSetter } from '@/components/HtmlLangSetter'
 
 export const metadata: Metadata = {
-  title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
-  description: 'Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů.',
-  keywords: 'branding, AI automatizace, web design, Praha, podnikání, marketing, automatizace, chatbot',
+  title: 'ACCENT | Web Design v Praze',
+  description: 'Profesionální web design a branding pro moderní podniky v Praze. Získejte prémiový web design, profesionální branding a více klientů během dnů, ne týdnů.',
+  keywords: 'web design, web design Praha, branding, Praha, podnikání, marketing, tvorba webu, responzivní web',
   authors: [{ name: 'ACCENT' }],
   creator: 'ACCENT',
   publisher: 'ACCENT',
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'cs_CZ',
     url: 'https://accent.agency',
-    title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
-    description: 'Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů.',
+    title: 'ACCENT | Web Design v Praze',
+    description: 'Profesionální web design a branding pro moderní podniky v Praze. Získejte prémiový web design, profesionální branding a více klientů během dnů, ne týdnů.',
     siteName: 'ACCENT',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
-    description: 'Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů.',
+    title: 'ACCENT | Web Design v Praze',
+    description: 'Profesionální web design a branding pro moderní podniky v Praze. Získejte prémiový web design, profesionální branding a více klientů během dnů, ne týdnů.',
     creator: '@accentagency',
   },
   robots: {
