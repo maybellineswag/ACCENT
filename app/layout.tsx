@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import { HtmlLangSetter } from '@/components/HtmlLangSetter'
+import { SmoothScrollHandler } from '@/components/SmoothScrollHandler'
 
 export const metadata: Metadata = {
   title: 'ACCENT | Web Design v Praze',
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProvider>
+          <SmoothScrollHandler />
           <HtmlLangSetter />
           {children}
         </LanguageProvider>

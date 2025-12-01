@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe } from "lucide-react"
+import { LucideIcon, Home, Star, Settings, Shield, HelpCircle, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -69,7 +69,6 @@ export function NavBar({ className }: NavBarProps) {
     { name: 'home', url: '#home', icon: Home },
     { name: 'reviews', url: '#testimonials', icon: Star },
     { name: 'plan', url: '#how-it-works', icon: Settings },
-    { name: 'pricing', url: '#pricing', icon: CreditCard },
     { name: 'guarantees', url: '#guarantees', icon: Shield },
     { name: 'faq', url: '#faq', icon: HelpCircle },
   ]
@@ -84,44 +83,43 @@ export function NavBar({ className }: NavBarProps) {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // Automatic section detection based on scroll position
+  // Automatic section detection based on scroll position - using Lenis scroll event
   useEffect(() => {
     let ticking = false
+    let lastScrollY = 0
     
-    const handleScroll = () => {
+    // Cache section elements to avoid repeated queries
+    const sectionIds = ['home', 'testimonials', 'how-it-works', 'guarantees', 'faq']
+    const sectionToTab: { [key: string]: string } = {
+      'home': 'home',
+      'testimonials': 'reviews',
+      'how-it-works': 'plan',
+      'guarantees': 'guarantees',
+      'faq': 'faq'
+    }
+    
+    const handleScroll = (scrollY: number) => {
+      // Only check if scroll changed significantly (every ~50px) to reduce calculations
+      if (Math.abs(scrollY - lastScrollY) < 50 && ticking) {
+        return
+      }
+      lastScrollY = scrollY
+      
       if (!ticking) {
         requestAnimationFrame(() => {
-          // Check each section to see which one is currently in view
-          const sections = [
-            { id: 'home', element: document.getElementById('home') },
-            { id: 'testimonials', element: document.getElementById('testimonials') },
-            { id: 'how-it-works', element: document.getElementById('how-it-works') },
-            { id: 'pricing', element: document.getElementById('pricing') },
-            { id: 'guarantees', element: document.getElementById('guarantees') },
-            { id: 'faq', element: document.getElementById('faq') }
-          ]
-
           let currentSection = 'home'
           
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const section = sections[i]
-            if (section.element) {
-              const rect = section.element.getBoundingClientRect()
-              if (rect.top <= 150) { // Increased offset for better detection
-                currentSection = section.id
+          // Check sections in reverse order (bottom to top)
+          for (let i = sectionIds.length - 1; i >= 0; i--) {
+            const sectionId = sectionIds[i]
+            const element = document.getElementById(sectionId)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              if (rect.top <= 150) {
+                currentSection = sectionId
                 break
               }
             }
-          }
-
-          // Map section IDs to tab names
-          const sectionToTab: { [key: string]: string } = {
-            'home': 'home',
-            'testimonials': 'reviews',
-            'how-it-works': 'plan',
-            'pricing': 'pricing',
-            'guarantees': 'guarantees',
-            'faq': 'faq'
           }
 
           const newActiveTab = sectionToTab[currentSection] || 'home'
@@ -135,14 +133,20 @@ export function NavBar({ className }: NavBarProps) {
       }
     }
 
-    // Add scroll listener with passive option for better performance
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    // Use Lenis scroll event for better performance
+    const handleLenisScroll = (e: CustomEvent) => {
+      if (e.detail?.scroll !== undefined) {
+        handleScroll(e.detail.scroll)
+      }
+    }
+
+    window.addEventListener('lenis-scroll', handleLenisScroll as EventListener, { passive: true })
     
     // Initial check
-    handleScroll()
+    handleScroll(window.scrollY)
     
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('lenis-scroll', handleLenisScroll as EventListener)
     }
   }, [activeTab])
 
@@ -240,7 +244,38 @@ export function NavBar({ className }: NavBarProps) {
             <Link
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={(e) => {
+                e.preventDefault()
+                setActiveTab(item.name)
+                
+                // Smooth scroll to section using Lenis
+                const hash = item.url
+                const targetElement = document.querySelector(hash) as HTMLElement
+                
+                if (targetElement) {
+                  const headerOffset = 80
+                  const elementPosition = targetElement.getBoundingClientRect().top
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                  
+                  // Get Lenis instance from window
+                  const lenis = (window as any).lenis
+                  if (lenis) {
+                    lenis.scrollTo(offsetPosition, {
+                      duration: 0.6,
+                      easing: (t: number) => t, // Linear for fastest performance
+                    })
+                  } else {
+                    // Fallback to native smooth scroll
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    })
+                  }
+                  
+                  // Update URL
+                  window.history.pushState(null, '', hash)
+                }
+              }}
               className={cn(
                 "relative cursor-pointer text-xs sm:text-sm font-semibold px-2 sm:px-4 py-1.5 sm:py-2 rounded-[11px] transition-colors",
                 "text-neutral-600 hover:text-black",
@@ -251,7 +286,6 @@ export function NavBar({ className }: NavBarProps) {
                 {item.name === 'home' ? translations.nav[language].home : 
                  item.name === 'reviews' ? translations.nav[language].reviews :
                  item.name === 'plan' ? translations.nav[language].plan :
-                 item.name === 'pricing' ? translations.nav[language].pricing :
                  item.name === 'guarantees' ? translations.nav[language].guarantees :
                  item.name === 'faq' ? translations.nav[language].faq : item.name}
               </span>

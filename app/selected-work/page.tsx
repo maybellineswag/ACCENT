@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
+import { BreadcrumbStructuredData } from "@/components/BreadcrumbStructuredData"
 
 export default function SelectedWorkPage() {
   const { language } = useLanguage()
@@ -55,6 +56,12 @@ export default function SelectedWorkPage() {
 
   return (
     <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", url: "https://accent.agency" },
+          { name: "Selected Work", url: "https://accent.agency/selected-work" }
+        ]}
+      />
       <div className="min-h-screen relative overflow-hidden">
         {/* Aurora Background */}
         <div className="fixed inset-0 pointer-events-none z-0">

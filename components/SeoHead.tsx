@@ -19,7 +19,67 @@ const SeoHead = () => (
     <meta name="format-detection" content="telephone=no" />
     <meta name="mobile-web-app-capable" content="yes" />
     
-    {/* Structured data for local business */}
+    {/* Structured data for Organization */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "ACCENT",
+          "url": "https://accent.agency",
+          "logo": "https://accent.agency/accent_logo.svg",
+          "description": "Profesionální web design a branding pro moderní podniky v Praze",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Praha",
+            "addressCountry": "CZ"
+          },
+          "sameAs": [
+            "https://www.instagram.com/accentagency",
+            "https://www.linkedin.com/company/accentagency"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "areaServed": "CZ",
+            "availableLanguage": ["cs", "en", "ru", "uk"]
+          }
+        })
+      }}
+    />
+
+    {/* Structured data for Website - helps with sitelinks */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "ACCENT",
+          "url": "https://accent.agency",
+          "description": "Profesionální web design a branding pro moderní podniky v Praze",
+          "publisher": {
+            "@type": "Organization",
+            "name": "ACCENT",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://accent.agency/accent_logo.svg"
+            }
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://accent.agency/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        })
+      }}
+    />
+
+    {/* Structured data for LocalBusiness */}
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
