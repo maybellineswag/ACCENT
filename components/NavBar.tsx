@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe } from "lucide-react"
+import { LucideIcon, Home, Star, Settings, Shield, HelpCircle, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -69,7 +69,6 @@ export function NavBar({ className }: NavBarProps) {
     { name: 'home', url: '#home', icon: Home },
     { name: 'reviews', url: '#testimonials', icon: Star },
     { name: 'plan', url: '#how-it-works', icon: Settings },
-    { name: 'pricing', url: '#pricing', icon: CreditCard },
     { name: 'guarantees', url: '#guarantees', icon: Shield },
     { name: 'faq', url: '#faq', icon: HelpCircle },
   ]
@@ -96,7 +95,6 @@ export function NavBar({ className }: NavBarProps) {
             { id: 'home', element: document.getElementById('home') },
             { id: 'testimonials', element: document.getElementById('testimonials') },
             { id: 'how-it-works', element: document.getElementById('how-it-works') },
-            { id: 'pricing', element: document.getElementById('pricing') },
             { id: 'guarantees', element: document.getElementById('guarantees') },
             { id: 'faq', element: document.getElementById('faq') }
           ]
@@ -119,7 +117,6 @@ export function NavBar({ className }: NavBarProps) {
             'home': 'home',
             'testimonials': 'reviews',
             'how-it-works': 'plan',
-            'pricing': 'pricing',
             'guarantees': 'guarantees',
             'faq': 'faq'
           }
@@ -251,7 +248,6 @@ export function NavBar({ className }: NavBarProps) {
                 {item.name === 'home' ? translations.nav[language].home : 
                  item.name === 'reviews' ? translations.nav[language].reviews :
                  item.name === 'plan' ? translations.nav[language].plan :
-                 item.name === 'pricing' ? translations.nav[language].pricing :
                  item.name === 'guarantees' ? translations.nav[language].guarantees :
                  item.name === 'faq' ? translations.nav[language].faq : item.name}
               </span>
