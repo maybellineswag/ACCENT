@@ -50,29 +50,15 @@ export default function HomePage() {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
-    // Throttled scroll handler - only update scrollY when needed (less frequent)
-    let scrollTicking = false
-    let lastScrollY = 0
-    const handleLenisScroll = (e: CustomEvent) => {
-      if (!scrollTicking && e.detail?.scroll !== undefined) {
-        const currentScroll = e.detail.scroll
-        // Only update if scroll changed significantly (every ~10px) to reduce re-renders
-        if (Math.abs(currentScroll - lastScrollY) > 10) {
-          requestAnimationFrame(() => {
-            setScrollY(currentScroll)
-            lastScrollY = currentScroll
-            scrollTicking = false
-          })
-          scrollTicking = true
-        }
-      }
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
     }
 
     window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("lenis-scroll", handleLenisScroll as EventListener, { passive: true })
+    window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
-      window.removeEventListener("lenis-scroll", handleLenisScroll as EventListener)
+      window.removeEventListener("scroll", handleScroll)
     }
   }, [])
 
