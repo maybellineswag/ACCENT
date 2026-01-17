@@ -26,8 +26,11 @@ import { NavBar } from "@/components/NavBar"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
+import { PixelTrail } from "@/components/ui/pixel-trail"
+import { useScreenSize } from "@/hooks/use-screen-size"
 
 export default function HomePage() {
+  const screenSize = useScreenSize()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [scrollY, setScrollY] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -35,10 +38,10 @@ export default function HomePage() {
   const metricsRef = useRef<HTMLDivElement>(null)
   const testimonialsRef = useRef<HTMLDivElement>(null)
   const howItWorksRef = useRef<HTMLDivElement>(null)
-  
+
   const testimonialsInView = useInView(testimonialsRef, { once: true, margin: "-200px" })
   const howItWorksInView = useInView(howItWorksRef, { once: true, margin: "-200px" })
-  
+
   const { language } = useLanguage()
   const { translations, loading } = useTranslations()
 
@@ -158,13 +161,13 @@ export default function HomePage() {
   }
 
   const itemVariants = {
-    hidden: { 
-      opacity: 1, 
+    hidden: {
+      opacity: 1,
       filter: "blur(0px)",
       y: 0
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       filter: "blur(0px)",
       y: 0,
       transition: {
@@ -175,14 +178,14 @@ export default function HomePage() {
   }
 
   const cardVariants = {
-    hidden: { 
-      opacity: 1, 
+    hidden: {
+      opacity: 1,
       filter: "blur(0px)",
       y: 0,
       scale: 1
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       filter: "blur(0px)",
       y: 0,
       scale: 1,
@@ -212,13 +215,15 @@ export default function HomePage() {
             <div></div>
           </AuroraBackground>
         </div>
-        {/* Cursor Following Background Gradient */}
-        <div
-          className="fixed inset-0 pointer-events-none z-0"
-          style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(254, 234, 250, 0.15), transparent 40%)`,
-          }}
-        />
+        {/* Pixel Trail Background */}
+        <div className="fixed inset-0 pointer-events-auto z-0 overflow-hidden">
+          <PixelTrail
+            pixelSize={screenSize.lessThan("md") ? 48 : 80}
+            fadeDuration={0}
+            delay={1200}
+            pixelClassName="rounded-full bg-primary/30"
+          />
+        </div>
 
         {/* Floating Navigation */}
         <NavBar />
@@ -244,15 +249,15 @@ export default function HomePage() {
             </motion.div>
 
             {/* Metrics Section */}
-            <motion.div 
-              ref={metricsRef} 
+            <motion.div
+              ref={metricsRef}
               className="mb-16"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-4 gap-8"
                 initial="hidden"
                 whileInView="visible"
@@ -268,7 +273,7 @@ export default function HomePage() {
                   }
                 }}
               >
-                <motion.div 
+                <motion.div
                   className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -280,7 +285,7 @@ export default function HomePage() {
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.businesses}</div>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -292,7 +297,7 @@ export default function HomePage() {
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.bookings}</div>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -304,7 +309,7 @@ export default function HomePage() {
                   <div className="text-sm text-neutral-600 leading-relaxed">{translations.testimonials.metrics.months}</div>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 sm:mx-auto mt-4"></div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-left sm:text-center"
                   variants={{
                     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -319,7 +324,7 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="grid md:grid-cols-3 gap-12 sm:gap-6 mb-16"
               initial="hidden"
               whileInView="visible"
@@ -343,57 +348,26 @@ export default function HomePage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
-                <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
-                  <div className="flex mb-4 justify-start sm:justify-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                ))}
-              </div>
-                  <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
-                    <p className="text-neutral-700 italic leading-relaxed text-sm">
-                    "Nečekala jsem moc, ale teď máme pořád plný kalendář. <strong>Web funguje dobře, lidi sami dělají rezervace a já nemusím pořád telefonovat.</strong> Hodně mi to pomohlo."
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center mt-4">
-                    <div className="text-left">
-                      <span className="font-semibold tracking-tight text-black text-sm">Thảo My Nguyễn</span>
-                      <span className="text-neutral-500 text-xs block">{translations.testimonial1.occupation}</span>
-                      <span className="text-neutral-400 text-xs block">{translations.testimonial1.location}</span>
+                  <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
+                    <div className="flex mb-4 justify-start sm:justify-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
                     </div>
-                    <span className="text-neutral-400 text-xs">{translations.testimonial1.date}</span>
-                  </div>
-                </div>
-              </div>
-              </motion.div>
-
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
-                <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
-                  <div className="flex mb-4 justify-start sm:justify-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
-                    <p className="text-neutral-700 italic leading-relaxed text-sm">
-                    "Pro mě je to velká změna. <strong>Dřív jsem měla chaos, teď všechno jde samo. Klienti píšou přímo přes web, já mám víc času na práci, ne na papíry.</strong>"
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center mt-4">
-                    <div className="text-left">
-                      <span className="font-semibold tracking-tight text-black text-sm">Alina Dovzhenko</span>
-                      <span className="text-neutral-500 text-xs block">{translations.testimonial2.occupation}</span>
-                      <span className="text-neutral-400 text-xs block">{translations.testimonial2.location}</span>
+                    <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
+                      <p className="text-neutral-700 italic leading-relaxed text-sm">
+                        "Nečekala jsem moc, ale teď máme pořád plný kalendář. <strong>Web funguje dobře, lidi sami dělají rezervace a já nemusím pořád telefonovat.</strong> Hodně mi to pomohlo."
+                      </p>
                     </div>
-                    <span className="text-neutral-400 text-xs">{translations.testimonial2.date}</span>
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="text-left">
+                        <span className="font-semibold tracking-tight text-black text-sm">Thảo My Nguyễn</span>
+                        <span className="text-neutral-500 text-xs block">{translations.testimonial1.occupation}</span>
+                        <span className="text-neutral-400 text-xs block">{translations.testimonial1.location}</span>
+                      </div>
+                      <span className="text-neutral-400 text-xs">{translations.testimonial1.date}</span>
+                    </div>
                   </div>
-                </div>
                 </div>
               </motion.div>
 
@@ -405,32 +379,63 @@ export default function HomePage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
-                <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
-                  <div className="flex mb-4 justify-start sm:justify-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-              </div>
-                  <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
-                    <p className="text-neutral-700 italic leading-relaxed text-sm">
-                    "Our new website completely changed how we get customers. <strong>Bookings come in automatically, the site looks modern, and I can finally focus on growing instead of chasing calls.</strong>"
-                    </p>
-            </div>
-                  <div className="flex justify-between items-center mt-4">
-                    <div className="text-left">
-                      <span className="font-semibold tracking-tight text-black text-sm">Élodie Carpentier</span>
-                      <span className="text-neutral-500 text-xs block">{translations.testimonial3.occupation}</span>
-                      <span className="text-neutral-400 text-xs block">{translations.testimonial3.location}</span>
+                  <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
+                    <div className="flex mb-4 justify-start sm:justify-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
                     </div>
-                    <span className="text-neutral-400 text-xs">{translations.testimonial3.date}</span>
+                    <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
+                      <p className="text-neutral-700 italic leading-relaxed text-sm">
+                        "Pro mě je to velká změna. <strong>Dřív jsem měla chaos, teď všechno jde samo. Klienti píšou přímo přes web, já mám víc času na práci, ne na papíry.</strong>"
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="text-left">
+                        <span className="font-semibold tracking-tight text-black text-sm">Alina Dovzhenko</span>
+                        <span className="text-neutral-500 text-xs block">{translations.testimonial2.occupation}</span>
+                        <span className="text-neutral-400 text-xs block">{translations.testimonial2.location}</span>
+                      </div>
+                      <span className="text-neutral-400 text-xs">{translations.testimonial2.date}</span>
+                    </div>
                   </div>
                 </div>
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-2xl sm:h-[280px]">
+                  <div className="p-0 sm:p-6 text-left sm:text-center flex flex-col h-full">
+                    <div className="flex mb-4 justify-start sm:justify-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    <div className="flex-1 flex items-start sm:items-center justify-start sm:justify-center">
+                      <p className="text-neutral-700 italic leading-relaxed text-sm">
+                        "Our new website completely changed how we get customers. <strong>Bookings come in automatically, the site looks modern, and I can finally focus on growing instead of chasing calls.</strong>"
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="text-left">
+                        <span className="font-semibold tracking-tight text-black text-sm">Élodie Carpentier</span>
+                        <span className="text-neutral-500 text-xs block">{translations.testimonial3.occupation}</span>
+                        <span className="text-neutral-400 text-xs block">{translations.testimonial3.location}</span>
+                      </div>
+                      <span className="text-neutral-400 text-xs">{translations.testimonial3.date}</span>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
 
             {/* CTA Section */}
-            <motion.div 
+            <motion.div
               className="text-left sm:text-center"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -453,7 +458,7 @@ export default function HomePage() {
         {/* How It Works - Founder Focused */}
         <section id="how-it-works" className="pt-8 pb-16 relative z-10" ref={howItWorksRef}>
           <div className="w-full pl-6 pr-4 sm:max-w-6xl sm:mx-auto sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="text-left sm:text-center mb-12"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -465,7 +470,7 @@ export default function HomePage() {
               </h2>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="grid md:grid-cols-3 gap-12 sm:gap-6"
               initial="hidden"
               whileInView="visible"
@@ -481,7 +486,7 @@ export default function HomePage() {
                 }
               }}
             >
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-2"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -493,21 +498,21 @@ export default function HomePage() {
                   <div className="p-0 sm:p-6 text-left sm:text-center relative h-full">
                     <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <span className="text-2xl font-bold text-black">{translations.howItWorks.step1.title}</span>
-                </div>
+                    </div>
                     <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-2">
                       <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step1.subtitle}</h4>
-              </div>
+                    </div>
                     <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
                         <span className="text-neutral-700">{translations.howItWorks.step1.duration}</span>
-                </div>
-              </div>
+                      </div>
+                    </div>
                     <div className="sm:absolute sm:top-44 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4">
                       <p className="text-neutral-700 text-sm">
                         {translations.howItWorks.step1.description}
                       </p>
-                </div>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-1">
@@ -518,7 +523,7 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-2"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -530,21 +535,21 @@ export default function HomePage() {
                   <div className="p-0 sm:p-6 text-left sm:text-center relative h-full">
                     <div className="top-0 sm:absolute sm:top-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <span className="text-2xl font-bold text-black">{translations.howItWorks.step2.title}</span>
-              </div>
+                    </div>
                     <div className="sm:absolute sm:top-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4 mb-2">
                       <h4 className="text-xl font-semibold text-black">{translations.howItWorks.step2.subtitle}</h4>
-            </div>
+                    </div>
                     <div className="sm:absolute sm:top-32 sm:left-1/2 sm:transform sm:-translate-x-1/2 mb-2">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-neutral-700" />
                         <span className="text-neutral-700">{translations.howItWorks.step2.duration}</span>
-          </div>
-            </div>
+                      </div>
+                    </div>
                     <div className="sm:absolute sm:top-44 sm:left-1/2 sm:transform sm:-translate-x-1/2 w-full sm:px-4">
                       <p className="text-neutral-700 text-sm">
                         {translations.howItWorks.step2.description}
-                </p>
-              </div>
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-1">
@@ -555,7 +560,7 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-2"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -597,142 +602,142 @@ export default function HomePage() {
 
         {/* Pricing Section (hidden via flag) */}
         {showPricing && (
-        <section id="pricing" className="pt-8 pb-16 relative z-10">
-          <div className="w-full pl-2 pr-4 sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8">
-            <motion.div 
-              className="text-left sm:text-center mb-6 sm:mb-8 pl-4 pr-4"
-              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-black tracking-tighter">
-                {translations.pricing.title}
-              </h2>
-            </motion.div>
+          <section id="pricing" className="pt-8 pb-16 relative z-10">
+            <div className="w-full pl-2 pr-4 sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8">
+              <motion.div
+                className="text-left sm:text-center mb-6 sm:mb-8 pl-4 pr-4"
+                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <h2 className="text-4xl sm:text-5xl font-bold text-black tracking-tighter">
+                  {translations.pricing.title}
+                </h2>
+              </motion.div>
 
-            <motion.div 
-              className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 origin-left sm:scale-100 sm:origin-center items-stretch w-full pl-4 pr-4 mt-4 sm:mt-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2,
-                    delayChildren: 0.2
+              <motion.div
+                className="grid md:grid-cols-2 gap-12 sm:gap-8 sm:max-w-4xl sm:mx-auto scale-90 origin-left sm:scale-100 sm:origin-center items-stretch w-full pl-4 pr-4 mt-4 sm:mt-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.2,
+                      delayChildren: 0.2
+                    }
                   }
-                }
-              }}
-            >
-              {/* Website/Branding Package */}
-              <motion.div
-                className="h-full flex"
-                variants={{
-                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
                 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
-                 <div className="text-left p-0 sm:p-10">
-                   <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</h3>
-                   <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.websiteBranding.price}</div>
-                   <p className="mt-2 text-neutral-600">{translations.pricing.websiteBranding.description}</p>
-                 </div>
-                 <div className="flex flex-col grow space-y-4 sm:space-y-8 p-0 sm:px-10 sm:pb-10">
-                  <ul className="space-y-2 text-base sm:text-lg mt-6">
-                    {translations.pricing.websiteBranding.features.map((feature: string, index: number) => (
-                      <li key={index} className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                        <span className="text-black">{feature}</span>
-                    </li>
-                    ))}
-                  </ul>
-                  <div className="flex-1"></div>
-                  <GradientButton asChild className="w-full mt-auto">
-                    <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">{translations.pricing.websiteBranding.cta}</a>
-                  </GradientButton>
-                </div>
-              </div>
+                {/* Website/Branding Package */}
+                <motion.div
+                  className="h-full flex"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
+                    <div className="text-left p-0 sm:p-10">
+                      <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.websiteBranding.title}</h3>
+                      <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.websiteBranding.price}</div>
+                      <p className="mt-2 text-neutral-600">{translations.pricing.websiteBranding.description}</p>
+                    </div>
+                    <div className="flex flex-col grow space-y-4 sm:space-y-8 p-0 sm:px-10 sm:pb-10">
+                      <ul className="space-y-2 text-base sm:text-lg mt-6">
+                        {translations.pricing.websiteBranding.features.map((feature: string, index: number) => (
+                          <li key={index} className="flex items-start">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{ display: 'inline' }}>
+                              <defs>
+                                <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                  <stop stopColor="#7C83FF" />
+                                  <stop offset="0.5" stopColor="#D16BA5" />
+                                  <stop offset="1" stopColor="#FFB6D9" />
+                                </linearGradient>
+                              </defs>
+                              <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none" />
+                            </svg>
+                            <span className="text-black">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="flex-1"></div>
+                      <GradientButton asChild className="w-full mt-auto">
+                        <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">{translations.pricing.websiteBranding.cta}</a>
+                      </GradientButton>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Modern Website Package */}
+                <motion.div
+                  className="h-full flex"
+                  variants={{
+                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+                    visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
+                    <div className="text-left p-0 sm:p-10">
+                      <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</h3>
+                      <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.modernWebsite.price}</div>
+                      <p className="mt-2 text-neutral-600">{translations.pricing.modernWebsite.description}</p>
+                    </div>
+                    <div className="flex flex-col grow space-y-4 sm:space-y-8 p-0 sm:px-10 sm:pb-10">
+                      <ul className="space-y-2 text-base sm:text-lg mt-6">
+                        {translations.pricing.modernWebsite.features.map((feature: string, index: number) => (
+                          <li key={index} className="flex items-start">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{ display: 'inline' }}>
+                              <defs>
+                                <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                  <stop stopColor="#7C83FF" />
+                                  <stop offset="0.5" stopColor="#D16BA5" />
+                                  <stop offset="1" stopColor="#FFB6D9" />
+                                </linearGradient>
+                              </defs>
+                              <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none" />
+                            </svg>
+                            <span className="text-black">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="flex-1"></div>
+                      <GradientButton asChild className="w-full mt-auto">
+                        <a href="https://buy.stripe.com/6oU5kCdOJdMMda76Qjf7i03" target="_blank" rel="noopener noreferrer">{translations.pricing.modernWebsite.cta}</a>
+                      </GradientButton>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
 
-              {/* Modern Website Package */}
+              {/* Limited Spots Alert */}
               <motion.div
-                className="h-full flex"
-                variants={{
-                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-                  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="w-full text-left sm:text-center mt-6 sm:mt-8 scale-90 origin-left sm:scale-100 sm:origin-center pl-4 pr-4 sm:flex sm:justify-center"
+                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
               >
-                 <div className="sm:glow-on-hover sm:border-0 sm:bg-white/25 sm:backdrop-blur-sm sm:border sm:border-neutral-200/20 sm:shadow-lg sm:hover:shadow-xl sm:transition-all sm:duration-500 sm:rounded-3xl flex flex-col w-full">
-                 <div className="text-left p-0 sm:p-10">
-                   <h3 className="text-3xl font-semibold tracking-tight text-black">{translations.pricing.modernWebsite.title}</h3>
-                   <div className="text-5xl font-bold text-gradient-blobs mt-2">{translations.pricing.modernWebsite.price}</div>
-                   <p className="mt-2 text-neutral-600">{translations.pricing.modernWebsite.description}</p>
-                 </div>
-                 <div className="flex flex-col grow space-y-4 sm:space-y-8 p-0 sm:px-10 sm:pb-10">
-                  <ul className="space-y-2 text-base sm:text-lg mt-6">
-                    {translations.pricing.modernWebsite.features.map((feature: string, index: number) => (
-                      <li key={index} className="flex items-start">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 mt-1 flex-shrink-0" style={{display:'inline'}}>
-                        <defs>
-                          <linearGradient id="checkGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#7C83FF" />
-                            <stop offset="0.5" stopColor="#D16BA5" />
-                            <stop offset="1" stopColor="#FFB6D9" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M9 12l2 2l4 -4" stroke="url(#checkGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="12" r="9" stroke="url(#checkGradient)" strokeWidth="2" fill="none"/>
-                      </svg>
-                        <span className="text-black">{feature}</span>
-                    </li>
-                    ))}
-                  </ul>
-                  <div className="flex-1"></div>
-                  <GradientButton asChild className="w-full mt-auto">
-                    <a href="https://buy.stripe.com/6oU5kCdOJdMMda76Qjf7i03" target="_blank" rel="noopener noreferrer">{translations.pricing.modernWebsite.cta}</a>
-                  </GradientButton>
+                <div className="flex items-start gap-1.5 sm:gap-3 w-fit">
+                  <div className="w-1.5 h-1.5 sm:w-3 sm:h-3 bg-amber-500 rounded-full mt-1 flex-shrink-0"></div>
+                  <span className="text-amber-800 text-[12px] sm:text-sm font-medium">{translations.pricing.limitedSpots}</span>
                 </div>
-              </div>
               </motion.div>
-            </motion.div>
-            
-            {/* Limited Spots Alert */}
-            <motion.div 
-              className="w-full text-left sm:text-center mt-6 sm:mt-8 scale-90 origin-left sm:scale-100 sm:origin-center pl-4 pr-4 sm:flex sm:justify-center"
-              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            >
-              <div className="flex items-start gap-1.5 sm:gap-3 w-fit">
-                <div className="w-1.5 h-1.5 sm:w-3 sm:h-3 bg-amber-500 rounded-full mt-1 flex-shrink-0"></div>
-                <span className="text-amber-800 text-[12px] sm:text-sm font-medium">{translations.pricing.limitedSpots}</span>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </section>
         )}
 
         {/* Guarantee Section */}
         <section id="guarantees" className="pt-8 pb-16 relative z-10">
           <div className="w-full pl-2 pr-4 sm:max-w-6xl sm:mx-auto sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="text-left sm:text-center mb-16 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -744,7 +749,7 @@ export default function HomePage() {
               </h2>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="grid md:grid-cols-3 gap-8 items-stretch pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
@@ -859,7 +864,7 @@ export default function HomePage() {
         {/* Scarcity Section */}
         <section className="pt-8 pb-16 relative z-10">
           <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
-            <motion.div 
+            <motion.div
               className="text-left sm:text-center mb-12 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -871,7 +876,7 @@ export default function HomePage() {
               </h2>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="sm:max-w-4xl sm:mx-auto pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
@@ -890,18 +895,18 @@ export default function HomePage() {
               {/* Timeline */}
               <div className="relative">
                 {/* Timeline Line */}
-                <motion.div 
+                <motion.div
                   className="hidden sm:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-400 via-red-500 to-red-600 transform -translate-y-1/2 rounded-full"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
                 ></motion.div>
-                
+
                 {/* Timeline Items */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                   {/* Today */}
-                  <motion.div 
+                  <motion.div
                     className="relative z-10"
                     variants={{
                       hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -926,7 +931,7 @@ export default function HomePage() {
                   </motion.div>
 
                   {/* 30 Days Later */}
-                  <motion.div 
+                  <motion.div
                     className="relative z-10"
                     variants={{
                       hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -951,7 +956,7 @@ export default function HomePage() {
                   </motion.div>
 
                   {/* 90 Days Later */}
-                  <motion.div 
+                  <motion.div
                     className="relative z-10"
                     variants={{
                       hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -978,7 +983,7 @@ export default function HomePage() {
               </div>
 
               {/* CTA */}
-              <motion.div 
+              <motion.div
                 className="text-left sm:text-center mt-12"
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -1001,7 +1006,7 @@ export default function HomePage() {
         {/* FAQ Section */}
         <section id="faq" className="pt-8 pb-12 relative z-10">
           <div className="w-full pl-2 pr-4 sm:max-w-4xl sm:mx-auto sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="text-left sm:text-center mb-12 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -1014,7 +1019,7 @@ export default function HomePage() {
               <p className="text-xl text-neutral-600 font-normal">{translations.faq.subtitle}</p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="space-y-4 pl-4 pr-4"
               initial="hidden"
               whileInView="visible"
@@ -1042,33 +1047,33 @@ export default function HomePage() {
                   <Card
                     className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden"
                   >
-                  <button
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-50/50 transition-colors"
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  >
-                    <h3 className="text-lg font-semibold tracking-tight text-black">{faq.question}</h3>
-                    <ChevronDown
-                      className={`w-5 h-5 text-neutral-500 transition-transform ${openFaq === index ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  <div
-                    className={`px-6 faq-answer-transition ${openFaq === index ? "faq-answer-open" : "faq-answer-closed"}`}
-                    style={{
-                      maxHeight: openFaq === index ? 200 : 0,
-                      opacity: openFaq === index ? 1 : 0,
-                      transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1)',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <p className="text-neutral-600 leading-relaxed pb-6">{faq.answer}</p>
-                  </div>
-                </Card>
+                    <button
+                      className="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-50/50 transition-colors"
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    >
+                      <h3 className="text-lg font-semibold tracking-tight text-black">{faq.question}</h3>
+                      <ChevronDown
+                        className={`w-5 h-5 text-neutral-500 transition-transform ${openFaq === index ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <div
+                      className={`px-6 faq-answer-transition ${openFaq === index ? "faq-answer-open" : "faq-answer-closed"}`}
+                      style={{
+                        maxHeight: openFaq === index ? 200 : 0,
+                        opacity: openFaq === index ? 1 : 0,
+                        transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1)',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <p className="text-neutral-600 leading-relaxed pb-6">{faq.answer}</p>
+                    </div>
+                  </Card>
                 </motion.div>
               ))}
             </motion.div>
 
             {/* CTA Button */}
-            <motion.div 
+            <motion.div
               className="text-left sm:text-center mt-8 pl-4 pr-4"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -1088,7 +1093,7 @@ export default function HomePage() {
         {/* Footer */}
         <footer className="text-black pt-16 pb-8 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
+            <motion.div
               className="grid md:grid-cols-4 gap-8 justify-start"
               initial="hidden"
               whileInView="visible"
@@ -1104,7 +1109,7 @@ export default function HomePage() {
                 }
               }}
             >
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-start"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -1123,11 +1128,11 @@ export default function HomePage() {
                 <p className="text-neutral-600 text-sm mb-3">
                   {translations.footer.copyright}
                 </p>
-                                  <p className="text-neutral-600 leading-relaxed">
-                    {translations.footer.description}
-                  </p>
+                <p className="text-neutral-600 leading-relaxed">
+                  {translations.footer.description}
+                </p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-start"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -1139,14 +1144,14 @@ export default function HomePage() {
                 <ul className="space-y-2 text-neutral-600">
                   {translations.footer.services.items.map((item: string, index: number) => (
                     <li key={index}>
-                    <a href="#" className="hover:text-black transition-colors">
+                      <a href="#" className="hover:text-black transition-colors">
                         {item}
-                    </a>
-                  </li>
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-start"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -1158,14 +1163,14 @@ export default function HomePage() {
                 <ul className="space-y-2 text-neutral-600">
                   {translations.footer.company.items.map((item: string, index: number) => (
                     <li key={index}>
-                    <a href="#" className="hover:text-black transition-colors">
+                      <a href="#" className="hover:text-black transition-colors">
                         {item}
-                    </a>
-                  </li>
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-start w-full"
                 variants={{
                   hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
@@ -1175,18 +1180,18 @@ export default function HomePage() {
               >
                 <h4 className="font-semibold mb-4">{translations.footer.contact.title}</h4>
                 <form className="w-full flex flex-col space-y-2">
-                                      <input
-                      type="email"
-                      placeholder={translations.footer.contact.email}
-                      className="px-3 py-1.5 rounded-[11px] bg-white/25 backdrop-blur-sm border border-neutral-200/20 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full text-sm"
-                    />
-                    <textarea
-                      placeholder={translations.footer.contact.message}
-                      rows={2}
-                      className="px-3 py-1.5 rounded-[11px] bg-white/25 backdrop-blur-sm border border-neutral-200/20 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full resize-none text-sm"
-                    />
+                  <input
+                    type="email"
+                    placeholder={translations.footer.contact.email}
+                    className="px-3 py-1.5 rounded-[11px] bg-white/25 backdrop-blur-sm border border-neutral-200/20 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full text-sm"
+                  />
+                  <textarea
+                    placeholder={translations.footer.contact.message}
+                    rows={2}
+                    className="px-3 py-1.5 rounded-[11px] bg-white/25 backdrop-blur-sm border border-neutral-200/20 text-black placeholder-neutral-600 focus:outline-none focus:border-[#823038] w-full resize-none text-sm"
+                  />
                   <GradientButton type="submit" className="w-full">
-                                          {translations.footer.contact.send}
+                    {translations.footer.contact.send}
                   </GradientButton>
                 </form>
               </motion.div>
@@ -1194,7 +1199,7 @@ export default function HomePage() {
 
           </div>
         </footer>
-      </div>
+      </div >
     </>
   )
 }
