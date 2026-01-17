@@ -210,13 +210,12 @@ export default function HomePage() {
       <SeoHead />
       <div className="min-h-screen relative overflow-hidden">
         {/* Aurora Background */}
-        {/* Aurora Background - Commented out to test PixelTrail visibility
+        {/* Aurora Background */}
         <div className="fixed inset-0 pointer-events-none z-0">
           <AuroraBackground className="h-full w-full" showRadialGradient={true}>
             <div></div>
           </AuroraBackground>
         </div>
-        */}
         {/* Pixel Trail Background */}
         <div className="fixed inset-0 pointer-events-auto z-0 overflow-hidden">
           <PixelTrail
