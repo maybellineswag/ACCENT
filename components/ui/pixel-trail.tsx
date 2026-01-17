@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from "react"
+import React, { useCallback, useMemo, useRef, useEffect } from "react"
 import { motion, useAnimationControls } from "framer-motion"
 import { v4 as uuidv4 } from "uuid"
 
@@ -25,8 +25,8 @@ const PixelTrail: React.FC<PixelTrailProps> = ({
     const dimensions = useDimensions(containerRef)
     const trailId = useRef(uuidv4())
 
-    const handleMouseMove = useCallback(
-        (e: React.MouseEvent<HTMLDivElement>) => {
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
             if (!containerRef.current) return
 
             const rect = containerRef.current.getBoundingClientRect()
@@ -40,9 +40,13 @@ const PixelTrail: React.FC<PixelTrailProps> = ({
                 const animatePixel = (pixelElement as any).__animatePixel
                 if (animatePixel) animatePixel()
             }
-        },
-        [pixelSize]
-    )
+        }
+
+        window.addEventListener("mousemove", handleMouseMove)
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove)
+        }
+    }, [pixelSize])
 
     const columns = useMemo(
         () => Math.ceil(dimensions.width / pixelSize),
@@ -57,10 +61,9 @@ const PixelTrail: React.FC<PixelTrailProps> = ({
         <div
             ref={containerRef}
             className={cn(
-                "absolute inset-0 w-full h-full pointer-events-auto",
+                "absolute inset-0 w-full h-full pointer-events-none",
                 className
             )}
-            onMouseMove={handleMouseMove}
         >
             {Array.from({ length: rows }).map((_, rowIndex) => (
                 <div key={rowIndex} className="flex">
