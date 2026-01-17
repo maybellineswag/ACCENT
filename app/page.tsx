@@ -26,11 +26,9 @@ import { NavBar } from "@/components/NavBar"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
-import { PixelTrail } from "@/components/ui/pixel-trail"
-import { useScreenSize } from "@/hooks/use-screen-size"
+import { TubesBackground } from "@/components/ui/neon-flow"
 
 export default function HomePage() {
-  const screenSize = useScreenSize()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [scrollY, setScrollY] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -216,14 +214,9 @@ export default function HomePage() {
             <div></div>
           </AuroraBackground>
         </div>
-        {/* Pixel Trail Background */}
+        {/* Neon Connect Tubes Background */}
         <div className="fixed inset-0 pointer-events-auto z-0 overflow-hidden">
-          <PixelTrail
-            pixelSize={screenSize.lessThan("md") ? 48 : 80}
-            fadeDuration={0}
-            delay={1200}
-            pixelClassName="rounded-full bg-white/20 backdrop-blur-sm mix-blend-overlay border border-white/10"
-          />
+          <TubesBackground className="w-full h-full" />
         </div>
 
         {/* Floating Navigation */}
