@@ -222,7 +222,7 @@ export default function HomePage() {
             pixelSize={screenSize.lessThan("md") ? 48 : 80}
             fadeDuration={0}
             delay={1200}
-            pixelClassName="rounded-full bg-primary/30"
+            pixelClassName="rounded-full bg-white/20 backdrop-blur-sm mix-blend-overlay border border-white/10"
           />
         </div>
 
