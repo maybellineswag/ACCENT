@@ -372,5 +372,13 @@
         "description": "A good website is not an expense. It is an investment that pays off. More quality leads. Higher average client value. Less time spent explaining."
       }
     ]
+  },
+  "clinicsBeauty": {
+    "hero": {
+      "title1": "Premium websites for ",
+      "titlePremium": "aesthetic and medical clinics",
+      "title2": "",
+      "desc": "Attract clients who seek quality, not discounts."
+    }
   }
 }

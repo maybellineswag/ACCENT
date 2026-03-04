@@ -724,4 +724,58 @@ button {
     opacity: 0;
     transition: opacity 0.6s;
   }
+
+  /* Clinics & Beauty Theme */
+  .clinics-beauty-theme {
+    --color-1: #FFA7F7;
+    --color-2: #FFBAE4;
+    --color-3: #FFDCF1;
+    --color-4: #FFBAE4;
+    --color-5: #FFA7F7;
+  }
+
+  .clinics-beauty-theme .gradient-button:hover {
+    --color-1: #FFDCF1;
+    --color-2: #FFBAE4;
+    --color-3: #FFA7F7;
+    --color-4: #FFBAE4;
+    --color-5: #FFDCF1;
+  }
+
+  .clinics-beauty-theme .text-gradient-blobs {
+    background: radial-gradient(circle at 30% 40%, #FFA7F7 0%, transparent 60%),
+      radial-gradient(circle at 70% 60%, #FFBAE4 0%, transparent 60%),
+      radial-gradient(circle at 55% 30%, #FFDCF1 0%, transparent 60%);
+    background-size: 200% 200%;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .clinics-beauty-theme .logo-gradient-pink {
+    background: linear-gradient(90deg, #FFA7F7, #FFBAE4, #FFDCF1);
+    -webkit-mask-image: url('/accentnewlogo.svg');
+    mask-image: url('/accentnewlogo.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    display: inline-block;
+  }
+
+  .clinics-beauty-theme .symbol-gradient-pink {
+    background: linear-gradient(135deg, #FFA7F7, #FFBAE4, #FFDCF1);
+    -webkit-mask-image: url('/accentnewsymbol.svg');
+    mask-image: url('/accentnewsymbol.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    display: inline-block;
+  }
 }

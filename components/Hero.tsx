@@ -11,9 +11,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroProps {
   translations: any;
+  isClinics?: boolean;
 }
 
-function Hero({ translations }: HeroProps) {
+function Hero({ translations, isClinics }: HeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const { language, setLanguage } = useLanguage();
@@ -106,13 +107,17 @@ function Hero({ translations }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center gap-2 mb-2"
           >
-            <Image
-              src="/accentnewlogo.svg"
-              alt="ACCENT Logo"
-              width={100}
-              height={25}
-              className="w-auto h-5 sm:h-6 opacity-90"
-            />
+            {isClinics ? (
+              <div className="logo-gradient-pink w-[100px] h-5 sm:h-6 opacity-90" aria-label="ACCENT Logo" />
+            ) : (
+              <Image
+                src="/accentnewlogo.svg"
+                alt="ACCENT Logo"
+                width={100}
+                height={25}
+                className="w-auto h-5 sm:h-6 opacity-90"
+              />
+            )}
           </motion.div>
 
           <div className="flex gap-6 flex-col items-start max-w-4xl">

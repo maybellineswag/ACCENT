@@ -374,5 +374,13 @@
         "description": "Dobrý web není výdaj. Je to investice, která se vrátí. Více kvalitních poptávek. Vyšší průměrná hodnota klienta. Méně času stráveného vysvětlováním."
       }
     ]
+  },
+  "clinicsBeauty": {
+    "hero": {
+      "title1": "Prémiové weby pro ",
+      "titlePremium": "estetické a medicínské kliniky",
+      "title2": "",
+      "desc": "Přitahujte klienty, kteří hledají kvalitu, ne slevy."
+    }
   }
 }

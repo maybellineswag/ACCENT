@@ -16,10 +16,11 @@ interface NavItem {
 }
 
 interface NavBarProps {
-  className?: string
+  className?: string;
+  isClinics?: boolean;
 }
 
-export function NavBar({ className }: NavBarProps) {
+export function NavBar({ className, isClinics }: NavBarProps) {
   const [activeTab, setActiveTab] = useState('home')
   const [isMobile, setIsMobile] = useState(false)
   const [showLangDropdown, setShowLangDropdown] = useState(false)
@@ -55,7 +56,7 @@ export function NavBar({ className }: NavBarProps) {
   }
 
   const items: NavItem[] = [
-    { name: 'industries', url: '#how-it-works', icon: Shield },
+    { name: 'industries', url: '/clinics-beauty', icon: Shield },
     { name: 'works', url: '#works', icon: Star },
     { name: 'pricing', url: '#faq', icon: CreditCard },
     { name: 'faq', url: '/faq', icon: HelpCircle },
@@ -126,7 +127,11 @@ export function NavBar({ className }: NavBarProps) {
           className="flex items-center px-2 sm:px-3 py-1.5 sm:py-2"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <Image src="/accentnewsymbol.svg" alt="Logo" width={24} height={24} className="w-6 h-6" />
+          {isClinics ? (
+            <div className="symbol-gradient-pink w-6 h-6" aria-label="ACCENT Symbol" />
+          ) : (
+            <Image src="/accentnewsymbol.svg" alt="Logo" width={24} height={24} className="w-6 h-6" />
+          )}
         </Link>
 
         {/* Navigation Items */}
