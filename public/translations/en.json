@@ -1,38 +1,41 @@
 {
   "nav": {
-    "home": "Home",
-    "reviews": "Reviews",
-    "plan": "Plan",
-    "services": "Services",
-    "how": "How it works",
-    "pricing": "Pricing",
-    "guarantees": "Guarantees",
+    "home": "Works",
+    "reviews": "Industries",
+    "plan": "Pricing",
+    "pricing": "About",
+    "guarantees": "FAQ",
     "faq": "FAQ",
-    "rezervovat": "Book now"
+    "rezervovat": "Book a call"
   },
   "hero": {
-    "title": "Get a Website That Grows Your Business Without",
-    "subtitle": "AI Automation",
-    "desc": "Founders who are serious about growth trust our websites and automation to bring clients while they focus on their craft."
+    "title1": "Your business is ",
+    "titlePremium": "premium.",
+    "title2": "Does your website show that?",
+    "desc": "Custom-built, template-free websites designed to build trust, attract clients, and grow your revenue."
   },
   "heroBullets": [
     "Successfully transformed 20+ businesses",
     "Based in Prague",
     "Results in weeks, not months"
   ],
-  "heroCta": "Book a call",
+  "heroCta": "Get a free design concept",
   "viewWork": "View work",
   "ourClients": "Our clients",
   "moreClients": "20+ more",
   "notificationBanner": "7 FOUNDERS BOOKED A CALL THIS WEEK",
-  "heroRotatingWords": ["Templates", "Stress", "Wasted Time"],
+  "heroRotatingWords": [
+    "Templates",
+    "Stress",
+    "Wasted Time"
+  ],
   "testimonial1": {
     "occupation": "Cosmetic salon owner",
     "location": "Hradec Králové",
     "date": "Dec 15, 2024"
   },
   "testimonial2": {
-    "occupation": "Nail salon owner", 
+    "occupation": "Nail salon owner",
     "location": "Prague",
     "date": "Jan 8, 2025"
   },
@@ -43,14 +46,80 @@
   },
   "testimonials": {
     "title": "Loved by clients all across Europe.",
-    "metrics": {
-      "businesses": "Beauty & Wellness\nWebsites Published",
-      "bookings": "Booking Requests Captured\nFor Our Clients",
-      "months": "Months To Reach First Page\nOn Google",
-      "increase": "average increase"
-    },
+    "metrics": [
+      {
+        "value": "5",
+        "label": "You Have 5 Seconds To Make A First Impression",
+        "description": "70% of visitors leave a website within the first 5 seconds if they aren't immediately convinced. You have one chance. Use it right."
+      },
+      {
+        "value": "3x",
+        "label": "More Conversions For Professionally Designed Websites",
+        "description": "Businesses with a premium website generate on average 3x more quality leads than competitors with generic templates or outdated designs."
+      },
+      {
+        "value": "24/7",
+        "label": "Your Website Works Even When You Don't",
+        "description": "While you sleep, your website answers questions, builds trust, and convinces visitors. It's your most important salesperson."
+      },
+      {
+        "value": "40%",
+        "label": "Higher Average Client Value",
+        "description": "Premium presentation attracts clients looking for quality, not discounts."
+      }
+    ],
     "trustedBy": "Trusted by 30+ firms",
     "readyToJoin": "Ready to join them?"
+  },
+  "problem": {
+    "title": "Before they enter your business, they enter your website.",
+    "subtitle": "Are you leaking revenue without knowing it?",
+    "points": [
+      {
+        "title": "Outdated design lowers perceived value",
+        "description": "If your site looks cheap, potential clients will expect cheap prices—or worse, they won't trust you."
+      },
+      {
+        "title": "Cheap websites attract price shoppers",
+        "description": "Premium clients want a premium experience. They judge your expertise by your digital storefront."
+      },
+      {
+        "title": "Poor UX kills bookings",
+        "description": "Confusing navigation and broken forms mean frustrated visitors going straight to your competitors."
+      }
+    ]
+  },
+  "disconnect": {
+    "title": "The Disconnect",
+    "table": {
+      "businessHeader": "IN YOUR BUSINESS",
+      "websiteHeader": "ON YOUR WEBSITE",
+      "rows": [
+        [
+          "Minimalist design",
+          "Cluttered homepage"
+        ],
+        [
+          "Curated experience",
+          "Stock photos"
+        ],
+        [
+          "Premium pricing",
+          "\"Book now\" popup"
+        ],
+        [
+          "Attentive service",
+          "Generic contact form"
+        ],
+        [
+          "High-end clientele",
+          "Budget aesthetic"
+        ]
+      ]
+    },
+    "punchline1": "Your offline brand is premium.",
+    "punchline2": "Your online brand is letting you down.",
+    "cost": "This costs you €50,000+ per year in lost bookings from clients who never click \"contact.\""
   },
   "benefits": {
     "sectionTitle": "How We Help Your Business",
@@ -63,27 +132,28 @@
     ]
   },
   "howItWorks": {
-    "title": "In 14 Days, Your Business Runs on Autopilot",
+    "title": "How We Work",
+    "description": "A seamless process designed to take your business online without the stress.",
+    "footerNote": "No commitment, just a quick 15-min chat to see how we can help.",
     "step1": {
-      "title": "STEP 1",
-      "subtitle": "Strategy Call & Content Brief",
-      "duration": "60 minutes",
-      "description": "We hop on one call to understand your services, brand, and goals.\nThen we send you a super simple form (content brief) - no writing needed, just bullet points or voice notes.",
-      "note": "No need to write website text or design anything — we extract it all from you."
+      "title": "01",
+      "subtitle": "STRATEGIC CONSULTATION",
+      "duration": "15 minutes",
+      "description": "15-minute call. We'll understand your brand, goals, and what you need from the website. Clear scope, clear price.",
+      "note": ""
     },
     "step2": {
-      "title": "STEP 2",
-      "subtitle": "We Design, Write & Build Everything",
-      "duration": "7–14 days",
-      "description": "Our team writes all the copy, designs the pages, and builds the full website.\nYou just relax. We'll send you a preview once it's ready.",
-      "note": "We do 100% of the work. You don't have to touch a thing."
+      "title": "02",
+      "subtitle": "COMPLETE PREPARATION",
+      "duration": "3-5 business days",
+      "description": "After the deposit is paid, we'll send you a structured form. We need from you: logo, photos, texts, service information. All at once. We can't start without it."
     },
     "step3": {
-      "title": "STEP 3",
-      "subtitle": "Launch + AI Assistant Setup",
-      "duration": "2–3 days",
-      "description": "Once you approve the website, we launch it.\nIf you choose the AI assistant, we also train it on your services and plug it into your site or WhatsApp.",
-      "note": "You now have a website and AI assistant working 24/7 without hiring anyone."
+      "title": "03",
+      "subtitle": "REALIZATION IN 2-3 WEEKS",
+      "duration": "2-3 weeks",
+      "description": "Once we have everything we need, you have a guaranteed website in 2-3 weeks. Design, development, testing, launch. No delays. No waiting.",
+      "note": ""
     }
   },
   "pricing": {
@@ -161,24 +231,89 @@
     "subtitle": "Everything you need to know",
     "questions": [
       {
-        "question": "How long does it take to launch my website?",
-        "answer": "We typically deliver a fully functional, high-converting website in just 14 days, so you can start attracting clients fast."
+        "question": "What kind of websites do you make?",
+        "answer": "We specialize in premium websites for businesses that want to look professional and attract high-quality clients. Beauty & wellness, automotive, food & beverage, fitness, SaaS - if you have a brand that deserves more than a template, we can help."
       },
       {
-        "question": "Do I need to provide content or design ideas?",
-        "answer": "No worries — we handle branding, copywriting, and design for you. You just approve the layouts and content along the way."
+        "question": "How long does it take?",
+        "answer": "2-3 weeks from the moment we receive complete content from you (texts, photos, logo). The faster you provide the materials, the faster you have a finished website. No months of waiting."
       },
       {
-        "question": "Will my website work on mobile and desktop?",
-        "answer": "Absolutely. Every site is fully responsive, optimized for mobile, tablet, and desktop, so your clients have a seamless experience everywhere."
+        "question": "How much does it cost?",
+        "answer": "It depends on the scope of the project. A basic website (5-7 pages) starts at €2,500. More complex projects with e-commerce, booking systems, or advanced features range from €4,000 to €10,000. You'll receive a precise quote after a consultation."
       },
       {
-        "question": "Can I add AI features to my website later?",
-        "answer": "Yes! Our optional AI automation systems can be integrated anytime to automate bookings, follow-ups, and client engagement."
+        "question": "What do you need from us?",
+        "answer": "Logo, photos (of your products, spaces, team), texts about your services or products, contact information. You'll receive everything in a structured form. The more complete the content you provide, the faster you'll have your website finished."
+      },
+      {
+        "question": "Do we need to have prepared texts?",
+        "answer": "No. If you don't have a copywriter, we can write the texts for you as part of the project. It increases the price, but you'll save time and the result will be professional and persuasive."
+      },
+      {
+        "question": "Do you write custom code or use templates?",
+        "answer": "We write custom code. No WordPress templates, no third-party plugins. But we are flexible - if you prefer Webflow (the ability to edit the site yourself), we can use that. It's up to your needs."
+      },
+      {
+        "question": "Will we be able to edit the website ourselves?",
+        "answer": "Yes, if you want. We can build the site on Webflow or Framer, where you can easily change texts, photos, and basic content without coding. Or we can use pure code - faster and more powerful, but we handle the updates. You choose."
+      },
+      {
+        "question": "Will the website work on mobile?",
+        "answer": "Always. 60% of visitors use a phone, so the mobile version is priority number one. We design mobile-first and test on real devices."
+      },
+      {
+        "question": "Will you help us with content (photos, texts)?",
+        "answer": "With texts, yes - we can include copywriting in the project. For photos, we recommend a professional photographer (we can suggest one) or use your own. We only use stock photos as a last resort - they look generic."
+      },
+      {
+        "question": "Do you provide domain and hosting?",
+        "answer": "Yes. We can handle the domain (.cz, .com, .eu), hosting, and all the technical stuff. Or if you already have a domain, we'll connect the new site to it. Whatever suits you."
+      },
+      {
+        "question": "What if we need changes after launch?",
+        "answer": "The first month of technical support is free (minor updates, fixes). After that, you have several options:\n\n1. Make changes yourself (if the site is on Webflow/Framer)\n2. Order changes from us (hourly rate or monthly retainer)\n3. One-off updates on request"
+      },
+      {
+        "question": "Can you integrate [our system]?",
+        "answer": "Probably yes. We do integrations with booking systems (Calendly, Booksy, Acuity), e-commerce platforms (Shopify, custom solutions), CRM systems (HubSpot, Pipedrive), payment gateways (Stripe, PayPal, GoPay), and newsletter tools (Mailchimp, ConvertKit). If you have a specific tool, let us know."
+      },
+      {
+        "question": "Will the website be visible on Google?",
+        "answer": "Yes. Basic SEO setup is included (meta tags, sitemap, speed, mobile optimization). If you want an active SEO campaign or Google Ads, we can recommend a specialist or handle it as a separate project."
+      },
+      {
+        "question": "What if we don't like the design?",
+        "answer": "One round of revisions is included in the price. If you have comments, we'll adjust. We work until you're satisfied. Additional rounds of revisions can be purchased if the scope of changes significantly increases from the original agreement."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "50% deposit after proposal approval (before work begins). The remaining 50% before site launch. We invoice normally, payment via bank transfer or card."
+      },
+      {
+        "question": "Do you have any references or a portfolio?",
+        "answer": "Yes. A portfolio of concepts and projects can be found in the 'Works' section. We are currently working on high-ticket projects for beauty and wellness clients. We are a young agency, but not new to design and development."
+      },
+      {
+        "question": "What if we change our minds during the project?",
+        "answer": "The deposit is non-refundable once work has started. However, we can pause the project or adjust the scope if your needs change. We communicate openly to find a fair solution."
+      },
+      {
+        "question": "Do you offer website maintenance?",
+        "answer": "Yes. You can order a monthly retainer (starting from €200/month) for regular updates, or an hourly rate (€50-80/hr) for one-off changes. The first month of support is always free."
+      },
+      {
+        "question": "Do you make e-shops too?",
+        "answer": "Yes. We can create a custom e-shop or integrate Shopify. It depends on the scope (number of products) and required functionality (payments, shipping, warehouses). Tell us your requirements, and you'll get a proposal."
+      },
+      {
+        "question": "Why should we choose you instead of a larger agency?",
+        "answer": "Larger agencies are often overpriced, slow, and impersonal. With us, you get fast, personal attention and fair prices. You work directly with us, no middlemen. The result is just as good, if not better."
       }
     ],
     "cta": {
       "button": "Book an intro call",
+      "more": "See more questions",
       "note": "No commitment • Free consultation"
     }
   },
@@ -193,11 +328,21 @@
     "description": "Premium branding and AI automation for modern businesses based in Paris & Prague.",
     "services": {
       "title": "Services",
-      "items": ["Branding", "AI Chatbots", "Automation", "Websites"]
+      "items": [
+        "Branding",
+        "AI Chatbots",
+        "Automation",
+        "Websites"
+      ]
     },
     "company": {
       "title": "Company",
-      "items": ["About Us", "Contact", "Privacy Policy", "Terms"]
+      "items": [
+        "About Us",
+        "Contact",
+        "Privacy Policy",
+        "Terms"
+      ]
     },
     "contact": {
       "title": "Contact Us",
@@ -205,5 +350,27 @@
       "message": "Message",
       "send": "Send"
     }
+  },
+  "whyAccent": {
+    "title": "Why ACCENT?",
+    "cta": "Grow revenue and maximize your business with our help",
+    "reasons": [
+      {
+        "title": "No Templates. Ever.",
+        "description": "Every website we write from scratch. No WordPress plugins, no Wix templates, no \"90% done\". You get exactly what you need. Nothing more, nothing less."
+      },
+      {
+        "title": "Ready in 2-3 Weeks",
+        "description": "Most agencies promise 6-8 weeks and deliver in 4 months. We guarantee 2-3 weeks from the moment we have content from you. No delays."
+      },
+      {
+        "title": "Mobile First",
+        "description": "60% of visitors use a phone. Your website must look and function perfectly on mobile. Always. With us, it's not a \"bonus\" - it's standard."
+      },
+      {
+        "title": "Return on Investment",
+        "description": "A good website is not an expense. It is an investment that pays off. More quality leads. Higher average client value. Less time spent explaining."
+      }
+    ]
   }
 }

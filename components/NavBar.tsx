@@ -3,13 +3,11 @@
 import React, { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe } from "lucide-react"
+import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { useTranslations } from "@/hooks/useTranslations"
 
 interface NavItem {
   name: string
@@ -27,123 +25,91 @@ export function NavBar({ className }: NavBarProps) {
   const [showLangDropdown, setShowLangDropdown] = useState(false)
   const { language, setLanguage } = useLanguage()
 
-  // Working translations that were actually functioning before
   const translations = {
     nav: {
-      cs: { 
-        home: 'Domů', 
-        reviews: 'Recenze', 
-        plan: 'Plán', 
-        pricing: 'Ceník', 
-        guarantees: 'Záruky', 
-        faq: 'FAQ' 
+      cs: {
+        industries: 'Kliniky a Krása',
+        works: 'Práce',
+        pricing: 'Cena',
+        faq: 'FAQ'
       },
-      en: { 
-        home: 'Home', 
-        reviews: 'Reviews', 
-        plan: 'Plan', 
-        pricing: 'Pricing', 
-        guarantees: 'Guarantees', 
-        faq: 'FAQ' 
+      en: {
+        industries: 'Clinics & Beauty',
+        works: 'Works',
+        pricing: 'Pricing',
+        faq: 'FAQ'
       },
-      ru: { 
-        home: 'Главная', 
-        reviews: 'Отзывы', 
-        plan: 'План', 
-        pricing: 'Цены', 
-        guarantees: 'Гарантии', 
-        faq: 'FAQ' 
+      ru: {
+        industries: 'Клиники и Бьюти',
+        works: 'Работы',
+        pricing: 'Цены',
+        faq: 'FAQ'
       },
-      uk: { 
-        home: 'Головна', 
-        reviews: 'Відгуки', 
-        plan: 'План', 
-        pricing: 'Ціни', 
-        guarantees: 'Гарантії', 
-        faq: 'FAQ' 
+      uk: {
+        industries: 'Клініки та Б’юті',
+        works: 'Роботи',
+        pricing: 'Ціни',
+        faq: 'FAQ'
       },
     },
   }
 
   const items: NavItem[] = [
-    { name: 'home', url: '#home', icon: Home },
-    { name: 'reviews', url: '#testimonials', icon: Star },
-    { name: 'plan', url: '#how-it-works', icon: Settings },
-    { name: 'pricing', url: '#pricing', icon: CreditCard },
-    { name: 'guarantees', url: '#guarantees', icon: Shield },
-    { name: 'faq', url: '#faq', icon: HelpCircle },
+    { name: 'industries', url: '#how-it-works', icon: Shield },
+    { name: 'works', url: '#works', icon: Star },
+    { name: 'pricing', url: '#faq', icon: CreditCard },
+    { name: 'faq', url: '/faq', icon: HelpCircle },
   ]
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
     }
-
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // Automatic section detection based on scroll position
   useEffect(() => {
     let ticking = false
-    
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          // Check each section to see which one is currently in view
           const sections = [
             { id: 'home', element: document.getElementById('home') },
-            { id: 'testimonials', element: document.getElementById('testimonials') },
+            { id: 'works', element: document.getElementById('works') },
             { id: 'how-it-works', element: document.getElementById('how-it-works') },
-            { id: 'pricing', element: document.getElementById('pricing') },
-            { id: 'guarantees', element: document.getElementById('guarantees') },
             { id: 'faq', element: document.getElementById('faq') }
           ]
-
           let currentSection = 'home'
-          
           for (let i = sections.length - 1; i >= 0; i--) {
             const section = sections[i]
             if (section.element) {
               const rect = section.element.getBoundingClientRect()
-              if (rect.top <= 150) { // Increased offset for better detection
+              if (rect.top <= 150) {
                 currentSection = section.id
                 break
               }
             }
           }
-
-          // Map section IDs to tab names
           const sectionToTab: { [key: string]: string } = {
-            'home': 'home',
-            'testimonials': 'reviews',
-            'how-it-works': 'plan',
-            'pricing': 'pricing',
-            'guarantees': 'guarantees',
-            'faq': 'faq'
+            'home': 'industries',
+            'works': 'works',
+            'how-it-works': 'industries',
+            'faq': 'pricing'
           }
-
-          const newActiveTab = sectionToTab[currentSection] || 'home'
+          const newActiveTab = sectionToTab[currentSection] || 'industries'
           if (newActiveTab !== activeTab) {
             setActiveTab(newActiveTab)
           }
-          
           ticking = false
         })
         ticking = true
       }
     }
-
-    // Add scroll listener with passive option for better performance
     window.addEventListener('scroll', handleScroll, { passive: true })
-    
-    // Initial check
     handleScroll()
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [activeTab])
 
   const handleLangChange = (newLang: 'cs' | 'en' | 'ru' | 'uk') => {
@@ -152,201 +118,73 @@ export function NavBar({ className }: NavBarProps) {
   }
 
   return (
-    <div
-      className={cn(
-        "fixed top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 z-30 pt-4 sm:pt-6 w-full sm:w-fit pointer-events-none",
-        className,
-      )}
-    >
-      {/* Mobile Header - Logo and Globe - Hidden, moved to Hero */}
-      <div className="hidden sm:hidden flex items-center justify-between w-full px-4 pointer-events-auto">
-        <Image
-          src="/accent_logo.svg"
-          alt="ACCENT Logo"
-          width={40}
-          height={40}
-          className="h-10 w-auto select-none text-gradient-blobs"
-        />
-        <div className="relative">
-          <button
-            onClick={() => setShowLangDropdown(!showLangDropdown)}
-            className="flex items-center justify-center w-8 h-8 hover:text-black transition-colors"
-          >
-            <Globe className="w-4 h-4 text-neutral-600" />
-          </button>
-          
-          {showLangDropdown && (
-            <div className="absolute top-10 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
-              <button
-                onClick={() => handleLangChange('cs')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/cz.svg" alt="Czech Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>Čeština</span>
-              </button>
-              <button
-                onClick={() => handleLangChange('en')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/us.svg" alt="US Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>English</span>
-              </button>
-              <button
-                onClick={() => handleLangChange('ru')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/ru.svg" alt="Russian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>Русский</span>
-              </button>
-              <button
-                onClick={() => handleLangChange('uk')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/ua.svg" alt="Ukrainian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                <span>Українська</span>
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Desktop Navbar */}
-      <div className="hidden sm:flex items-center gap-2 sm:gap-3 bg-white/25 backdrop-blur-sm border border-neutral-200/20 py-1 px-1 rounded-[11px] shadow-lg relative pointer-events-auto">
+    <div className={cn("fixed top-0 left-0 z-30 pt-4 sm:pt-6 w-fit px-4 sm:px-12 pointer-events-none", className)}>
+      <div className="flex items-center gap-2 sm:gap-4 backdrop-blur-md border border-neutral-200/50 p-1.5 rounded-2xl shadow-sm pointer-events-auto">
         {/* Logo */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="flex items-center px-2 sm:px-3 py-1.5 sm:py-2"
-          onClick={() => {
-            // Smoothly animate indicator back to home
-            setActiveTab('home')
-          }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <Image
-            src="/accentflower.svg"
-            alt="ACCENT Flower Logo"
-            width={24}
-            height={24}
-            className="h-5 sm:h-6 w-auto select-none"
-            priority
-          />
+          <Image src="/accentnewsymbol.svg" alt="Logo" width={24} height={24} className="w-6 h-6" />
         </Link>
 
         {/* Navigation Items */}
-        {items.map((item) => {
-          const Icon = item.icon
-          const isActive = activeTab === item.name
+        <div className="hidden sm:flex items-center gap-1">
+          {items.map((item) => {
+            const isActive = activeTab === item.name
+            return (
+              <Link
+                key={item.name}
+                href={item.url}
+                onClick={() => setActiveTab(item.name)}
+                className={cn(
+                  "relative px-4 py-2 text-sm font-medium transition-all rounded-xl",
+                  isActive ? "text-black" : "text-neutral-500 hover:text-neutral-900"
+                )}
+              >
+                {(translations.nav as any)[language][item.name] || item.name}
+              </Link>
+            )
+          })}
+        </div>
 
-          return (
-            <Link
-              key={item.name}
-              href={item.url}
-              onClick={() => setActiveTab(item.name)}
-              className={cn(
-                "relative cursor-pointer text-xs sm:text-sm font-semibold px-2 sm:px-4 py-1.5 sm:py-2 rounded-[11px] transition-colors",
-                "text-neutral-600 hover:text-black",
-                isActive && "text-black",
-              )}
+        {/* CTA & Language */}
+        <div className="flex items-center gap-2 sm:gap-3 ml-2">
+          <GradientButton asChild className="border-none shadow-sm h-10 px-6">
+            <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              Book a call <ArrowRight className="w-4 h-4" />
+            </a>
+          </GradientButton>
+
+          <div
+            className="relative h-10 flex items-center"
+            onMouseEnter={() => setShowLangDropdown(true)}
+            onMouseLeave={() => setShowLangDropdown(false)}
+          >
+            <button
+              className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors"
             >
-              <span className="hidden md:inline">
-                {item.name === 'home' ? translations.nav[language].home : 
-                 item.name === 'reviews' ? translations.nav[language].reviews :
-                 item.name === 'plan' ? translations.nav[language].plan :
-                 item.name === 'pricing' ? translations.nav[language].pricing :
-                 item.name === 'guarantees' ? translations.nav[language].guarantees :
-                 item.name === 'faq' ? translations.nav[language].faq : item.name}
-              </span>
-              <span className="md:hidden">
-                <Icon size={16} strokeWidth={2.5} />
-              </span>
-              {isActive && (
+              <Globe className="w-4 h-4 text-neutral-600" />
+            </button>
+            <AnimatePresence>
+              {showLangDropdown && (
                 <motion.div
-                  className="absolute inset-0 w-full rounded-[11px] -z-10"
-                  initial={{ opacity: 0, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, filter: "blur(8px)" }}
-                  transition={{
-                    duration: 0.3,
-                    ease: "easeInOut"
-                  }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-10 right-0 pt-2 z-50 pointer-events-auto"
                 >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-purple-400/20 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-pink-400/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-purple-400/20 rounded-full blur-sm top-0 left-2" />
+                  <div className="backdrop-blur-md bg-white/40 border border-neutral-200/50 rounded-2xl shadow-lg py-2 min-w-[140px] text-black overflow-hidden">
+                    <button onClick={() => handleLangChange('cs')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Čeština</button>
+                    <button onClick={() => handleLangChange('en')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">English</button>
+                    <button onClick={() => handleLangChange('ru')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Русский</button>
+                    <button onClick={() => handleLangChange('uk')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Українська</button>
                   </div>
                 </motion.div>
               )}
-            </Link>
-          )
-        })}
-
-        {/* Language Switcher */}
-        <div className="relative">
-          <button
-            onClick={() => setShowLangDropdown(!showLangDropdown)}
-            className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 hover:text-black transition-colors ml-2 sm:ml-3"
-          >
-            <Globe className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-neutral-600" />
-          </button>
-          
-          <AnimatePresence>
-            {showLangDropdown && (
-              <motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.98, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: 8, scale: 0.98, filter: "blur(6px)" }}
-                transition={{ duration: 0.18, ease: "easeOut" }}
-                className="absolute top-10 sm:top-12 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50"
-              >
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={{
-                    hidden: { opacity: 1 },
-                    visible: {
-                      opacity: 1,
-                      transition: { staggerChildren: 0.05, delayChildren: 0.05 }
-                    },
-                    exit: { opacity: 1 }
-                  }}
-                >
-                  <motion.button
-                    onClick={() => handleLangChange('cs')}
-                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
-                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
-                  >
-                    <Image src="/flags/cz.svg" alt="Czech Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                    <span>Čeština</span>
-                  </motion.button>
-                  <motion.button
-                    onClick={() => handleLangChange('en')}
-                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
-                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
-                  >
-                    <Image src="/flags/us.svg" alt="US Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                    <span>English</span>
-                  </motion.button>
-                  <motion.button
-                    onClick={() => handleLangChange('ru')}
-                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
-                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
-                  >
-                    <Image src="/flags/ru.svg" alt="Russian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                    <span>Русский</span>
-                  </motion.button>
-                  <motion.button
-                    onClick={() => handleLangChange('uk')}
-                    className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
-                    variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 4 } }}
-                  >
-                    <Image src="/flags/ua.svg" alt="Ukrainian Flag" width={20} height={15} className="w-5 h-auto flex-shrink-0 rounded-sm" />
-                    <span>Українська</span>
-                  </motion.button>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

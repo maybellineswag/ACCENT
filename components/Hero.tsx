@@ -39,20 +39,20 @@ function Hero({ translations }: HeroProps) {
   };
 
   return (
-    <motion.div 
-      className="w-full"
+    <motion.div
+      className="w-full relative"
       initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Mobile Header - Logo and Globe */}
-      <div className="sm:hidden flex items-center justify-between w-full px-4 py-4">
+      < div className="sm:hidden flex items-center justify-between w-full px-4 py-4 relative z-10" >
         <Image
-          src="/accent_logo.svg"
+          src="/accentnewsymbol.svg"
           alt="ACCENT Logo"
-          width={40}
-          height={40}
-          className="h-10 w-auto select-none text-gradient-blobs"
+          width={44}
+          height={44}
+          className="h-10 w-auto select-none"
         />
         <div className="relative">
           <button
@@ -61,7 +61,7 @@ function Hero({ translations }: HeroProps) {
           >
             <Globe className="w-4 h-4 text-neutral-600" />
           </button>
-          
+
           {showLangDropdown && (
             <div className="absolute top-10 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
               <button
@@ -95,89 +95,61 @@ function Hero({ translations }: HeroProps) {
             </div>
           )}
         </div>
-      </div>
-      
-      <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
-        <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-8 items-start sm:items-center justify-start sm:justify-center flex-col">
-          <div className="flex gap-4 flex-col items-start sm:items-center">
-            {/* Notification Banner */}
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative mb-1 pl-2"
-            >
-              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                <span className="!text-black text-[10px] sm:text-sm font-medium tracking-wide text-left sm:text-center whitespace-nowrap">
-                  {translations.notificationBanner}
-                </span>
-              </div>
-            </motion.div>
+      </div >
 
-                                                   <h1 className="text-5xl sm:text-5xl md:text-7xl max-w-4xl tracking-tighter text-left sm:text-center font-regular">
-                <span className="text-black">{translations.hero.title}</span>
-                <br />
-                <span className="relative flex w-full justify-start sm:justify-center overflow-hidden text-left sm:text-center md:pb-8 md:pt-2">
-                  &nbsp;
-                  {titles.map((title: string, index: number) => (
-                    <motion.span
-                      key={index}
-                      className="absolute font-semibold text-gradient-blobs"
-                      initial={{ opacity: 0, y: -50 }}
-                      transition={{ type: "spring", stiffness: 50 }}
-                      animate={
-                        titleNumber === index
-                          ? {
-                              y: 0,
-                              opacity: 1,
-                            }
-                          : {
-                              y: titleNumber > index ? -50 : 50,
-                              opacity: 0,
-                            }
-                      }
-                    >
-                      {title}
-                    </motion.span>
-                  ))}
-                </span>
-              </h1>
+      <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6 relative z-10">
+        <div className="flex gap-4 pt-8 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">
+          {/* Logo and Brand above Hero */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex items-center gap-2 mb-2"
+          >
+            <Image
+              src="/accentnewlogo.svg"
+              alt="ACCENT Logo"
+              width={100}
+              height={25}
+              className="w-auto h-5 sm:h-6 opacity-90"
+            />
+          </motion.div>
 
-            <p className="text-xs sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-3xl text-left sm:text-center">
+          <div className="flex gap-6 flex-col items-start max-w-4xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter text-left font-semibold leading-[0.95] text-black max-w-[800px]">
+              {translations.hero.title1}
+              <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
+              <br className="hidden sm:block" />
+              {translations.hero.title2}
+            </h1>
+
+            <p className="text-lg sm:text-xl md:text-2xl leading-relaxed tracking-tight text-neutral-500 max-w-2xl text-left font-medium">
               {translations.hero.desc}
             </p>
           </div>
-          
-          {/* Main CTA Button */}
-          <div className="flex flex-row items-center gap-6 sm:gap-8">
-            <GradientButton asChild className="relative z-50">
-              <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
+
+          {/* Main CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-4">
+            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
+              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer">
                 {translations.heroCta}
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-6 h-6" />
               </a>
             </GradientButton>
-            <Link href="/selected-work" className="text-black underline hover:no-underline transition-all">
-              {translations.viewWork}
-            </Link>
-          </div>
 
-          {/* Clients Section */}
-          <div className="mt-6 sm:mt-8">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-4 sm:gap-x-6 md:gap-x-12">
-              <p className="text-black font-medium text-sm sm:text-base">{translations.ourClients}</p>
-              <div className="flex items-center gap-x-4 sm:gap-x-6 md:gap-x-8">
-                <Image src="/workedwith/longlerielogo.svg" alt="Longlerie Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
-                <Image src="/workedwith/yubilogo.svg" alt="Yubi Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
-                <Image src="/workedwith/mixlogo.svg" alt="Mix Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
-                <Image src="/workedwith/belgravialogo.svg" alt="Belgravia Logo" width={48} height={20} className="w-14 sm:w-18 md:w-24 h-auto flex-shrink-0" />
-                <span className="text-black text-xs sm:text-sm font-medium ml-2">{translations.moreClients}</span>
-              </div>
-            </div>
+            <a
+              href="https://t.me/maybellineswag"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
+            >
+              <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
+              <span>Send a Message</span>
+            </a>
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.div >
   );
 }
 

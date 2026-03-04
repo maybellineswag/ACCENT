@@ -11,8 +11,9 @@
     "rezervovat": "Rezervovat"
   },
   "hero": {
-    "title": "Získejte web, který rozvíjí vaše podnikání bez",
-    "subtitle": "AI Automatizace",
+    "title1": "Váš byznys je ",
+    "titlePremium": "prémiový.",
+    "title2": "Ukazuje to i váš web?",
     "desc": "Zakladatelé, kteří to s růstem myslí vážně, svěřují získávání klientů našim webům a automatizaci, zatímco se soustředí na své práci."
   },
   "heroBullets": [
@@ -20,12 +21,16 @@
     "Se sídlem v Praze",
     "Výsledky za týdny, ne za měsíce"
   ],
-  "heroCta": "Rezervovat hovor",
+  "heroCta": "Získejte bezplatný návrh designu",
   "viewWork": "Zobrazit práce",
   "ourClients": "Naši klienti",
   "moreClients": "20+ dalších",
   "notificationBanner": "7 ZAKLADATELŮ SI TENTO TÝDEN DOMLUVILO HOVOR",
-  "heroRotatingWords": ["Šablon", "Stresu", "Ztráty času"],
+  "heroRotatingWords": [
+    "Šablon",
+    "Stresu",
+    "Ztráty času"
+  ],
   "testimonial1": {
     "occupation": "Majitelka kosmetického salonu",
     "location": "Hradec Králové",
@@ -33,7 +38,7 @@
   },
   "testimonial2": {
     "occupation": "Majitelka nehtového salonu",
-    "location": "Praha", 
+    "location": "Praha",
     "date": "Jan 8, 2025"
   },
   "testimonial3": {
@@ -43,14 +48,80 @@
   },
   "testimonials": {
     "title": "Milováno klienty po celé Evropě.",
-    "metrics": {
-      "businesses": "Spuštěných webů",
-      "bookings": "Požadavků na rezervaci",
-      "months": "Měsíce k dosažení první stránky na Googlu",
-      "increase": "Průměrný nárůst tržeb"
-    },
+    "metrics": [
+      {
+        "value": "5",
+        "label": "Máte Na Vytvoření Prvního Dojmu",
+        "description": "70% návštěvníků opouští web během prvních 5 sekund, pokud nejsou okamžitě přesvědčeni. Máte jednu šanci. Využijte ji správně."
+      },
+      {
+        "value": "3x",
+        "label": "Více Konverzí U Profesionálně Navržených Webů",
+        "description": "Firmy s prémiovým webem generují průměrně 3x více kvalitních poptávek než konkurence s generickými šablonami nebo zastaralým designem."
+      },
+      {
+        "value": "24/7",
+        "label": "Váš Web Pracuje, I Když Vy Ne",
+        "description": "Zatímco spíte, váš web odpovídá na otázky, buduje důvěru a přesvědčuje návštěvníky. Je to váš nejdůležitější obchodník."
+      },
+      {
+        "value": "40%",
+        "label": "Vyšší Průměrná Hodnota Klienta",
+        "description": "Prémiová prezentace přitahuje klienty, kteří hledají kvalitu, ne slevy."
+      }
+    ],
     "trustedBy": "Důvěřuje nám 30+ firem",
     "readyToJoin": "Chcete se k nim připojit?"
+  },
+  "problem": {
+    "title": "Než vstoupí do vašeho podniku, vstoupí na váš web.",
+    "subtitle": "Přicházíte o peníze, aniž byste o tom věděli?",
+    "points": [
+      {
+        "title": "Zastaralý design snižuje vnímanou hodnotu",
+        "description": "Pokud váš web vypadá lacině, potenciální klienti budou očekávat nízké ceny – nebo hůř, nebudou vám důvěřovat."
+      },
+      {
+        "title": "Levné weby přitahují hledače slev",
+        "description": "Prémioví klienti vyžadují prémiový zážitek. Posuzují vaši odbornost podle vaší digitální vizitky."
+      },
+      {
+        "title": "Špatná uživatelská zkušenost zabíjí rezervace",
+        "description": "Nepřehledná navigace a nefungující formuláře znamenají frustrované návštěvníky, kteří jdou rovnou k vaší konkurenci."
+      }
+    ]
+  },
+  "disconnect": {
+    "title": "Ten Rozdíl",
+    "table": {
+      "businessHeader": "VÁŠ BYZNYS OFFLINE",
+      "websiteHeader": "Na ÚROVNI WEBU",
+      "rows": [
+        [
+          "Minimalistický design",
+          "Nepřehledná úvodní stránka"
+        ],
+        [
+          "Osobní přístup",
+          "Fotky z fotobanky"
+        ],
+        [
+          "Prémiové ceny",
+          "Vyskakovací okna \"Rezervovat\""
+        ],
+        [
+          "Pečlivý servis",
+          "Běžný kontaktní formulář"
+        ],
+        [
+          "Náročná klientela",
+          "Levný vzhled"
+        ]
+      ]
+    },
+    "punchline1": "Váš offline brand je prémiový.",
+    "punchline2": "Váš online brand vás sráží dolů.",
+    "cost": "To vás stojí více než 1 250 000 Kč ročně na ztracených rezervacích od klientů, kteří nikdy nekliknou na „kontakt“."
   },
   "benefits": {
     "sectionTitle": "Jak pomáháme vašemu podniku",
@@ -63,27 +134,28 @@
     ]
   },
   "howItWorks": {
-    "title": "Za 14 dní běží váš podnik na autopilot",
+    "title": "Jak spolupracujeme",
+    "description": "Plynulý proces navržený tak, aby dostal váš byznys online bez stresu.",
+    "footerNote": "Nezávazně, jen krátký 15minutový hovor, abychom zjistili, jak vám můžeme pomoci.",
     "step1": {
-      "title": "KROK 1",
-      "subtitle": "Strategický hovor & brief",
-      "duration": "60 minut",
-      "description": "Domluvíme si hovor, kde poznáme vaše služby, značku a cíle. Poté vám pošleme jednoduchý formulář (obsahový brief) – nemusíte nic psát, stačí odrážky nebo hlasové poznámky.",
-      "note": "Nemusíte psát texty ani nic navrhovat — vše z vás vytáhneme."
+      "title": "01",
+      "subtitle": "STRATEGICKÁ KONZULTACE",
+      "duration": "15 minut",
+      "description": "15minutový hovor. Pochopíme vaši značku, cíle a co od webu potřebujete. Jasný scope, jasná cena.",
+      "note": ""
     },
     "step2": {
-      "title": "KROK 2",
-      "subtitle": "Návrh, texty & tvorba webu",
-      "duration": "7–14 dní",
-      "description": "Náš tým připraví texty, navrhne stránky a postaví celý web. Vy jen odpočíváte. Jakmile bude hotovo, pošleme vám náhled.",
-      "note": "Děláme 100% práce. Vy se nemusíte ničeho dotýkat."
+      "title": "02",
+      "subtitle": "KOMPLETNÍ PŘÍPRAVA",
+      "duration": "3-5 pracovních dnů",
+      "description": "Po zaplacení zálohy vám pošleme strukturovaný formulář. Potřebujeme od vás: logo, fotky, texty, informace o službách. Vše najednou. Bez toho nemůžeme začít."
     },
     "step3": {
-      "title": "KROK 3",
-      "subtitle": "Spuštění & AI asistent",
-      "duration": "2–3 dny",
-      "description": "Po vašem schválení web spustíme. Pokud si vyberete AI asistenta, naučíme ho vaše služby a připojíme k webu nebo WhatsAppu.",
-      "note": "Nyní máte web a AI asistenta pracujícího 24/7 bez najímání kohokoli."
+      "title": "03",
+      "subtitle": "REALIZACE ZA 2-3 TÝDNY",
+      "duration": "2-3 týdny",
+      "description": "Jakmile máme vše, co potřebujeme, máte garantovaný web za 2-3 týdny. Design, vývoj, testování, spuštění. Bez průtahů. Bez čekání.",
+      "note": ""
     }
   },
   "pricing": {
@@ -161,24 +233,89 @@
     "subtitle": "Vše, co potřebujete vědět",
     "questions": [
       {
-        "question": "Jak dlouho trvá spuštění mého webu?",
-        "answer": "Obvykle dodáváme plně funkční, vysoce konverzní web za pouhých 14 dní, takže můžete rychle začít přitahovat klienty."
+        "question": "Jaké weby děláte?",
+        "answer": "Specializujeme se na prémiové weby pro firmy, které chtějí vypadat profesionálně a přitahovat kvalitní klienty. Beauty & wellness, automotive, food & beverage, fitness, SaaS - pokud máte značku, která si zaslouží víc než šablonu, umíme pomoci."
       },
       {
-        "question": "Musím poskytnout obsah nebo nápady na design?",
-        "answer": "Žádné starosti — zabýváme se brandováním, copywritingem a designem za vás. Vy jen schvalujete rozvržení a obsah po cestě."
+        "question": "Jak dlouho to trvá?",
+        "answer": "2-3 týdny od momentu, kdy obdržíme od vás kompletní obsah (texty, fotografie, logo). Čím rychleji nám dodáte materiály, tím rychleji máte hotový web. Žádné měsíce čekání."
       },
       {
-        "question": "Bude můj web fungovat na mobilu a počítači?",
-        "answer": "Absolutně. Každý web je plně responzivní, optimalizovaný pro mobil, tablet a desktop, takže vaši klienti mají bezproblémový zážitek všude."
+        "question": "Kolik to stojí?",
+        "answer": "Záleží na rozsahu projektu. Základní web (5-7 stránek) začíná na €2,500. Komplexnější projekty s e-commerce, rezervačním systémem nebo pokročilými funkcemi €4,000-€10,000. Po konzultaci dostanete přesnou cenovou nabídku."
       },
       {
-        "question": "Mohu později přidat AI funkce na můj web?",
-        "answer": "Ano! Naše volitelné AI automatizační systémy lze integrovat kdykoli pro automatizaci rezervací, následných akcí a interakce s klienty."
+        "question": "Co od nás potřebujete?",
+        "answer": "Logo, fotografie (vašich produktů, prostor, týmu), texty o vašich službách nebo produktech, kontaktní informace. Vše dostanete ve strukturovaném formuláři. Čím kompletnější obsah dodáte, tím rychleji budete mít hotový web."
+      },
+      {
+        "question": "Musíme mít připravené texty?",
+        "answer": "Ne. Pokud nemáte copywritera, můžeme texty napsat za vás jako součást projektu. Zvýší to cenu, ale ušetříte si práci a výsledek bude profesionální a přesvědčivý."
+      },
+      {
+        "question": "Píšete vlastní kód nebo používáte šablony?",
+        "answer": "Píšeme vlastní kód. Žádné WordPress šablony, žádné pluginy třetích stran. Ale jsme flexibilní - pokud upřednostňujete Webflow (možnost upravovat web sами), můžeme použít to. Rozhodnete se podle vašich potřeb."
+      },
+      {
+        "question": "Budeme moci web sami upravovat?",
+        "answer": "Ano, pokud chcete. Můžeme web postavit na Webflow nebo Framer, kde můžete jednoduše měnit texty, fotky a základní obsah bez programování. Nebo můžeme použít čistý kód - rychlejší a výkonnější, ale úpravy pak děláme my. Vy si vyberete."
+      },
+      {
+        "question": "Bude web fungovat na mobilu?",
+        "answer": "Vždy. 60% návštěvníků používá telefon, takže mobilní verze je priorita číslo jedna. Navrhujeme mobile-first a testujeme na reálných zařízeních."
+      },
+      {
+        "question": "Pomůžete nám s obsahem (fotky, texty)?",
+        "answer": "S texty ano - copywriting můžeme zahrnout do projektu. S fotografiemi doporučujeme profesionálního fotograфа (můžeme doporučit) nebo použijeme vaše vlastní. Stock fotky používáme jen v krajním případě - působí genericky."
+      },
+      {
+        "question": "Zajistíte i doménu a hosting?",
+        "answer": "Ano. Můžeme zařídit doménu (.cz, .com, .eu), hosting a vše technické. Nebo pokud už máte doménu, propojíme nový web na ni. Jak vám to vyhovuje."
+      },
+      {
+        "question": "Co když budeme potřebovat změny po spuštění?",
+        "answer": "První měsíc je technická podpora zdarma (drobné úpravy, opravy). Pak máte několik možností:\n\n1. Provádět změny sami (pokud je web na Webflow/Framer)\n2. Objednat změny od nás (hodinová sazba nebo měsíční retainer)\n3. Jednorázové úpravy na vyžádání"
+      },
+      {
+        "question": "Můžete integrovat náš systém?",
+        "answer": "Pravděpodobně ano. Děláме integrace s rezervačními systémy (Calendly, Booksy, Acuity), e-commerce platformami (Shopify, custom řešení), CRM systémy (HubSpot, Pipedrive), platebními bránami (Stripe, PayPal, GoPay) a newsletter nástroji (Mailchimp, ConvertKit). Pokud máte specifický nástroj, napište nám."
+      },
+      {
+        "question": "Bude web viditelný na Google?",
+        "answer": "Ano. Základní SEO nastavení je zahrnuto (meta tagy, sitemap, rychlost, mobilní optimalizace). Pokud chcete aktivní SEO kampaň nebo Google Ads, můžeme doporučit specialistu nebo to řešit jako samostatný projekt."
+      },
+      {
+        "question": "Co když se nám nelíbí design?",
+        "answer": "Jedno kolo revizí je zahrnuto v ceně. Pokud máte připomínky, upravíme. Pracujeme, dokud nejste spokojení. Další kola revizí lze přikoupit, pokud se rozsah změn výrazně zvýší oproti původní dohodě."
+      },
+      {
+        "question": "Jak probíhá platba?",
+        "answer": "50% záloha po schválení nabídky (před začátkem práce). Zbývajících 50% před spuštěním webu. Fakturujeme standardně, platba bankovním převodem nebo kartou."
+      },
+      {
+        "question": "Máte nějaké reference nebo portfolio?",
+        "answer": "Ano. Portfolio konceptů a realizovaných projektů najdete v sekci 'Práce'. Momentálně pracujeme na high-ticket projektech pro beauty a wellness klienty. Jsme mladá agentura, ale ne noví v designu a vývoji."
+      },
+      {
+        "question": "Co když změníme názor během projektu?",
+        "answer": "Záloha není vratná, pokud už jsme začali pracovat. Ale projekt můžeme pozastavit nebo upravit rozsah, pokud se vaše potřeby změní. Komunikujeme otevřeně a hledáme férové řešení."
+      },
+      {
+        "question": "Nabízíte údržbu webu?",
+        "answer": "Ano. Můžete si objednat měsíční retainer (od €200/měsíc) pro pravidelné úpravy a aktualizace, nebo hodinovou sazbu (€50-80/hod) pro jednorázové změny. První měsíc podpory je vždy zdarma."
+      },
+      {
+        "question": "Děláte i e-shopy?",
+        "answer": "Ano. Můžeme vytvořit vlastní e-shop nebo integrovat Shopify. Záleží na rozsahu (počet produktů) a požadované funkcionalitě (platby, doprava, sklady). Řeknete nám požadavky, dostanete nabídku."
+      },
+      {
+        "question": "Proč bychom si měli vybrat vás místo větší agentury?",
+        "answer": "Větší agentury jsou často předražené, pomalé a neosobní. U nás získáte rychlé, osobní jednání a férové ceny. Pracujete přímo s námi, bez prostředníků. Výsledek je stejně dobrý nebo lepší."
       }
     ],
     "cta": {
       "button": "Rezervovat úvodní hovor",
+      "more": "Zobrazit další otázky",
       "note": "Bez závazků • Bezplatná konzultace"
     }
   },
@@ -193,11 +330,21 @@
     "description": "Prémiový branding a AI automatizace pro moderní firmy se sídlem v Paříži a Praze.",
     "services": {
       "title": "Služby",
-      "items": ["Branding", "AI Chatboty", "Automatizace", "Webové stránky"]
+      "items": [
+        "Branding",
+        "AI Chatboty",
+        "Automatizace",
+        "Webové stránky"
+      ]
     },
     "company": {
       "title": "Společnost",
-      "items": ["O nás", "Kontakt", "Zásady ochrany osobních údajů", "Podmínky"]
+      "items": [
+        "O nás",
+        "Kontakt",
+        "Zásady ochrany osobních údajů",
+        "Podmínky"
+      ]
     },
     "contact": {
       "title": "Kontaktujte nás",
@@ -205,5 +352,27 @@
       "message": "Zpráva",
       "send": "Odeslat"
     }
+  },
+  "whyAccent": {
+    "title": "Proč ACCENT?",
+    "cta": "Zvyšte příjmy a maximalizujte svůj byznys s naší pomocí",
+    "reasons": [
+      {
+        "title": "Žádné šablony. Nikdy.",
+        "description": "Každý web píšeme od nuly. Žádné WordPress pluginy, žádné Wix šablony, žádné \"90% hotovo\". Dostanete přesně to, co potřebujete. Nic víc, nic míň."
+      },
+      {
+        "title": "Hotovo za 2-3 týdny",
+        "description": "Většina agentur slibuje 6-8 týdnů a dodají za 4 měsíce. My garantujeme 2-3 týdny od momentu, kdy máme od vás obsah. Žádné zdržování."
+      },
+      {
+        "title": "Mobilní především",
+        "description": "60% návštěvníků používá telefon. Váš web musí vypadat a fungovat perfektně na mobilu. Vždy. U nás to není \"bonus\" - je to standard."
+      },
+      {
+        "title": "Návratnost investice",
+        "description": "Dobrý web není výdaj. Je to investice, která se vrátí. Více kvalitních poptávek. Vyšší průměrná hodnota klienta. Méně času stráveného vysvětlováním."
+      }
+    ]
   }
 }

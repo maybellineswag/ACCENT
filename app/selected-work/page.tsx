@@ -13,15 +13,15 @@ export default function SelectedWorkPage() {
   const { translations, loading } = useTranslations()
 
   const projectImages = [
-    '/WEBSITES/APEXMOTORS.png',
-    '/WEBSITES/BILLO.avif',
-    '/WEBSITES/BLOOM.png',
-    '/WEBSITES/ELIMINAR.jpeg',
-    '/WEBSITES/LUMEASTUDIO.png',
-    '/WEBSITES/NOVA33.png',
-    '/WEBSITES/SERENITY.png',
-    '/WEBSITES/TRANQUILSTUDIO.png',
-    '/WEBSITES/VELVETVEIL.png',
+    '/WEBSITES/APEXMOTORS.webp',
+    '/WEBSITES/BILLO.webp',
+    '/WEBSITES/BLOOM.webp',
+    '/WEBSITES/ELIMINAR.webp',
+    '/WEBSITES/LUMEASTUDIO.webp',
+    '/WEBSITES/NOVA33.webp',
+    '/WEBSITES/SERENITY.webp',
+    '/WEBSITES/TRANQUILSTUDIO.webp',
+    '/WEBSITES/VELVETVEIL.webp',
   ]
 
   const projects = projectImages.map((src, index) => {
@@ -65,7 +65,7 @@ export default function SelectedWorkPage() {
 
         {/* Back Button */}
         <div className="fixed top-6 left-6 z-20">
-          <Link 
+          <Link
             href="/"
             className="flex items-center gap-2 text-black hover:text-neutral-700 transition-colors"
           >
@@ -79,18 +79,26 @@ export default function SelectedWorkPage() {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-5xl md:text-7xl font-bold text-black mb-8 tracking-tighter"
+                className="text-5xl md:text-7xl font-bold text-black mb-8 tracking-tighter flex items-center justify-center gap-4"
               >
-                {translations.selectedWork?.title ?? 'Selected Work'}
+                <Image
+                  src="/accentnewsymbol.svg"
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="w-12 h-12 md:w-16 md:h-16"
+                  aria-hidden="true"
+                />
+                <span>{translations.selectedWork?.title ?? 'Selected Work'}</span>
               </motion.h1>
             </div>
 
             {/* Projects Grid */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -104,29 +112,29 @@ export default function SelectedWorkPage() {
                   transition={{ duration: 0.6, delay: 0.1 * index }}
                   className="w-full"
                 >
-                             <div className="max-w-4xl mx-auto bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-2xl overflow-hidden shadow-lg">
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={1600}
-              height={1045}
-              className="w-full h-auto object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
-              placeholder="blur"
-              blurDataURL={blurDataURL}
-              quality={70}
-              loading={index === 0 ? 'eager' : 'lazy'}
-              priority={index === 0}
-              fetchPriority={index === 0 ? 'high' : 'auto'}
-              decoding="async"
-            />
-           </div>
+                  <div className="max-w-4xl mx-auto bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={1600}
+                      height={1045}
+                      className="w-full h-auto object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      quality={70}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      priority={index === 0}
+                      fetchPriority={index === 0 ? 'high' : 'auto'}
+                      decoding="async"
+                    />
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
 
             {/* CTA Section */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -135,7 +143,7 @@ export default function SelectedWorkPage() {
               <p className="text-lg text-neutral-600 mb-6">
                 {translations.selectedWork?.ctaLead ?? 'Ready to join our portfolio of successful clients?'}
               </p>
-              <Link 
+              <Link
                 href="https://cal.com/accent/start"
                 target="_blank"
                 rel="noopener noreferrer"

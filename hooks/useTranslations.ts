@@ -13,7 +13,7 @@ export function useTranslations() {
     const loadTranslations = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/translations/${currentLang}.json?t=${Date.now()}`,{ signal: controller.signal })
+        const response = await fetch(`/translations/${currentLang}.json?t=${Date.now()}`, { signal: controller.signal })
         if (!response.ok) {
           throw new Error(`Failed to load translations for ${currentLang}`)
         }
@@ -22,6 +22,8 @@ export function useTranslations() {
           setTranslations(data)
         }
       } catch (error) {
+        // Silently ignore abort errors — they're expected cleanup when language changes or component unmounts
+        if (error instanceof Error && error.name === 'AbortError') return
         console.error('Error loading translations:', error)
         // Fallback to English if translation fails
         if (!controller.signal.aborted && currentLang !== 'en') {
@@ -32,6 +34,7 @@ export function useTranslations() {
               setTranslations(fallbackData)
             }
           } catch (fallbackError) {
+            if (fallbackError instanceof Error && fallbackError.name === 'AbortError') return
             console.error('Error loading fallback translations:', fallbackError)
           }
         }

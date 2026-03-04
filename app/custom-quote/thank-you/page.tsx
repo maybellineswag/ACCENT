@@ -7,7 +7,7 @@ export default function ThankYouPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4">
       <div className="max-w-xl w-full text-center py-20">
         <div className="flex justify-center mb-8">
-          <Image src="/accent_logo.svg" alt="ACCENT Logo" width={48} height={48} className="h-12 w-auto select-none" />
+          <Image src="/accentnewlogo.svg" alt="ACCENT Logo" width={48} height={48} className="h-12 w-auto select-none" />
         </div>
         <h1 className="text-4xl font-bold mb-6 text-black">Děkujeme za vaši poptávku!</h1>
         <p className="text-lg text-neutral-700 mb-8">
