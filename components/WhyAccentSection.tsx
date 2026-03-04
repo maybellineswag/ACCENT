@@ -7,7 +7,11 @@ import { useTranslations } from "@/hooks/useTranslations"
 import { GradientButton } from "@/components/ui/gradient-button"
 import Link from "next/link"
 
-const WhyAccentSection = () => {
+interface WhyAccentSectionProps {
+    isClinics?: boolean;
+}
+
+const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
     const { translations, loading } = useTranslations()
 
     if (loading) return null
@@ -27,14 +31,25 @@ const WhyAccentSection = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h2 className="text-4xl sm:text-6xl font-normal text-black tracking-tighter flex items-center gap-4">
-                        <Image
-                            src="/accentnewsymbol.svg"
-                            alt=""
-                            width={48}
-                            height={48}
-                            className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
-                            aria-hidden="true"
-                        />
+                        {isClinics ? (
+                            <Image
+                                src="/accentnewsymbolmedical.svg"
+                                alt=""
+                                width={48}
+                                height={48}
+                                className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
+                                aria-hidden="true"
+                            />
+                        ) : (
+                            <Image
+                                src="/accentnewsymbol.svg"
+                                alt=""
+                                width={48}
+                                height={48}
+                                className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
+                                aria-hidden="true"
+                            />
+                        )}
                         <span>{translations.whyAccent.title}</span>
                     </h2>
                 </motion.div>
@@ -52,14 +67,25 @@ const WhyAccentSection = () => {
                         >
                             {/* ACCENT logo as large decorative watermark behind title */}
                             <div className="relative">
-                                <Image
-                                    src="/accentnewsymbol.svg"
-                                    alt=""
-                                    width={48}
-                                    height={48}
-                                    className="absolute -top-3 -left-1 w-12 h-12 opacity-50 pointer-events-none select-none"
-                                    aria-hidden="true"
-                                />
+                                {isClinics ? (
+                                    <Image
+                                        src="/accentnewsymbolmedical.svg"
+                                        alt=""
+                                        width={48}
+                                        height={48}
+                                        className="absolute -top-3 -left-1 w-12 h-12 opacity-50 pointer-events-none select-none z-0"
+                                        aria-hidden="true"
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/accentnewsymbol.svg"
+                                        alt=""
+                                        width={48}
+                                        height={48}
+                                        className="absolute -top-3 -left-1 w-12 h-12 opacity-50 pointer-events-none select-none"
+                                        aria-hidden="true"
+                                    />
+                                )}
                                 <h3 className="text-3xl sm:text-4xl font-bold text-black tracking-tight leading-tight mb-3 relative z-10 pl-1">
                                     {reason.title}
                                 </h3>

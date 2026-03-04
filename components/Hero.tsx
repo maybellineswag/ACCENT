@@ -108,7 +108,13 @@ function Hero({ translations, isClinics }: HeroProps) {
             className="flex items-center gap-2 mb-2"
           >
             {isClinics ? (
-              <div className="logo-gradient-pink w-[100px] h-5 sm:h-6 opacity-90" aria-label="ACCENT Logo" />
+              <Image
+                src="/accentnewlogomedical.svg"
+                alt="ACCENT Logo"
+                width={100}
+                height={25}
+                className="w-auto h-5 sm:h-6 opacity-90"
+              />
             ) : (
               <Image
                 src="/accentnewlogo.svg"

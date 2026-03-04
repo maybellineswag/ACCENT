@@ -8,7 +8,11 @@ import { GradientButton } from "@/components/ui/gradient-button"
 import Link from "next/link"
 import Image from "next/image"
 
-const HowWeWorkSection = () => {
+interface HowWeWorkSectionProps {
+    isClinics?: boolean;
+}
+
+const HowWeWorkSection = ({ isClinics }: HowWeWorkSectionProps = {}) => {
     const { translations, loading } = useTranslations()
 
     if (loading) return null
@@ -50,14 +54,25 @@ const HowWeWorkSection = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h2 className="text-4xl sm:text-6xl font-normal text-black mb-2 tracking-tighter flex items-center gap-4">
-                        <Image
-                            src="/accentnewsymbol.svg"
-                            alt=""
-                            width={48}
-                            height={48}
-                            className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
-                            aria-hidden="true"
-                        />
+                        {isClinics ? (
+                            <Image
+                                src="/accentnewsymbolmedical.svg"
+                                alt=""
+                                width={48}
+                                height={48}
+                                className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
+                                aria-hidden="true"
+                            />
+                        ) : (
+                            <Image
+                                src="/accentnewsymbol.svg"
+                                alt=""
+                                width={48}
+                                height={48}
+                                className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
+                                aria-hidden="true"
+                            />
+                        )}
                         <span>{translations.howItWorks.title}</span>
                     </h2>
                     <p className="text-xl text-neutral-600 max-w-2xl">
@@ -80,7 +95,7 @@ const HowWeWorkSection = () => {
                         >
                             <div className="group h-full flex flex-col rounded-3xl bg-transparent transition-all duration-500">
                                 <div className="flex items-center justify-between mb-8">
-                                    <div className="w-12 h-12 rounded-2xl backdrop-blur-md border border-neutral-200/50 shadow-sm flex items-center justify-center text-[#8B8DD1] transition-all duration-500">
+                                    <div className="w-12 h-12 rounded-2xl backdrop-blur-md border border-neutral-200/50 shadow-sm flex items-center justify-center text-[var(--accent-color)] transition-all duration-500">
                                         {step.icon}
                                     </div>
                                     <span className="text-4xl font-bold text-black transition-colors duration-500">
@@ -89,7 +104,7 @@ const HowWeWorkSection = () => {
                                 </div>
 
                                 <div className="space-y-4 flex-1">
-                                    <div className="flex items-center gap-2 text-[#8B8DD1] font-medium text-sm">
+                                    <div className="flex items-center gap-2 text-[var(--accent-color)] font-medium text-sm">
                                         <Clock className="w-4 h-4" />
                                         {step.duration}
                                     </div>

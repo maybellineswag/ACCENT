@@ -97,10 +97,10 @@ export default function ClinicsBeautyPage() {
                 <MetricsSection translations={translations} />
 
                 {/* How We Work Section */}
-                <HowWeWorkSection />
+                <HowWeWorkSection isClinics />
 
                 {/* Why Accent Section */}
-                <WhyAccentSection />
+                <WhyAccentSection isClinics />
 
                 {/* FAQ Section */}
                 <section id="faq" className="pt-8 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
@@ -114,7 +114,7 @@ export default function ClinicsBeautyPage() {
                         >
                             <div className="flex items-center gap-4 mb-2">
                                 <Image
-                                    src="/accentnewsymbol.svg"
+                                    src="/accentnewsymbolmedical.svg"
                                     alt=""
                                     width={48}
                                     height={48}
@@ -237,10 +237,10 @@ export default function ClinicsBeautyPage() {
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
                                 <Image
-                                    src="/accentnewlogo.svg"
+                                    src="/accentnewlogomedical.svg"
                                     alt="ACCENT Logo"
-                                    width={40}
-                                    height={40}
+                                    width={100}
+                                    height={25}
                                     className="h-10 w-auto mb-2 select-none"
                                 />
                                 <p className="text-neutral-600 text-sm mb-3">

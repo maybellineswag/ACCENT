@@ -5,6 +5,7 @@ import { ArrowRight, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
+import { cn } from "@/lib/utils"
 
 interface WorkExamplesSectionProps {
     industryFilter?: 'clinics-beauty';

@@ -128,7 +128,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           {isClinics ? (
-            <div className="symbol-gradient-pink w-6 h-6" aria-label="ACCENT Symbol" />
+            <Image src="/accentnewsymbolmedical.svg" alt="Logo" width={24} height={24} className="w-6 h-6" />
           ) : (
             <Image src="/accentnewsymbol.svg" alt="Logo" width={24} height={24} className="w-6 h-6" />
           )}
