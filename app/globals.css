@@ -269,11 +269,12 @@ html {
 /* Robust glass effect for mobile dropdowns */
 .glass-dropdown {
   position: relative;
-  background: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(25px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(20px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
   transform: translateZ(0);
   will-change: backdrop-filter;
+  isolation: isolate;
 }
 
 /* Enhanced backdrop blur variants */
