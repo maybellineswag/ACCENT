@@ -117,9 +117,9 @@ export function NavBar({ className, isClinics }: NavBarProps) {
 
         {/* CTA & Language & Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-3 ml-2">
-          <GradientButton asChild className="border-none shadow-sm h-10 px-6 hidden sm:flex">
-            <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              Book a call <ArrowRight className="w-4 h-4" />
+          <GradientButton asChild className="border-none shadow-sm h-10 px-4 sm:px-6 flex">
+            <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[13px] sm:text-sm whitespace-nowrap">
+              Book a call <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
           </GradientButton>
 
