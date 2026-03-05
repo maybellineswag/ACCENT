@@ -78,7 +78,7 @@ function Hero({ translations, isClinics }: HeroProps) {
 
           <div className="flex gap-3 flex-col items-start max-w-4xl">
             <h1 className={cn(
-              "tracking-tight sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]",
+              "tracking-tight sm:tracking-tighter text-left font-semibold leading-[1.1] sm:leading-[0.95] text-black max-w-[800px]",
               language === 'en' ? "text-[34px] sm:text-5xl md:text-6xl" : "text-[28px] xs:text-[30px] sm:text-5xl md:text-6xl"
             )}>
               {translations.hero.title1}
@@ -110,7 +110,7 @@ function Hero({ translations, isClinics }: HeroProps) {
               href="https://t.me/maybellineswag"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap px-2"
+              className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap flex-shrink-0 px-2"
             >
               <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
               <span>Send Message</span>

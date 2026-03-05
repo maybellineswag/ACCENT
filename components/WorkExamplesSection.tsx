@@ -171,12 +171,12 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
 
                 {/* Buttons - exact match with hero */}
                 <motion.div
-                    className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-4 pl-1"
+                    className="flex flex-row flex-nowrap items-center gap-4 sm:gap-6 mt-4 pl-1 overflow-visible"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                    <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
+                    <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-4 sm:px-9">
                         <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
                             <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
                                 Grow revenue and maximize your business with our help
@@ -188,7 +188,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* Secondary Phone CTA */}
                     <a
                         href="tel:+420773037505"
-                        className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
+                        className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity whitespace-nowrap flex-shrink-0 px-2"
                     >
                         <Phone fill="currentColor" className="w-4 h-4 text-black flex-shrink-0" />
                         <span>+420 773 037 505</span>
