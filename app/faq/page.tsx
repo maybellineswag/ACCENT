@@ -59,38 +59,10 @@ export default function FAQPage() {
                 {/* Floating Navigation */}
                 <NavBar />
 
-                {/* Mobile Header - Logo and Globe (Matching Hero.tsx and PricingHero.tsx) */}
-                <div className="sm:hidden flex items-center justify-between w-full px-4 py-4 relative z-10 transition-all duration-300">
-                    <Image
-                        src="/accentnewsymbol.svg"
-                        alt="ACCENT Logo"
-                        width={44}
-                        height={44}
-                        className="h-10 w-auto select-none"
-                    />
-                    <div className="relative">
-                        <button
-                            onClick={() => setShowLangDropdown(!showLangDropdown)}
-                            className="flex items-center justify-center w-8 h-8 hover:text-black transition-colors"
-                        >
-                            <Globe className="w-4 h-4 text-neutral-600" />
-                        </button>
-
-                        {showLangDropdown && (
-                            <div className="absolute top-10 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
-                                <button onClick={() => handleLangChange('cs')} className="w-full px-4 py-2 text-sm text-left text-black hover:bg-white/20 transition-colors">Čeština</button>
-                                <button onClick={() => handleLangChange('en')} className="w-full px-4 py-2 text-sm text-left text-black hover:bg-white/20 transition-colors">English</button>
-                                <button onClick={() => handleLangChange('ru')} className="w-full px-4 py-2 text-sm text-left text-black hover:bg-white/20 transition-colors">Русский</button>
-                                <button onClick={() => handleLangChange('uk')} className="w-full px-4 py-2 text-sm text-left text-black hover:bg-white/20 transition-colors">Українська</button>
-                            </div>
-                        )}
-                    </div>
-                </div>
-
                 {/* FAQ Section */}
-                <section className="pt-4 sm:pt-24 pb-12 px-4 sm:px-2 lg:px-4 relative z-10 w-full min-h-screen">
+                <section className="pt-24 sm:pt-24 pb-12 px-4 sm:px-2 lg:px-4 relative z-10 w-full min-h-screen">
                     <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
-                        <div className="flex gap-4 pt-8 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">
+                        <div className="flex gap-4 pt-12 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">
                             <motion.div
                                 className="text-left mb-12 max-w-4xl"
                                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -120,14 +92,6 @@ export default function FAQPage() {
                                 </motion.div>
 
                                 <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter text-left font-semibold leading-[0.95] text-black mb-2 flex items-center gap-4">
-                                    <Image
-                                        src="/accentnewsymbol.svg"
-                                        alt=""
-                                        width={48}
-                                        height={48}
-                                        className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
-                                        aria-hidden="true"
-                                    />
                                     <span>{translations.faq.title}</span>
                                 </h1>
                                 <p className="text-xl text-neutral-600 font-normal">{translations.faq.subtitle}</p>

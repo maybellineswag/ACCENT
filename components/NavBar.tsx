@@ -29,6 +29,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
   const { language, setLanguage } = useLanguage()
   const { translations, loading } = useTranslations()
   const navRef = useRef<HTMLDivElement>(null)
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const items: NavItem[] = [
     { name: 'industries', url: '/clinics-beauty', icon: Shield },
@@ -56,12 +57,28 @@ export function NavBar({ className, isClinics }: NavBarProps) {
     return () => {
       window.removeEventListener("resize", handleResize)
       document.removeEventListener("mousedown", handleClickOutside)
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current)
     }
   }, [])
 
   const handleLangChange = (newLang: 'cs' | 'en' | 'ru' | 'uk') => {
     setLanguage(newLang)
     setShowLangDropdown(false)
+  }
+
+  const handleMouseEnter = () => {
+    if (!isMobile) {
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current)
+      setShowLangDropdown(true)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setShowLangDropdown(false)
+      }, 150) // Grace period to cross the gap to the sibling dropdown
+    }
   }
 
   const toggleLangDropdown = (e: React.MouseEvent) => {
@@ -132,8 +149,8 @@ export function NavBar({ className, isClinics }: NavBarProps) {
             {/* Language Selector Trigger */}
             <div
               className="relative h-10 flex items-center"
-              onMouseEnter={() => !isMobile && setShowLangDropdown(true)}
-              onMouseLeave={() => !isMobile && setShowLangDropdown(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 onClick={toggleLangDropdown}
@@ -155,16 +172,19 @@ export function NavBar({ className, isClinics }: NavBarProps) {
           </div>
         </div>
 
-        {/* Floating Dropdowns - RESTACKED AS SIBLINGS TO PREVENT NESTED BLUR FAIL */}
+        {/* Floating Dropdowns */}
         <AnimatePresence>
           {showLangDropdown && (
             <motion.div
-              initial={{ opacity: 0, y: 8, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.95 }}
+              initial={{ opacity: 0, y: 4, scale: 0.98, backdropFilter: "blur(20px)" }}
+              animate={{ opacity: 1, y: 0, scale: 1, backdropFilter: "blur(20px)" }}
+              exit={{ opacity: 0, y: 4, scale: 0.98, backdropFilter: "blur(20px)" }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               className="absolute top-14 right-12 sm:right-0 z-[100] pointer-events-auto"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <div className="glass-dropdown border border-neutral-200/50 rounded-2xl shadow-xl py-2 min-w-[140px] text-black">
+              <div className="glass-dropdown border border-neutral-200/50 rounded-2xl shadow-xl py-2 min-w-[140px] text-black overflow-hidden">
                 <button onClick={() => handleLangChange('cs')} className="w-full px-4 py-2.5 text-sm text-left hover:bg-black/5 transition-colors">Čeština</button>
                 <button onClick={() => handleLangChange('en')} className="w-full px-4 py-2.5 text-sm text-left hover:bg-black/5 transition-colors">English</button>
                 <button onClick={() => handleLangChange('ru')} className="w-full px-4 py-2.5 text-sm text-left hover:bg-black/5 transition-colors">Русский</button>
@@ -177,12 +197,13 @@ export function NavBar({ className, isClinics }: NavBarProps) {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 8, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.95 }}
+              initial={{ opacity: 0, y: 4, scale: 0.98, backdropFilter: "blur(20px)" }}
+              animate={{ opacity: 1, y: 0, scale: 1, backdropFilter: "blur(20px)" }}
+              exit={{ opacity: 0, y: 4, scale: 0.98, backdropFilter: "blur(20px)" }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               className="absolute top-14 right-0 z-[100] pointer-events-auto sm:hidden"
             >
-              <div className="glass-dropdown border border-neutral-200/50 rounded-2xl shadow-xl py-3 min-w-[200px] text-black flex flex-col gap-1">
+              <div className="glass-dropdown border border-neutral-200/50 rounded-2xl shadow-xl py-3 min-w-[200px] text-black flex flex-col gap-1 overflow-hidden">
                 {items.map((item) => (
                   <Link
                     key={item.name}
