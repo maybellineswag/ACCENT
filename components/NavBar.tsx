@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight, Menu, X } from "lucide-react"
@@ -26,6 +26,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
   const [showLangDropdown, setShowLangDropdown] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
+  const navRef = useRef<HTMLDivElement>(null)
 
   const translations = {
     nav: {
@@ -67,9 +68,22 @@ export function NavBar({ className, isClinics }: NavBarProps) {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
     }
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setShowLangDropdown(false)
+        setMobileMenuOpen(false)
+      }
+    }
+
     handleResize()
     window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
   }, [])
 
   // Scroll highlighting removed as per user request
@@ -79,14 +93,33 @@ export function NavBar({ className, isClinics }: NavBarProps) {
     setShowLangDropdown(false)
   }
 
+  const toggleLangDropdown = () => {
+    if (isMobile) {
+      if (!showLangDropdown) setMobileMenuOpen(false)
+      setShowLangDropdown(!showLangDropdown)
+    }
+  }
+
+  const toggleMobileMenu = () => {
+    if (!mobileMenuOpen) setShowLangDropdown(false)
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+
   return (
     <div className={cn("fixed top-0 left-0 z-30 pt-4 sm:pt-6 w-fit px-4 sm:px-12 pointer-events-none", className)}>
-      <div className="flex items-center gap-2 sm:gap-4 backdrop-blur-md border border-neutral-200/50 p-1.5 rounded-2xl shadow-sm pointer-events-auto">
+      <div
+        ref={navRef}
+        className="flex items-center gap-2 sm:gap-4 backdrop-blur-md border border-neutral-200/50 p-1.5 rounded-2xl shadow-sm pointer-events-auto"
+      >
         {/* Logo */}
         <Link
           href="/"
           className="flex items-center px-2 sm:px-3 py-1.5 sm:py-2"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" })
+            setMobileMenuOpen(false)
+            setShowLangDropdown(false)
+          }}
         >
           {isClinics ? (
             <Image src="/accentnewsymbolmedical.svg" alt="Logo" width={24} height={24} className="w-6 h-6" />
@@ -128,7 +161,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
             className="relative h-10 flex items-center"
             onMouseEnter={() => !isMobile && setShowLangDropdown(true)}
             onMouseLeave={() => !isMobile && setShowLangDropdown(false)}
-            onClick={() => isMobile && setShowLangDropdown(!showLangDropdown)}
+            onClick={toggleLangDropdown}
           >
             <button
               className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors"
@@ -143,7 +176,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                   exit={{ opacity: 0, y: 10 }}
                   className="absolute top-10 right-0 pt-2 z-50 pointer-events-auto"
                 >
-                  <div className="backdrop-blur-md bg-white/40 border border-neutral-200/50 rounded-2xl shadow-lg py-2 min-w-[140px] text-black overflow-hidden">
+                  <div className="backdrop-blur-md bg-white/70 border border-neutral-200/50 rounded-2xl shadow-lg py-2 min-w-[140px] text-black overflow-hidden">
                     <button onClick={() => handleLangChange('cs')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Čeština</button>
                     <button onClick={() => handleLangChange('en')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">English</button>
                     <button onClick={() => handleLangChange('ru')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Русский</button>
@@ -157,7 +190,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
           {/* Hamburger Menu - Mobile only */}
           <div className="sm:hidden relative h-10 flex items-center">
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={toggleMobileMenu}
               className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors"
             >
               {mobileMenuOpen ? <X className="w-4 h-4 text-neutral-600" /> : <Menu className="w-4 h-4 text-neutral-600" />}
@@ -170,7 +203,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                   exit={{ opacity: 0, y: 10 }}
                   className="absolute top-10 right-0 pt-2 z-50 pointer-events-auto"
                 >
-                  <div className="backdrop-blur-md bg-white/40 border border-neutral-200/50 rounded-2xl shadow-lg py-3 min-w-[180px] text-black overflow-hidden flex flex-col gap-1">
+                  <div className="backdrop-blur-md bg-white/70 border border-neutral-200/50 rounded-2xl shadow-lg py-3 min-w-[180px] text-black overflow-hidden flex flex-col gap-1">
                     {items.map((item) => (
                       <Link
                         key={item.name}
