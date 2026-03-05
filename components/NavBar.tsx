@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight } from "lucide-react"
+import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
@@ -24,6 +24,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
   const [activeTab, setActiveTab] = useState('home')
   const [isMobile, setIsMobile] = useState(false)
   const [showLangDropdown, setShowLangDropdown] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
 
   const translations = {
@@ -57,8 +58,8 @@ export function NavBar({ className, isClinics }: NavBarProps) {
 
   const items: NavItem[] = [
     { name: 'industries', url: '/clinics-beauty', icon: Shield },
-    { name: 'works', url: '#works', icon: Star },
-    { name: 'pricing', url: '#faq', icon: CreditCard },
+    { name: 'works', url: '/selected-work', icon: Star },
+    { name: 'pricing', url: '/pricing', icon: CreditCard },
     { name: 'faq', url: '/faq', icon: HelpCircle },
   ]
 
@@ -71,47 +72,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  useEffect(() => {
-    let ticking = false
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const sections = [
-            { id: 'home', element: document.getElementById('home') },
-            { id: 'works', element: document.getElementById('works') },
-            { id: 'how-it-works', element: document.getElementById('how-it-works') },
-            { id: 'faq', element: document.getElementById('faq') }
-          ]
-          let currentSection = 'home'
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const section = sections[i]
-            if (section.element) {
-              const rect = section.element.getBoundingClientRect()
-              if (rect.top <= 150) {
-                currentSection = section.id
-                break
-              }
-            }
-          }
-          const sectionToTab: { [key: string]: string } = {
-            'home': 'industries',
-            'works': 'works',
-            'how-it-works': 'industries',
-            'faq': 'pricing'
-          }
-          const newActiveTab = sectionToTab[currentSection] || 'industries'
-          if (newActiveTab !== activeTab) {
-            setActiveTab(newActiveTab)
-          }
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [activeTab])
+  // Scroll highlighting removed as per user request
 
   const handleLangChange = (newLang: 'cs' | 'en' | 'ru' | 'uk') => {
     setLanguage(newLang)
@@ -134,7 +95,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
           )}
         </Link>
 
-        {/* Navigation Items */}
+        {/* Navigation Items - Desktop only */}
         <div className="hidden sm:flex items-center gap-1">
           {items.map((item) => {
             const isActive = activeTab === item.name
@@ -154,18 +115,20 @@ export function NavBar({ className, isClinics }: NavBarProps) {
           })}
         </div>
 
-        {/* CTA & Language */}
+        {/* CTA & Language & Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-3 ml-2">
-          <GradientButton asChild className="border-none shadow-sm h-10 px-6">
+          <GradientButton asChild className="border-none shadow-sm h-10 px-6 hidden sm:flex">
             <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               Book a call <ArrowRight className="w-4 h-4" />
             </a>
           </GradientButton>
 
+          {/* Language Selector */}
           <div
             className="relative h-10 flex items-center"
-            onMouseEnter={() => setShowLangDropdown(true)}
-            onMouseLeave={() => setShowLangDropdown(false)}
+            onMouseEnter={() => !isMobile && setShowLangDropdown(true)}
+            onMouseLeave={() => !isMobile && setShowLangDropdown(false)}
+            onClick={() => isMobile && setShowLangDropdown(!showLangDropdown)}
           >
             <button
               className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors"
@@ -185,6 +148,48 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                     <button onClick={() => handleLangChange('en')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">English</button>
                     <button onClick={() => handleLangChange('ru')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Русский</button>
                     <button onClick={() => handleLangChange('uk')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Українська</button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Hamburger Menu - Mobile only */}
+          <div className="sm:hidden relative h-10 flex items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors"
+            >
+              {mobileMenuOpen ? <X className="w-4 h-4 text-neutral-600" /> : <Menu className="w-4 h-4 text-neutral-600" />}
+            </button>
+            <AnimatePresence>
+              {mobileMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-10 right-0 pt-2 z-50 pointer-events-auto"
+                >
+                  <div className="backdrop-blur-md bg-white/40 border border-neutral-200/50 rounded-2xl shadow-lg py-3 min-w-[180px] text-black overflow-hidden flex flex-col gap-1">
+                    {items.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.url}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="px-5 py-2.5 text-sm font-medium hover:bg-black/5 transition-colors"
+                      >
+                        {(translations.nav as any)[language][item.name] || item.name}
+                      </Link>
+                    ))}
+                    <div className="h-[1px] bg-neutral-200/30 my-1 mx-4" />
+                    <a
+                      href="https://cal.com/accent/start"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 text-sm font-semibold text-black flex items-center justify-between hover:bg-black/5 transition-colors"
+                    >
+                      Book a call <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
                   </div>
                 </motion.div>
               )}

@@ -326,7 +326,7 @@
     "backToHome": "Zpět na domovskou stránku"
   },
   "footer": {
-    "copyright": "© 2025 ACCENT. All rights reserved",
+    "copyright": "© 2026 ACCENT. Všechna práva vyhrazena",
     "description": "Prémiový branding a AI automatizace pro moderní firmy se sídlem v Paříži a Praze.",
     "services": {
       "title": "Služby",
@@ -338,12 +338,13 @@
       ]
     },
     "company": {
-      "title": "Společnost",
+      "title": "Menu",
       "items": [
-        "O nás",
-        "Kontakt",
-        "Zásady ochrany osobních údajů",
-        "Podmínky"
+        "Kliniky a Krása",
+        "Práce",
+        "Ceník",
+        "Cookies a Soukromí",
+        "Instagram"
       ]
     },
     "contact": {

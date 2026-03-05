@@ -46,57 +46,6 @@ function Hero({ translations, isClinics }: HeroProps) {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      {/* Mobile Header - Logo and Globe */}
-      < div className="sm:hidden flex items-center justify-between w-full px-4 py-4 relative z-10" >
-        <Image
-          src="/accentnewsymbol.svg"
-          alt="ACCENT Logo"
-          width={44}
-          height={44}
-          className="h-10 w-auto select-none"
-        />
-        <div className="relative">
-          <button
-            onClick={() => setShowLangDropdown(!showLangDropdown)}
-            className="flex items-center justify-center w-8 h-8 hover:text-black transition-colors"
-          >
-            <Globe className="w-4 h-4 text-neutral-600" />
-          </button>
-
-          {showLangDropdown && (
-            <div className="absolute top-10 right-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-xl shadow-lg py-2 min-w-[140px] z-50">
-              <button
-                onClick={() => handleLangChange('cs')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'cs' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/cz.svg" alt="Czech" width={16} height={12} className="w-4 h-3" />
-                Čeština
-              </button>
-              <button
-                onClick={() => handleLangChange('en')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'en' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/us.svg" alt="English" width={16} height={12} className="w-4 h-3" />
-                English
-              </button>
-              <button
-                onClick={() => handleLangChange('ru')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'ru' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/ru.svg" alt="Russian" width={16} height={12} className="w-4 h-3" />
-                Русский
-              </button>
-              <button
-                onClick={() => handleLangChange('uk')}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/20 transition-colors flex items-center gap-3 ${language === 'uk' ? 'text-black font-medium' : 'text-black'}`}
-              >
-                <Image src="/flags/ua.svg" alt="Ukrainian" width={16} height={12} className="w-4 h-3" />
-                Українська
-              </button>
-            </div>
-          )}
-        </div>
-      </div >
 
       <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6 relative z-10">
         <div className="flex gap-4 pt-8 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">

@@ -324,7 +324,7 @@
     "backToHome": "Back to Home"
   },
   "footer": {
-    "copyright": "© 2025 ACCENT. All rights reserved",
+    "copyright": "© 2026 ACCENT. All rights reserved",
     "description": "Premium branding and AI automation for modern businesses based in Paris & Prague.",
     "services": {
       "title": "Services",
@@ -336,12 +336,13 @@
       ]
     },
     "company": {
-      "title": "Company",
+      "title": "Menu",
       "items": [
-        "About Us",
-        "Contact",
-        "Privacy Policy",
-        "Terms"
+        "Clinics & Beauty",
+        "Works",
+        "Pricing",
+        "Cookies & Privacy",
+        "Instagram"
       ]
     },
     "contact": {
