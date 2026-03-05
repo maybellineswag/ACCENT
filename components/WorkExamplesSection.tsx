@@ -19,7 +19,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
             <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
 
                 {/* Overlapping Cards Container - removed min-w to prevent scrolling */}
-                <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-12 sm:block">
+                <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-8 sm:block">
                     {/* Cards made smaller and positions adjusted to stay within container */}
 
                     {/* 1. Health & Beauty - LUMEASTUDIO */}
