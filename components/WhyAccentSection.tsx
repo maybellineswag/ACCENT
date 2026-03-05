@@ -20,7 +20,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
 
     return (
         <section className="pt-8 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
-            <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
+            <div className="w-full px-4 sm:container sm:mx-auto sm:px-6">
 
                 {/* Title */}
                 <motion.div

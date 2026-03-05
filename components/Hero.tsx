@@ -54,7 +54,7 @@ function Hero({ translations, isClinics }: HeroProps) {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex items-center gap-2 mb-2"
+            className="flex items-center gap-2"
           >
             {isClinics ? (
               <Image
@@ -75,7 +75,7 @@ function Hero({ translations, isClinics }: HeroProps) {
             )}
           </motion.div>
 
-          <div className="flex gap-6 flex-col items-start max-w-4xl">
+          <div className="flex gap-3 flex-col items-start max-w-4xl">
             <h1 className="text-[34px] sm:text-5xl md:text-6xl tracking-normal sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
               {translations.hero.title1}
               <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
@@ -89,8 +89,8 @@ function Hero({ translations, isClinics }: HeroProps) {
           </div>
 
           {/* Main CTA Buttons */}
-          <div className="flex flex-row items-center gap-4 sm:gap-6 mt-4">
-            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
+          <div className="flex flex-row flex-wrap items-center gap-4 sm:gap-6 mt-3">
+            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-5 sm:px-9">
               <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
                 <span className="font-semibold text-[14px] sm:text-base leading-tight tracking-normal text-black text-left">
                   {translations.heroCta}
@@ -103,7 +103,7 @@ function Hero({ translations, isClinics }: HeroProps) {
               href="https://t.me/maybellineswag"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap"
+              className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap px-2"
             >
               <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
               <span>Send Message</span>

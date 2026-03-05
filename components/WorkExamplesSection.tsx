@@ -16,7 +16,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
         <section id="works" className="pt-0 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
             {/* Work Examples Content */}
 
-            <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
+            <div className="w-full px-4 sm:container sm:mx-auto sm:px-6">
 
                 {/* Overlapping Cards Container - removed min-w to prevent scrolling */}
                 <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-6 sm:block">
@@ -160,7 +160,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
 
                             {/* "See more examples" placed relative to this card and styled like Telegram button */}
                             <motion.div
-                                className="mt-4 sm:mr-2 w-full flex justify-end"
+                                className="mt-4 sm:mr-2 w-full flex justify-start sm:justify-end"
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
