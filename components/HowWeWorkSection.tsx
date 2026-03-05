@@ -108,7 +108,7 @@ const HowWeWorkSection = ({ isClinics }: HowWeWorkSectionProps = {}) => {
                                         <Clock className="w-4 h-4" />
                                         {step.duration}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-black tracking-tight leading-tight">
+                                    <h3 className="text-2xl sm:text-3xl font-bold text-black tracking-tight leading-tight">
                                         {step.title}
                                     </h3>
                                     <p className="text-neutral-600 leading-relaxed whitespace-pre-wrap">

@@ -77,10 +77,7 @@ function Hero({ translations, isClinics }: HeroProps) {
           </motion.div>
 
           <div className="flex gap-3 flex-col items-start max-w-4xl">
-            <h1 className={cn(
-              "tracking-tight sm:tracking-tighter text-left font-semibold leading-[1.1] sm:leading-[0.95] text-black max-w-[800px]",
-              language === 'en' ? "text-[34px] sm:text-5xl md:text-6xl" : "text-[28px] xs:text-[30px] sm:text-5xl md:text-6xl"
-            )}>
+            <h1 className="text-[32px] sm:text-5xl md:text-6xl tracking-tight sm:tracking-tighter text-left font-semibold leading-tight text-black max-w-[800px]">
               {translations.hero.title1}
               <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
               <br className="hidden sm:block" />
@@ -97,7 +94,7 @@ function Hero({ translations, isClinics }: HeroProps) {
             <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-4 sm:px-9">
               <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
                 <span className={cn(
-                  "font-medium leading-tight tracking-normal text-black text-left",
+                  "font-medium tracking-normal text-black text-left",
                   language === 'en' ? "text-[14px] sm:text-sm" : "text-[13px] sm:text-sm"
                 )}>
                   {translations.heroCta}

@@ -24,7 +24,7 @@ export function MetricsSection({ translations }: MetricsSectionProps) {
                                     {metric.value}
                                 </div>
                                 <div className="w-12 h-[2px] bg-[#8B8DD1] mb-6 opacity-40"></div>
-                                <div className="text-base sm:text-lg text-black font-bold tracking-normal leading-snug mb-3">
+                                <div className="text-base sm:text-lg text-black font-bold tracking-normal leading-tight mb-3">
                                     {metric.label}
                                 </div>
                                 <div className="text-sm sm:text-[15px] text-neutral-600 font-normal leading-relaxed">

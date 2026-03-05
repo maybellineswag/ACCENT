@@ -86,7 +86,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
                                         aria-hidden="true"
                                     />
                                 )}
-                                <h3 className="text-3xl sm:text-4xl font-bold text-black tracking-tight leading-tight mb-3 relative z-10 pl-1">
+                                <h3 className="text-2xl sm:text-3xl font-bold text-black tracking-tight leading-tight mb-3 relative z-10 pl-1">
                                     {reason.title}
                                 </h3>
                                 <p className="text-neutral-600 text-lg leading-relaxed">
@@ -99,13 +99,13 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
 
                 {/* CTA */}
                 <motion.div
-                    className="flex flex-row flex-nowrap items-center gap-4 sm:gap-6"
+                    className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
                     initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                 >
-                    <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-4 sm:px-9">
+                    <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <Link href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
                             <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
                                 {translations.whyAccent.cta}
@@ -118,7 +118,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
                         href="https://t.me/maybellineswag"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity whitespace-nowrap flex-shrink-0 px-2"
+                        className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
                     >
                         <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5 flex-shrink-0" />
                         <span>Send a Message</span>
