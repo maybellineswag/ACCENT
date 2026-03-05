@@ -19,7 +19,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
             <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
 
                 {/* Overlapping Cards Container - removed min-w to prevent scrolling */}
-                <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-8 sm:block">
+                <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-6 sm:block">
                     {/* Cards made smaller and positions adjusted to stay within container */}
 
                     {/* 1. Health & Beauty - LUMEASTUDIO */}
@@ -188,7 +188,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                 >
                     <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                            <span className="font-semibold text-[14px] leading-tight tracking-tight text-black text-left">
+                            <span className="font-semibold text-[14px] leading-tight text-black text-left">
                                 Grow revenue and maximize your business with our help
                             </span>
                             <ArrowRight className="w-6 h-6 text-black flex-shrink-0" />

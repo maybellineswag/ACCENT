@@ -47,7 +47,7 @@ function Hero({ translations, isClinics }: HeroProps) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
 
-      <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6 relative z-10">
+      <div className="w-full px-4 sm:container sm:mx-auto sm:px-6 relative z-10">
         <div className="flex gap-4 pt-32 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">
           {/* Logo and Brand above Hero */}
           <motion.div
@@ -76,7 +76,7 @@ function Hero({ translations, isClinics }: HeroProps) {
           </motion.div>
 
           <div className="flex gap-6 flex-col items-start max-w-4xl">
-            <h1 className="text-[32px] sm:text-5xl md:text-6xl tracking-tight text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
+            <h1 className="text-[34px] sm:text-5xl md:text-6xl tracking-tight text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
               {translations.hero.title1}
               <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
               <br className="hidden sm:block" />
@@ -89,10 +89,10 @@ function Hero({ translations, isClinics }: HeroProps) {
           </div>
 
           {/* Main CTA Buttons */}
-          <div className="flex flex-row items-center gap-4 sm:gap-6 mt-4 w-full sm:w-auto">
-            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl sm:px-8 sm:py-6 h-auto min-h-[48px] sm:min-h-0 w-auto sm:w-fit">
-              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4 px-4 sm:px-0">
-                <span className="font-semibold text-[13px] sm:text-base leading-tight tracking-tight text-black text-left">
+          <div className="flex flex-row items-center gap-4 sm:gap-6 mt-4">
+            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
+              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
+                <span className="font-semibold text-[14px] sm:text-base leading-tight text-black text-left">
                   {translations.heroCta}
                 </span>
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
@@ -103,9 +103,9 @@ function Hero({ translations, isClinics }: HeroProps) {
               href="https://t.me/maybellineswag"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 sm:gap-2 text-[13px] sm:text-sm font-medium text-black hover:opacity-70 transition-opacity whitespace-nowrap"
+              className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium text-black hover:opacity-70 transition-opacity whitespace-nowrap"
             >
-              <Image src="/tglogo.svg" alt="Telegram" width={18} height={18} className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
               <span>Send Message</span>
             </a>
           </div>
