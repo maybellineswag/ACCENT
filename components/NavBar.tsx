@@ -150,8 +150,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                   className="absolute top-10 right-0 pt-2 z-[60] pointer-events-auto"
                 >
                   <div
-                    className="backdrop-blur-2xl bg-white/45 border border-neutral-200/50 rounded-2xl shadow-lg py-2 min-w-[140px] text-black overflow-hidden"
-                    style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
+                    className="glass-dropdown border border-neutral-200/50 rounded-2xl shadow-lg py-2 min-w-[140px] text-black"
                   >
                     <button onClick={() => handleLangChange('cs')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">Čeština</button>
                     <button onClick={() => handleLangChange('en')} className="w-full px-4 py-2 text-sm text-left hover:bg-black/5 flex items-center gap-3 transition-colors">English</button>
@@ -180,8 +179,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                   className="absolute top-10 right-0 pt-2 z-[60] pointer-events-auto"
                 >
                   <div
-                    className="backdrop-blur-2xl bg-white/45 border border-neutral-200/50 rounded-2xl shadow-lg py-3 min-w-[180px] text-black overflow-hidden flex flex-col gap-1"
-                    style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
+                    className="glass-dropdown border border-neutral-200/50 rounded-2xl shadow-lg py-3 min-w-[180px] text-black flex flex-col gap-1"
                   >
                     {items.map((item) => (
                       <Link
