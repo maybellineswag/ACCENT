@@ -1,8 +1,8 @@
 {
   "seo": {
-    "title": "ACCENT | Prémiový Branding a Brand Identity Automatizace",
-    "description": "Transformujeme firmy pomocí špičkového brandingu, webového designu na míru a chytré Brand Identity automatizace. Růst během dnů, ne týdnů.",
-    "keywords": "brandingová agentura, Brand Identity automatizace, web design na míru, prémiový branding, automatizace podnikání, Next.js vývojář, digitální transformace, Praha"
+    "title": "ACCENT | Webový Design a Vizuální Identita",
+    "description": "Transformujeme firmy pomocí webového designu na míru a prémiové vizuální identity. Budujeme profesionální weby pro moderní podniky v Praze i po celé Evropě.",
+    "keywords": "webový design, vizuální identita, branding agentura, weby na míru, tvorba webu, Next.js vývojář, digitální transformace, Praha, Evropa"
   },
   "nav": {
     "industries": "Kliniky a Krása",
@@ -338,14 +338,14 @@
   },
   "footer": {
     "copyright": "© 2026 ACCENT. Všechna práva vyhrazena",
-    "description": "Prémiový branding a Brand Identity automatizace pro moderní firmy se sídlem v Paříži a Praze.",
+    "description": "Profesionální webový design a vizuální identita pro moderní podniky v Praze i po celé Evropě.",
     "services": {
       "title": "Služby",
       "items": [
+        "Webový Design",
+        "Vizuální Identita",
         "Branding",
-        "Brand Identity Chatboty",
-        "Automatizace",
-        "Webové stránky"
+        "Strategie"
       ]
     },
     "company": {

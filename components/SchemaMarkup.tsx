@@ -9,7 +9,7 @@ export function SchemaMarkup() {
         "url": "https://accent.agency",
         "logo": "https://accent.agency/accentflower.svg",
         "image": "https://accent.agency/accentlogos.png",
-        "description": "Professional web design and brand identity for modern businesses. Get a premium, custom-built website that builds trust and grows your revenue.",
+        "description": "Professional web design and visual identity for modern businesses. Get a premium, custom-built website that builds trust and grows your revenue.",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Prague",
@@ -52,7 +52,7 @@ export function SchemaMarkup() {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Brand Identity"
+                        "name": "Visual Identity"
                     }
                 },
                 {

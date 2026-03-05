@@ -5,8 +5,8 @@ import { HtmlLangSetter } from '@/components/HtmlLangSetter'
 import { SchemaMarkup } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'ACCENT | Professional Web Design & Brand Identity',
-  description: 'Transforming businesses with custom web design and high-end brand identity. We build premium, template-free websites for clinics, salons, and modern businesses in Prague and across Europe.',
+  title: 'ACCENT | Web Design & Visual Identity',
+  description: 'Transforming businesses with custom web design and high-end visual identity. We build premium, template-free websites for clinics, salons, and modern businesses in Prague and across Europe.',
   keywords: 'web design, brand identity, branding agency, custom websites, Next.js developer, digital transformation, Prague, Europe, web designer',
   authors: [{ name: 'ACCENT' }],
   creator: 'ACCENT',
@@ -30,22 +30,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://accent.agency',
-    title: 'ACCENT | Professional Web Design & Brand Identity',
-    description: 'Transforming businesses with custom web design and high-end brand identity.',
+    title: 'ACCENT | Web Design & Visual Identity',
+    description: 'Transforming businesses with custom web design and high-end visual identity.',
     siteName: 'ACCENT',
     images: [
       {
         url: '/accentlogos.png',
         width: 1200,
         height: 630,
-        alt: 'ACCENT Agency Web Design & Brand Identity',
+        alt: 'ACCENT Agency Web Design & Visual Identity',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ACCENT | Professional Web Design & Brand Identity',
-    description: 'Transforming businesses with custom web design and high-end brand identity.',
+    title: 'ACCENT | Web Design & Visual Identity',
+    description: 'Transforming businesses with custom web design and high-end visual identity.',
     images: ['/accentlogos.png'],
     creator: '@accentagency',
   },

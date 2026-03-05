@@ -1,8 +1,8 @@
 {
   "seo": {
-    "title": "ACCENT | Premium Branding & Brand Identity Agency",
-    "description": "Transforming businesses with high-end branding, custom web design, and smart Brand Identity automation. Scale your business in days, not weeks.",
-    "keywords": "branding agency, Brand Identity automation, custom web design, premium branding, business automation, Next.js developer, digital transformation"
+    "title": "ACCENT | Web Design & Visual Identity",
+    "description": "Transforming businesses with custom web design and high-end visual identity. We build premium, template-free websites for modern businesses in Prague and across Europe.",
+    "keywords": "web design, visual identity, branding agency, custom websites, Next.js developer, digital transformation, Prague, Europe, web designer"
   },
   "nav": {
     "industries": "Clinics & Beauty",
@@ -340,14 +340,14 @@
   },
   "footer": {
     "copyright": "© 2026 ACCENT. All rights reserved",
-    "description": "Premium branding and Brand Identity automation for modern businesses based in Paris & Prague.",
+    "description": "Professional web design and visual identity for modern businesses based in Prague & Europe.",
     "services": {
       "title": "Services",
       "items": [
-        "Branding",
         "Web Design",
+        "Visual Identity",
         "Branding",
-        "Websites"
+        "Strategy"
       ]
     },
     "company": {
