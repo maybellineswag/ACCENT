@@ -120,7 +120,7 @@ export default function HomePage() {
       <SeoHead />
       <div className="min-h-screen relative overflow-hidden">
         {/* Full-page background */}
-        <div className="fixed inset-0 z-0 w-full h-full translate-y-12 sm:translate-y-0">
+        <div className="fixed left-0 right-0 bottom-0 top-[48px] sm:top-0 z-0 w-full h-full">
           <Image
             src="/accentbackground.png?v=3"
             alt=""

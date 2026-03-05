@@ -19,19 +19,19 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
             <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
 
                 {/* Overlapping Cards Container - removed min-w to prevent scrolling */}
-                <div className="w-full relative pb-4 pt-2 h-[300px] sm:h-[400px]">
+                <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-12 sm:block">
                     {/* Cards made smaller and positions adjusted to stay within container */}
 
                     {/* 1. Health & Beauty - LUMEASTUDIO */}
                     <motion.div
                         className={cn(
-                            "absolute flex flex-col transition-all duration-500",
+                            "relative sm:absolute flex flex-col transition-all duration-500 w-full",
                             industryFilter === "clinics-beauty"
-                                ? "left-0 top-[0%] w-[32%] z-[15]"
-                                : "left-0 top-[4%] w-[28%] z-[5]"
+                                ? "sm:left-0 sm:top-[0%] sm:w-[32%] z-[15]"
+                                : "sm:left-0 sm:top-[4%] sm:w-[28%] z-[5]"
                         )}
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
@@ -47,9 +47,9 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* 2. Health & Beauty - BLOOM (Conditional for Clinics) */}
                     {industryFilter === "clinics-beauty" && (
                         <motion.div
-                            className="absolute left-[24%] top-[24%] w-[34%] z-[25] flex flex-col"
+                            className="relative sm:absolute sm:left-[24%] sm:top-[24%] sm:w-[34%] w-full z-[25] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
@@ -66,9 +66,9 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* 2. Automotive (Original) */}
                     {!industryFilter && (
                         <motion.div
-                            className="absolute left-[16%] top-[24%] w-[30%] z-[15] flex flex-col"
+                            className="relative sm:absolute sm:left-[16%] sm:top-[24%] sm:w-[30%] w-full z-[15] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
@@ -85,9 +85,9 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* 3. Health & Beauty - TRANQUIL (Conditional for Clinics) */}
                     {industryFilter === "clinics-beauty" && (
                         <motion.div
-                            className="absolute left-[52%] top-[2%] w-[32%] z-[20] flex flex-col"
+                            className="relative sm:absolute sm:left-[52%] sm:top-[2%] sm:w-[32%] w-full z-[20] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
@@ -104,9 +104,9 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* 3. Food (Original) */}
                     {!industryFilter && (
                         <motion.div
-                            className="absolute left-[40%] top-[0%] w-[28%] z-[10] flex flex-col"
+                            className="relative sm:absolute sm:left-[40%] sm:top-[0%] sm:w-[28%] w-full z-[10] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
@@ -123,9 +123,9 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* 4. Health & Beauty - SERENITY (Conditional for Clinics) */}
                     {industryFilter === "clinics-beauty" && (
                         <motion.div
-                            className="absolute left-[72%] top-[30%] w-[28%] z-[30] flex flex-col items-start"
+                            className="relative sm:absolute sm:left-[72%] sm:top-[30%] sm:w-[28%] w-full z-[30] flex flex-col items-start"
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
@@ -142,16 +142,16 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     {/* 4. SAAS (Original) */}
                     {!industryFilter && (
                         <motion.div
-                            className="absolute left-[60%] top-[14%] w-[32%] z-[20] flex flex-col items-end"
+                            className="relative sm:absolute sm:left-[60%] sm:top-[14%] sm:w-[32%] w-full z-[20] flex flex-col items-end"
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
                             <div className="w-full">
                                 <div className="flex items-center gap-2 mb-1 pl-4">
-                                    <div className="w-[8px] h-[8px] rounded-full bg-white opacity-90 shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-                                    <span className="text-white font-medium text-[15px] sm:text-[17px] tracking-tight">SAAS</span>
+                                    <div className="w-[8px] h-[8px] rounded-full bg-white opacity-90 shadow-[0_0_8_rgba(255,255,255,0.8)]" />
+                                    <span className="text-[#333] sm:text-white font-medium text-[15px] sm:text-[17px] tracking-tight">SAAS</span>
                                 </div>
                                 <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative">
                                     <Image src="/WEBSITES/BILLO.webp" alt="SAAS" fill className="object-cover" />
@@ -160,9 +160,9 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
 
                             {/* "See more examples" placed relative to this card and styled like Telegram button */}
                             <motion.div
-                                className="mt-4 mr-2"
+                                className="mt-4 sm:mr-2 w-full flex justify-end"
                                 initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.7 }}
                             >

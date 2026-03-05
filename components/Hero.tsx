@@ -76,7 +76,7 @@ function Hero({ translations, isClinics }: HeroProps) {
           </motion.div>
 
           <div className="flex gap-6 flex-col items-start max-w-4xl">
-            <h1 className="text-[40px] sm:text-5xl md:text-6xl tracking-tight sm:tracking-tighter text-left font-semibold leading-[1.1] sm:leading-[0.95] text-black max-w-[800px]">
+            <h1 className="text-[34px] sm:text-5xl md:text-6xl tracking-normal sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
               {translations.hero.title1}
               <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
               <br className="hidden sm:block" />
@@ -90,10 +90,12 @@ function Hero({ translations, isClinics }: HeroProps) {
 
           {/* Main CTA Buttons */}
           <div className="flex flex-row items-center gap-3 sm:gap-6 mt-4 w-full">
-            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-4 h-10 sm:h-auto sm:px-8 sm:py-6">
-              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base flex items-center">
-                {translations.heroCta}
-                <ArrowRight className="ml-1 sm:ml-2 w-4 h-4 sm:w-6 sm:h-6" />
+            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl sm:px-8 sm:py-6 h-auto min-h-[52px] sm:min-h-0">
+              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4 w-full">
+                <span className="font-semibold text-[13px] sm:text-base leading-tight tracking-tight text-black text-left">
+                  {translations.heroCta}
+                </span>
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
               </a>
             </GradientButton>
 
