@@ -37,7 +37,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     >
                         <div className="flex items-center gap-2 mb-1 pl-4">
                             <div className="w-[8px] h-[8px] rounded-full bg-[#eca9eb] opacity-90 shadow-[0_0_8px_rgba(236,169,235,0.8)]" />
-                            <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">Health & Beauty</span>
+                            <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-normal">Health & Beauty</span>
                         </div>
                         <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
                             <Image src="/WEBSITES/LUMEASTUDIO.webp" alt="Health & Beauty" fill className="object-cover" />
@@ -188,7 +188,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                 >
                     <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                            <span className="font-semibold text-[14px] leading-tight text-black text-left">
+                            <span className="font-semibold text-[14px] leading-tight tracking-normal text-black text-left">
                                 Grow revenue and maximize your business with our help
                             </span>
                             <ArrowRight className="w-6 h-6 text-black flex-shrink-0" />

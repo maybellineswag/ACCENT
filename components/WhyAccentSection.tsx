@@ -107,7 +107,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
                 >
                     <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <Link href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                            <span className="font-semibold text-[14px] leading-tight text-black text-left">
+                            <span className="font-semibold text-[14px] leading-tight tracking-normal text-black text-left">
                                 {translations.whyAccent.cta}
                             </span>
                             <ArrowRight className="w-6 h-6 text-black flex-shrink-0" />
