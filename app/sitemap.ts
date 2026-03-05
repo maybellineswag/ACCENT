@@ -2,42 +2,42 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://accentai.eu'
-    const lastModified = new Date()
+    const today = new Date().toISOString().split('T')[0]
 
     return [
         {
             url: baseUrl,
-            lastModified,
+            lastModified: today,
             changeFrequency: 'monthly',
             priority: 1,
         },
         {
             url: `${baseUrl}/clinics-beauty`,
-            lastModified,
+            lastModified: today,
             changeFrequency: 'monthly',
             priority: 0.9,
         },
         {
             url: `${baseUrl}/selected-work`,
-            lastModified,
+            lastModified: today,
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
             url: `${baseUrl}/pricing`,
-            lastModified,
+            lastModified: today,
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
             url: `${baseUrl}/faq`,
-            lastModified,
+            lastModified: today,
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
             url: `${baseUrl}/custom-quote`,
-            lastModified,
+            lastModified: today,
             changeFrequency: 'monthly',
             priority: 0.7,
         },
