@@ -3,6 +3,7 @@ import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import { HtmlLangSetter } from '@/components/HtmlLangSetter'
 import { SchemaMarkup } from '@/components/SchemaMarkup'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: 'ACCENT | Web Design & Visual Identity',
@@ -96,6 +97,7 @@ export default function RootLayout({
           <HtmlLangSetter />
           {children}
         </LanguageProvider>
+        <GoogleAnalytics gaId="G-PJF5GY5YBP" />
       </body>
     </html>
   )
