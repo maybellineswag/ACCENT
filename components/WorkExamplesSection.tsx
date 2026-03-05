@@ -16,7 +16,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
         <section id="works" className="pt-0 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
             {/* Work Examples Content */}
 
-            <div className="w-full px-4 sm:container sm:mx-auto sm:px-6">
+            <div className="w-full px-2 sm:container sm:mx-auto sm:px-6">
 
                 {/* Overlapping Cards Container - removed min-w to prevent scrolling */}
                 <div className="w-full relative pb-4 pt-2 h-auto sm:h-[400px] flex flex-col gap-6 sm:block">
@@ -31,8 +31,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                 : "sm:left-0 sm:top-[4%] sm:w-[28%] z-[5]"
                         )}
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         <div className="flex items-center gap-2 mb-1 pl-4">
@@ -49,8 +48,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         <motion.div
                             className="relative sm:absolute sm:left-[24%] sm:top-[24%] sm:w-[34%] w-full z-[25] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
@@ -68,8 +66,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         <motion.div
                             className="relative sm:absolute sm:left-[16%] sm:top-[24%] sm:w-[30%] w-full z-[15] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
@@ -87,8 +84,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         <motion.div
                             className="relative sm:absolute sm:left-[52%] sm:top-[2%] sm:w-[32%] w-full z-[20] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
@@ -106,8 +102,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         <motion.div
                             className="relative sm:absolute sm:left-[40%] sm:top-[0%] sm:w-[28%] w-full z-[10] flex flex-col"
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
@@ -125,8 +120,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         <motion.div
                             className="relative sm:absolute sm:left-[72%] sm:top-[30%] sm:w-[28%] w-full z-[30] flex flex-col items-start"
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
@@ -144,8 +138,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         <motion.div
                             className="relative sm:absolute sm:left-[60%] sm:top-[14%] sm:w-[32%] w-full z-[20] flex flex-col items-end"
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
                             <div className="w-full">
@@ -161,9 +154,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                             {/* "See more examples" placed relative to this card and styled like Telegram button */}
                             <motion.div
                                 className="mt-4 sm:mr-2 w-full flex justify-start sm:justify-end"
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
+                                initial={{ opacity: 1 }}
                                 transition={{ duration: 0.6, delay: 0.7 }}
                             >
                                 <Link
@@ -183,12 +174,11 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-4 pl-1"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                 >
                     <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                            <span className="font-semibold text-[14px] leading-tight tracking-normal text-black text-left">
+                            <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
                                 Grow revenue and maximize your business with our help
                             </span>
                             <ArrowRight className="w-6 h-6 text-black flex-shrink-0" />

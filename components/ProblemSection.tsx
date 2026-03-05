@@ -19,7 +19,7 @@ export function ProblemSection({ translations }: ProblemSectionProps) {
 
     return (
         <section id="problem" className="pt-8 pb-16 relative z-10 bg-neutral-50/50 sm:bg-transparent">
-            <div className="w-full pl-6 pr-4 sm:max-w-6xl sm:mx-auto sm:px-6 lg:px-8">
+            <div className="w-full px-2 sm:max-w-6xl sm:mx-auto sm:px-6 lg:px-8">
 
                 <motion.div
                     className="text-left sm:text-center mb-12 sm:mb-16"

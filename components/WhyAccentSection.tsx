@@ -20,7 +20,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
 
     return (
         <section className="pt-8 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
-            <div className="w-full px-4 sm:container sm:mx-auto sm:px-6">
+            <div className="w-full px-2 sm:container sm:mx-auto sm:px-6">
 
                 {/* Title */}
                 <motion.div
@@ -107,7 +107,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
                 >
                     <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <Link href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                            <span className="font-semibold text-[14px] leading-tight tracking-normal text-black text-left">
+                            <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
                                 {translations.whyAccent.cta}
                             </span>
                             <ArrowRight className="w-6 h-6 text-black flex-shrink-0" />

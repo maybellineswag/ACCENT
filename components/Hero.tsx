@@ -47,7 +47,7 @@ function Hero({ translations, isClinics }: HeroProps) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
 
-      <div className="w-full px-4 sm:container sm:mx-auto sm:px-6 relative z-10">
+      <div className="w-full px-2 sm:container sm:mx-auto sm:px-6 relative z-10">
         <div className="flex gap-4 pt-32 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">
           {/* Logo and Brand above Hero */}
           <motion.div
@@ -76,23 +76,23 @@ function Hero({ translations, isClinics }: HeroProps) {
           </motion.div>
 
           <div className="flex gap-3 flex-col items-start max-w-4xl">
-            <h1 className="text-[34px] sm:text-5xl md:text-6xl tracking-normal sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
+            <h1 className="text-[34px] sm:text-5xl md:text-6xl tracking-tight sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
               {translations.hero.title1}
               <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
               <br className="hidden sm:block" />
               {translations.hero.title2}
             </h1>
 
-            <p className="text-base sm:text-lg md:text-2xl leading-relaxed tracking-normal text-neutral-500 max-w-2xl text-left font-medium">
+            <p className="text-base sm:text-lg md:text-2xl leading-relaxed tracking-tight text-neutral-500 max-w-2xl text-left font-medium">
               {translations.hero.desc}
             </p>
           </div>
 
           {/* Main CTA Buttons */}
-          <div className="flex flex-row flex-wrap items-center gap-4 sm:gap-6 mt-3">
+          <div className="flex flex-row flex-nowrap items-center gap-3 sm:gap-6 mt-3 overflow-visible">
             <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-5 sm:px-9">
               <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                <span className="font-semibold text-[14px] sm:text-base leading-tight tracking-normal text-black text-left">
+                <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
                   {translations.heroCta}
                 </span>
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />

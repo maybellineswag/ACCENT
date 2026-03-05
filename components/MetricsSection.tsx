@@ -12,7 +12,7 @@ export function MetricsSection({ translations }: MetricsSectionProps) {
 
     return (
         <section className="pt-8 pb-8 px-4 sm:px-2 lg:px-4 relative z-20 w-full overflow-visible">
-            <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
+            <div className="w-full px-2 sm:container sm:mx-auto sm:px-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 lg:gap-x-12 xl:gap-x-16">
                     {metrics.map((metric: any, idx: number) => (
                         <div
