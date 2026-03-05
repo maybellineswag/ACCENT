@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import { HtmlLangSetter } from '@/components/HtmlLangSetter'
+import { SchemaMarkup } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
-  description: 'Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů.',
-  keywords: 'branding, AI automatizace, web design, Praha, podnikání, marketing, automatizace, chatbot',
+  title: 'ACCENT | Professional Web Design & Brand Identity',
+  description: 'Transforming businesses with custom web design and high-end brand identity. We build premium, template-free websites for clinics, salons, and modern businesses in Prague and across Europe.',
+  keywords: 'web design, brand identity, branding agency, custom websites, Next.js developer, digital transformation, Prague, Europe, web designer',
   authors: [{ name: 'ACCENT' }],
   creator: 'ACCENT',
   publisher: 'ACCENT',
@@ -18,27 +19,33 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://accent.agency'),
   alternates: {
     canonical: '/',
+    languages: {
+      'en-US': '/en',
+      'cs-CZ': '/cs',
+      'ru-RU': '/ru',
+      'uk-UA': '/uk',
+    },
   },
   openGraph: {
     type: 'website',
-    locale: 'cs_CZ',
+    locale: 'en_US',
     url: 'https://accent.agency',
-    title: 'ACCENT | Premium Branding & AI Automation',
-    description: 'Transforming businesses with high-end branding, custom web design, and smart AI automation.',
+    title: 'ACCENT | Professional Web Design & Brand Identity',
+    description: 'Transforming businesses with custom web design and high-end brand identity.',
     siteName: 'ACCENT',
     images: [
       {
         url: '/accentlogos.png',
         width: 1200,
         height: 630,
-        alt: 'ACCENT Agency Branding',
+        alt: 'ACCENT Agency Web Design & Brand Identity',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ACCENT | Premium Branding & AI Automation',
-    description: 'Transforming businesses with high-end branding, custom web design, and smart AI automation.',
+    title: 'ACCENT | Professional Web Design & Brand Identity',
+    description: 'Transforming businesses with custom web design and high-end brand identity.',
     images: ['/accentlogos.png'],
     creator: '@accentagency',
   },
@@ -84,6 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <SchemaMarkup />
         <LanguageProvider>
           <HtmlLangSetter />
           {children}

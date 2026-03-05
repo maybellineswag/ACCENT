@@ -1,8 +1,8 @@
 {
   "seo": {
-    "title": "ACCENT | Premium Branding & AI Automation Agency",
-    "description": "Transforming businesses with high-end branding, custom web design, and smart AI automation. Scale your business in days, not weeks.",
-    "keywords": "branding agency, AI automation, custom web design, premium branding, business automation, Next.js developer, digital transformation"
+    "title": "ACCENT | Premium Branding & Brand Identity Agency",
+    "description": "Transforming businesses with high-end branding, custom web design, and smart Brand Identity automation. Scale your business in days, not weeks.",
+    "keywords": "branding agency, Brand Identity automation, custom web design, premium branding, business automation, Next.js developer, digital transformation"
   },
   "nav": {
     "industries": "Clinics & Beauty",
@@ -185,7 +185,7 @@
         "High-Converting Layout with Clear Calls-to-Action",
         "Contact / Booking Form Integration",
         "SEO-Friendly & Fast Loading",
-        "Optional AI Sales Assistant to Boost Leads"
+        "Optional Brand Identity Sales Assistant to Boost Leads"
       ],
       "cta": "Reserve your spot"
     },
@@ -195,11 +195,11 @@
     "title": "Our Guarantees",
     "onTime": {
       "title": "On Time",
-      "description": "Your website or AI system will be live within the promised timeline — no delays, no excuses."
+      "description": "Your website or Brand Identity system will be live within the promised timeline — no delays, no excuses."
     },
     "professional": {
       "title": "Professional and Secure",
-      "description": "Your website and AI are built with industry best practices — secure, reliable, and professional."
+      "description": "Your website and Brand Identity are built with industry best practices — secure, reliable, and professional."
     },
     "noHiddenFees": {
       "title": "No Hidden Fees",
@@ -340,13 +340,13 @@
   },
   "footer": {
     "copyright": "© 2026 ACCENT. All rights reserved",
-    "description": "Premium branding and AI automation for modern businesses based in Paris & Prague.",
+    "description": "Premium branding and Brand Identity automation for modern businesses based in Paris & Prague.",
     "services": {
       "title": "Services",
       "items": [
         "Branding",
-        "AI Chatbots",
-        "Automation",
+        "Web Design",
+        "Branding",
         "Websites"
       ]
     },

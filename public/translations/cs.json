@@ -1,8 +1,8 @@
 {
   "seo": {
-    "title": "ACCENT | Prémiový Branding a AI Automatizace",
-    "description": "Transformujeme firmy pomocí špičkového brandingu, webového designu na míru a chytré AI automatizace. Růst během dnů, ne týdnů.",
-    "keywords": "brandingová agentura, AI automatizace, web design na míru, prémiový branding, automatizace podnikání, Next.js vývojář, digitální transformace, Praha"
+    "title": "ACCENT | Prémiový Branding a Brand Identity Automatizace",
+    "description": "Transformujeme firmy pomocí špičkového brandingu, webového designu na míru a chytré Brand Identity automatizace. Růst během dnů, ne týdnů.",
+    "keywords": "brandingová agentura, Brand Identity automatizace, web design na míru, prémiový branding, automatizace podnikání, Next.js vývojář, digitální transformace, Praha"
   },
   "nav": {
     "industries": "Kliniky a Krása",
@@ -184,7 +184,7 @@
         "Vysokokonverzní layout s jasnými výzvami k akci",
         "Integrace kontaktního/rezervačního formuláře",
         "SEO-friendly a rychlé načítání",
-        "Volitelný AI prodejní asistent pro zvýšení leadů"
+        "Volitelný Brand Identity prodejní asistent pro zvýšení leadů"
       ],
       "cta": "Rezervovat své místo"
     },
@@ -194,11 +194,11 @@
     "title": "Naše záruky",
     "onTime": {
       "title": "Včas",
-      "description": "Váš web nebo AI systém bude spuštěn v slíbeném termínu — žádná zpoždění, žádné výmluvy."
+      "description": "Váš web nebo Brand Identity systém bude spuštěn v slíbeném termínu — žádná zpoždění, žádné výmluvy."
     },
     "professional": {
       "title": "Profesionální a bezpečné",
-      "description": "Váš web a AI jsou postaveny podle nejlepších průmyslových praktik — bezpečné, spolehlivé a profesionální."
+      "description": "Váš web a Brand Identity jsou postaveny podle nejlepších průmyslových praktik — bezpečné, spolehlivé a profesionální."
     },
     "noHiddenFees": {
       "title": "Bez skrytých poplatků",
@@ -338,12 +338,12 @@
   },
   "footer": {
     "copyright": "© 2026 ACCENT. Všechna práva vyhrazena",
-    "description": "Prémiový branding a AI automatizace pro moderní firmy se sídlem v Paříži a Praze.",
+    "description": "Prémiový branding a Brand Identity automatizace pro moderní firmy se sídlem v Paříži a Praze.",
     "services": {
       "title": "Služby",
       "items": [
         "Branding",
-        "AI Chatboty",
+        "Brand Identity Chatboty",
         "Automatizace",
         "Webové stránky"
       ]

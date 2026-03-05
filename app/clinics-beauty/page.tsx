@@ -15,7 +15,6 @@ import {
 } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import SeoHead from "@/components/SeoHead"
 import Image from "next/image"
 import Link from "next/link"
 import { Hero } from "@/components/Hero"
@@ -69,7 +68,6 @@ export default function ClinicsBeautyPage() {
 
     return (
         <>
-            <SeoHead />
             <div className="min-h-screen relative overflow-hidden clinics-beauty-theme">
                 {/* Full-page background */}
                 <div className="fixed inset-0 z-0 w-full h-full">
