@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /custom-quote/thank-you
+
+Sitemap: https://accent.agency/sitemap.xml

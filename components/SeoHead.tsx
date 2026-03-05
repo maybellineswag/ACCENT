@@ -1,78 +1,138 @@
-import Head from "next/head"
+"use client"
 
-const SeoHead = () => (
-  <Head>
-    <title>ACCENT | Prémiový Branding & AI Automatizace v Praze</title>
-    <meta name="description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href="https://accent.agency/" />
-    
-    {/* Basic favicon */}
-    <link rel="icon" type="image/x-icon" href="/accenticon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/accenticon.ico" />
-    
-    {/* Additional meta tags */}
-    <meta name="application-name" content="ACCENT" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="ACCENT" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    
-    {/* Structured data for local business */}
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ACCENT",
-          "description": "Prémiový branding a AI automatizace pro moderní podniky v Praze",
-          "url": "https://accent.agency",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Praha",
-            "addressCountry": "CZ"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "50.0755",
-            "longitude": "14.4378"
-          },
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "09:00",
-            "closes": "17:00"
-          },
-          "sameAs": [
-            "https://www.instagram.com/accentagency",
-            "https://www.linkedin.com/company/accentagency"
-          ]
-        })
-      }}
-    />
+import { useTranslations } from "@/hooks/useTranslations"
+import { usePathname } from "next/navigation"
 
-    {/* Open Graph / Facebook */}
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://accent.agency/" />
-    <meta property="og:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
-    <meta property="og:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
-    <meta property="og:image" content="https://accent.agency/accenticon.ico" />
+const SeoHead = () => {
+  const { translations } = useTranslations()
+  const pathname = usePathname()
 
-    {/* Twitter */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://accent.agency/" />
-    <meta name="twitter:title" content="ACCENT | Prémiový Branding & AI Automatizace v Praze" />
-    <meta name="twitter:description" content="Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů." />
-    <meta name="twitter:image" content="https://accent.agency/accenticon.ico" />
-  </Head>
-)
+  if (!translations) return null
 
-export default SeoHead 
+  const baseUrl = "https://accent.agency"
+  const currentUrl = `${baseUrl}${pathname}`
+
+  // Base Organization Schema
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ACCENT",
+    "url": baseUrl,
+    "logo": `${baseUrl}/accentnewsymbol.svg`,
+    "description": translations.seo?.description,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Praha",
+      "addressCountry": "CZ"
+    },
+    "sameAs": [
+      "https://www.instagram.com/accent.eu",
+      "https://www.linkedin.com/company/accentagency"
+    ]
+  }
+
+  // Local Business Schema
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": organizationSchema.name,
+    "description": organizationSchema.description,
+    "url": organizationSchema.url,
+    "telephone": "+420123456789", // Placeholder or from translations
+    "address": organizationSchema.address,
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.0755",
+      "longitude": "14.4378"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  }
+
+  // Services Schema
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": ["Web Design", "Branding", "AI Automation"],
+    "provider": {
+      "@type": "Organization",
+      "name": "ACCENT"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Czech Republic"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Premium Web Design"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Corporate Branding"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Automation Solutions"
+          }
+        }
+      ]
+    }
+  }
+
+  // FAQ Schema (only for FAQ page)
+  const faqSchema = pathname === "/faq" && translations.faq?.categories ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": translations.faq.categories.flatMap((cat: any) =>
+      cat.questions.map((q: any) => ({
+        "@type": "Question",
+        "name": q.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.answer
+        }
+      }))
+    )
+  } : null
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+    </>
+  )
+}
+
+export default SeoHead

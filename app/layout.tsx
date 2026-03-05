@@ -23,14 +23,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'cs_CZ',
     url: 'https://accent.agency',
-    title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
-    description: 'Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů.',
+    title: 'ACCENT | Premium Branding & AI Automation',
+    description: 'Transforming businesses with high-end branding, custom web design, and smart AI automation.',
     siteName: 'ACCENT',
+    images: [
+      {
+        url: '/accentlogos.png',
+        width: 1200,
+        height: 630,
+        alt: 'ACCENT Agency Branding',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ACCENT | Prémiový Branding & AI Automatizace v Praze',
-    description: 'Prémiový branding a AI automatizace pro moderní podniky v Praze. Získejte profesionální design, chytrou automatizaci a více klientů během dnů, ne týdnů.',
+    title: 'ACCENT | Premium Branding & AI Automation',
+    description: 'Transforming businesses with high-end branding, custom web design, and smart AI automation.',
+    images: ['/accentlogos.png'],
     creator: '@accentagency',
   },
   robots: {

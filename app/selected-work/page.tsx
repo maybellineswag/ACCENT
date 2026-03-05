@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
+import SeoHead from "@/components/SeoHead"
 
 export default function SelectedWorkPage() {
   const { language } = useLanguage()
@@ -65,6 +66,7 @@ export default function SelectedWorkPage() {
 
   return (
     <>
+      <SeoHead />
       <div className="min-h-screen relative overflow-hidden">
         {/* Full-page background */}
         <div className="fixed inset-0 z-0 w-full h-full">

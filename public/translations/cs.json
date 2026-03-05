@@ -1,4 +1,9 @@
 {
+  "seo": {
+    "title": "ACCENT | Prémiový Branding a AI Automatizace",
+    "description": "Transformujeme firmy pomocí špičkového brandingu, webového designu na míru a chytré AI automatizace. Růst během dnů, ne týdnů.",
+    "keywords": "brandingová agentura, AI automatizace, web design na míru, prémiový branding, automatizace podnikání, Next.js vývojář, digitální transformace, Praha"
+  },
   "nav": {
     "industries": "Kliniky a Krása",
     "works": "Práce",
@@ -227,86 +232,98 @@
   "faq": {
     "title": "FAQ",
     "subtitle": "Vše, co potřebujete vědět",
-    "questions": [
+    "categories": [
       {
-        "question": "Jaké weby děláte?",
-        "answer": "Specializujeme se na prémiové weby pro firmy, které chtějí vypadat profesionálně a přitahovat kvalitní klienty. Beauty & wellness, automotive, food & beverage, fitness, SaaS - pokud máte značku, která si zaslouží víc než šablonu, umíme pomoci."
+        "title": "Design a Vývoj",
+        "questions": [
+          {
+            "question": "Jaké weby děláte?",
+            "answer": "Specializujeme se na prémiové weby pro firmy, které chtějí vypadat profesionálně a přitahovat kvalitní klienty. Beauty & wellness, automotive, food & beverage, fitness, SaaS - pokud máte značku, která si zaslouží víc než šablonu, umíme pomoci."
+          },
+          {
+            "question": "Píšete vlastní kód nebo používáte šablony?",
+            "answer": "Píšeme vlastní kód. Žádné WordPress šablony, žádné pluginy třetích stran. Ale jsme flexibilní - pokud upřednostňujete Webflow (možnost upravovat web sami), můžeme použít to. Rozhodnete se podle vašich potřeb."
+          },
+          {
+            "question": "Bude web fungovat na mobilu?",
+            "answer": "Vždy. 60% návštěvníků používá telefon, takže mobilní verze je priorita číslo jedna. Navrhujeme mobile-first a testujeme na reálných zařízeních."
+          },
+          {
+            "question": "Budeme moci web sami upravovat?",
+            "answer": "Ano, pokud chcete. Můžeme web postavit na Webflow nebo Framer, kde můžete jednoduše měnit texty, fotky a základní obsah bez programování. Nebo můžeme použít čistý kód - rychlejší a výkonnější, ale úpravy pak děláme my. Vy si vyberete."
+          },
+          {
+            "question": "Pomůžete nám s obsahem (fotky, texty)?",
+            "answer": "S texty ano - copywriting můžeme zahrnout do projektu. S fotografiemi doporučujeme profesionálního fotografa (můžeme doporučit) nebo použijeme vaše vlastní. Stock fotky používáme jen v krajním případě - působí genericky."
+          },
+          {
+            "question": "Zajistíte i doménu a hosting?",
+            "answer": "Ano. Můžeme zařídit doménu (.cz, .com, .eu), hosting a vše technické. Nebo pokud už máte doménu, propojíme nový web na ni. Jak vám to vyhovuje."
+          }
+        ]
       },
       {
-        "question": "Jak dlouho to trvá?",
-        "answer": "2-3 týdny od momentu, kdy obdržíme od vás kompletní obsah (texty, fotografie, logo). Čím rychleji nám dodáte materiály, tím rychleji máte hotový web. Žádné měsíce čekání."
+        "title": "Proces a Investice",
+        "questions": [
+          {
+            "question": "Kolik to stojí?",
+            "answer": "Záleží na rozsahu projektu. Základní web (5-7 stránek) začíná na €2,500. Komplexnější projekty s e-commerce, rezervačním systémem nebo pokročilými funkcemi €4,000-€10,000. Po konzultaci dostanete přesnou cenovou nabídku."
+          },
+          {
+            "question": "Jak dlouho to trvá?",
+            "answer": "2-3 týdny od momentu, kdy obdržíme od vás kompletní obsah (texty, fotografie, logo). Čím rychleji nám dodáte materiály, tím rychleji máte hotový web. Žádné měsíce čekání."
+          },
+          {
+            "question": "Co od nás potřebujete?",
+            "answer": "Logo, fotografie (vašich produktů, prostor, týmu), texty o vašich službách nebo produktech, kontaktní informace. Vše dostanete ve strukturovaném formuláři. Čím kompletnější obsah dodáte, tím rychleji budete mít hotový web."
+          },
+          {
+            "question": "Jak probíhá platba?",
+            "answer": "50% záloha po schválení nabídky (před začátkem práce). Zbývajících 50% před spuštěním webu. Fakturujeme standardně, platba bankovním převodem nebo kartou."
+          },
+          {
+            "question": "Co když se nám nelíbí design?",
+            "answer": "Jedno kolo revizí je zahrnuto v ceně. Pokud máte připomínky, upravíme. Pracujeme, dokud nejste spokojení. Další kola revizí lze přikoupit, pokud se rozsah změn výrazně zvýší oproti původní dohodě."
+          }
+        ]
       },
       {
-        "question": "Kolik to stojí?",
-        "answer": "Záleží na rozsahu projektu. Základní web (5-7 stránek) začíná na €2,500. Komplexnější projekty s e-commerce, rezervačním systémem nebo pokročilými funkcemi €4,000-€10,000. Po konzultaci dostanete přesnou cenovou nabídku."
+        "title": "Růst a Podpora",
+        "questions": [
+          {
+            "question": "Bude web viditelný na Google?",
+            "answer": "Ano. Základní SEO nastavení je zahrnuto (meta tagy, sitemap, rychlost, mobilní optimalizace). Pokud chcete aktivní SEO kampaň nebo Google Ads, můžeme doporučit specialistu nebo to řešit jako samostatný projekt."
+          },
+          {
+            "question": "Můžete integrovat náš systém?",
+            "answer": "Pravděpodobně ano. Děláme integrace s rezervačními systémy (Calendly, Booksy, Acuity), e-commerce platformami (Shopify, custom řešení), CRM systémy (HubSpot, Pipedrive), platebními bránami (Stripe, PayPal, GoPay) a newsletter nástroji (Mailchimp, ConvertKit). Pokud máte specifický nástroj, napište nám."
+          },
+          {
+            "question": "Nabízíte údržbu webu?",
+            "answer": "Ano. Můžete si objednat měsíční retainer (od €200/měsíc) pro pravidelné úpravy a aktualizace, nebo hodinovou sazbu (€50-80/hod) pro jednorázové změny. První měsíc podpory je vždy zdarma."
+          },
+          {
+            "question": "Děláte i e-shopy?",
+            "answer": "Ano. Můžeme vytvořit vlastní e-shop nebo integrovat Shopify. Záleží na rozsahu (počet produktů) a požadované funkcionalitě (platby, doprava, sklady). Řeknete nám požadavky, dostanete nabídku."
+          }
+        ]
       },
       {
-        "question": "Co od nás potřebujete?",
-        "answer": "Logo, fotografie (vašich produktů, prostor, týmu), texty o vašich službách nebo produktech, kontaktní informace. Vše dostanete ve strukturovaném formuláři. Čím kompletnější obsah dodáte, tím rychleji budete mít hotový web."
-      },
-      {
-        "question": "Musíme mít připravené texty?",
-        "answer": "Ne. Pokud nemáte copywritera, můžeme texty napsat za vás jako součást projektu. Zvýší to cenu, ale ušetříte si práci a výsledek bude profesionální a přesvědčivý."
-      },
-      {
-        "question": "Píšete vlastní kód nebo používáte šablony?",
-        "answer": "Píšeme vlastní kód. Žádné WordPress šablony, žádné pluginy třetích stran. Ale jsme flexibilní - pokud upřednostňujete Webflow (možnost upravovat web sami), můžeme použít to. Rozhodnete se podle vašich potřeb."
-      },
-      {
-        "question": "Budeme moci web sami upravovat?",
-        "answer": "Ano, pokud chcete. Můžeme web postavit na Webflow nebo Framer, kde můžete jednoduše měnit texty, fotky a základní obsah bez programování. Nebo můžeme použít čistý kód - rychlejší a výkonnější, ale úpravy pak děláme my. Vy si vyberete."
-      },
-      {
-        "question": "Bude web fungovat na mobilu?",
-        "answer": "Vždy. 60% návštěvníků používá telefon, takže mobilní verze je priorita číslo jedna. Navrhujeme mobile-first a testujeme na reálných zařízeních."
-      },
-      {
-        "question": "Pomůžete nám s obsahem (fotky, texty)?",
-        "answer": "S texty ano - copywriting můžeme zahrnout do projektu. S fotografiemi doporučujeme profesionálního fotografa (můžeme doporučit) nebo použijeme vaše vlastní. Stock fotky používáme jen v krajním případě - působí genericky."
-      },
-      {
-        "question": "Zajistíte i doménu a hosting?",
-        "answer": "Ano. Můžeme zařídit doménu (.cz, .com, .eu), hosting a vše technické. Nebo pokud už máte doménu, propojíme nový web na ni. Jak vám to vyhovuje."
-      },
-      {
-        "question": "Co když budeme potřebovat změny po spuštění?",
-        "answer": "První měsíc je technická podpora zdarma (drobné úpravy, opravy). Pak máte několik možností:\n\n1. Provádět změny sami (pokud je web na Webflow/Framer)\n2. Objednat změny od nás (hodinová sazba nebo měsíční retainer)\n3. Jednorázové úpravy na vyžádání"
-      },
-      {
-        "question": "Můžete integrovat náš systém?",
-        "answer": "Pravděpodobně ano. Děláme integrace s rezervačními systémy (Calendly, Booksy, Acuity), e-commerce platformami (Shopify, custom řešení), CRM systémy (HubSpot, Pipedrive), platebními bránami (Stripe, PayPal, GoPay) a newsletter nástroji (Mailchimp, ConvertKit). Pokud máte specifický nástroj, napište nám."
-      },
-      {
-        "question": "Bude web viditelný na Google?",
-        "answer": "Ano. Základní SEO nastavení je zahrnuto (meta tagy, sitemap, rychlost, mobilní optimalizace). Pokud chcete aktivní SEO kampaň nebo Google Ads, můžeme doporučit specialistu nebo to řešit jako samostatný projekt."
-      },
-      {
-        "question": "Co když se nám nelíbí design?",
-        "answer": "Jedno kolo revizí je zahrnuto v ceně. Pokud máte připomínky, upravíme. Pracujeme, dokud nejste spokojení. Další kola revizí lze přikoupit, pokud se rozsah změn výrazně zvýší oproti původní dohodě."
-      },
-      {
-        "question": "Jak probíhá platba?",
-        "answer": "50% záloha po schválení nabídky (před začátkem práce). Zbývajících 50% před spuštěním webu. Fakturujeme standardně, platba bankovním převodem nebo kartou."
-      },
-      {
-        "question": "Máte nějaké reference nebo portfolio?",
-        "answer": "Ano. Portfolio konceptů a realizovaných projektů najdete v sekci 'Práce'. Momentálně pracujeme na high-ticket projektech pro beauty a wellness klienty. Jsme mladá agentura, ale ne noví v designu a vývoji."
-      },
-      {
-        "question": "Co když změníme názor během projektu?",
-        "answer": "Záloha není vratná, pokud už jsme začali pracovat. Ale projekt můžeme pozastavit nebo upravit rozsah, pokud se vaše potřeby změní. Komunikujeme otevřeně a hledáme férové řešení."
-      },
-      {
-        "question": "Nabízíte údržbu webu?",
-        "answer": "Ano. Můžete si objednat měsíční retainer (od €200/měsíc) pro pravidelné úpravy a aktualizace, nebo hodinovou sazbu (€50-80/hod) pro jednorázové změny. První měsíc podpory je vždy zdarma."
-      },
-      {
-        "question": "Děláte i e-shopy?",
-        "answer": "Ano. Můžeme vytvořit vlastní e-shop nebo integrovat Shopify. Záleží na rozsahu (počet produktů) a požadované funkcionalitě (platby, doprava, sklady). Řeknete nám požadavky, dostanete nabídku."
-      },
-      {
-        "question": "Proč bychom si měli vybrat vás místo větší agentury?",
-        "answer": "Větší agentury jsou často předražené, pomalé a neosobní. U nás získáte rychlé, osobní jednání a férové ceny. Pracujete přímo s námi, bez prostředníků. Výsledek je stejně dobrý nebo lepší."
+        "title": "O ACCENT",
+        "questions": [
+          {
+            "question": "Proč bychom si měli vybrat vás místo větší agentury?",
+            "answer": "Větší agentury jsou často předražené, pomalé a neosobní. U nás získáte rychlé, osobní jednání a férové ceny. Pracujete přímo s námi, bez prostředníků. Výsledek je stejně dobrý nebo lepší."
+          },
+          {
+            "question": "Máte nějaké reference nebo portfolio?",
+            "answer": "Ano. Portfolio konceptů a realizovaných projektů najdete v sekci 'Práce'. Momentálně pracujeme na high-ticket projektech pro beauty a wellness klienty. Jsme mladá agentura, ale ne noví v designu a vývoji."
+          },
+          {
+            "question": "Co když změníme názor během projektu?",
+            "answer": "Záloha není vratná, pokud už jsme začali pracovat. Ale projekt můžeme pozastavit nebo upravit rozsah, pokud se vaše potřeby změní. Komunikujeme otevřeně a hledáme férové řešení."
+          }
+        ]
       }
     ],
     "cta": {

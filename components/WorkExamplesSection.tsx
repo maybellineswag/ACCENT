@@ -43,7 +43,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                             <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-normal">{translations?.industries?.healthBeauty || "Health & Beauty"}</span>
                         </div>
                         <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
-                            <Image src="/WEBSITES/LUMEASTUDIO.webp" alt="Health & Beauty" fill className="object-cover" />
+                            <Image src="/WEBSITES/LUMEASTUDIO.webp" alt="Lumea Studio - Premium Health & Beauty Website Design by ACCENT" fill className="object-cover" />
                         </div>
                     </motion.div>
 
@@ -60,7 +60,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                 <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.cosmetology || "Cosmetology"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative backdrop-blur-sm">
-                                <Image src="/WEBSITES/BLOOM.webp" alt="Cosmetology" fill className="object-cover" />
+                                <Image src="/WEBSITES/BLOOM.webp" alt="Bloom Cosmetology - Luxury Clinic Website by ACCENT" fill className="object-cover" />
                             </div>
                         </motion.div>
                     )}
@@ -78,7 +78,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                 <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.automotive || "Automotive"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative backdrop-blur-sm">
-                                <Image src="/WEBSITES/APEXMOTORS.webp" alt="Automotive" fill className="object-cover" />
+                                <Image src="/WEBSITES/APEXMOTORS.webp" alt="Apex Motors - High-End Automotive Platform by ACCENT" fill className="object-cover" />
                             </div>
                         </motion.div>
                     )}
@@ -96,7 +96,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                 <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.wellness || "Wellness"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
-                                <Image src="/WEBSITES/TRANQUILSTUDIO.webp" alt="Wellness" fill className="object-cover" />
+                                <Image src="/WEBSITES/TRANQUILSTUDIO.webp" alt="Tranquil Studio - Wellness & Spa Web Design by ACCENT" fill className="object-cover" />
                             </div>
                         </motion.div>
                     )}
@@ -114,7 +114,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                 <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.food || "Food"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
-                                <Image src="/WEBSITES/NOVA33.webp" alt="Food" fill className="object-cover" />
+                                <Image src="/WEBSITES/NOVA33.webp" alt="Nova 33 - Modern Food & Beverage Website by ACCENT" fill className="object-cover" />
                             </div>
                         </motion.div>
                     )}
@@ -132,7 +132,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                 <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.aesthetic || "Aesthetic"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative">
-                                <Image src="/WEBSITES/SERENITY.webp" alt="Aesthetic" fill className="object-cover" />
+                                <Image src="/WEBSITES/SERENITY.webp" alt="Serenity Aesthetic - Medical Beauty Website by ACCENT" fill className="object-cover" />
                             </div>
                         </motion.div>
                     )}
@@ -151,7 +151,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                     <span className="text-[#333] sm:text-white font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.saas || "SAAS"}</span>
                                 </div>
                                 <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative">
-                                    <Image src="/WEBSITES/BILLO.webp" alt="SAAS" fill className="object-cover" />
+                                    <Image src="/WEBSITES/BILLO.webp" alt="Billo - Advanced SaaS Platform Design by ACCENT" fill className="object-cover" />
                                 </div>
                             </div>
 
