@@ -1,12 +1,11 @@
 {
   "nav": {
-    "home": "Works",
-    "reviews": "Industries",
-    "plan": "Pricing",
-    "pricing": "About",
-    "guarantees": "FAQ",
+    "industries": "Clinics & Beauty",
+    "works": "Works",
+    "pricing": "Pricing",
     "faq": "FAQ",
-    "rezervovat": "Book a call"
+    "rezervovat": "Book a call",
+    "about": "About"
   },
   "hero": {
     "title1": "Your business is ",
@@ -229,86 +228,98 @@
   "faq": {
     "title": "FAQ",
     "subtitle": "Everything you need to know",
-    "questions": [
+    "categories": [
       {
-        "question": "What kind of websites do you make?",
-        "answer": "We specialize in premium websites for businesses that want to look professional and attract high-quality clients. Beauty & wellness, automotive, food & beverage, fitness, SaaS - if you have a brand that deserves more than a template, we can help."
+        "title": "Design & Development",
+        "questions": [
+          {
+            "question": "What kind of websites do you make?",
+            "answer": "We specialize in premium websites for businesses that want to look professional and attract high-quality clients. Beauty & wellness, automotive, food & beverage, fitness, SaaS - if you have a brand that deserves more than a template, we can help."
+          },
+          {
+            "question": "Do you write custom code or use templates?",
+            "answer": "We write custom code. No WordPress templates, no third-party plugins. But we are flexible - if you prefer Webflow (the ability to edit the site yourself), we can use that. It's up to your needs."
+          },
+          {
+            "question": "Will the website work on mobile?",
+            "answer": "Always. 60% of visitors use a phone, so the mobile version is priority number one. We design mobile-first and test on real devices."
+          },
+          {
+            "question": "Will we be able to edit the website ourselves?",
+            "answer": "Yes, if you want. We can build the site on Webflow or Framer, where you can easily change texts, photos, and basic content without coding. Or we can use pure code - faster and more powerful, but we handle the updates. You choose."
+          },
+          {
+            "question": "Will you help us with content (photos, texts)?",
+            "answer": "With texts, yes - we can include copywriting in the project. For photos, we recommend a professional photographer (we can suggest one) or use your own. We only use stock photos as a last resort - they look generic."
+          },
+          {
+            "question": "Do you provide domain and hosting?",
+            "answer": "Yes. We can handle the domain (.cz, .com, .eu), hosting, and all the technical stuff. Or if you already have a domain, we'll connect the new site to it. Whatever suits you."
+          }
+        ]
       },
       {
-        "question": "How long does it take?",
-        "answer": "2-3 weeks from the moment we receive complete content from you (texts, photos, logo). The faster you provide the materials, the faster you have a finished website. No months of waiting."
+        "title": "Process & Investment",
+        "questions": [
+          {
+            "question": "How much does it cost?",
+            "answer": "It depends on the scope of the project. A basic website (5-7 pages) starts at €2,500. More complex projects with e-commerce, booking systems, or advanced features range from €4,000 to €10,000. You'll receive a precise quote after a consultation."
+          },
+          {
+            "question": "How long does it take?",
+            "answer": "2-3 weeks from the moment we receive complete content from you (texts, photos, logo). The faster you provide the materials, the faster you have a finished website. No months of waiting."
+          },
+          {
+            "question": "What do you need from us?",
+            "answer": "Logo, photos (of your products, spaces, team), texts about your services or products, contact information. You'll receive everything in a structured form. The more complete the content you provide, the faster you'll have your website finished."
+          },
+          {
+            "question": "How does payment work?",
+            "answer": "50% deposit after proposal approval (before work begins). The remaining 50% before site launch. We invoice normally, payment via bank transfer or card."
+          },
+          {
+            "question": "What if we don't like the design?",
+            "answer": "One round of revisions is included in the price. If you have comments, we'll adjust. We work until you're satisfied. Additional rounds of revisions can be purchased if the scope of changes significantly increases from the original agreement."
+          }
+        ]
       },
       {
-        "question": "How much does it cost?",
-        "answer": "It depends on the scope of the project. A basic website (5-7 pages) starts at €2,500. More complex projects with e-commerce, booking systems, or advanced features range from €4,000 to €10,000. You'll receive a precise quote after a consultation."
+        "title": "Growth & Maintenance",
+        "questions": [
+          {
+            "question": "Will the website be visible on Google?",
+            "answer": "Yes. Basic SEO setup is included (meta tags, sitemap, speed, mobile optimization). If you want an active SEO campaign or Google Ads, we can recommend a specialist or handle it as a separate project."
+          },
+          {
+            "question": "Can you integrate [our system]?",
+            "answer": "Probably yes. We do integrations with booking systems (Calendly, Booksy, Acuity), e-commerce platforms (Shopify, custom solutions), CRM systems (HubSpot, Pipedrive), payment gateways (Stripe, PayPal, GoPay), and newsletter tools (Mailchimp, ConvertKit). If you have a specific tool, let us know."
+          },
+          {
+            "question": "Do you offer website maintenance?",
+            "answer": "Yes. You can order a monthly retainer (starting from €200/month) for regular updates, or an hourly rate (€50-80/hr) for one-off changes. The first month of support is always free."
+          },
+          {
+            "question": "Do you make e-shops too?",
+            "answer": "Yes. We can create a custom e-shop or integrate Shopify. It depends on the scope (number of products) and required functionality (payments, shipping, warehouses). Tell us your requirements, and you'll get a proposal."
+          }
+        ]
       },
       {
-        "question": "What do you need from us?",
-        "answer": "Logo, photos (of your products, spaces, team), texts about your services or products, contact information. You'll receive everything in a structured form. The more complete the content you provide, the faster you'll have your website finished."
-      },
-      {
-        "question": "Do we need to have prepared texts?",
-        "answer": "No. If you don't have a copywriter, we can write the texts for you as part of the project. It increases the price, but you'll save time and the result will be professional and persuasive."
-      },
-      {
-        "question": "Do you write custom code or use templates?",
-        "answer": "We write custom code. No WordPress templates, no third-party plugins. But we are flexible - if you prefer Webflow (the ability to edit the site yourself), we can use that. It's up to your needs."
-      },
-      {
-        "question": "Will we be able to edit the website ourselves?",
-        "answer": "Yes, if you want. We can build the site on Webflow or Framer, where you can easily change texts, photos, and basic content without coding. Or we can use pure code - faster and more powerful, but we handle the updates. You choose."
-      },
-      {
-        "question": "Will the website work on mobile?",
-        "answer": "Always. 60% of visitors use a phone, so the mobile version is priority number one. We design mobile-first and test on real devices."
-      },
-      {
-        "question": "Will you help us with content (photos, texts)?",
-        "answer": "With texts, yes - we can include copywriting in the project. For photos, we recommend a professional photographer (we can suggest one) or use your own. We only use stock photos as a last resort - they look generic."
-      },
-      {
-        "question": "Do you provide domain and hosting?",
-        "answer": "Yes. We can handle the domain (.cz, .com, .eu), hosting, and all the technical stuff. Or if you already have a domain, we'll connect the new site to it. Whatever suits you."
-      },
-      {
-        "question": "What if we need changes after launch?",
-        "answer": "The first month of technical support is free (minor updates, fixes). After that, you have several options:\n\n1. Make changes yourself (if the site is on Webflow/Framer)\n2. Order changes from us (hourly rate or monthly retainer)\n3. One-off updates on request"
-      },
-      {
-        "question": "Can you integrate [our system]?",
-        "answer": "Probably yes. We do integrations with booking systems (Calendly, Booksy, Acuity), e-commerce platforms (Shopify, custom solutions), CRM systems (HubSpot, Pipedrive), payment gateways (Stripe, PayPal, GoPay), and newsletter tools (Mailchimp, ConvertKit). If you have a specific tool, let us know."
-      },
-      {
-        "question": "Will the website be visible on Google?",
-        "answer": "Yes. Basic SEO setup is included (meta tags, sitemap, speed, mobile optimization). If you want an active SEO campaign or Google Ads, we can recommend a specialist or handle it as a separate project."
-      },
-      {
-        "question": "What if we don't like the design?",
-        "answer": "One round of revisions is included in the price. If you have comments, we'll adjust. We work until you're satisfied. Additional rounds of revisions can be purchased if the scope of changes significantly increases from the original agreement."
-      },
-      {
-        "question": "How does payment work?",
-        "answer": "50% deposit after proposal approval (before work begins). The remaining 50% before site launch. We invoice normally, payment via bank transfer or card."
-      },
-      {
-        "question": "Do you have any references or a portfolio?",
-        "answer": "Yes. A portfolio of concepts and projects can be found in the 'Works' section. We are currently working on high-ticket projects for beauty and wellness clients. We are a young agency, but not new to design and development."
-      },
-      {
-        "question": "What if we change our minds during the project?",
-        "answer": "The deposit is non-refundable once work has started. However, we can pause the project or adjust the scope if your needs change. We communicate openly to find a fair solution."
-      },
-      {
-        "question": "Do you offer website maintenance?",
-        "answer": "Yes. You can order a monthly retainer (starting from €200/month) for regular updates, or an hourly rate (€50-80/hr) for one-off changes. The first month of support is always free."
-      },
-      {
-        "question": "Do you make e-shops too?",
-        "answer": "Yes. We can create a custom e-shop or integrate Shopify. It depends on the scope (number of products) and required functionality (payments, shipping, warehouses). Tell us your requirements, and you'll get a proposal."
-      },
-      {
-        "question": "Why should we choose you instead of a larger agency?",
-        "answer": "Larger agencies are often overpriced, slow, and impersonal. With us, you get fast, personal attention and fair prices. You work directly with us, no middlemen. The result is just as good, if not better."
+        "title": "About ACCENT",
+        "questions": [
+          {
+            "question": "Why should we choose you instead of a larger agency?",
+            "answer": "Larger agencies are often overpriced, slow, and impersonal. With us, you get fast, personal attention and fair prices. You work directly with us, no middlemen. The result is just as good, if not better."
+          },
+          {
+            "question": "Do you have any references or a portfolio?",
+            "answer": "Yes. A portfolio of concepts and projects can be found in the 'Works' section. We are currently working on high-ticket projects for beauty and wellness clients. We are a young agency, but not new to design and development."
+          },
+          {
+            "question": "What if we change our minds during the project?",
+            "answer": "The deposit is non-refundable once work has started. However, we can pause the project or adjust the scope if your needs change. We communicate openly to find a fair solution."
+          }
+        ]
       }
     ],
     "cta": {
@@ -380,6 +391,97 @@
       "titlePremium": "aesthetic and medical clinics",
       "title2": "",
       "desc": "Attract clients who seek quality, not discounts."
+    }
+  },
+  "common": {
+    "growRevenueCta": "Grow revenue and maximize your business with our help",
+    "backToHome": "Back to Homepage",
+    "breadcrumbs": {
+      "home": "HOME",
+      "works": "WORKS",
+      "pricing": "PRICING",
+      "faq": "FAQ"
+    }
+  },
+  "industries": {
+    "healthBeauty": "Health & Beauty",
+    "automotive": "Automotive",
+    "food": "Food",
+    "saas": "SAAS",
+    "cosmetology": "Cosmetology",
+    "wellness": "Wellness",
+    "aesthetic": "Aesthetic"
+  },
+  "pricingPage": {
+    "hero": {
+      "titlePart1": "Every great website starts with the ",
+      "titleGradient": "right investment",
+      "titlePart2": ".",
+      "description": "Tell us a bit about your business and we’ll prepare a tailored estimate for your website project.",
+      "ctaRequest": "Request estimate",
+      "ctaMessage": "Send a Message"
+    },
+    "packages": {
+      "starter": {
+        "title": "Starter Website",
+        "description": "Perfect for businesses launching their first professional website",
+        "features": [
+          "Custom homepage design",
+          "Up to 4–5 pages",
+          "Mobile optimized layout",
+          "Conversion-focused structure",
+          "Fast launch timeline"
+        ]
+      },
+      "business": {
+        "title": "Business Website",
+        "description": "For growing companies that want a stronger digital presence",
+        "features": [
+          "Fully custom website design",
+          "Conversion-focused page structure",
+          "Strategic UX & layout planning",
+          "Mobile-first optimization",
+          "SEO-ready foundation"
+        ],
+        "badge": "Most Popular"
+      },
+      "premium": {
+        "title": "Premium Website",
+        "description": "For brands that want a high-end digital experience",
+        "features": [
+          "Fully bespoke website design",
+          "Advanced UX and visual direction",
+          "Custom interactions & animations",
+          "Scalable structure for future growth",
+          "Priority delivery timeline"
+        ]
+      },
+      "rangeNote": "Most projects fall between €1,500 – €4,000 depending on scope."
+    },
+    "determinants": {
+      "title": "What determines the final price?",
+      "description": "Every website is different. We tailor our pricing based on the unique needs and scale of your business.",
+      "items": [
+        {
+          "title": "Number of pages",
+          "description": "From a focused landing page to an expansive corporate portal."
+        },
+        {
+          "title": "Custom design complexity",
+          "description": "Bespoke visual paths and high-end artistic direction."
+        },
+        {
+          "title": "Advanced features or integrations",
+          "description": "Custom dashboards, API syncs, and specialized tools."
+        },
+        {
+          "title": "Timeline and project scope",
+          "description": "Accelerated delivery options and project depth."
+        }
+      ],
+      "callout": "That's why we provide personalized estimates instead of fixed prices.",
+      "subCallout": "Our goal is to ensure you pay for exactly what you need, without unnecessary overhead.",
+      "ctaEstimate": "Get your estimate"
     }
   }
 }

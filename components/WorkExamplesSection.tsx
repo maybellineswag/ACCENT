@@ -5,6 +5,7 @@ import { ArrowRight, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
+import { useTranslations } from "@/hooks/useTranslations"
 import { cn } from "@/lib/utils"
 
 interface WorkExamplesSectionProps {
@@ -12,6 +13,9 @@ interface WorkExamplesSectionProps {
 }
 
 export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps = {}) {
+    const { translations, loading } = useTranslations()
+    if (loading) return null;
+
     return (
         <section id="works" className="pt-0 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
             {/* Work Examples Content */}
@@ -36,7 +40,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     >
                         <div className="flex items-center gap-2 mb-1 pl-4">
                             <div className="w-[8px] h-[8px] rounded-full bg-[#eca9eb] opacity-90 shadow-[0_0_8px_rgba(236,169,235,0.8)]" />
-                            <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-normal">Health & Beauty</span>
+                            <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-normal">{translations?.industries?.healthBeauty || "Health & Beauty"}</span>
                         </div>
                         <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
                             <Image src="/WEBSITES/LUMEASTUDIO.webp" alt="Health & Beauty" fill className="object-cover" />
@@ -53,7 +57,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
                                 <div className="w-[8px] h-[8px] rounded-full bg-[#ffc0cb] opacity-90 shadow-[0_0_8px_rgba(255,192,203,0.8)]" />
-                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">Cosmetology</span>
+                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.cosmetology || "Cosmetology"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative backdrop-blur-sm">
                                 <Image src="/WEBSITES/BLOOM.webp" alt="Cosmetology" fill className="object-cover" />
@@ -71,7 +75,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
                                 <div className="w-[8px] h-[8px] rounded-full bg-[#f96f6f] opacity-90 shadow-[0_0_8px_rgba(249,111,111,0.8)]" />
-                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">Automotive</span>
+                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.automotive || "Automotive"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative backdrop-blur-sm">
                                 <Image src="/WEBSITES/APEXMOTORS.webp" alt="Automotive" fill className="object-cover" />
@@ -89,7 +93,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
                                 <div className="w-[8px] h-[8px] rounded-full bg-[#b2f2bb] opacity-90 shadow-[0_0_8px_rgba(178,242,187,0.8)]" />
-                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">Wellness</span>
+                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.wellness || "Wellness"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
                                 <Image src="/WEBSITES/TRANQUILSTUDIO.webp" alt="Wellness" fill className="object-cover" />
@@ -107,7 +111,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
                                 <div className="w-[8px] h-[8px] rounded-full bg-[#6a7bf6] opacity-90 shadow-[0_0_8px_rgba(106,123,246,0.8)]" />
-                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">Food</span>
+                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.food || "Food"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-xl overflow-hidden aspect-[4096/2657] relative">
                                 <Image src="/WEBSITES/NOVA33.webp" alt="Food" fill className="object-cover" />
@@ -125,7 +129,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                         >
                             <div className="flex items-center gap-2 mb-1 pl-4">
                                 <div className="w-[8px] h-[8px] rounded-full bg-[#eeb2f2] opacity-90 shadow-[0_0_8px_rgba(238,178,242,0.8)]" />
-                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">Aesthetic</span>
+                                <span className="text-[#333] font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.aesthetic || "Aesthetic"}</span>
                             </div>
                             <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative">
                                 <Image src="/WEBSITES/SERENITY.webp" alt="Aesthetic" fill className="object-cover" />
@@ -144,7 +148,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                             <div className="w-full">
                                 <div className="flex items-center gap-2 mb-1 pl-4">
                                     <div className="w-[8px] h-[8px] rounded-full bg-white opacity-90 shadow-[0_0_8_rgba(255,255,255,0.8)]" />
-                                    <span className="text-[#333] sm:text-white font-medium text-[15px] sm:text-[17px] tracking-tight">SAAS</span>
+                                    <span className="text-[#333] sm:text-white font-medium text-[15px] sm:text-[17px] tracking-tight">{translations?.industries?.saas || "SAAS"}</span>
                                 </div>
                                 <div className="w-full rounded-[1.2rem] sm:rounded-[1.8rem] bg-[#dadada] shadow-2xl overflow-hidden aspect-[4096/2657] relative">
                                     <Image src="/WEBSITES/BILLO.webp" alt="SAAS" fill className="object-cover" />
@@ -162,7 +166,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                                     className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity underline-offset-4 hover:underline"
                                 >
                                     <ArrowRight className="w-4 h-4" />
-                                    <span>see more examples</span>
+                                    <span>{translations?.common?.seeMoreExamples || "see more examples"}</span>
                                 </Link>
                             </motion.div>
                         </motion.div>
@@ -179,7 +183,7 @@ export function WorkExamplesSection({ industryFilter }: WorkExamplesSectionProps
                     <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                         <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
                             <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
-                                Grow revenue and maximize your business with our help
+                                {translations?.common?.growRevenueCta || "Grow revenue and maximize your business with our help"}
                             </span>
                             <ArrowRight className="w-6 h-6 text-black flex-shrink-0" />
                         </a>

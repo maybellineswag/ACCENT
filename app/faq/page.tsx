@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export default function FAQPage() {
-    const [openFaq, setOpenFaq] = useState<number | null>(null)
+    const [openFaq, setOpenFaq] = useState<string | null>(null)
     const { translations, loading } = useTranslations()
     const { language, setLanguage } = useLanguage()
     const [showLangDropdown, setShowLangDropdown] = useState(false)
@@ -108,12 +108,12 @@ export default function FAQPage() {
                                         <BreadcrumbList>
                                             <BreadcrumbItem>
                                                 <BreadcrumbLink href="/" className="flex items-center gap-1 text-neutral-500 hover:text-black transition-colors text-xs font-semibold tracking-widest uppercase">
-                                                    HOME
+                                                    {translations.common.breadcrumbs.home}
                                                 </BreadcrumbLink>
                                             </BreadcrumbItem>
                                             <BreadcrumbSeparator className="text-neutral-300" />
                                             <BreadcrumbItem>
-                                                <BreadcrumbPage className="text-black font-semibold text-xs tracking-widest uppercase">FAQ</BreadcrumbPage>
+                                                <BreadcrumbPage className="text-black font-semibold text-xs tracking-widest uppercase">{translations.common.breadcrumbs.faq}</BreadcrumbPage>
                                             </BreadcrumbItem>
                                         </BreadcrumbList>
                                     </Breadcrumb>
@@ -134,57 +134,61 @@ export default function FAQPage() {
                             </motion.div>
                         </div>
 
-                        <motion.div
-                            className="space-y-4 max-w-4xl"
-                            initial="hidden"
-                            animate="visible"
-                            variants={{
-                                hidden: { opacity: 0 },
-                                visible: {
-                                    opacity: 1,
-                                    transition: {
-                                        staggerChildren: 0.05,
-                                        delayChildren: 0.2
-                                    }
-                                }
-                            }}
-                        >
-                            {translations.faq.questions.map((faq: any, index: number) => (
+                        <div className="space-y-16 max-w-4xl">
+                            {translations.faq.categories.map((category: any, catIndex: number) => (
                                 <motion.div
-                                    key={index}
-                                    variants={{
-                                        hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-                                        visible: { opacity: 1, y: 0, filter: "blur(0px)" }
-                                    }}
-                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    key={catIndex}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.2 + catIndex * 0.1 }}
                                 >
-                                    <Card
-                                        className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden"
-                                    >
-                                        <button
-                                            className="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-50/50 transition-colors"
-                                            onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                                        >
-                                            <h3 className="text-lg font-semibold tracking-tight text-black">{faq.question}</h3>
-                                            <ChevronDown
-                                                className={`w-5 h-5 text-neutral-500 transition-transform ${openFaq === index ? "rotate-180" : ""}`}
-                                            />
-                                        </button>
-                                        <div
-                                            className={`px-6 faq-answer-transition ${openFaq === index ? "faq-answer-open" : "faq-answer-closed"}`}
-                                            style={{
-                                                maxHeight: openFaq === index ? 500 : 0,
-                                                opacity: openFaq === index ? 1 : 0,
-                                                transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1)',
-                                                overflow: 'hidden',
-                                            }}
-                                        >
-                                            <p className="text-neutral-600 leading-relaxed pb-6 whitespace-pre-line">{faq.answer}</p>
-                                        </div>
-                                    </Card>
+                                    <h2 className="text-sm font-bold text-black/60 mb-3 sticky top-24 sm:top-28 z-10 backdrop-blur-md py-3 uppercase tracking-widest">
+                                        {category.title}
+                                    </h2>
+
+                                    <div className="space-y-4">
+                                        {category.questions.map((faq: any, faqIndex: number) => {
+                                            const uniqueId = `${catIndex}-${faqIndex}`
+                                            const isOpen = openFaq === (uniqueId as any)
+
+                                            return (
+                                                <motion.div
+                                                    key={faqIndex}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.4 }}
+                                                >
+                                                    <Card
+                                                        className="glow-on-hover border-0 bg-white/25 backdrop-blur-sm border border-neutral-200/20 shadow-lg hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden"
+                                                    >
+                                                        <button
+                                                            className="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-50/50 transition-colors"
+                                                            onClick={() => setOpenFaq(isOpen ? null : (uniqueId as any))}
+                                                        >
+                                                            <h3 className="text-lg font-semibold tracking-tight text-black">{faq.question}</h3>
+                                                            <ChevronDown
+                                                                className={`w-5 h-5 text-neutral-500 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                                                            />
+                                                        </button>
+                                                        <div
+                                                            className={`px-6 faq-answer-transition ${isOpen ? "faq-answer-open" : "faq-answer-closed"}`}
+                                                            style={{
+                                                                maxHeight: isOpen ? 500 : 0,
+                                                                opacity: isOpen ? 1 : 0,
+                                                                transition: 'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1)',
+                                                                overflow: 'hidden',
+                                                            }}
+                                                        >
+                                                            <p className="text-neutral-600 leading-relaxed pb-6 whitespace-pre-line">{faq.answer}</p>
+                                                        </div>
+                                                    </Card>
+                                                </motion.div>
+                                            )
+                                        })}
+                                    </div>
                                 </motion.div>
                             ))}
-                        </motion.div>
+                        </div>
 
                         {/* CTA Button */}
                         <motion.div
@@ -204,7 +208,7 @@ export default function FAQPage() {
                                     href="/"
                                     className="text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
                                 >
-                                    ← Back to Homepage
+                                    ← {translations.common.backToHome}
                                 </Link>
                             </div>
                             <p className="text-black/70 mt-4 text-sm font-medium">{translations.faq.cta.note}</p>

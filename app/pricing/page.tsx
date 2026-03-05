@@ -17,14 +17,6 @@ import { PricingDeterminants } from "@/components/PricingDeterminants"
 export default function PricingPage() {
     const { translations, loading } = useTranslations()
 
-    if (loading || !translations) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-lg">Loading...</div>
-            </div>
-        )
-    }
-
     return (
         <>
             <SeoHead />
@@ -44,19 +36,28 @@ export default function PricingPage() {
                 {/* Floating Navigation */}
                 <NavBar />
 
-                {/* Hero Section */}
-                <section id="pricing-hero" className="pt-4 sm:pt-24 pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
-                    <PricingHero translations={translations} />
-                </section>
+                <div className="relative pt-4 sm:pt-24 min-h-screen">
+                    {(!loading && translations) ? (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            {/* Hero Section */}
+                            <section id="pricing-hero" className="pb-8 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
+                                <PricingHero translations={translations} />
+                            </section>
 
-                {/* Pricing Packages Section */}
-                <PricingPackages />
-
-                {/* Pricing Determinants Section */}
-                <PricingDeterminants />
-
-                {/* Footer */}
-                <Footer />
+                            <PricingPackages />
+                            <PricingDeterminants />
+                            <Footer />
+                        </motion.div>
+                    ) : (
+                        <div className="flex items-center justify-center min-h-[60vh]">
+                            <div className="w-8 h-8 border-2 border-neutral-200 border-t-purple-600 rounded-full animate-spin" />
+                        </div>
+                    )}
+                </div>
             </div>
         </>
     )

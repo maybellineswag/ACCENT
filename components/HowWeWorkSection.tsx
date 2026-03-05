@@ -132,7 +132,7 @@ const HowWeWorkSection = ({ isClinics }: HowWeWorkSectionProps = {}) => {
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                         <GradientButton asChild className="border-none shadow-lg">
                             <Link href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
-                                {translations.pricing.modernWebsite.cta || "Book a free consultation"}
+                                {translations?.common?.bookFreeConsultation || translations?.pricing?.modernWebsite?.cta || "Book a free consultation"}
                             </Link>
                         </GradientButton>
 
@@ -143,7 +143,7 @@ const HowWeWorkSection = ({ isClinics }: HowWeWorkSectionProps = {}) => {
                             className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
                         >
                             <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5 flex-shrink-0" />
-                            <span>Send a Message</span>
+                            <span>{translations?.common?.sendMessage || "Send a Message"}</span>
                         </a>
                     </div>
                     <p className="text-black/70 mt-4 text-sm font-medium">{translations.howItWorks.footerNote}</p>

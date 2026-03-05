@@ -7,29 +7,25 @@ import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { Card } from "@/components/ui/card"
 
+import { useTranslations } from "@/hooks/useTranslations"
+
 export function PricingDeterminants() {
-    const determinants = [
-        {
-            title: "Number of pages",
-            description: "From a focused landing page to an expansive corporate portal.",
-            icon: <FileText className="w-6 h-6" />
-        },
-        {
-            title: "Custom design complexity",
-            description: "Bespoke visual paths and high-end artistic direction.",
-            icon: <Paintbrush className="w-6 h-6" />
-        },
-        {
-            title: "Advanced features or integrations",
-            description: "Custom dashboards, API syncs, and specialized tools.",
-            icon: <Layers className="w-6 h-6" />
-        },
-        {
-            title: "Timeline and project scope",
-            description: "Accelerated delivery options and project depth.",
-            icon: <Calendar className="w-6 h-6" />
-        }
+    const { translations, loading } = useTranslations()
+
+    if (loading || !translations) return null
+
+    const detContents = translations.pricingPage.determinants
+    const icons = [
+        <FileText key="0" className="w-6 h-6" />,
+        <Paintbrush key="1" className="w-6 h-6" />,
+        <Layers key="2" className="w-6 h-6" />,
+        <Calendar key="3" className="w-6 h-6" />
     ]
+
+    const determinants = detContents.items.map((item: any, index: number) => ({
+        ...item,
+        icon: icons[index]
+    }))
 
     return (
         <section className="pt-0 pb-12 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
@@ -39,8 +35,7 @@ export function PricingDeterminants() {
                     <motion.div
                         className="text-left mb-16"
                         initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <h2 className="text-4xl sm:text-6xl font-normal text-black mb-6 tracking-tighter flex items-center gap-4">
@@ -52,21 +47,20 @@ export function PricingDeterminants() {
                                 className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
                                 aria-hidden="true"
                             />
-                            <span>What determines the final price?</span>
+                            <span>{detContents.title}</span>
                         </h2>
                         <p className="text-xl text-neutral-600 max-w-2xl">
-                            Every website is different. We tailor our pricing based on the unique needs and scale of your business.
+                            {detContents.description}
                         </p>
                     </motion.div>
 
                     {/* Creative Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                        {determinants.map((item, index) => (
+                        {determinants.map((item: any, index: number) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                viewport={{ once: true }}
+                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className="group"
                             >
@@ -95,17 +89,17 @@ export function PricingDeterminants() {
                     >
                         <div className="max-w-2xl space-y-4">
                             <p className="text-2xl text-black font-semibold tracking-tight">
-                                That&apos;s why we provide personalized estimates instead of fixed prices.
+                                {detContents.callout}
                             </p>
                             <p className="text-xl text-neutral-600 font-medium">
-                                Our goal is to ensure you pay for exactly what you need, without unnecessary overhead.
+                                {detContents.subCallout}
                             </p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-4">
                             <GradientButton asChild className="relative z-50 border-none shadow-xl hover:shadow-2xl">
                                 <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
-                                    Get your estimate
+                                    {detContents.ctaEstimate}
                                     <ArrowRight className="ml-2 w-6 h-6" />
                                 </a>
                             </GradientButton>

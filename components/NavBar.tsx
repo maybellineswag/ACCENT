@@ -7,6 +7,7 @@ import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
+import { useTranslations } from "@/hooks/useTranslations"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 interface NavItem {
@@ -26,36 +27,8 @@ export function NavBar({ className, isClinics }: NavBarProps) {
   const [showLangDropdown, setShowLangDropdown] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
+  const { translations, loading } = useTranslations()
   const navRef = useRef<HTMLDivElement>(null)
-
-  const translations = {
-    nav: {
-      cs: {
-        industries: 'Kliniky a Krása',
-        works: 'Práce',
-        pricing: 'Cena',
-        faq: 'FAQ'
-      },
-      en: {
-        industries: 'Clinics & Beauty',
-        works: 'Works',
-        pricing: 'Pricing',
-        faq: 'FAQ'
-      },
-      ru: {
-        industries: 'Клиники и Бьюти',
-        works: 'Работы',
-        pricing: 'Цены',
-        faq: 'FAQ'
-      },
-      uk: {
-        industries: 'Клініки та Б’юті',
-        works: 'Роботи',
-        pricing: 'Ціни',
-        faq: 'FAQ'
-      },
-    },
-  }
 
   const items: NavItem[] = [
     { name: 'industries', url: '/clinics-beauty', icon: Shield },
@@ -142,7 +115,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                   isActive ? "text-black" : "text-neutral-500 hover:text-neutral-900"
                 )}
               >
-                {(translations.nav as any)[language][item.name] || item.name}
+                {translations?.nav?.[item.name as keyof typeof translations.nav] || item.name}
               </Link>
             )
           })}
@@ -152,7 +125,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
         <div className="flex items-center gap-2 sm:gap-3 ml-2">
           <GradientButton asChild className="border-none shadow-sm h-10 px-4 sm:px-6 flex">
             <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[13px] sm:text-sm whitespace-nowrap">
-              Book a call <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              {translations?.common?.bookCall || "Book a call"} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
           </GradientButton>
 
@@ -217,7 +190,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                         onClick={() => setMobileMenuOpen(false)}
                         className="px-5 py-2.5 text-sm font-medium hover:bg-black/5 transition-colors"
                       >
-                        {(translations.nav as any)[language][item.name] || item.name}
+                        {translations?.nav?.[item.name as keyof typeof translations.nav] || item.name}
                       </Link>
                     ))}
                     <div className="h-[1px] bg-neutral-200/30 my-1 mx-4" />
@@ -227,7 +200,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                       rel="noopener noreferrer"
                       className="px-5 py-2.5 text-sm font-semibold text-black flex items-center justify-between hover:bg-black/5 transition-colors"
                     >
-                      Book a call <ArrowRight className="w-4 h-4 ml-2" />
+                      {translations?.common?.bookCall || "Book a call"} <ArrowRight className="w-4 h-4 ml-2" />
                     </a>
                   </div>
                 </motion.div>

@@ -145,7 +145,7 @@ export default function ClinicsBeautyPage() {
                                 }
                             }}
                         >
-                            {translations.faq.questions.slice(0, 6).map((faq: any, index: number) => (
+                            {translations.faq.categories.flatMap((cat: any) => cat.questions).slice(0, 6).map((faq: any, index: number) => (
                                 <motion.div
                                     key={index}
                                     variants={{

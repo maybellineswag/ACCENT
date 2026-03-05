@@ -110,7 +110,7 @@ function Hero({ translations, isClinics }: HeroProps) {
               className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap flex-shrink-0 px-2"
             >
               <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
-              <span>Send Message</span>
+              <span>{translations?.common?.sendMessage || "Send Message"}</span>
             </a>
           </div>
         </div>

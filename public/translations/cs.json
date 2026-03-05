@@ -1,17 +1,13 @@
 {
   "nav": {
-    "home": "Domů",
-    "reviews": "Recenze",
-    "plan": "Plán",
-    "services": "Služby",
-    "how": "Jak to funguje",
+    "industries": "Kliniky a Krása",
+    "works": "Práce",
     "pricing": "Ceník",
-    "guarantees": "Záruky",
     "faq": "FAQ",
     "rezervovat": "Rezervovat"
   },
   "hero": {
-    "title1": "Váš byznys je ",
+    "title1": "Váš podnik je ",
     "titlePremium": "prémiový.",
     "title2": " Ukazuje to i váš web?",
     "desc": "Zakladatelé, kteří to s růstem myslí vážně, svěřují získávání klientů našim webům a automatizaci, zatímco se soustředí na své práci."
@@ -34,17 +30,17 @@
   "testimonial1": {
     "occupation": "Majitelka kosmetického salonu",
     "location": "Hradec Králové",
-    "date": "Dec 15, 2024"
+    "date": "15. prosince 2024"
   },
   "testimonial2": {
     "occupation": "Majitelka nehtového salonu",
     "location": "Praha",
-    "date": "Jan 8, 2025"
+    "date": "8. ledna 2025"
   },
   "testimonial3": {
     "occupation": "Majitelka restaurace",
     "location": "Brighton",
-    "date": "Feb 3, 2025"
+    "date": "3. února 2025"
   },
   "testimonials": {
     "title": "Milováno klienty po celé Evropě.",
@@ -135,7 +131,7 @@
   },
   "howItWorks": {
     "title": "Jak spolupracujeme",
-    "description": "Plynulý proces navržený tak, aby dostal váš byznys online bez stresu.",
+    "description": "Plynulý proces navržený tak, aby dostal váš podnik online bez stresu.",
     "footerNote": "Nezávazně, jen krátký 15minutový hovor, abychom zjistili, jak vám můžeme pomoci.",
     "step1": {
       "title": "01",
@@ -177,7 +173,7 @@
     "modernWebsite": {
       "title": "Moderní Website",
       "price": "CZK 35 000",
-      "description": "Moderní, konverzně optimalizovaný web pro váš business",
+      "description": "Moderní, konverzně optimalizovaný web pro váš podnik",
       "features": [
         "Vlastní landing page + základní stránky (Domů, O nás, Služby, Kontakt)",
         "Optimalizováno pro mobil, tablet a desktop",
@@ -254,7 +250,7 @@
       },
       {
         "question": "Píšete vlastní kód nebo používáte šablony?",
-        "answer": "Píšeme vlastní kód. Žádné WordPress šablony, žádné pluginy třetích stran. Ale jsme flexibilní - pokud upřednostňujete Webflow (možnost upravovat web sами), můžeme použít to. Rozhodnete se podle vašich potřeb."
+        "answer": "Píšeme vlastní kód. Žádné WordPress šablony, žádné pluginy třetích stran. Ale jsme flexibilní - pokud upřednostňujete Webflow (možnost upravovat web sami), můžeme použít to. Rozhodnete se podle vašich potřeb."
       },
       {
         "question": "Budeme moci web sami upravovat?",
@@ -266,7 +262,7 @@
       },
       {
         "question": "Pomůžete nám s obsahem (fotky, texty)?",
-        "answer": "S texty ano - copywriting můžeme zahrnout do projektu. S fotografiemi doporučujeme profesionálního fotograфа (můžeme doporučit) nebo použijeme vaše vlastní. Stock fotky používáme jen v krajním případě - působí genericky."
+        "answer": "S texty ano - copywriting můžeme zahrnout do projektu. S fotografiemi doporučujeme profesionálního fotografa (můžeme doporučit) nebo použijeme vaše vlastní. Stock fotky používáme jen v krajním případě - působí genericky."
       },
       {
         "question": "Zajistíte i doménu a hosting?",
@@ -278,7 +274,7 @@
       },
       {
         "question": "Můžete integrovat náš systém?",
-        "answer": "Pravděpodobně ano. Děláме integrace s rezervačními systémy (Calendly, Booksy, Acuity), e-commerce platformami (Shopify, custom řešení), CRM systémy (HubSpot, Pipedrive), platebními bránami (Stripe, PayPal, GoPay) a newsletter nástroji (Mailchimp, ConvertKit). Pokud máte specifický nástroj, napište nám."
+        "answer": "Pravděpodobně ano. Děláme integrace s rezervačními systémy (Calendly, Booksy, Acuity), e-commerce platformami (Shopify, custom řešení), CRM systémy (HubSpot, Pipedrive), platebními bránami (Stripe, PayPal, GoPay) a newsletter nástroji (Mailchimp, ConvertKit). Pokud máte specifický nástroj, napište nám."
       },
       {
         "question": "Bude web viditelný na Google?",
@@ -320,10 +316,9 @@
     }
   },
   "selectedWork": {
-    "title": "Vybrané práce",
+    "title": "Naše práce",
     "ctaLead": "Připraveni připojit se k našim úspěšným klientům?",
-    "ctaButton": "Začněte svůj projekt",
-    "backToHome": "Zpět na domovskou stránku"
+    "ctaButton": "Začněте svůj projekt"
   },
   "footer": {
     "copyright": "© 2026 ACCENT. Všechna práva vyhrazena",
@@ -356,7 +351,7 @@
   },
   "whyAccent": {
     "title": "Proč ACCENT?",
-    "cta": "Zvyšte příjmy a maximalizujte svůj byznys s naší pomocí",
+    "cta": "Zvyšte příjmy a maximalizujte svůj podnik s naší pomocí",
     "reasons": [
       {
         "title": "Žádné šablony. Nikdy.",
@@ -382,6 +377,97 @@
       "titlePremium": "estetické a medicínské kliniky",
       "title2": "",
       "desc": "Přitahujte klienty, kteří hledají kvalitu, ne slevy."
+    }
+  },
+  "common": {
+    "growRevenueCta": "Zvyšte příjmy a maximalizujte svůj podnik s naší pomocí",
+    "backToHome": "Zpět na domovskou stránku",
+    "breadcrumbs": {
+      "home": "DOMŮ",
+      "works": "PRÁCE",
+      "pricing": "CENÍK",
+      "faq": "FAQ"
+    }
+  },
+  "industries": {
+    "healthBeauty": "Kliniky a Krása",
+    "automotive": "Automobilový průmysl",
+    "food": "Gastronomie",
+    "saas": "SAAS",
+    "cosmetology": "Kosmetologie",
+    "wellness": "Wellness",
+    "aesthetic": "Estetika"
+  },
+  "pricingPage": {
+    "hero": {
+      "titlePart1": "Každý skvělý web začíná ",
+      "titleGradient": "správnou investicí",
+      "titlePart2": ".",
+      "description": "Řekněte nám něco o svém podnikání a my pro váš projekt připravíme odhad na míru.",
+      "ctaRequest": "Požádat o odhad",
+      "ctaMessage": "Poslat zprávu"
+    },
+    "packages": {
+      "starter": {
+        "title": "Starter Website",
+        "description": "Ideální pro firmy, které spouštějí svůj první profesionální web",
+        "features": [
+          "Vlastní design úvodní stránky",
+          "Až 4–5 stránek",
+          "Mobilně optimalizované rozložení",
+          "Struktura zaměřená na konverze",
+          "Rychlé spuštění"
+        ]
+      },
+      "business": {
+        "title": "Business Website",
+        "description": "Pro rostoucí společnosti, které chtějí silnější digitální prezentaci",
+        "features": [
+          "Kompletně vlastní design webu",
+          "Struktura stránek zaměřená na konverze",
+          "Strategické plánování UX a rozvržení",
+          "Optimalizace pro mobily",
+          "SEO-ready základ"
+        ],
+        "badge": "Nejoblíbenější"
+      },
+      "premium": {
+        "title": "Premium Website",
+        "description": "Pro značky, které chtějí špičkový digitální zážitek",
+        "features": [
+          "Plně zakázkový design webu",
+          "Pokročilé UX a vizuální směr",
+          "Vlastní interakce a animace",
+          "Škálovatelná struktura pro budoucí růst",
+          "Prioritní termín dodání"
+        ]
+      },
+      "rangeNote": "Většina projektů se pohybuje mezi CZK 35 000 – CZK 100 000 v závislosti na rozsahu."
+    },
+    "determinants": {
+      "title": "Co určuje konečnou cenu?",
+      "description": "Každý web je jiný. Naše ceny přizpůсобujeme jedinečným potřebám a rozsahu vašeho podnikání.",
+      "items": [
+        {
+          "title": "Počet stránek",
+          "description": "Od zaměřené landing page až po rozsáhlý firemní portál."
+        },
+        {
+          "title": "Složitost vlastního designu",
+          "description": "Zakázkové vizuální cesty a šпиčkový umělecký směr."
+        },
+        {
+          "title": "Pokročilé funkce nebo integrace",
+          "description": "Vlastní dashboardy, synchronizace API a specializované nástroje."
+        },
+        {
+          "title": "Časový harmonogram a rozsah",
+          "description": "Možnosti zrychleného dodání a hloubka projektu."
+        }
+      ],
+      "callout": "Proto poskytujeme osobní odhady namísto fixních cen.",
+      "subCallout": "Naším cílem je zajistit, abyste platili přesně za to, co potřebujete, bez zbytečné režie.",
+      "ctaEstimate": "Získat odhad"
     }
   }
 }

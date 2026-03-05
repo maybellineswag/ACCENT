@@ -76,12 +76,12 @@ export function PricingHero({ translations }: PricingHeroProps) {
                             <BreadcrumbList>
                                 <BreadcrumbItem>
                                     <BreadcrumbLink href="/" className="flex items-center gap-1 text-neutral-500 hover:text-black transition-colors text-xs font-semibold tracking-widest uppercase">
-                                        HOME
+                                        {translations.common.breadcrumbs.home}
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator className="text-neutral-300" />
                                 <BreadcrumbItem>
-                                    <BreadcrumbPage className="text-black font-semibold text-xs tracking-widest uppercase">PRICING</BreadcrumbPage>
+                                    <BreadcrumbPage className="text-black font-semibold text-xs tracking-widest uppercase">{translations.common.breadcrumbs.pricing}</BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
                         </Breadcrumb>
@@ -89,11 +89,11 @@ export function PricingHero({ translations }: PricingHeroProps) {
 
                     <div className="flex gap-6 flex-col items-start max-w-4xl">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter text-left font-semibold leading-[0.95] text-black max-w-[800px]">
-                            Every great website starts with the <span className="text-gradient-blobs">right investment</span>.
+                            {translations.pricingPage.hero.titlePart1}<span className="text-gradient-blobs">{translations.pricingPage.hero.titleGradient}</span>{translations.pricingPage.hero.titlePart2}
                         </h1>
 
                         <p className="text-lg sm:text-xl md:text-2xl leading-relaxed tracking-tight text-neutral-500 max-w-2xl text-left font-medium">
-                            Tell us a bit about your business and we’ll prepare a tailored estimate for your website project.
+                            {translations.pricingPage.hero.description}
                         </p>
                     </div>
 
@@ -101,7 +101,7 @@ export function PricingHero({ translations }: PricingHeroProps) {
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-4">
                         <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl">
                             <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
-                                Request estimate
+                                {translations.pricingPage.hero.ctaRequest}
                                 <ArrowRight className="ml-2 w-6 h-6" />
                             </a>
                         </GradientButton>
@@ -113,7 +113,7 @@ export function PricingHero({ translations }: PricingHeroProps) {
                             className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
                         >
                             <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
-                            <span>Send a Message</span>
+                            <span>{translations.pricingPage.hero.ctaMessage}</span>
                         </a>
                     </div>
                 </div>

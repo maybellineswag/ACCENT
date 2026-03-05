@@ -121,7 +121,7 @@ const WhyAccentSection = ({ isClinics }: WhyAccentSectionProps = {}) => {
                         className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
                     >
                         <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5 flex-shrink-0" />
-                        <span>Send a Message</span>
+                        <span>{translations?.common?.sendMessage || "Send a Message"}</span>
                     </a>
                 </motion.div>
             </div>

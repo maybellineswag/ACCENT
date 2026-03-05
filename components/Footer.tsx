@@ -23,7 +23,7 @@ export function Footer({ isClinics = false }: FooterProps) {
         { label: translations.footer.company.items[1], href: "/#works" },
         { label: translations.footer.company.items[2], href: "/pricing" },
         { label: translations.footer.company.items[3], href: "/privacy-policy" },
-        { label: translations.footer.company.items[4], href: "https://instagram.com/accent.agency" },
+        { label: translations.footer.company.items[4], href: "https://instagram.com/accent.eu" },
     ]
 
     return (
