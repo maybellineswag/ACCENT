@@ -9,7 +9,6 @@
     "works": "Works",
     "pricing": "Pricing",
     "faq": "FAQ",
-    "rezervovat": "Book a call",
     "about": "About"
   },
   "hero": {
@@ -406,7 +405,9 @@
       "works": "WORKS",
       "pricing": "PRICING",
       "faq": "FAQ"
-    }
+    },
+    "bookCall": "Book a call",
+    "sendMessage": "Send Message"
   },
   "industries": {
     "healthBeauty": "Health & Beauty",

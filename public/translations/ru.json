@@ -8,8 +8,7 @@
     "industries": "Клиники и Бьюти",
     "works": "Работы",
     "pricing": "Цены",
-    "faq": "FAQ",
-    "rezervovat": "Забронировать"
+    "faq": "FAQ"
   },
   "hero": {
     "title1": "Ваш бизнес – ",
@@ -405,7 +404,9 @@
       "works": "РАБОТЫ",
       "pricing": "ЦЕНЫ",
       "faq": "FAQ"
-    }
+    },
+    "bookCall": "Забронировать",
+    "sendMessage": "Написать сообщение"
   },
   "industries": {
     "healthBeauty": "Красота и здоровье",

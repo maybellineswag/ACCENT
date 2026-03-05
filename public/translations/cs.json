@@ -8,8 +8,7 @@
     "industries": "Kliniky a Krása",
     "works": "Práce",
     "pricing": "Ceník",
-    "faq": "FAQ",
-    "rezervovat": "Rezervovat"
+    "faq": "FAQ"
   },
   "hero": {
     "title1": "Váš podnik je ",
@@ -404,7 +403,9 @@
       "works": "PRÁCE",
       "pricing": "CENÍK",
       "faq": "FAQ"
-    }
+    },
+    "bookCall": "Rezervovat",
+    "sendMessage": "Poslat zprávu"
   },
   "industries": {
     "healthBeauty": "Kliniky a Krása",
