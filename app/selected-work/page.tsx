@@ -84,10 +84,26 @@ export default function SelectedWorkPage() {
         <NavBar />
 
         {/* Main Content */}
-        <div className="pt-4 sm:pt-24 pb-16 px-6 lg:px-8 relative z-10">
-          <div className="max-w-7xl mx-auto pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
+        <div className="pt-4 sm:pt-24 pb-16 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
+          <div className="w-full pl-2 pr-4 sm:container sm:mx-auto sm:px-6">
             {/* Header Content Section aligned with other pages */}
             <div className="flex gap-4 pt-8 sm:pt-12 lg:pt-24 pb-8 items-start justify-start flex-col">
+              {/* Logo and Brand - Exact Match with Hero.tsx and PricingHero.tsx */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex items-center gap-2"
+              >
+                <Image
+                  src="/accentnewlogo.svg"
+                  alt="ACCENT Logo"
+                  width={100}
+                  height={25}
+                  className="w-auto h-5 sm:h-6 opacity-90"
+                />
+              </motion.div>
+
               <motion.div
                 className="text-left mb-12 max-w-4xl"
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -98,7 +114,7 @@ export default function SelectedWorkPage() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
                   className="mb-2"
                 >
                   <Breadcrumb>
@@ -116,7 +132,7 @@ export default function SelectedWorkPage() {
                   </Breadcrumb>
                 </motion.div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter text-left font-semibold leading-[0.95] text-black mb-2 flex items-center gap-4">
+                <h1 className="text-[32px] sm:text-5xl md:text-6xl tracking-tight sm:tracking-tighter text-left font-semibold leading-tight text-black mb-2 flex items-center gap-4">
                   <Image
                     src="/accentnewsymbol.svg"
                     alt=""
@@ -127,7 +143,7 @@ export default function SelectedWorkPage() {
                   />
                   <span>{translations.selectedWork?.title ?? 'Selected Work'}</span>
                 </h1>
-                <p className="text-xl text-neutral-600 font-normal">
+                <p className="text-base sm:text-lg md:text-2xl leading-relaxed tracking-tight text-neutral-500 max-w-2xl text-left font-medium">
                   {translations.selectedWork?.ctaLead ?? 'Ready to join our portfolio of successful clients?'}
                 </p>
               </motion.div>
@@ -144,11 +160,12 @@ export default function SelectedWorkPage() {
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
                   className="w-full"
                 >
-                  <div className="max-w-4xl bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-2xl overflow-hidden shadow-lg">
+                  <div className="max-w-4xl bg-white/25 backdrop-blur-sm border border-neutral-200/20 rounded-2xl overflow-hidden shadow-lg glow-on-hover">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -168,8 +185,6 @@ export default function SelectedWorkPage() {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* Removed redundant CTA Section as it's now in the header/description or added below if needed */}
           </div>
         </div>
 
