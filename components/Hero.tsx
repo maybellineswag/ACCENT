@@ -8,6 +8,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
 
 interface HeroProps {
   translations: any;
@@ -76,7 +77,10 @@ function Hero({ translations, isClinics }: HeroProps) {
           </motion.div>
 
           <div className="flex gap-3 flex-col items-start max-w-4xl">
-            <h1 className="text-[34px] sm:text-5xl md:text-6xl tracking-tight sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]">
+            <h1 className={cn(
+              "tracking-tight sm:tracking-tighter text-left font-semibold leading-tight sm:leading-[0.95] text-black max-w-[800px]",
+              language === 'en' ? "text-[34px] sm:text-5xl md:text-6xl" : "text-[28px] xs:text-[30px] sm:text-5xl md:text-6xl"
+            )}>
               {translations.hero.title1}
               <span className="text-gradient-blobs">{translations.hero.titlePremium}</span>
               <br className="hidden sm:block" />
@@ -90,9 +94,12 @@ function Hero({ translations, isClinics }: HeroProps) {
 
           {/* Main CTA Buttons */}
           <div className="flex flex-row flex-nowrap items-center gap-3 sm:gap-6 mt-3 overflow-visible">
-            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-5 sm:px-9">
+            <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-4 sm:px-9">
               <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
-                <span className="font-medium text-[14px] sm:text-sm leading-tight tracking-normal text-black text-left">
+                <span className={cn(
+                  "font-medium leading-tight tracking-normal text-black text-left",
+                  language === 'en' ? "text-[14px] sm:text-sm" : "text-[13px] sm:text-sm"
+                )}>
                   {translations.heroCta}
                 </span>
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
