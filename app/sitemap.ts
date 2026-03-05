@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://accent.agency'
+    const baseUrl = 'https://accentai.eu'
     const lastModified = new Date()
 
     return [

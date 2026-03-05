@@ -4,11 +4,11 @@ export function SchemaMarkup() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": "https://accent.agency/#organization",
+        "@id": "https://accentai.eu/#organization",
         "name": "ACCENT",
-        "url": "https://accent.agency",
-        "logo": "https://accent.agency/accentflower.svg",
-        "image": "https://accent.agency/accentlogos.png",
+        "url": "https://accentai.eu",
+        "logo": "https://accentai.eu/accentflower.svg",
+        "image": "https://accentai.eu/accentlogos.png",
         "description": "Professional web design and visual identity for modern businesses. Get a premium, custom-built website that builds trust and grows your revenue.",
         "address": {
             "@type": "PostalAddress",

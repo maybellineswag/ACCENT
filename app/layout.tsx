@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://accent.agency'),
+  metadataBase: new URL('https://accentai.eu'),
   alternates: {
     canonical: '/',
     languages: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://accent.agency',
+    url: 'https://accentai.eu',
     title: 'ACCENT | Web Design & Visual Identity',
     description: 'Transforming businesses with custom web design and high-end visual identity.',
     siteName: 'ACCENT',
