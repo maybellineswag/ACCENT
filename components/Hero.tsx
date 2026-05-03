@@ -90,11 +90,11 @@ function Hero({ translations, isClinics }: HeroProps) {
           </div>
 
           {/* Main CTA Buttons */}
-          <div className="flex flex-row flex-nowrap items-center gap-3 sm:gap-6 mt-3 overflow-visible">
-            <GradientButton asChild className="relative z-50 shadow-lg hover:shadow-xl px-4 sm:px-9">
-              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-3 overflow-visible">
+            <GradientButton asChild className="relative z-50 shadow-lg hover:shadow-xl px-4 sm:px-9 w-full sm:w-auto">
+              <a href="https://form.typeform.com/to/EcyerrAq" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 w-full sm:w-auto">
                 <span className={cn(
-                  "font-medium tracking-normal text-black text-left relative z-[60] [will-change:transform]",
+                  "font-medium tracking-normal text-black text-left",
                   language === 'en' ? "text-[14px] sm:text-sm" : "text-[13px] sm:text-sm"
                 )}>
                   {translations.heroCta || (language === 'en' ? "Get a free design concept" : (language === 'cs' ? "Bezplatný návrh designu" : (language === 'ru' ? "Бесплатный дизайн-концепт" : "Get a free design concept")))}
