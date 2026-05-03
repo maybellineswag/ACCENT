@@ -5,10 +5,19 @@ import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslations } from "@/hooks/useTranslations"
 
 export default function PrivacyPage() {
-    const { translations } = useLanguage()
+    const { translations, loading } = useTranslations()
+
+    if (loading || !translations || !translations.privacyPage) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-neutral-200 border-t-black rounded-full animate-spin" />
+            </div>
+        )
+    }
+
     const t = translations.privacyPage
 
     return (
@@ -43,7 +52,7 @@ export default function PrivacyPage() {
                                 <h2 className="text-xl font-semibold text-black mb-4">{section.title}</h2>
                                 <p>
                                     {section.content}
-                                    {section.title.includes("5") || section.title.toLowerCase().includes("contact") || section.title.toLowerCase().includes("контакт") ? (
+                                    {(section.title.includes("5") || section.title.toLowerCase().includes("contact") || section.title.toLowerCase().includes("контакт")) ? (
                                         <> <a href="https://t.me/maybellineswag" className="text-black underline font-medium">Telegram</a>.</>
                                     ) : null}
                                 </p>

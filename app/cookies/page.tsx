@@ -5,10 +5,19 @@ import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslations } from "@/hooks/useTranslations"
 
 export default function CookiesPage() {
-    const { translations } = useLanguage()
+    const { translations, loading } = useTranslations()
+
+    if (loading || !translations || !translations.cookiesPage) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-neutral-200 border-t-black rounded-full animate-spin" />
+            </div>
+        )
+    }
+
     const t = translations.cookiesPage
 
     return (

@@ -336,7 +336,8 @@
   "selectedWork": {
     "title": "Naše práce",
     "ctaLead": "Připraveni připojit se k našim úspěšným klientům?",
-    "ctaButton": "Začněте svůj projekt"
+    "ctaButton": "Začněte projekt",
+    "backToHome": "Zpět na úvod"
   },
   "footer": {
     "copyright": "© 2026 ACCENT. Všechna práva vyhrazena",
