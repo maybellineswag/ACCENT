@@ -12,7 +12,7 @@ interface FooterProps {
 }
 
 export function Footer({ isClinics = false }: FooterProps) {
-    const { translations, loading } = useTranslations()
+    const { translations, loading, language } = useTranslations()
 
     if (loading || !translations) {
         return null
@@ -22,7 +22,8 @@ export function Footer({ isClinics = false }: FooterProps) {
         { label: translations.footer.company.items[0], href: "/clinics-beauty" },
         { label: translations.footer.company.items[1], href: "/#works" },
         { label: translations.footer.company.items[2], href: "/pricing" },
-        { label: translations.footer.company.items[3], href: "/privacy-policy" },
+        { label: translations.footer.privacy, href: "/privacy-policy" },
+        { label: translations.footer.cookies, href: "/cookies" },
         { label: translations.footer.company.items[4], href: "https://instagram.com/accent.eu" },
     ]
 

@@ -1,21 +1,23 @@
 {
   "seo": {
-    "title": "ACCENT | Web Design & Visual Identity",
-    "description": "Transforming businesses with custom web design and high-end visual identity. We build premium, template-free websites for modern businesses in Prague and across Europe.",
-    "keywords": "web design, visual identity, branding agency, custom websites, Next.js developer, digital transformation, Prague, Europe, web designer"
+    "title": "ACCENT | Web Design & AI Automations",
+    "description": "Transforming businesses with custom web design and bespoke AI automations. We build premium digital systems that work as hard as you do.",
+    "keywords": "web design, ai automation, bespoke ai, custom workflows, branding agency, Next.js developer, Prague, Europe"
   },
   "nav": {
     "industries": "Clinics & Beauty",
     "works": "Works",
+    "ai": "AI Automations",
     "pricing": "Pricing",
     "faq": "FAQ",
-    "about": "About"
+    "about": "About",
+    "cta": "Start a project"
   },
   "hero": {
     "title1": "Your business is ",
     "titlePremium": "premium.",
     "title2": " Does your website show that?",
-    "desc": "Custom-built, template-free websites designed to build trust, attract clients, and grow your revenue."
+    "desc": "We build premium websites and bespoke AI automations that work while you sleep, so you can focus on building your empire."
   },
   "heroBullets": [
     "Successfully transformed 20+ businesses",
@@ -340,6 +342,8 @@
   },
   "footer": {
     "copyright": "© 2026 ACCENT. All rights reserved",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
     "description": "Professional web design and visual identity for modern businesses based in Prague & Europe.",
     "services": {
       "title": "Services",
@@ -488,6 +492,77 @@
       "callout": "That's why we provide personalized estimates instead of fixed prices.",
       "subCallout": "Our goal is to ensure you pay for exactly what you need, without unnecessary overhead.",
       "ctaEstimate": "Get your estimate"
+    }
+  },
+  "ai": {
+    "title": "AI Automations",
+    "subtitlePart1": "Bespoke systems that ",
+    "subtitlePart2": "work while you sleep.",
+    "description": "We don't build generic bots. We engineer custom AI workflows tailored to your unique business logic, saving you 20+ hours every week.",
+    "cta": "Start your AI journey",
+    "features": {
+      "leadGen": {
+        "title": "Lead Intelligence",
+        "desc": "AI that qualifies leads instantly and sends them straight to your Telegram."
+      },
+      "workflows": {
+        "title": "Bespoke Workflows",
+        "desc": "Connecting your CRM, Notion, and Email into a single, automated engine."
+      },
+      "custom": {
+        "title": "Custom AI Agents",
+        "desc": "Tailored solutions for your specific business bottlenecks. If you can describe it, we can automate it."
+      }
+    },
+    "cta_section": {
+      "titlePart1": "Scale your business ",
+      "titlePart2": "without friction.",
+      "subtitle": "Message our team on Telegram to discuss your specific business logic. Let's build your custom engine together.",
+      "button": "Contact Our Experts"
+    },
+    "privacyPage": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "title": "1. Introduction",
+          "content": "At ACCENT, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services."
+        },
+        {
+          "title": "2. Data Collection",
+          "content": "We collect information that you provide directly to us, such as when you contact us via Telegram, book a call via Cal.com, or interact with our website. This may include your name, email address, and any project details you share."
+        },
+        {
+          "title": "3. Use of Information",
+          "content": "We use your information to provide and improve our services, communicate with you, and ensure a personalized experience. We do not sell your personal data to third parties."
+        },
+        {
+          "title": "4. Security",
+          "content": "We implement industry-standard security measures to protect your data. However, no method of transmission over the internet is 100% secure."
+        },
+        {
+          "title": "5. Contact",
+          "content": "If you have any questions about our Privacy Policy, please contact us at Telegram."
+        }
+      ],
+      "lastUpdated": "Last Updated: May 3, 2026"
+    },
+    "cookiesPage": {
+      "title": "Cookies Policy",
+      "sections": [
+        {
+          "title": "1. What are Cookies?",
+          "content": "Cookies are small text files stored on your device when you visit a website. They help us remember your preferences and improve your browsing experience."
+        },
+        {
+          "title": "2. How We Use Cookies",
+          "content": "We use cookies for analytics (Google Analytics) to understand how visitors interact with our site, and for functional purposes like remembering your language preference."
+        },
+        {
+          "title": "3. Managing Cookies",
+          "content": "Most browsers allow you to control cookies through their settings. You can choose to block or delete cookies, but this may affect the functionality of our website."
+        }
+      ],
+      "lastUpdated": "Last Updated: May 3, 2026"
     }
   }
 }

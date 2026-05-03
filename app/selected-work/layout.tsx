@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Vybrané Projekty',
-    description: 'Prohlédněte si naše vybrané projekty v oblasti brandingu, AI automatizace a moderního webového designu.',
+  title: 'Portfolio | ACCENT Agency',
+  description: 'A selection of our premium web design and branding projects for clinics, salons, and modern businesses.',
+  openGraph: {
+    title: 'Portfolio | ACCENT Agency',
+    description: 'Explore our latest work and case studies.',
+    url: 'https://accentai.eu/selected-work',
+  },
 }
 
 export default function SelectedWorkLayout({

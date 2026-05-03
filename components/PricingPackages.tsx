@@ -87,8 +87,8 @@ export function PricingPackages() {
                                         </ul>
 
                                         <GradientButton asChild className="w-full mt-auto h-12 text-base font-semibold group/btn border-none shadow-md">
-                                            <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
-                                                {translations.pricingPage.hero.ctaRequest}
+                                            <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer">
+                                                {translations.pricingPage.hero.ctaMessage}
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                                             </a>
                                         </GradientButton>

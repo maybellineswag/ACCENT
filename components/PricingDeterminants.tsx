@@ -98,7 +98,7 @@ export function PricingDeterminants() {
 
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-4">
                             <GradientButton asChild className="relative z-50 border-none shadow-xl hover:shadow-2xl">
-                                <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
+                                <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer">
                                     {detContents.ctaEstimate}
                                     <ArrowRight className="ml-2 w-6 h-6" />
                                 </a>

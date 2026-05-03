@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight, Menu, X } from "lucide-react"
+import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight, Menu, X, Zap } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
@@ -34,6 +34,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
   const items: NavItem[] = [
     { name: 'industries', url: '/clinics-beauty', icon: Shield },
     { name: 'works', url: '/selected-work', icon: Star },
+    { name: 'ai', url: '/ai-automations', icon: Zap },
     { name: 'pricing', url: '/pricing', icon: CreditCard },
     { name: 'faq', url: '/faq', icon: HelpCircle },
   ]
@@ -129,8 +130,8 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                 key={item.name}
                 href={item.url}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-all rounded-xl",
-                  activeTab === item.name ? "text-black" : "text-neutral-500 hover:text-neutral-900"
+                  "relative px-4 py-2 text-sm font-semibold transition-all rounded-xl",
+                  activeTab === item.name ? "text-black" : "text-black/80 hover:text-black"
                 )}
               >
                 {translations?.nav?.[item.name as keyof typeof translations.nav] || item.name}
@@ -141,8 +142,8 @@ export function NavBar({ className, isClinics }: NavBarProps) {
           {/* Controls */}
           <div className="flex items-center gap-2 sm:gap-3 ml-2">
             <GradientButton asChild className="border-none shadow-sm h-10 px-4 sm:px-6 flex">
-              <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[13px] sm:text-sm whitespace-nowrap">
-                {translations?.common?.bookCall || "Book a call"} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[13px] sm:text-sm whitespace-nowrap">
+                {translations?.nav?.cta || "Start a project"} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
             </GradientButton>
 
@@ -156,17 +157,17 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                 onClick={toggleLangDropdown}
                 className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors pointer-events-auto bg-white/40"
               >
-                <Globe className="w-4 h-4 text-neutral-600" />
+                <Globe className="w-4 h-4 text-black" />
               </button>
             </div>
 
             {/* Hamburger Trigger - Mobile only */}
             <div className="sm:hidden relative h-10 flex items-center">
               <button
-                onClick={toggleMobileMenu}
-                className="w-10 h-10 backdrop-blur-md border border-neutral-200/50 flex items-center justify-center rounded-xl shadow-sm hover:bg-neutral-200/20 transition-colors pointer-events-auto bg-white/40"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="w-10 h-10 backdrop-blur-md border border-white/20 flex items-center justify-center rounded-xl shadow-sm hover:bg-black/5 transition-colors pointer-events-auto bg-white/40"
               >
-                {mobileMenuOpen ? <X className="w-4 h-4 text-neutral-600" /> : <Menu className="w-4 h-4 text-neutral-600" />}
+                {mobileMenuOpen ? <X className="w-5 h-5 text-black" /> : <Menu className="w-5 h-5 text-black" />}
               </button>
             </div>
           </div>
@@ -209,19 +210,19 @@ export function NavBar({ className, isClinics }: NavBarProps) {
                     key={item.name}
                     href={item.url}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-5 py-3 text-[15px] font-medium hover:bg-black/5 transition-colors"
+                    className="px-5 py-3 text-[15px] font-semibold text-black/80 hover:text-black hover:bg-black/5 transition-colors"
                   >
                     {translations?.nav?.[item.name as keyof typeof translations.nav] || item.name}
                   </Link>
                 ))}
                 <div className="h-[1px] bg-neutral-200/30 my-1 mx-4" />
                 <a
-                  href="https://cal.com/accent/start"
+                  href="https://t.me/maybellineswag"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-5 py-3 text-[15px] font-semibold text-black flex items-center justify-between hover:bg-black/5 transition-colors"
                 >
-                  {translations?.common?.bookCall || "Book a call"} <ArrowRight className="w-4 h-4 ml-2" />
+                  {language === 'en' ? "Start a project" : (language === 'cs' ? "Začněte projekt" : "Start a project")} <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </div>
             </motion.div>

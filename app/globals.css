@@ -259,7 +259,22 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out;
+  animation: fade-in-up 0.8s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.animate-pulse-online {
+  animation: pulse-online 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-online {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
 }
 
 /* Smooth scrolling */
@@ -319,7 +334,12 @@ h6 {
 button,
 .card,
 a {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+button:active,
+a.gradient-button:active {
+  transform: scale(0.98);
 }
 
 /* Enhanced focus states */

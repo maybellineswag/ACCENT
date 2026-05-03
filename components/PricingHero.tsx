@@ -2,7 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Globe } from "lucide-react"
+import { ArrowRight, Globe, PhoneCall } from "lucide-react"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
 import {
@@ -83,25 +83,25 @@ export function PricingHero({ translations }: PricingHeroProps) {
                     {/* Main CTA Buttons - Exact Match with Hero.tsx styling */}
                     <div className="flex flex-row flex-nowrap items-center gap-3 sm:gap-6 mt-3 overflow-visible">
                         <GradientButton asChild className="relative z-50 border-none shadow-lg hover:shadow-xl px-4 sm:px-9">
-                            <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
+                            <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-4">
                                 <span className={cn(
                                     "font-medium tracking-normal text-black text-left",
                                     language === 'en' ? "text-[14px] sm:text-sm" : "text-[13px] sm:text-sm"
                                 )}>
-                                    {translations.pricingPage.hero.ctaRequest}
+                                    {translations.pricingPage.hero.ctaMessage}
                                 </span>
                                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
                             </a>
                         </GradientButton>
 
                         <a
-                            href="https://t.me/maybellineswag"
+                            href="https://cal.com/accent/start"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap flex-shrink-0 px-2"
                         >
-                            <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5" />
-                            <span>{translations?.common?.sendMessage || translations.pricingPage.hero.ctaMessage}</span>
+                            <PhoneCall className="w-4 h-4" />
+                            <span>{translations.common.bookCall}</span>
                         </a>
                     </div>
                 </div>

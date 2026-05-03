@@ -7,14 +7,16 @@
   "nav": {
     "industries": "Kliniky a Krása",
     "works": "Práce",
+    "ai": "AI Automatizace",
     "pricing": "Ceník",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "cta": "Začněte projekt"
   },
   "hero": {
     "title1": "Váš podnik je ",
     "titlePremium": "prémiový.",
     "title2": " Ukazuje to i váš web?",
-    "desc": "Zakladatelé, kteří to s růstem myslí vážně, svěřují získávání klientů našim webům a automatizaci, zatímco se soustředí na své práci."
+    "desc": "Stavíme prémiové weby a AI automatizace na míru, které pracují, zatímco vy spíte, abyste se mohli soustředit na budování svého impéria."
   },
   "heroBullets": [
     "Úspěšně transformováno přes 20 firem",
@@ -338,7 +340,9 @@
   },
   "footer": {
     "copyright": "© 2026 ACCENT. Všechna práva vyhrazena",
-    "description": "Profesionální webový design a vizuální identita pro moderní podniky v Praze i po celé Evropě.",
+    "privacy": "Soukromí",
+    "cookies": "Cookies",
+    "description": "Profesionální webdesign a vizuální identita pro moderní firmy se sídlem v Praze a Evropě.",
     "services": {
       "title": "Služby",
       "items": [
@@ -486,6 +490,77 @@
       "callout": "Proto poskytujeme osobní odhady namísto fixních cen.",
       "subCallout": "Naším cílem je zajistit, abyste platili přesně za to, co potřebujete, bez zbytečné režie.",
       "ctaEstimate": "Získat odhad"
+    }
+  },
+  "ai": {
+    "title": "AI Automatizace",
+    "subtitlePart1": "Systémy na míru, které ",
+    "subtitlePart2": "pracují, zatímco vy spíte.",
+    "description": "Nestavíme generické roboty. Navrhujeme vlastní AI workflow na míru vaší unikátní obchodní logice, čímž vám ušetříme více než 20 hodin týdně.",
+    "cta": "Začněte svou cestu s AI",
+    "features": {
+      "leadGen": {
+        "title": "Lead Intelligence",
+        "desc": "AI, která okamžitě kvalifikuje leady a posílá je přímo na váš Telegram."
+      },
+      "workflows": {
+        "title": "Workflow na míru",
+        "desc": "Propojení vašeho CRM, Notion a e-mailu do jednoho automatizovaného motoru."
+      },
+      "custom": {
+        "title": "Vlastní AI agenti",
+        "desc": "Řešení na míru pro vaše konkrétní obchodní úzká hrdla. Pokud to dokážete popsat, my to dokážeme automatizovat."
+      }
+    },
+    "cta_section": {
+      "titlePart1": "Škálování vašeho podnikání ",
+      "titlePart2": "bez tření.",
+      "subtitle": "Napište našemu týmu na Telegram a probereme vaši konkrétní obchodní logiku. Pojďme společně postavit váš vlastní motor.",
+      "button": "Kontaktovat naše experty"
+    },
+    "privacyPage": {
+      "title": "Zásady ochrany osobních údajů",
+      "sections": [
+        {
+          "title": "1. Úvod",
+          "content": "Ve společnosti ACCENT bereme vaše soukromí vážně. Tyto zásady ochrany osobních údajů vysvětlují, jak shromažďujeme, používáme a chráníme vaše osobní údaje při používání našich webových stránek a služeb."
+        },
+        {
+          "title": "2. Sběr dat",
+          "content": "Shromažďujeme informace, které nám poskytnete přímo, například když nás kontaktujete přes Telegram, rezervujete si hovor přes Cal.com nebo interagujete s našimi webovými stránkami. To může zahrnovat vaše jméno, e-mailovou adresu a jakékoli podrobnosti o projektu, které sdílíte."
+        },
+        {
+          "title": "3. Použití informací",
+          "content": "Vaše údaje používáme k poskytování a zlepšování našich služeb, ke komunikaci s vámi a k zajištění personalizovaného zážitku. Vaše osobní údaje neprodáváme třetím stranám."
+        },
+        {
+          "title": "4. Bezpečnost",
+          "content": "Zavádíme standardní bezpečnostní opatření k ochraně vašich dat. Žádný způsob přenosu přes internet však není 100% bezpečný."
+        },
+        {
+          "title": "5. Kontakt",
+          "content": "Máte-li jakékoli dotazy týkající se našich zásad ochrany osobních údajů, kontaktujte nás na Telegramu."
+        }
+      ],
+      "lastUpdated": "Poslední aktualizace: 3. května 2026"
+    },
+    "cookiesPage": {
+      "title": "Zásady používání souborů cookies",
+      "sections": [
+        {
+          "title": "1. Co jsou soubory cookies?",
+          "content": "Cookies jsou malé textové soubory uložené ve vašem zařízení při návštěvě webové stránky. Pomáhají nám zapamatovat si vaše preference a zlepšit váš zážitek z prohlížení."
+        },
+        {
+          "title": "2. Jak používáme cookies",
+          "content": "Cookies používáme pro analytiku (Google Analytics), abychom pochopili, jak návštěvníci interagují s naším webem, a pro funkční účely, jako je zapamatování si vaší jazykové preference."
+        },
+        {
+          "title": "3. Správa cookies",
+          "content": "Většina prohlížečů umožňuje ovládat soubory cookies prostřednictvím jejich nastavení. Můžete se rozhodnout soubory cookies blokovat nebo smazat, ale to může ovlivnit funkčnost našich webových stránek."
+        }
+      ],
+      "lastUpdated": "Poslední aktualizace: 3. května 2026"
     }
   }
 }

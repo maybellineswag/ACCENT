@@ -163,7 +163,7 @@ export default function FAQPage() {
                         >
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                                 <GradientButton asChild>
-                                    <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer">
                                         {translations.faq.cta.button}
                                     </a>
                                 </GradientButton>

@@ -23,6 +23,7 @@ import { MetricsSection } from "@/components/MetricsSection"
 import { WorkExamplesSection } from "@/components/WorkExamplesSection"
 import HowWeWorkSection from "@/components/HowWeWorkSection"
 import WhyAccentSection from "@/components/WhyAccentSection"
+import { AiSection } from "@/components/AiSection"
 import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { AuroraBackground } from "@/components/ui/aurora-background"
@@ -142,6 +143,9 @@ export default function HomePage() {
         {/* Work Examples Section */}
         <WorkExamplesSection />
 
+        {/* AI Automations Section */}
+        <AiSection />
+
         {/* Metrics Section */}
         <MetricsSection translations={translations} />
 
@@ -242,7 +246,7 @@ export default function HomePage() {
             >
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <GradientButton asChild>
-                  <a href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
+                  <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer">
                     {translations.faq.cta.button}
                   </a>
                 </GradientButton>

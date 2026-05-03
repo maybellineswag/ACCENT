@@ -2,7 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion"
-import { Clock, CheckCircle2, Layout, Zap } from "lucide-react"
+import { Clock, CheckCircle2, Layout, Zap, PhoneCall } from "lucide-react"
 import { useTranslations } from "@/hooks/useTranslations"
 import { GradientButton } from "@/components/ui/gradient-button"
 import Link from "next/link"
@@ -131,19 +131,19 @@ const HowWeWorkSection = ({ isClinics }: HowWeWorkSectionProps = {}) => {
                 >
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                         <GradientButton asChild className="border-none shadow-lg">
-                            <Link href="https://cal.com/accent/start" target="_blank" rel="noopener noreferrer">
-                                {translations?.common?.bookFreeConsultation || translations?.pricing?.modernWebsite?.cta || "Book a free consultation"}
-                            </Link>
+                            <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer">
+                                {translations?.common?.sendMessage || "Start a project"}
+                            </a>
                         </GradientButton>
 
                         <a
-                            href="https://t.me/maybellineswag"
+                            href="https://cal.com/accent/start"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity px-2"
+                            className="flex items-center gap-1.5 sm:gap-2 text-[14px] sm:text-sm font-medium tracking-normal text-black hover:opacity-70 transition-opacity whitespace-nowrap flex-shrink-0 px-2"
                         >
-                            <Image src="/tglogo.svg" alt="Telegram" width={20} height={20} className="w-5 h-5 flex-shrink-0" />
-                            <span>{translations?.common?.sendMessage || "Send a Message"}</span>
+                            <PhoneCall className="w-4 h-4" />
+                            <span>{translations?.common?.bookCall || "Book a call"}</span>
                         </a>
                     </div>
                     <p className="text-black/70 mt-4 text-sm font-medium">{translations.howItWorks.footerNote}</p>
