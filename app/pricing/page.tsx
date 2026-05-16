@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { PricingHero } from "@/components/PricingHero"
 import Image from "next/image"
@@ -34,7 +33,6 @@ export default function PricingPage() {
                 </div>
 
                 {/* Floating Navigation */}
-                <NavBar />
 
                 <div className="relative pt-4 sm:pt-24 min-h-screen">
                     {(!loading && translations) ? (

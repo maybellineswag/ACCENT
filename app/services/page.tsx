@@ -4,12 +4,11 @@ import React from "react"
 import { Footer } from "@/components/Footer"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Zap, ArrowRight, BrainCircuit, Workflow, MessageSquare, Bot, PhoneCall } from "lucide-react"
+import { ArrowRight, Monitor, Palette, Share2, TrendingUp, Bot, PhoneCall } from "lucide-react"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { useTranslations } from "@/hooks/useTranslations"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -19,13 +18,13 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
-export default function AiAutomationsPage() {
+export default function ServicesPage() {
     const { translations, loading } = useTranslations()
     const { language } = useLanguage()
 
-    if (loading || !translations || !translations.ai) return null
+    if (loading || !translations || !translations.services) return null
 
-    const t = translations.ai
+    const t = translations.services
 
     return (
         <div className="min-h-screen relative overflow-hidden">
@@ -44,8 +43,8 @@ export default function AiAutomationsPage() {
 
             <main className="relative z-10 pt-32 sm:pt-48 pb-24 px-4 sm:px-2 lg:px-4 max-w-7xl mx-auto">
                 <div className="w-full px-2 sm:container sm:mx-auto sm:px-6 relative z-10">
-                    
-                    {/* Header Hierarchy - Exact Match with PricingHero */}
+
+                    {/* Header Hierarchy - Exact Match with AI Automations page */}
                     <div className="flex gap-4 pb-8 items-start justify-start flex-col mb-20">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -77,7 +76,9 @@ export default function AiAutomationsPage() {
                                     </BreadcrumbItem>
                                     <BreadcrumbSeparator className="text-neutral-300" />
                                     <BreadcrumbItem>
-                                        <BreadcrumbPage className="text-black font-semibold text-xs tracking-widest uppercase">AI Automations</BreadcrumbPage>
+                                        <BreadcrumbPage className="text-black font-semibold text-xs tracking-widest uppercase">
+                                            {translations.common.breadcrumbs.services}
+                                        </BreadcrumbPage>
                                     </BreadcrumbItem>
                                 </BreadcrumbList>
                             </Breadcrumb>
@@ -94,7 +95,7 @@ export default function AiAutomationsPage() {
                             </p>
                         </div>
 
-                        {/* Main CTA Buttons - EXACT MATCH WITH HERO.TSX */}
+                        {/* Main CTA Buttons - Exact match with AI automations page */}
                         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-3 overflow-visible">
                             <GradientButton asChild className="relative z-50 shadow-lg hover:shadow-xl px-4 sm:px-9 w-full sm:w-auto border-none">
                                 <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 w-full sm:w-auto">
@@ -120,25 +121,35 @@ export default function AiAutomationsPage() {
                         </div>
                     </div>
 
-                    {/* Features Grid - No Images, Clean Architecture */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-40">
+                    {/* Services Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
                         {[
                             {
-                                icon: <MessageSquare className="w-8 h-8" />,
-                                title: t.features.leadGen.title,
-                                desc: t.features.leadGen.desc
+                                icon: <Monitor className="w-8 h-8" />,
+                                title: t.features.webDesign.title,
+                                desc: t.features.webDesign.desc,
                             },
                             {
-                                icon: <Workflow className="w-8 h-8" />,
-                                title: t.features.workflows.title,
-                                desc: t.features.workflows.desc
+                                icon: <Palette className="w-8 h-8" />,
+                                title: t.features.branding.title,
+                                desc: t.features.branding.desc,
+                            },
+                            {
+                                icon: <Share2 className="w-8 h-8" />,
+                                title: t.features.socialMedia.title,
+                                desc: t.features.socialMedia.desc,
+                            },
+                            {
+                                icon: <TrendingUp className="w-8 h-8" />,
+                                title: t.features.marketing.title,
+                                desc: t.features.marketing.desc,
                             },
                             {
                                 icon: <Bot className="w-8 h-8" />,
-                                title: t.features.custom.title,
-                                desc: t.features.custom.desc
-                            }
-                        ].map((feature, i) => (
+                                title: t.features.aiAutomations.title,
+                                desc: t.features.aiAutomations.desc,
+                            },
+                        ].map((service, i) => (
                             <motion.div
                                 key={i}
                                 className="bg-white/25 backdrop-blur-md rounded-2xl border border-white/20 p-10 flex flex-col items-start gap-8 shadow-lg hover:shadow-xl transition-all duration-500 h-full"
@@ -148,18 +159,18 @@ export default function AiAutomationsPage() {
                                 transition={{ delay: i * 0.1 }}
                             >
                                 <div className="w-16 h-16 rounded-2xl bg-black/5 flex items-center justify-center text-black">
-                                    {feature.icon}
+                                    {service.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-black tracking-tight mb-4">{feature.title}</h3>
-                                    <p className="text-neutral-600 font-medium leading-relaxed">{feature.desc}</p>
+                                    <h3 className="text-2xl font-bold text-black tracking-tight mb-4">{service.title}</h3>
+                                    <p className="text-neutral-600 font-medium leading-relaxed">{service.desc}</p>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
 
-                    {/* Final CTA - Clean Typographic Finish */}
-                    <motion.section 
+                    {/* Final CTA - Exact match with AI automations page */}
+                    <motion.section
                         className="py-24 border-t border-black/5 flex flex-col items-start gap-12"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -174,7 +185,7 @@ export default function AiAutomationsPage() {
                                 {t.cta_section?.subtitle}
                             </p>
                         </div>
-                        
+
                         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 overflow-visible">
                             <GradientButton asChild className="relative z-50 shadow-lg hover:shadow-xl px-4 sm:px-9 w-full sm:w-auto border-none">
                                 <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 w-full sm:w-auto">

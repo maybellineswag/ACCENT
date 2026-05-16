@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight, Menu, X, Zap } from "lucide-react"
+import { LucideIcon, Home, Star, Settings, CreditCard, Shield, HelpCircle, Globe, ArrowRight, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { GradientButton } from "@/components/ui/gradient-button"
@@ -34,7 +34,7 @@ export function NavBar({ className, isClinics }: NavBarProps) {
   const items: NavItem[] = [
     { name: 'industries', url: '/clinics-beauty', icon: Shield },
     { name: 'works', url: '/selected-work', icon: Star },
-    { name: 'ai', url: '/ai-automations', icon: Zap },
+    { name: 'services', url: '/services', icon: Settings },
     { name: 'pricing', url: '/pricing', icon: CreditCard },
     { name: 'faq', url: '/faq', icon: HelpCircle },
   ]

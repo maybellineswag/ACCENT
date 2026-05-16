@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'ACCENT | Professional Web Design for Beauty Salons',
-    description: 'Professional web design and visual identity for clinics & beauty businesses. Get a premium, custom-built website that builds trust and grows your salon or clinic.',
+    title: 'Design & Branding for Clinics & Salons | Accent',
+    description: 'Specialized brand identity and web design for clinics and beauty businesses. Stand out with a premium, template-free aesthetic.',
 }
 
 export default function ClinicsBeautyLayout({

@@ -7,7 +7,7 @@
   "nav": {
     "industries": "Kliniky a Krása",
     "works": "Práce",
-    "ai": "AI Automatizace",
+    "services": "Služby",
     "pricing": "Ceník",
     "faq": "FAQ",
     "cta": "Začněte projekt"
@@ -407,7 +407,8 @@
       "home": "DOMŮ",
       "works": "PRÁCE",
       "pricing": "CENÍK",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "services": "SLUŽBY"
     },
     "bookCall": "Rezervovat",
     "sendMessage": "Poslat zprávu"
@@ -562,6 +563,40 @@
         }
       ],
       "lastUpdated": "Poslední aktualizace: 3. května 2026"
+    }
+  },
+  "services": {
+    "subtitlePart1": "Vše, co vaše značka potřebuje k ",
+    "subtitlePart2": "růstu a úspěchu.",
+    "description": "Od prémiových webů po kompletní brand identity, sociální sítě a AI automatizace — budujeme každý systém, který vaše podnikání potřebuje k přilákání, zaujmutí a uzavření obchodů.",
+    "cta": "Začněte projekt",
+    "features": {
+      "webDesign": {
+        "title": "Webový design",
+        "desc": "Weby bez šablon, psané od základu. Každá stránka navržena tak, aby přeměnila návštěvníky na platící klienty."
+      },
+      "branding": {
+        "title": "Branding & Design",
+        "desc": "Loga, barevné systémy, typografie a vizuální manuály, díky nimž je vaše značka okamžitě rozpoznatelná."
+      },
+      "socialMedia": {
+        "title": "Správa sociálních sítí",
+        "desc": "Tvorba obsahu, strategie a kompletní správa profilů — vaše značka se konzistentně prezentuje všude, kde jsou vaši klienti."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "desc": "Kampaně pro růst, reklamní strategie a optimalizace konverzí. Dostaneme vaši značku před správné lidi."
+      },
+      "aiAutomations": {
+        "title": "AI Automatizace",
+        "desc": "Vlastní AI workflow, které kvalifikují leady, automatizují follow-upy a ušetří vám 20+ hodin týdně."
+      }
+    },
+    "cta_section": {
+      "titlePart1": "Připraveni postavit něco ",
+      "titlePart2": "výjimečného?",
+      "subtitle": "Řekněte nám o své značce a kam chcete dojít. Sestavíme správné služby, aby se to stalo.",
+      "button": "Začněte projekt"
     }
   }
 }

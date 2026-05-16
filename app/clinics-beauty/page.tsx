@@ -22,7 +22,6 @@ import { MetricsSection } from "@/components/MetricsSection"
 import { WorkExamplesSection } from "@/components/WorkExamplesSection"
 import HowWeWorkSection from "@/components/HowWeWorkSection"
 import WhyAccentSection from "@/components/WhyAccentSection"
-import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslations } from "@/hooks/useTranslations"
@@ -82,7 +81,6 @@ export default function ClinicsBeautyPage() {
                 </div>
 
                 {/* Floating Navigation */}
-                <NavBar isClinics />
 
                 {/* Hero Section */}
                 <section id="home" className="pt-4 sm:pt-24 pb-12 px-4 sm:px-2 lg:px-4 relative z-10">

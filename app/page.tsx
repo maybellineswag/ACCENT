@@ -24,7 +24,6 @@ import { WorkExamplesSection } from "@/components/WorkExamplesSection"
 import HowWeWorkSection from "@/components/HowWeWorkSection"
 import WhyAccentSection from "@/components/WhyAccentSection"
 import { AiSection } from "@/components/AiSection"
-import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -133,7 +132,6 @@ export default function HomePage() {
         </div>
 
         {/* Floating Navigation */}
-        <NavBar />
 
         {/* Hero Section */}
         <section id="home" className="pt-4 sm:pt-24 pb-12 px-4 sm:px-2 lg:px-4 relative z-10">

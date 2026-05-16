@@ -4,10 +4,11 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 import { HtmlLangSetter } from '@/components/HtmlLangSetter'
 import { SchemaMarkup } from '@/components/SchemaMarkup'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { GlobalNav } from '@/components/GlobalNav'
 
 export const metadata: Metadata = {
-  title: 'ACCENT | Web Design & Visual Identity',
-  description: 'Transforming businesses with custom web design and high-end visual identity. We build premium, template-free websites for clinics, salons, and modern businesses in Prague and across Europe.',
+  title: 'Accent — Branding, Web & Product Design Studio Prague',
+  description: 'Custom websites, brand identity and AI automation for ambitious businesses in Prague. No templates, no compromises.',
   keywords: 'web design, brand identity, branding agency, custom websites, Next.js developer, digital transformation, Prague, Europe, web designer',
   authors: [{ name: 'ACCENT' }],
   creator: 'ACCENT',
@@ -18,21 +19,12 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://accentai.eu'),
-  alternates: {
-    canonical: '/',
-    languages: {
-      'en-US': '/en',
-      'cs-CZ': '/cs',
-      'ru-RU': '/ru',
-      'uk-UA': '/uk',
-    },
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://accentai.eu',
-    title: 'ACCENT | Web Design & Visual Identity',
-    description: 'Transforming businesses with custom web design and high-end visual identity.',
+    title: 'Accent — Branding, Web & Product Design Studio Prague',
+    description: 'Custom websites, brand identity and AI automation for ambitious businesses in Prague. No templates, no compromises.',
     siteName: 'ACCENT',
     images: [
       {
@@ -45,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ACCENT | Web Design & Visual Identity',
-    description: 'Transforming businesses with custom web design and high-end visual identity.',
+    title: 'Accent — Branding, Web & Product Design Studio Prague',
+    description: 'Custom websites, brand identity and AI automation for ambitious businesses in Prague. No templates, no compromises.',
     images: ['/accentlogos.png'],
     creator: '@accentagency',
   },
@@ -95,6 +87,7 @@ export default function RootLayout({
         <SchemaMarkup />
         <LanguageProvider>
           <HtmlLangSetter />
+          <GlobalNav />
           {children}
         </LanguageProvider>
         <GoogleAnalytics gaId="G-PJF5GY5YBP" />

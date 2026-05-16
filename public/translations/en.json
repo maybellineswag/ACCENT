@@ -7,7 +7,7 @@
   "nav": {
     "industries": "Clinics & Beauty",
     "works": "Works",
-    "ai": "AI Automations",
+    "services": "Services",
     "pricing": "Pricing",
     "faq": "FAQ",
     "cta": "Start a project"
@@ -407,7 +407,8 @@
       "home": "HOME",
       "works": "WORKS",
       "pricing": "PRICING",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "services": "SERVICES"
     },
     "bookCall": "Book a call",
     "sendMessage": "Send Message"
@@ -562,6 +563,40 @@
         }
       ],
       "lastUpdated": "Last Updated: May 3, 2026"
+    }
+  },
+  "services": {
+    "subtitlePart1": "Everything your brand needs to ",
+    "subtitlePart2": "grow and convert.",
+    "description": "From premium websites to full brand identities, social media, and AI automations — we build every system your business needs to attract, impress, and close.",
+    "cta": "Start a project",
+    "features": {
+      "webDesign": {
+        "title": "Web Design",
+        "desc": "Template-free websites built from scratch. Every page designed to convert visitors into paying clients."
+      },
+      "branding": {
+        "title": "Branding & Design",
+        "desc": "Logos, color systems, typography, and visual guidelines that make your business instantly recognizable."
+      },
+      "socialMedia": {
+        "title": "Social Media Management",
+        "desc": "Content creation, strategy, and full account management — your brand shows up consistently everywhere your clients are."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "desc": "Growth campaigns, ad strategy, and conversion optimization. We put your brand in front of the right people."
+      },
+      "aiAutomations": {
+        "title": "AI Automations",
+        "desc": "Custom AI workflows that qualify leads, automate follow-ups, and save you 20+ hours every week."
+      }
+    },
+    "cta_section": {
+      "titlePart1": "Ready to build something ",
+      "titlePart2": "remarkable?",
+      "subtitle": "Tell us about your brand and where you want to take it. We'll put together the right services to get you there.",
+      "button": "Start a project"
     }
   }
 }

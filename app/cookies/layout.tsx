@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Cookies Policy | ACCENT Agency',
-  description: 'Cookies Policy for ACCENT Agency. How we use cookies to improve your experience.',
+  title: 'Cookies Policy | Accent Design Studio',
+  description: 'Cookies Policy for Accent Design Studio. How we use cookies to improve your experience.',
 }
 
 export default function CookiesLayout({

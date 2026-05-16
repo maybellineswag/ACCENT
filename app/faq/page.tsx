@@ -8,7 +8,6 @@ import { motion } from "framer-motion"
 import SeoHead from "@/components/SeoHead"
 import Image from "next/image"
 import Link from "next/link"
-import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { useTranslations } from "@/hooks/useTranslations"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -57,7 +56,6 @@ export default function FAQPage() {
                 </div>
 
                 {/* Floating Navigation */}
-                <NavBar />
 
                 {/* FAQ Section */}
                 <section className="pt-24 sm:pt-24 pb-12 px-4 sm:px-2 lg:px-4 relative z-10 w-full min-h-screen">
@@ -69,11 +67,26 @@ export default function FAQPage() {
                                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
-                                {/* Breadcrumb (HOME > FAQ) */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.6, delay: 0.1 }}
+                                    className="flex items-center gap-2 mb-6"
+                                >
+                                    <Image
+                                        src="/accentnewlogo.svg"
+                                        alt="ACCENT Logo"
+                                        width={100}
+                                        height={25}
+                                        className="w-auto h-5 sm:h-6 opacity-90"
+                                    />
+                                </motion.div>
+
+                                {/* Breadcrumb (HOME > FAQ) */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.15 }}
                                     className="mb-2"
                                 >
                                     <Breadcrumb>

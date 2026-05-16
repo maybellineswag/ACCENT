@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -34,7 +33,6 @@ export default function CookiesPage() {
                 />
             </div>
 
-            <NavBar />
 
             <main className="relative z-10 pt-32 pb-24 px-6 sm:px-12 max-w-4xl mx-auto">
                 <motion.div

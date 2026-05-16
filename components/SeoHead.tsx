@@ -9,7 +9,7 @@ const SeoHead = () => {
 
   if (!translations) return null
 
-  const baseUrl = "https://accent.agency"
+  const baseUrl = "https://accentai.eu"
   const currentUrl = `${baseUrl}${pathname}`
 
   // Base Organization Schema
@@ -57,7 +57,7 @@ const SeoHead = () => {
   const servicesSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": ["Web Design", "Branding", "AI Automation"],
+    "serviceType": ["Brand Identity", "Print Design", "Web Design", "Product/UI/UX Design", "Digital & Automation"],
     "provider": {
       "@type": "Organization",
       "name": "ACCENT"
@@ -74,21 +74,35 @@ const SeoHead = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Premium Web Design"
+            "name": "Brand Identity"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Corporate Branding"
+            "name": "Print Design"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "AI Automation Solutions"
+            "name": "Web Design"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Product/UI/UX Design"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Digital & Automation"
           }
         }
       ]

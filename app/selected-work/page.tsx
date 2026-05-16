@@ -15,7 +15,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { NavBar } from "@/components/NavBar"
 import { Footer } from "@/components/Footer"
 import SeoHead from "@/components/SeoHead"
 
@@ -81,7 +80,6 @@ export default function SelectedWorkPage() {
         </div>
 
         {/* Floating Navigation */}
-        <NavBar />
 
         {/* Main Content */}
         <div className="pt-24 sm:pt-24 pb-16 px-4 sm:px-2 lg:px-4 relative z-10 w-full">
@@ -94,6 +92,21 @@ export default function SelectedWorkPage() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="flex items-center gap-2 mb-6"
+                >
+                  <Image
+                    src="/accentnewlogo.svg"
+                    alt="ACCENT Logo"
+                    width={100}
+                    height={25}
+                    className="w-auto h-5 sm:h-6 opacity-90"
+                  />
+                </motion.div>
+
                 {/* Breadcrumb (HOME > WORKS) */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
