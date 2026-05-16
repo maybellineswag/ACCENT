@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
 import { Footer } from "@/components/Footer"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { ArrowRight, Monitor, Palette, Share2, TrendingUp, Bot, PhoneCall } from "lucide-react"
 import { GradientButton } from "@/components/ui/gradient-button"
+import { Card } from "@/components/ui/card"
 import { useTranslations } from "@/hooks/useTranslations"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { cn } from "@/lib/utils"
@@ -40,11 +40,10 @@ export default function ServicesPage() {
                 />
             </div>
 
-
             <main className="relative z-10 pt-32 sm:pt-48 pb-24 px-4 sm:px-2 lg:px-4 max-w-7xl mx-auto">
                 <div className="w-full px-2 sm:container sm:mx-auto sm:px-6 relative z-10">
 
-                    {/* Header Hierarchy - Exact Match with AI Automations page */}
+                    {/* Header — exact match with AI Automations page */}
                     <div className="flex gap-4 pb-8 items-start justify-start flex-col mb-20">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -84,7 +83,12 @@ export default function ServicesPage() {
                             </Breadcrumb>
                         </motion.div>
 
-                        <div className="flex gap-3 flex-col items-start max-w-4xl">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                            className="flex gap-3 flex-col items-start max-w-4xl"
+                        >
                             <h1 className="text-[32px] sm:text-5xl md:text-6xl tracking-tight sm:tracking-tighter text-left font-semibold leading-tight text-black max-w-[800px]">
                                 {t.subtitlePart1} <br />
                                 <span className="text-gradient-blobs">{t.subtitlePart2}</span>
@@ -93,10 +97,14 @@ export default function ServicesPage() {
                             <p className="text-base sm:text-lg md:text-2xl leading-relaxed tracking-tight text-neutral-500 max-w-2xl text-left font-medium mb-8">
                                 {t.description}
                             </p>
-                        </div>
+                        </motion.div>
 
-                        {/* Main CTA Buttons - Exact match with AI automations page */}
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-3 overflow-visible">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
+                            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-3 overflow-visible"
+                        >
                             <GradientButton asChild className="relative z-50 shadow-lg hover:shadow-xl px-4 sm:px-9 w-full sm:w-auto border-none">
                                 <a href="https://t.me/maybellineswag" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 w-full sm:w-auto">
                                     <span className={cn(
@@ -118,70 +126,60 @@ export default function ServicesPage() {
                                 <PhoneCall className="w-4 h-4" />
                                 <span>{translations?.common?.bookCall || "Book a call"}</span>
                             </a>
-                        </div>
+                        </motion.div>
                     </div>
 
-                    {/* Services Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
+                    {/* Services Grid — styled to match PricingDeterminants cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                         {[
-                            {
-                                icon: <Monitor className="w-8 h-8" />,
-                                title: t.features.webDesign.title,
-                                desc: t.features.webDesign.desc,
-                            },
-                            {
-                                icon: <Palette className="w-8 h-8" />,
-                                title: t.features.branding.title,
-                                desc: t.features.branding.desc,
-                            },
-                            {
-                                icon: <Share2 className="w-8 h-8" />,
-                                title: t.features.socialMedia.title,
-                                desc: t.features.socialMedia.desc,
-                            },
-                            {
-                                icon: <TrendingUp className="w-8 h-8" />,
-                                title: t.features.marketing.title,
-                                desc: t.features.marketing.desc,
-                            },
-                            {
-                                icon: <Bot className="w-8 h-8" />,
-                                title: t.features.aiAutomations.title,
-                                desc: t.features.aiAutomations.desc,
-                            },
+                            { icon: <Monitor className="w-6 h-6" />, title: t.features.webDesign.title, desc: t.features.webDesign.desc },
+                            { icon: <Palette className="w-6 h-6" />, title: t.features.branding.title, desc: t.features.branding.desc },
+                            { icon: <Share2 className="w-6 h-6" />, title: t.features.socialMedia.title, desc: t.features.socialMedia.desc },
+                            { icon: <TrendingUp className="w-6 h-6" />, title: t.features.marketing.title, desc: t.features.marketing.desc },
+                            { icon: <Bot className="w-6 h-6" />, title: t.features.aiAutomations.title, desc: t.features.aiAutomations.desc },
                         ].map((service, i) => (
                             <motion.div
                                 key={i}
-                                className="bg-white/25 backdrop-blur-md rounded-2xl border border-white/20 p-10 flex flex-col items-start gap-8 shadow-lg hover:shadow-xl transition-all duration-500 h-full"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                                className="group"
                             >
-                                <div className="w-16 h-16 rounded-2xl bg-black/5 flex items-center justify-center text-black">
-                                    {service.icon}
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-black tracking-tight mb-4">{service.title}</h3>
-                                    <p className="text-neutral-600 font-medium leading-relaxed">{service.desc}</p>
-                                </div>
+                                <Card className="h-full bg-white/20 backdrop-blur-md border border-neutral-200/20 rounded-3xl p-6 hover:bg-white/40 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+                                    <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center text-[#8B8DD1] mb-6 group-hover:scale-110 transition-transform duration-500">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-black mb-3 tracking-tight">{service.title}</h3>
+                                    <p className="text-neutral-600 text-sm leading-relaxed font-medium">{service.desc}</p>
+                                </Card>
                             </motion.div>
                         ))}
                     </div>
 
-                    {/* Final CTA - Exact match with AI automations page */}
+                    {/* Final CTA — styled to match PricingDeterminants section header */}
                     <motion.section
-                        className="py-24 border-t border-black/5 flex flex-col items-start gap-12"
+                        className="py-16 border-t border-black/5 flex flex-col items-start gap-8"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
                         <div className="max-w-4xl">
-                            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold text-black tracking-tighter leading-[1.1] mb-8">
-                                {t.cta_section?.titlePart1} <br />
-                                <span className="text-gradient-blobs">{t.cta_section?.titlePart2}</span>
+                            <h2 className="text-4xl sm:text-6xl font-normal text-black mb-4 tracking-tighter flex items-start gap-4">
+                                <Image
+                                    src="/accentnewsymbol.svg"
+                                    alt=""
+                                    width={48}
+                                    height={48}
+                                    className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 mt-1"
+                                    aria-hidden="true"
+                                />
+                                <span>
+                                    {t.cta_section?.titlePart1}<br />
+                                    <span className="text-gradient-blobs">{t.cta_section?.titlePart2}</span>
+                                </span>
                             </h2>
-                            <p className="text-base sm:text-lg md:text-2xl leading-relaxed tracking-tight text-neutral-500 max-w-2xl font-medium mb-12">
+                            <p className="text-xl text-neutral-600 max-w-2xl">
                                 {t.cta_section?.subtitle}
                             </p>
                         </div>
